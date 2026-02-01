@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const MobileSecurity: React.FC = () => {
   const checklist = [
@@ -12,6 +14,10 @@ const MobileSecurity: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <Seo
+        title="Mobiiliturva | Lapland AI Lab"
+        description="Käytännön ohjeet mobiililaitteiden suojaamiseen, sovellusoikeuksien hallintaan ja turvallisiin verkkoihin."
+      />
       <div className="mb-20">
         <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">Kurssi 03: Tasku-kyber</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6 tracking-tight">Mobiiliturva</h1>
@@ -114,11 +120,16 @@ const MobileSecurity: React.FC = () => {
           </div>
         </section>
 
-        <section className="text-center py-10">
-          <a href="/" className="inline-block bg-purple-600 hover:bg-purple-500 text-white font-bold px-12 py-5 rounded-full transition-all text-xl shadow-xl shadow-purple-500/20">
-            Tarkista mobiililaitteesi turva-asetukset
-          </a>
-        </section>
+      <div className="bg-purple-600 p-1 rounded-[40px]">
+        <div className="bg-slate-950 rounded-[38px] p-12 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">Valmiina turvaamaan laitteesi?</h2>
+          <p className="text-slate-400 mb-10 max-w-2xl mx-auto italic">
+            "Mobiiliturva ei ole staattinen tila, vaan jatkuva prosessi. Lapland AI Lab auttaa pitämään yhteytesi suojattuna."
+          </p>
+          <Link to="/" className="inline-block bg-purple-600 text-white font-bold px-12 py-4 rounded-full hover:bg-purple-500 transition-all">
+            Takaisin aloitukseen
+          </Link>
+        </div>
       </div>
     </div>
   );
