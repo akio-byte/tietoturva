@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -21,13 +22,19 @@ const Footer: React.FC = () => {
               <li><a href="#/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</a></li>
               <li><a href="#/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</a></li>
               <li><a href="#/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</a></li>
+              <li><Link to="/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</Link></li>
+              <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</Link></li>
+              <li><Link to="/social-engineering" className="hover:text-emerald-400 transition-colors">Huijaukset</Link></li>
+              <li><Link to="/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</Link></li>
+              <li><Link to="/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</Link></li>
+              <li><Link to="/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-6">Resurssit</h4>
             <p className="text-sm">
               Päivitetty helmikuussa 2026.<br />
-              Versio 1.0 (Dark Mode Edition)
+              Versio 1.2 (Social Engineering Update)
             </p>
           </div>
         </div>

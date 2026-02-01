@@ -1,86 +1,65 @@
+
 import React from 'react';
-import CTA from '../components/CTA';
-import PageLayout from '../components/PageLayout';
-import RiskCards from '../components/RiskCards';
-import Section from '../components/Section';
-import Seo from '../components/Seo';
+import { SEO, Hero, Section, CTA } from '../components/Shared';
 
 const Routines: React.FC = () => {
   return (
-    <PageLayout>
-      <Seo
-        title="Arjen rutiinit | Lapland AI Lab"
-        description="Selkeät tietoturvarutiinit, joilla varmistat jatkuvan suojauksen ja vahvan turvallisuuskulttuurin."
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <SEO 
+        title="Tietoturvan tarkistuslistat | Lapland AI Lab" 
+        description="Viikoittaiset, kuukausittaiset ja vuosittaiset rutiinit digitaaliseen turvaan." 
+      />
+      <Hero 
+        title="Turvallisuuden arjen rutiinit"
+        subtitle="Tietoturva ei ole projekti, se on jatkuva tapa. Tässä ovat listat, joilla pidät huolen, ettei unohduksia tapahdu."
+        label="Viikko- ja kuukausitason tarkistuslistat"
       />
 
-      <div className="mb-16">
-        <span className="text-blue-400 font-bold tracking-widest uppercase text-sm">Turva arjessa</span>
-        <h1 className="text-5xl font-extrabold text-white mt-4 mb-6">Arjen rutiinit</h1>
-        <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
-          Toimiva tietoturva rakentuu pienistä teoista. Kun perusasiat tehdään oikein joka päivä, riskit pienenevät
-          merkittävästi ja poikkeamiin reagointi nopeutuu.
-        </p>
-      </div>
-
-      <Section
-        title="Viikkotason tarkistukset"
-        description="Lyhyet, säännölliset rutiinit pitävät tilanteen näkyvissä ja estävät ongelmien kertymisen."
-        importance="Kun poikkeamat havaitaan nopeasti, niiden vaikutus pysyy rajattuna ja palautuminen on helppoa."
-        checklist={[
-          'Varmista, että varmuuskopiot ovat onnistuneet.',
-          'Seuraa tärkeimpiä hälytyksiä ja loki-ilmoituksia.',
-          'Tarkista, että kriittiset palvelut ovat ajan tasalla.'
-        ]}
-      />
-
-      <Section
-        title="Kuukausittaiset toimet"
-        description="Laajempi katselmus tuo esiin trendit, joita päivittäinen seuranta ei paljasta."
-        importance="Säännöllinen analyysi auttaa priorisoimaan parannuksia ja vahvistaa turvallisuuskulttuuria."
-        checklist={[
-          'Käy läpi käyttäjien käyttöoikeudet ja poista turhat.',
-          'Testaa palautusprosessi tärkeimmille järjestelmille.',
-          'Päivitä turvallisuusohjeistus ja viesti muutoksista.'
-        ]}
-      />
-
-      <Section
-        title="Kriittiset hälytykset"
-        description="Hälytykset kertovat, milloin tilanne vaatii välitöntä reagointia."
-        importance="Nopea reagointi estää hyökkääjän etenemisen ja pienentää mahdollisia vahinkoja."
-        checklist={[
-          'Määrittele vastuuhenkilö hälytysten käsittelylle.',
-          'Kirjaa ensitoimet valmiiksi pelikirjaan.',
-          'Varmista, että hätäyhteystiedot ovat ajan tasalla.'
-        ]}
-      />
-
-      <div className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">Tyypilliset sudenkuopat</h2>
-        <RiskCards
-          items={[
-            {
-              title: 'Hälytysväsymys',
-              description:
-                'Liian monta hälytystä johtaa siihen, että kriittisetkin ilmoitukset jäävät huomaamatta.'
-            },
-            {
-              title: 'Rutiinien unohtuminen kiireessä',
-              description:
-                'Kun arki kuormittaa, tarkistukset jäävät tekemättä ja riskit kasvavat hiljalleen.'
-            }
+      <div className="space-y-12">
+        <Section 
+          title="Maanantai-check (Viikoittainen)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Pienet rutiinit estävät suuret katastrofit."
+          checklist={[
+            "Tarkista onko laitteissa odottavia päivityksiä",
+            "Käy läpi sähköpostin roskapostikansio (varoitusmerkit)",
+            "Varmista että varmuuskopiointi on rullannut"
           ]}
-        />
-      </div>
+        >
+          Viikon startti on paras aika varmistaa, että perustekniikka on kunnossa ja valvonta aktiivista.
+        </Section>
 
-      <CTA
-        title="Varmista jatkuva turva"
-        subtitle="Seuraava askel"
-        description="Ota rutiinit käyttöön ja rakenna turvallisuuskulttuuri, joka kestää myös kiireessä."
-        buttonLabel="Palaa etusivulle"
-        buttonHref="/"
-      />
-    </PageLayout>
+        <Section 
+          title="Kuukauden huolto (Kuukausittainen)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Ajan myötä järjestelmiin kertyy turhaa painolastia."
+          checklist={[
+            "Poista turhat tiedostot ja sovellukset",
+            "Tarkista jaetut tiedostolinkit",
+            "Vaihda kriittiset salasanat tarvittaessa"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Syvempi katsaus kerran kuussa varmistaa, että pääsynhallinta on ajan tasalla ja turhat riskit poistettu.
+        </Section>
+
+        <Section 
+          title="Vuosittainen suursiivous"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Vuodessa uhat ja tarpeet muuttuvat."
+          checklist={[
+            "Päivitä organisaation tietoturvaohjeistus",
+            "Vaihda fyysiset lukot tai kulkukortit tarvittaessa",
+            "Uusi tietoturvakoulutus koko tiimille"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          Strategisella tasolla on katsottava eteenpäin kerran vuodessa. Onko organisaatiosi valmis kohtaamaan uudet haasteet?
+        </Section>
+
+        <CTA label="Tilaa rutiinimuistutus sähköpostiin" />
+      </div>
+    </div>
   );
 };
 

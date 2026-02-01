@@ -13,6 +13,11 @@ const Header: React.FC = () => {
     { name: 'Mobiiliturva', path: '/mobile-security' },
     { name: 'Pika-auditointi', path: '/business-audit' },
     { name: 'Arjen rutiinit', path: '/routines' },
+    { name: 'AI-turva', path: '/ai-safety' },
+    { name: 'Huijaukset', path: '/social-engineering' },
+    { name: 'Mobiili', path: '/mobile-security' },
+    { name: 'Auditointi', path: '/business-audit' },
+    { name: 'Rutiinit', path: '/routines' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -32,12 +37,12 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden xl:flex space-x-5">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-all hover:text-emerald-400 ${
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap ${
                   isActive(item.path) ? 'text-emerald-400' : 'text-slate-400'
                 }`}
               >
@@ -46,13 +51,14 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-400 hover:text-white p-2"
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-label="Avaa navigaatio"
+              aria-label="Avaa valikko"
             >
               <span className="sr-only">Avaa valikko</span>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

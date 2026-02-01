@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Seo from '../components/Seo';
+import { SEO, Hero, Section, CTA } from '../components/Shared';
 
 const MobileSecurity: React.FC = () => {
   return (
@@ -17,75 +16,57 @@ const MobileSecurity: React.FC = () => {
           Kattava suoja älypuhelimille ja tableteille – laitteista, jotka kulkevat aina mukanasi.
         </p>
       </div>
+      <SEO 
+        title="Mobiiliturvallisuus ja VPN | Lapland AI Lab" 
+        description="Suojaa älypuhelimesi ja tablettisi julkisissa verkoissa ja huolehdi fyysisestä turvasta." 
+      />
+      <Hero 
+        title="Tasku-kyber: Suojaa liikkuva toimisto"
+        subtitle="Puhelimesi on todennäköisesti henkilökohtaisin ja samalla haavoittuvin laitteesi. Pidä se lukittuna ja valvottuna."
+        label="Taskussa kulkevan tiedon suojaus"
+      />
 
-      <section className="mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Kriittiset riskit</h2>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              Mobiililaitteet ovat usein heikoimmin suojattuja, vaikka ne sisältävät valtavasti 
-              henkilökohtaista ja työhön liittyvää arkaluonteista tietoa.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center p-4 bg-slate-900 border border-slate-800 rounded-2xl">
-                <div className="w-10 h-10 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <span className="text-slate-200 font-medium">Laitteen fyysinen katoaminen</span>
-              </div>
-              <div className="flex items-center p-4 bg-slate-900 border border-slate-800 rounded-2xl">
-                <div className="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M12 10h.01" />
-                  </svg>
-                </div>
-                <span className="text-slate-200 font-medium">Turvattomat WiFi-verkot</span>
-              </div>
-            </div>
-          </div>
-          <div className="glass p-1 rounded-[40px]">
-            <div className="bg-slate-900 rounded-[38px] p-10">
-              <h3 className="text-xl font-bold text-white mb-8">Pääsynhallinta</h3>
-              <div className="space-y-6 text-sm">
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">PIN (6+ merkkiä)</span>
-                  <span className="text-emerald-400 font-bold">Suositeltu</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">Biometrinen tunnistus</span>
-                  <span className="text-emerald-400 font-bold">Hyväksytty</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">Kuvio-lukitus</span>
-                  <span className="text-red-400 font-bold">Heikko</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="space-y-12">
+        <Section 
+          title="Fyysinen pääsy: Ensimmäinen este"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Kadonnut puhelin on avoin ovi kaikkeen dataasi."
+          checklist={[
+            "Käytä biometriaa (kasvot/sormenjälki)",
+            "Käytä vähintään 6-numeroista PIN-koodia",
+            "Ota etätyhjennys (Find My / Android Find) käyttöön"
+          ]}
+        >
+          Fyysinen turvallisuus on usein mobiililaitteiden heikoin lenkki. Laitteen varastaminen tai katoaminen on arkipäiväinen riski, joka on taklattava etukäteen.
+        </Section>
 
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-white mb-10">Sovellusten minimioikeudet</h2>
-        <div className="bg-slate-950 border border-slate-800 p-10 rounded-[40px]">
-          <p className="text-slate-400 mb-8 leading-relaxed">
-            Lataa sovelluksia vain virallisista kaupoista (Google Play, Apple App Store). 
-            Tarkista oikeudet: tarvitseeko laskin todella pääsyn yhteystietoihisi tai sijaintiisi?
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-              <h4 className="text-white font-bold mb-3">Päivitykset</h4>
-              <p className="text-sm text-slate-400">Pidä käyttöjärjestelmä ja sovellukset aina ajan tasalla automaattisesti.</p>
-            </div>
-            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-              <h4 className="text-white font-bold mb-3">VPN</h4>
-              <p className="text-sm text-slate-400">Käytä aina VPN-yhteyttä, kun olet julkisessa tai avoimessa verkossa.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <Section 
+          title="Sovellusluvat: Kuka kuuntelee?"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Moni sovellus pyytää pääsyä mikrofoniiin tai sijaintiin turhaan."
+          checklist={[
+            "Käy läpi sovellusluvat kerran kuussa",
+            "Poista kaikki käyttämättömät sovellukset",
+            "Lataa sovelluksia vain virallisista kaupoista"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Sovellukset keräävät valtavia määriä dataa taustalla. Ole kriittinen sille, mitä tietoa annat puhelimessasi oleville ohjelmille.
+        </Section>
+
+        <Section 
+          title="Turvattomat verkot: Wi-Fi on ansa"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Julkiset verkot ovat helppoja paikkoja man-in-the-middle -hyökkäyksille."
+          checklist={[
+            "Käytä aina VPN-yhteyttä julkisessa Wi-Fissä",
+            "Suosi mobiilidataa avoimen verkon sijaan",
+            "Sammuta Wi-Fi ja Bluetooth, kun et tarvitse niitä"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          Avoimet verkot kahviloissa ja lentokentillä ovat hyökkääjien leikkikenttiä. Suojaa liikenteesi salaamalla se VPN-yhteydellä.
+        </Section>
 
       <div className="bg-purple-600 p-1 rounded-[40px]">
         <div className="bg-slate-950 rounded-[38px] p-12 text-center">
@@ -97,6 +78,7 @@ const MobileSecurity: React.FC = () => {
             Takaisin aloitukseen
           </Link>
         </div>
+        <CTA label="Mobiiliturvan pikaohje (A4)" />
       </div>
     </div>
   );
