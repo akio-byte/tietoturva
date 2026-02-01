@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { SEO, Hero, Section, CTA } from '../components/Shared';
+import { SEO, Hero, PageLayout, Section, CTA } from '../components/Shared';
 
 const MobileSecurity: React.FC = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <PageLayout>
       <SEO 
         title="Mobiiliturvallisuus ja VPN | Lapland AI Lab" 
         description="Suojaa älypuhelimesi ja tablettisi julkisissa verkoissa ja huolehdi fyysisestä turvasta." 
@@ -59,7 +58,7 @@ const MobileSecurity: React.FC = () => {
 
         <CTA label="PDF-opas tulossa" disabled />
       </div>
-    </div>
+    </PageLayout>
   );
 };
 

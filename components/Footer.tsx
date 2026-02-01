@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -17,8 +16,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Navigaatio</h4>
             <ul className="space-y-3 text-sm">
+              <li><Link to="/" className="hover:text-emerald-400 transition-colors">Etusivu</Link></li>
               <li><Link to="/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</Link></li>
-              <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</Link></li>
+              <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turva</Link></li>
               <li><Link to="/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</Link></li>
               <li><Link to="/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</Link></li>
               <li><Link to="/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</Link></li>
