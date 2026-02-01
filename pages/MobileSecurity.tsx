@@ -1,101 +1,124 @@
 
 import React from 'react';
-import Seo from '../components/Seo';
 
 const MobileSecurity: React.FC = () => {
+  const checklist = [
+    "Ota käyttöön etätyhjennys (Find My Device / iCloud)",
+    "Päivitä käyttöjärjestelmä heti kun päivitys on saatavilla",
+    "Käytä VPN-yhteyttä julkisissa WiFi-verkoissa",
+    "Tarkista sovellusten oikeudet (kamera, sijainti, mikrofon)",
+    "Älä lataa sovelluksia virallisten kauppojen ulkopuolelta"
+  ];
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <Seo
-        title="Mobiiliturva | Lapland AI Lab"
-        description="Käytännön ohjeet mobiililaitteiden suojaamiseen, sovellusoikeuksien hallintaan ja turvallisiin verkkoihin."
-      />
       <div className="mb-20">
-        <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">Liikkuva Turvallisuus</span>
-        <h1 className="text-5xl font-extrabold text-white mt-4 mb-6">Mobiiliturva</h1>
+        <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">Kurssi 03: Tasku-kyber</span>
+        <h1 className="text-5xl font-extrabold text-white mt-4 mb-6 tracking-tight">Mobiiliturva</h1>
         <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
-          Kattava suoja älypuhelimille ja tableteille – laitteista, jotka kulkevat aina mukanasi.
+          Puhelin on portti kaikkeen tietoosi. Pidä se lukittuna ja suojattuna kaikissa tilanteissa.
         </p>
       </div>
 
-      <section className="mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Kriittiset riskit</h2>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              Mobiililaitteet ovat usein heikoimmin suojattuja, vaikka ne sisältävät valtavasti 
-              henkilökohtaista ja työhön liittyvää arkaluonteista tietoa.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center p-4 bg-slate-900 border border-slate-800 rounded-2xl">
-                <div className="w-10 h-10 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <span className="text-slate-200 font-medium">Laitteen fyysinen katoaminen</span>
-              </div>
-              <div className="flex items-center p-4 bg-slate-900 border border-slate-800 rounded-2xl">
-                <div className="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M12 10h.01" />
-                  </svg>
-                </div>
-                <span className="text-slate-200 font-medium">Turvattomat WiFi-verkot</span>
-              </div>
-            </div>
-          </div>
-          <div className="glass p-1 rounded-[40px]">
-            <div className="bg-slate-900 rounded-[38px] p-10">
-              <h3 className="text-xl font-bold text-white mb-8">Pääsynhallinta</h3>
-              <div className="space-y-6 text-sm">
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">PIN (6+ merkkiä)</span>
-                  <span className="text-emerald-400 font-bold">Suositeltu</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">Biometrinen tunnistus</span>
-                  <span className="text-emerald-400 font-bold">Hyväksytty</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-slate-800">
-                  <span className="text-slate-400">Kuvio-lukitus</span>
-                  <span className="text-red-400 font-bold">Heikko</span>
+      <div className="space-y-24">
+        {/* Section 1: Physical Security */}
+        <section>
+          <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+            <span className="w-2 h-8 bg-purple-500 rounded-full mr-4"></span>
+            1. Fyysinen suojaus ja pääsynhallinta
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-slate-300 leading-relaxed">
+                Mobiililaite on helppo kadottaa tai varastaa. Vahva pääsykoodi ja biometrinen tunnistus ovat ensimmäinen ja tärkein suojakerros.
+              </p>
+              <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <h4 className="text-white font-bold mb-4">Suositellut lukitustavat:</h4>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between items-center py-2 border-b border-slate-800">
+                    <span className="text-slate-400">PIN (väh. 6 numeroa)</span>
+                    <span className="text-emerald-400 font-bold">Hyvä</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-slate-800">
+                    <span className="text-slate-400">Biometrinen (FaceID/Sormenjälki)</span>
+                    <span className="text-emerald-400 font-bold">Suositeltu</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-slate-400">Kuvio-lukitus</span>
+                    <span className="text-red-400 font-bold">Vältä</span>
+                  </div>
                 </div>
               </div>
             </div>
+            <div className="glass p-8 rounded-[40px] border border-slate-800 text-center">
+              <svg className="w-24 h-24 text-purple-500 mx-auto mb-6 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <p className="text-slate-400 text-sm italic">"Puhelin on tietoturvasi heikoin lenkki, jos se on lukitsematon."</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mb-24">
-        <h2 className="text-2xl font-bold text-white mb-10">Sovellusten minimioikeudet</h2>
-        <div className="bg-slate-950 border border-slate-800 p-10 rounded-[40px]">
-          <p className="text-slate-400 mb-8 leading-relaxed">
-            Lataa sovelluksia vain virallisista kaupoista (Google Play, Apple App Store). 
-            Tarkista oikeudet: tarvitseeko laskin todella pääsyn yhteystietoihisi tai sijaintiisi?
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-              <h4 className="text-white font-bold mb-3">Päivitykset</h4>
-              <p className="text-sm text-slate-400">Pidä käyttöjärjestelmä ja sovellukset aina ajan tasalla automaattisesti.</p>
-            </div>
-            <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-              <h4 className="text-white font-bold mb-3">VPN</h4>
-              <p className="text-sm text-slate-400">Käytä aina VPN-yhteyttä, kun olet julkisessa tai avoimessa verkossa.</p>
+        {/* Section 2: Apps and Permissions */}
+        <section>
+          <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+            <span className="w-2 h-8 bg-blue-500 rounded-full mr-4"></span>
+            2. Sovellusten hallinta: "Vähemmän on enemmän"
+          </h2>
+          <div className="glass p-10 rounded-[40px] border border-slate-800">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div>
+                <h4 className="text-xl font-bold text-white mb-4">Minimioikeudet</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Tarkista säännöllisesti, mitkä sovellukset käyttävät mikrofoniasi tai sijaintiasi. Monet sovellukset keräävät dataa tarpeettomasti taustalla.
+                </p>
+                <div className="bg-purple-500/10 p-4 rounded-xl text-purple-400 text-xs font-mono">
+                  Asetukset {'>'} Tietosuoja {'>'} Käyttöoikeudet
+                </div>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white mb-4">Päivitykset</h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Mobiilihaavoittuvuuksia löydetään päivittäin. Käyttöjärjestelmäpäivitykset (iOS/Android) sisältävät usein kriittisiä tietoturvakorjauksia.
+                </p>
+                <div className="bg-emerald-500/10 p-4 rounded-xl text-emerald-400 text-xs font-mono">
+                  Ota automaattiset päivitykset käyttöön
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="bg-purple-600 p-1 rounded-[40px]">
-        <div className="bg-slate-950 rounded-[38px] p-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Valmiina turvaamaan laitteesi?</h2>
-          <p className="text-slate-400 mb-10 max-w-2xl mx-auto italic">
-            "Mobiiliturva ei ole staattinen tila, vaan jatkuva prosessi. Lapland AI Lab auttaa pitämään yhteytesi suojattuna."
+        {/* Section 3: Why it matters */}
+        <section className="bg-purple-950/20 border border-purple-500/30 p-10 rounded-[40px]">
+          <h3 className="text-2xl font-bold text-purple-400 mb-6">Miksi tämä on tärkeää?</h3>
+          <p className="text-lg text-slate-300 leading-relaxed">
+            Nykyaikainen mobiililaite on tehokkaampi kuin kymmenen vuoden takaiset tietokoneet. Se on jatkuvasti yhteydessä verkkoon, se tietää sijaintisi ja sillä on pääsy sähköpostiisi, pankkitiliisi ja sosiaaliseen mediaasi. Mobiiliturva on henkilökohtaisen integriteettisi suojaamista.
           </p>
-          <a href="/" className="inline-block bg-purple-600 text-white font-bold px-12 py-4 rounded-full hover:bg-purple-500 transition-all">
-            Takaisin aloitukseen
+        </section>
+
+        {/* Practical Checklist */}
+        <section>
+          <h2 className="text-3xl font-bold text-white mb-8">Käytännön Mobiili-Checklist</h2>
+          <div className="glass p-8 rounded-3xl border border-slate-800">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {checklist.map((item, idx) => (
+                <li key={idx} className="flex items-center p-4 bg-slate-900/50 rounded-2xl border border-slate-800">
+                  <svg className="w-5 h-5 text-purple-400 mr-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-slate-300 text-sm font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="text-center py-10">
+          <a href="/" className="inline-block bg-purple-600 hover:bg-purple-500 text-white font-bold px-12 py-5 rounded-full transition-all text-xl shadow-xl shadow-purple-500/20">
+            Tarkista mobiililaitteesi turva-asetukset
           </a>
-        </div>
+        </section>
       </div>
     </div>
   );
