@@ -17,6 +17,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-6">Navigaatio</h4>
             <ul className="space-y-3 text-sm">
+              <li><a href="#/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</a></li>
+              <li><a href="#/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</a></li>
+              <li><a href="#/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</a></li>
+              <li><a href="#/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</a></li>
+              <li><a href="#/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</a></li>
               <li><Link to="/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</Link></li>
               <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</Link></li>
               <li><Link to="/social-engineering" className="hover:text-emerald-400 transition-colors">Huijaukset</Link></li>
