@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Seo from '../components/Seo';
 
 const CyberBasics: React.FC = () => {
   const steps = [
@@ -12,10 +10,6 @@ const CyberBasics: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <Seo
-        title="Kyberperusteet | Lapland AI Lab"
-        description="Kokonaisvaltainen opas CIA-malliin, hyökkäysvektoreihin ja pohjoisiin kyberturvan käytäntöihin."
-      />
       <div className="mb-20">
         <span className="text-blue-400 font-bold tracking-widest uppercase text-sm">Kurssi 02: Perusta Kuntoon</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6 tracking-tight">Kyberturvallisuuden perusteet</h1>
@@ -96,13 +90,18 @@ const CyberBasics: React.FC = () => {
           <p className="text-lg text-slate-300 leading-relaxed">
             Digitaalinen turvallisuus on liiketoiminnan jatkuvuuden edellytys. Yksi ainoa onnistunut kalasteluviesti voi pysäyttää koko organisaation toiminnan viikoiksi ja aiheuttaa korvaamattomia mainehaittoja.
           </p>
-          <div className="pt-6">
-            <Link
-              to="/routines"
-              className="inline-flex items-center justify-center bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-emerald-400 transition-colors"
-            >
-              Lataa PDF-opas
-            </Link>
+        </section>
+
+        {/* Defense Checklist */}
+        <section>
+          <h2 className="text-3xl font-bold text-white mb-8">Pohjoinen Puolustuslinja - Checklist</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {steps.map((step, idx) => (
+              <div key={idx} className="glass p-6 rounded-2xl border border-slate-800">
+                <h4 className="text-emerald-400 font-bold mb-2">{step.title}</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 

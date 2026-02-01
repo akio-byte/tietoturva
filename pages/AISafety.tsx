@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Seo from '../components/Seo';
 
 const AISafety: React.FC = () => {
   const checklist = [
@@ -13,10 +12,6 @@ const AISafety: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <Seo
-        title="AI-turvallisuus | Lapland AI Lab"
-        description="Puolustusstrategiat tekoälyjärjestelmien suojaamiseen, malliturvallisuuteen ja vastuulliseen hyödyntämiseen."
-      />
       <div className="mb-20">
         <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm">Kurssi 01: Älykäs Suojaus</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6 tracking-tight">AI-turvallisuus</h1>
