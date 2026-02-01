@@ -10,7 +10,8 @@ const Header: React.FC = () => {
     { name: 'Etusivu', path: '/' },
     { name: 'Kyberperusteet', path: '/cyber-basics' },
     { name: 'AI-turva', path: '/ai-safety' },
-    { name: 'Mobiiliturva', path: '/mobile-security' },
+    { name: 'Huijaukset', path: '/social-engineering' },
+    { name: 'Mobiili', path: '/mobile-security' },
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
   ];
@@ -32,12 +33,12 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden lg:flex space-x-6">
+          <nav className="hidden xl:flex space-x-5">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-all hover:text-emerald-400 ${
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap ${
                   isActive(item.path) ? 'text-emerald-400' : 'text-slate-400'
                 }`}
               >
@@ -50,6 +51,7 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-400 hover:text-white p-2"
+              aria-label="Avaa valikko"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
