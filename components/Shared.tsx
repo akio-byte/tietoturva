@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface SeoProps {
   title: string;
@@ -7,18 +8,32 @@ interface SeoProps {
 }
 
 export const SEO: React.FC<SeoProps> = ({ title, description }) => {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
-  }, [title, description]);
+
+    const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
+      let metaTag = document.querySelector(selector);
+      if (!metaTag) {
+        metaTag = document.createElement('meta');
+        Object.entries(attributes).forEach(([key, value]) => metaTag?.setAttribute(key, value));
+        document.head.appendChild(metaTag);
+      }
+      metaTag.setAttribute('content', content);
+    };
+
+    const currentUrl = window.location.href;
+
+    upsertMetaTag('meta[name="description"]', { name: 'description' }, description);
+    upsertMetaTag('meta[property="og:title"]', { property: 'og:title' }, title);
+    upsertMetaTag('meta[property="og:description"]', { property: 'og:description' }, description);
+    upsertMetaTag('meta[property="og:type"]', { property: 'og:type' }, 'website');
+    upsertMetaTag('meta[property="og:url"]', { property: 'og:url' }, currentUrl);
+    upsertMetaTag('meta[name="twitter:title"]', { name: 'twitter:title' }, title);
+    upsertMetaTag('meta[name="twitter:description"]', { name: 'twitter:description' }, description);
+    upsertMetaTag('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
+  }, [title, description, location.pathname]);
   return null;
 };
 
@@ -94,14 +109,32 @@ export const RiskCard: React.FC<{ title: string; example: string; description: s
   </div>
 );
 
-export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => (
+export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string; disabled?: boolean }> = ({
+  label,
+  onClick,
+  link,
+  disabled = false,
+}) => (
   <section className="text-center py-10">
-    {link ? (
-      <a href={link} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block">
+    {link && !disabled ? (
+      <a
+        href={link}
+        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block"
+      >
         {label}
       </a>
     ) : (
-      <button onClick={onClick} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20">
+      <button
+        type="button"
+        onClick={disabled ? undefined : onClick}
+        disabled={disabled}
+        className={`font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 ${
+          disabled
+            ? 'bg-slate-700 text-slate-300 cursor-not-allowed shadow-none'
+            : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950'
+        }`}
+        aria-disabled={disabled}
+      >
         {label}
       </button>
     )}

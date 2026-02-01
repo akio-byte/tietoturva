@@ -63,7 +63,7 @@ const CyberBasics: React.FC = () => {
           />
         </Section>
 
-        <CTA label="Lataa Kyberperusteet-muistilista (PDF)" />
+        <CTA label="PDF-opas tulossa" disabled />
       </div>
     </div>
   );
