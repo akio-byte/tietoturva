@@ -19,6 +19,8 @@ const Footer: React.FC = () => {
               <li><a href="#/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</a></li>
               <li><a href="#/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</a></li>
               <li><a href="#/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</a></li>
+              <li><a href="#/company-audit" className="hover:text-emerald-400 transition-colors">Yritysauditointi</a></li>
+              <li><a href="#/security-routines" className="hover:text-emerald-400 transition-colors">Turvarutiinit</a></li>
             </ul>
           </div>
           <div>

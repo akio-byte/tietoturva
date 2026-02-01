@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Seo from '../components/Seo';
 
 const CyberBasics: React.FC = () => {
   const steps = [
@@ -10,6 +11,10 @@ const CyberBasics: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <Seo
+        title="Kyberturvallisuuden perusteet | Lapland AI Lab"
+        description="Kyberperusteet tiivistettynä: CIA-malli, tämän päivän uhkakuvat ja käytännön puolustuslista."
+      />
       <div className="mb-20">
         <span className="text-blue-400 font-bold tracking-widest uppercase text-sm">Kurssi 02: Perusta Kuntoon</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6 tracking-tight">Kyberturvallisuuden perusteet</h1>

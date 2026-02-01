@@ -11,6 +11,8 @@ const Header: React.FC = () => {
     { name: 'AI-turva', path: '/ai-safety' },
     { name: 'Kyberperusteet', path: '/cyber-basics' },
     { name: 'Mobiiliturva', path: '/mobile-security' },
+    { name: 'Auditointi', path: '/company-audit' },
+    { name: 'Turvarutiinit', path: '/security-routines' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

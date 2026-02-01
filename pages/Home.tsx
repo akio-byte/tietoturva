@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Seo from '../components/Seo';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -36,11 +37,37 @@ const Home: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       )
+    },
+    {
+      title: 'Yritysauditointi',
+      desc: 'Valmistaudu auditointiin ja rakenna todennettava turvakulttuuri.',
+      link: '/company-audit',
+      color: 'from-emerald-400 to-blue-500',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7 7h10M7 17h10M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+        </svg>
+      )
+    },
+    {
+      title: 'Turvarutiinit',
+      desc: 'Rakenna päivittäinen rytmi, joka pitää kontrollit jatkuvasti kunnossa.',
+      link: '/security-routines',
+      color: 'from-blue-400 to-purple-500',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        </svg>
+      )
     }
   ];
 
   return (
     <div className="relative overflow-hidden">
+      <Seo
+        title="Lapland AI Lab | Tietoturvaopas"
+        description="Lapland AI Labin digitaalinen turvaopas kokoaa AI-turvan, kyberperusteet, mobiiliturvan, auditoinnit ja rutiinit yhteen pohjoiseen tyyliin."
+      />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
