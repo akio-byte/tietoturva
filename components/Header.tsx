@@ -8,9 +8,11 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Etusivu', path: '/' },
-    { name: 'AI-turva', path: '/ai-safety' },
     { name: 'Kyberperusteet', path: '/cyber-basics' },
+    { name: 'AI-turva', path: '/ai-safety' },
     { name: 'Mobiiliturva', path: '/mobile-security' },
+    { name: 'Auditointi', path: '/business-audit' },
+    { name: 'Rutiinit', path: '/routines' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -30,7 +32,7 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden lg:flex space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -44,7 +46,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-400 hover:text-white p-2"
@@ -62,7 +64,7 @@ const Header: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800">
+        <div className="lg:hidden bg-slate-900 border-b border-slate-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link

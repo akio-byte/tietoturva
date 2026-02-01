@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/Shared';
 
 const Home: React.FC = () => {
   const cards = [
@@ -11,7 +12,7 @@ const Home: React.FC = () => {
       color: 'from-emerald-400 to-emerald-600',
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       )
     },
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
       color: 'from-blue-400 to-blue-600',
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 20a10.003 10.003 0 006.203-2.538l.054.09A10.003 10.003 0 0112 21a10.003 10.003 0 01-9.203-5.462l.054-.09A10.003 10.003 0 0112 11z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
       )
     },
@@ -41,6 +42,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="relative overflow-hidden">
+      <SEO 
+        title="Lapland AI Lab | Tietoturvaopas" 
+        description="Kattava opas kyber- ja AI-turvallisuuteen pk-yrityksille ja opiskelijoille Lapland AI Labin asiantuntijoilta." 
+      />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
@@ -49,10 +54,10 @@ const Home: React.FC = () => {
             Pohjoisen <br/><span className="aurora-text">Digitaalinen Turvaopas</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Lapland AI Labin asiantuntijoiden kokoama tietopankki tekoäly- ja kyberturvallisuuteen. Rakenna kestävä suoja nykyajan uhkia vastaan.
+            Lapland AI Labin asiantuntijoiden kuratoima tietopankki, joka auttaa sinua ja yritystäsi navigoimaan turvallisesti nykyajan kyberviidakossa.
           </p>
           <div className="mt-10">
-            <Link to="/cyber-basics" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-full transition-all inline-block shadow-lg shadow-emerald-500/20">
+            <Link to="/cyber-basics" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all inline-block shadow-xl shadow-emerald-500/20 text-lg">
               Aloita oppiminen
             </Link>
           </div>
