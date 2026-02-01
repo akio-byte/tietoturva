@@ -1,9 +1,15 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const MobileSecurity: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <Seo
+        title="Mobiiliturva | Lapland AI Lab"
+        description="Käytännön ohjeet mobiililaitteiden suojaamiseen, sovellusoikeuksien hallintaan ja turvallisiin verkkoihin."
+      />
       <div className="mb-20">
         <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">Liikkuva Turvallisuus</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6">Mobiiliturva</h1>
@@ -87,9 +93,9 @@ const MobileSecurity: React.FC = () => {
           <p className="text-slate-400 mb-10 max-w-2xl mx-auto italic">
             "Mobiiliturva ei ole staattinen tila, vaan jatkuva prosessi. Lapland AI Lab auttaa pitämään yhteytesi suojattuna."
           </p>
-          <a href="/" className="inline-block bg-purple-600 text-white font-bold px-12 py-4 rounded-full hover:bg-purple-500 transition-all">
+          <Link to="/" className="inline-block bg-purple-600 text-white font-bold px-12 py-4 rounded-full hover:bg-purple-500 transition-all">
             Takaisin aloitukseen
-          </a>
+          </Link>
         </div>
       </div>
     </div>

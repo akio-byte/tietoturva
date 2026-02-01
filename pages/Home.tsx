@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const Home: React.FC = () => {
   const cards = [
@@ -41,6 +42,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="relative overflow-hidden">
+      <Seo
+        title="Tietoturvaopas | Lapland AI Lab"
+        description="Lapland AI Labin tietoturvaopas yhdistää AI-turvallisuuden, kyberperusteet ja mobiiliturvan yhdeksi selkeäksi oppaaksi."
+      />
       {/* Background Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-[120px] -z-10 animate-pulse delay-1000"></div>
