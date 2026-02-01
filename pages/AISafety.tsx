@@ -5,17 +5,6 @@ import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
 const AISafety: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <Seo
-        title="AI-turvallisuus | Lapland AI Lab"
-        description="Puolustusstrategiat tekoälyjärjestelmien suojaamiseen, malliturvallisuuteen ja vastuulliseen hyödyntämiseen."
-      />
-      <div className="mb-20">
-        <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm">Turvaluokitus: Korkea</span>
-        <h1 className="text-5xl font-extrabold text-white mt-4 mb-6">AI-turvallisuus</h1>
-        <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
-          Puolustusstrategiat tekoälyjärjestelmien suojaamiseen ja vastuulliseen hyödyntämiseen Lapland AI Labin asiantuntijoiden mukaan.
-        </p>
-      </div>
       <SEO 
         title="AI-turvallisuus ja Prompt-injektiot | Lapland AI Lab" 
         description="Suojaudu tekoälyyn kohdistuvilta hyökkäyksiltä, prompt-injektioilta ja hoida tietosuoja kuntoon." 

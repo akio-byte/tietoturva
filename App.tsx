@@ -9,7 +9,6 @@ import CyberBasics from './pages/CyberBasics';
 import MobileSecurity from './pages/MobileSecurity';
 import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
-import SocialEngineering from './pages/SocialEngineering';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +23,6 @@ const App: React.FC = () => {
             <Route path="/mobile-security" element={<MobileSecurity />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
-            <Route path="/social-engineering" element={<SocialEngineering />} />
           </Routes>
         </main>
         <Footer />

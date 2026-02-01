@@ -42,11 +42,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="relative overflow-hidden">
-      <Seo
-        title="Tietoturvaopas | Lapland AI Lab"
-        description="Lapland AI Labin tietoturvaopas yhdistää AI-turvallisuuden, kyberperusteet ja mobiiliturvan yhdeksi selkeäksi oppaaksi."
-      />
-      {/* Background Glow */}
       <SEO 
         title="Lapland AI Lab | Tietoturvaopas" 
         description="Kattava opas kyber- ja AI-turvallisuuteen pk-yrityksille ja opiskelijoille Lapland AI Labin asiantuntijoilta." 
