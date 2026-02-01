@@ -1,9 +1,10 @@
+
 import React from 'react';
-import { SEO, Hero, PageLayout, Section, CTA } from '../components/Shared';
+import { SEO, Hero, Section, CTA } from '../components/Shared';
 
 const BusinessAudit: React.FC = () => {
   return (
-    <PageLayout>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
         title="Tietoturva-auditointi pk-yritykselle | Lapland AI Lab" 
         description="10 minuutin itsearviointi yrityksen tietoturvasta: ihminen, laitteet ja varmuuskopiot." 
@@ -58,7 +59,7 @@ const BusinessAudit: React.FC = () => {
 
         <CTA label="Tee itsearviointi ja saa tulokset" />
       </div>
-    </PageLayout>
+    </div>
   );
 };
 

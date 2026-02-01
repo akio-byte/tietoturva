@@ -1,9 +1,10 @@
+
 import React from 'react';
-import { SEO, Hero, PageLayout, Section, CTA } from '../components/Shared';
+import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
 
 const CyberBasics: React.FC = () => {
   return (
-    <PageLayout>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
         title="Kyberturvallisuuden perusteet | Lapland AI Lab" 
         description="Opi tietoturvan peruspilarit: CIA-malli, MFA, salasanojen hallinta ja sosiaalisen manipuloinnin tunnistaminen." 
@@ -62,9 +63,9 @@ const CyberBasics: React.FC = () => {
           />
         </Section>
 
-        <CTA label="PDF-opas tulossa" disabled />
+        <CTA label="Lataa Kyberperusteet-muistilista (PDF)" />
       </div>
-    </PageLayout>
+    </div>
   );
 };
 
