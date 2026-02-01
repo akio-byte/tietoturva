@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
 
@@ -27,6 +28,24 @@ const CyberBasics: React.FC = () => {
           colorClass="bg-emerald-500"
         >
           CIA-malli (Confidentiality, Integrity, Availability) on kansainvälinen standardi tietoturvan suunnitteluun. Se varmistaa, että tieto pysyy salassa, oikeana ja käytettävissä.
+        </Section>
+
+        <Section 
+          title="Tiedon luokittelu"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Kaikkea tietoa ei voi suojata samalla tavalla. Resurssit on kohdistettava kriittisimpään."
+          checklist={[
+            "Julkinen tieto: Markkinointimateriaalit (ei vaadi salausta)",
+            "Sisäinen tieto: Intranet-uutiset (vain henkilöstölle)",
+            "Luottamuksellinen: Asiakastiedot ja sopimukset (vaatii vahvan tunnistautumisen)",
+            "Salainen: Liikesalaisuudet (vaatii tiukan, rajatun pääsynhallinnan)"
+          ]}
+          colorClass="bg-indigo-500"
+        >
+          <p className="mb-4">Tietojen luokittelu auttaa hahmottamaan, missä suurin riski piilee. Älä käytä aikaa lounaslistan salaamiseen, vaan keskitä voimat asiakasrekisteriin.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Työntekijä lähettää salaisen tuotekehityssuunnitelman omaan sähköpostiinsa tehdäkseen töitä kotona, jolloin tieto vuotaa suojaamattomaan ympäristöön.
+          </div>
         </Section>
 
         <Section 

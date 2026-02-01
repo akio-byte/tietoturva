@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO, Section } from '../components/Shared';
@@ -87,6 +88,23 @@ const Home: React.FC = () => {
         </div>
 
         <div className="space-y-12 max-w-4xl mx-auto">
+          <Section 
+            title="Kenelle tämä opas on?"
+            importanceTitle="Miksi tämä on tärkeää?"
+            importanceDesc="Tietoturva kuuluu kaikille, mutta vastuut jakautuvat eri tavoin."
+            checklist={[
+              "Yritysjohdolle: Ymmärrä riskit ja resursoi suojautuminen oikein",
+              "IT-tuelle: Varmista tekniset kontrollit ja päivitykset",
+              "Henkilöstölle: Tunnista huijaukset ja toimi turvallisesti arjessa"
+            ]}
+            colorClass="bg-indigo-500"
+          >
+            Tämä opas ei ole vain teknisille asiantuntijoille. Se on kirjoitettu selkokielellä, jotta jokainen organisaation jäsen ymmärtää roolinsa digitaalisen turvallisuuden ketjussa.
+            <div className="mt-4 p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+              Esimerkki riskistä: Tietoturva ulkoistetaan ajatuksissa "vain IT-osaston ongelmaksi", jolloin muu organisaatio toimii välinpitämättömästi ja altistuu hyökkäyksille.
+            </div>
+          </Section>
+
           <Section 
             title="Näin otat oppaan haltuun"
             importanceTitle="Miksi tämä on tärkeää?"

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
 
@@ -26,6 +27,23 @@ const MobileSecurity: React.FC = () => {
           ]}
         >
           Fyysinen turvallisuus on usein mobiililaitteiden heikoin lenkki. Laitteen varastaminen tai katoaminen on arkipäiväinen riski, joka on taklattava etukäteen.
+        </Section>
+
+        <Section 
+          title="USB-lataus ja Juice Jacking"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Julkiset USB-latauspisteet voivat siirtää dataa sähkön lisäksi. Puhelimesi voi saastua pelkästä latauksesta."
+          checklist={[
+            "Käytä aina omaa laturia ja pistorasiaa, vältä julkisia USB-portteja",
+            "Hanki 'USB data blocker' -välikappale, joka estää datasiirron",
+            "Älä koskaan hyväksy 'Luota tähän tietokoneeseen' -ilmoitusta latauksen yhteydessä"
+          ]}
+          colorClass="bg-red-500"
+        >
+          <p className="mb-4">Lentokenttien ja kahviloiden ilmaiset latauspisteet ovat käteviä, mutta riskialttiita. Juice Jacking on hyökkäys, jossa latauskaapelin kautta asennetaan haittaohjelma.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Matkustaja kytkee puhelimensa lataustolppaan, ja taustalla oleva mikrotietokone kopioi puhelimen kuvat ja yhteystiedot huomaamatta.
+          </div>
         </Section>
 
         <Section 
@@ -78,4 +96,6 @@ const MobileSecurity: React.FC = () => {
       </div>
     </div>
   );
-}; export default MobileSecurity;
+};
+
+export default MobileSecurity;

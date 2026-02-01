@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
 
@@ -26,6 +27,23 @@ const BusinessAudit: React.FC = () => {
           ]}
         >
           Tietoturvakulttuuri alkaa johdosta. Jos työntekijät eivät tiedä, miten toimia epäilyttävissä tilanteissa, koko organisaatio on suuressa vaarassa.
+        </Section>
+
+        <Section 
+          title="Toimitilat ja fyysinen turva"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Tietomurto voi tapahtua myös kävelemällä ovesta sisään. Fyysinen pääsy on varmin tapa murtaa digitaalinen suoja."
+          checklist={[
+            "Kirjataanko kaikki vierailijat ja kulkevatko he saattajan kanssa?",
+            "Ovatko palvelintilat ja verkkokaapit aina lukittuina?",
+            "Noudatetaanko 'Clean Desk' -politiikkaa (ei salasanoja lappusilla pöydillä)?"
+          ]}
+          colorClass="bg-emerald-500"
+        >
+          <p className="mb-4">Toimiston ovi ei ole palomuuri. Varmista, että ulkopuoliset eivät pääse käsiksi laitteisiin tai papereihin vartioimatta.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Huoltomieheksi pukeutunut hyökkääjä kävelee vastaanottoon, kytkee keyloggerin tietokoneeseen ja poistuu kenenkään estämättä.
+          </div>
         </Section>
 
         <Section 
@@ -78,4 +96,6 @@ const BusinessAudit: React.FC = () => {
       </div>
     </div>
   );
-}; export default BusinessAudit;
+};
+
+export default BusinessAudit;

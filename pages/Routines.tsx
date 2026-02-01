@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
 
@@ -43,6 +44,24 @@ const Routines: React.FC = () => {
         </Section>
 
         <Section 
+          title="Matkustajan muistilista (Tarvittaessa)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Tietoturvariski moninkertaistuu toimiston ulkopuolella. Varkaudet ja vakoilu ovat yleisiä matkalla."
+          checklist={[
+            "Ota mukaan vain välttämättömät laitteet (Clean Travel)",
+            "Varmuuskopioi kaikki tiedot ennen lähtöä ja jätä kopio kotiin",
+            "Käytä tietosuojakalvoa (Privacy Screen) kannettavassa ja puhelimessa",
+            "Älä koskaan jätä laitteita vartioimatta hotellihuoneeseen tai autoon"
+          ]}
+          colorClass="bg-indigo-500"
+        >
+          <p className="mb-4">Työmatka on hyökkääjälle otollinen hetki. Väsynyt matkustaja tekee virheitä, ja laitteet ovat alttiina varkauksille.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Kilpailija tai vakooja kuvaa kannettavan näytön lentokoneessa tai junassa, saaden haltuunsa luottamuksellista strategiamateriaalia.
+          </div>
+        </Section>
+
+        <Section 
           title="Poikkeustilanneharjoitus (Incident Response)"
           importanceTitle="Miksi tämä on tärkeää?"
           importanceDesc="Paniikki on pahin vihollinen hyökkäyksen sattuessa. Harjoittelu luo selkäydinmuistin."
@@ -78,4 +97,6 @@ const Routines: React.FC = () => {
       </div>
     </div>
   );
-}; export default Routines;
+};
+
+export default Routines;
