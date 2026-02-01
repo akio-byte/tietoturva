@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
 
@@ -7,7 +6,7 @@ const CyberBasics: React.FC = () => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
         title="Kyberturvallisuuden perusteet | Lapland AI Lab" 
-        description="Opi tietoturvan peruspilarit: CIA-malli, MFA, salasanojen hallinta ja sosiaalisen manipuloinnin tunnistaminen." 
+        description="Opi tietoturvan peruspilarit: CIA-malli, MFA, salasanojen hallinta ja päivitysten merkitys." 
       />
       <Hero 
         title="Kyberturvallisuuden peruspilarit"
@@ -19,11 +18,11 @@ const CyberBasics: React.FC = () => {
         <Section 
           title="CIA-malli: Tietoturvan perusmalli"
           importanceTitle="Miksi tämä on tärkeää?"
-          importanceDesc="Se auttaa ymmärtämään, mitä oikeastaan suojaamme."
+          importanceDesc="Se auttaa ymmärtämään, mitä oikeastaan suojaamme ja miksi."
           checklist={[
-            "Määrittele tärkein tietosi",
-            "Tarkista kuka siihen pääsee",
-            "Varmista ettei se muutu vahingossa"
+            "Määrittele tärkein tietosi organisaatiossasi",
+            "Tarkista säännöllisesti kuka tietoon pääsee käsiksi",
+            "Varmista varmuuskopioilla, ettei tieto muutu vahingossa"
           ]}
           colorClass="bg-emerald-500"
         >
@@ -33,11 +32,11 @@ const CyberBasics: React.FC = () => {
         <Section 
           title="Salasanojen hallinta ja MFA"
           importanceTitle="Miksi tämä on tärkeää?"
-          importanceDesc="Valtaosa murroista alkaa heikoista tunnuksista. MFA on tehokkain yksittäinen suoja."
+          importanceDesc="Valtaosa murroista alkaa heikoista tunnuksista. MFA on tehokkain yksittäinen suoja hyökkäyksiä vastaan."
           checklist={[
-            "Käytä salasanaohjelmaa (Password Manager)",
-            "Luo vähintään 16 merkin salalauseita",
-            "Ota MFA käyttöön kaikissa kriittisissä palveluissa"
+            "Käytä salasanaohjelmaa (Password Manager) kaikissa laitteissa",
+            "Luo vähintään 16 merkin salalauseita numeroiden ja merkkien kera",
+            "Ota MFA käyttöön kaikissa kriittisissä ja sosiaalisen median palveluissa"
           ]}
           colorClass="bg-blue-500"
         >
@@ -45,9 +44,27 @@ const CyberBasics: React.FC = () => {
         </Section>
 
         <Section 
+          title="Ohjelmistopäivitykset ja haavoittuvuudet"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Päivitykset eivät tuo vain uusia ominaisuuksia, vaan ne ovat kriittisiä paikkoja tietoturva-aukoille."
+          checklist={[
+            "Ota automaattiset päivitykset käyttöön kaikissa käyttöjärjestelmissä",
+            "Älä viivytä kriittisiä tietoturvapäivityksiä yli 24 tuntia",
+            "Tarkista säännöllisesti reitittimen ja muiden verkkolaitteiden päivitykset",
+            "Luovu laitteista, joiden valmistaja on lopettanut päivitystuen"
+          ]}
+          colorClass="bg-indigo-500"
+        >
+          <p className="mb-4">Haavoittuvuudet ovat ohjelmistojen virheitä, joita hyökkääjät hyödyntävät päästäkseen käsiksi tietoihisi. Päivitykset tukkivat nämä reiät.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Hyökkääjä käyttää hyväkseen kuukausia vanhaa haavoittuvuutta selaimessa, johon päivitystä ei ole asennettu, ja saa laitteen hallintaansa.
+          </div>
+        </Section>
+
+        <Section 
           title="Sosiaalinen manipulointi"
           importanceTitle="Miksi tämä on tärkeää?"
-          importanceDesc="Tekniikka on usein vahvempaa kuin ihminen. Hyökkääjät hyödyntävät tunteita ja kiirettä."
+          importanceDesc="Tekniikka on usein vahvempaa kuin ihminen. Hyökkääjät hyödyntävät tunteita, kiirettä ja auktoriteettia."
           checklist={[
             "Tarkista aina lähettäjän todellinen sähköpostiosoite",
             "Älä klikkaa linkkejä suoraan; mene palveluun selaimen kautta",
@@ -55,7 +72,7 @@ const CyberBasics: React.FC = () => {
           ]}
           colorClass="bg-purple-500"
         >
-          <p className="mb-8">Sosiaalinen manipulointi pyrkii murtamaan suojat hyödyntämällä ihmisen luottamusta, kiirettä tai auktoriteettia. Kalastelu (Phishing) on tästä yleisin esimerkki.</p>
+          <p className="mb-8">Sosiaalinen manipulointi pyrkii murtamaan suojat hyödyntämällä ihmisen luottamusta tai kiirettä. Kalastelu (Phishing) on tästä yleisin esimerkki.</p>
           <RiskCard 
             title="Kalasteluviesti"
             example="Tilisi on lukittu! Kirjaudu sisään tästä 24h kuluessa tai menetät pääsyn."
@@ -63,7 +80,7 @@ const CyberBasics: React.FC = () => {
           />
         </Section>
 
-        <CTA label="Lataa Kyberperusteet-muistilista (PDF)" />
+        <CTA label="Lataa Kyberperusteet-muistilista (PDF - Tulossa)" />
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SEO } from '../components/Shared';
+import { SEO, Section } from '../components/Shared';
 
 const Home: React.FC = () => {
   const cards = [
@@ -87,24 +86,23 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-        <div className="glass rounded-[40px] p-12 border border-slate-800 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent"></div>
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl font-bold text-white mb-8">Miksi tietoturva on tärkeää juuri nyt?</h2>
-            <p className="text-lg text-slate-300 leading-relaxed mb-12 italic">
-              "Digitaalinen toimintaympäristö muuttuu nopeammin kuin koskaan. Tekoälyn tuomat uudet uhat vaativat uudenlaista osaamista ja valppautta."
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-              <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-colors">
-                <div className="text-emerald-400 font-bold mb-2">01. Luottamus</div>
-                <p className="text-sm text-slate-400">Asiakkaiden ja kumppaneiden luottamus rakentuu tiedon eheyden varaan.</p>
-              </div>
-              <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-blue-500/30 transition-colors">
-                <div className="text-blue-400 font-bold mb-2">02. Jatkuvuus</div>
-                <p className="text-sm text-slate-400">Oikeat turvakäytännöt varmistavat liiketoiminnan ja palveluiden häiriöttömyyden.</p>
-              </div>
+        <div className="space-y-12 max-w-4xl mx-auto">
+          <Section 
+            title="Näin otat oppaan haltuun"
+            importanceTitle="Miksi tämä on tärkeää?"
+            importanceDesc="Tietotulva voi uuvuttaa. Järjestelmällinen eteneminen takaa parhaat tulokset organisaatiollesi."
+            checklist={[
+              "Aloita Kyberperusteista ja varmista MFA-suojaus heti",
+              "Käy läpi Yrityksen pika-auditointi tiimin tai johdon kanssa",
+              "Ota Arjen rutiinit osaksi viikoittaista tai kuukausittaista toimintaa",
+              "Seuraa AI-turvallisuusosiota säännöllisesti uusien uhkien varalta"
+            ]}
+          >
+            Tämä opas on suunniteltu käytännönläheiseksi työkalupakiksi. Suosittelemme etenemään perusasioista kohti syvällisempää AI-ymmärtämistä.
+            <div className="mt-4 p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+              Esimerkki riskistä: Yritys lukee oppaan mutta ei vie yhtäkään suositusta käytäntöön, jolloin suojaustaso ei parane lainkaan.
             </div>
-          </div>
+          </Section>
         </div>
       </div>
     </div>

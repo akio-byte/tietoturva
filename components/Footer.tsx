@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +27,7 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-6">Resurssit</h4>
             <p className="text-sm">
               Päivitetty helmikuussa 2026.<br />
-              Versio 1.2 (Source of Truth Edition)
+              Versio 1.3 (Final Structure Edition)
             </p>
           </div>
         </div>
