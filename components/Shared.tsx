@@ -17,6 +17,8 @@ const setMetaTag = (key: string, content: string, attribute: 'name' | 'property'
 };
 
 export const SEO: React.FC<SeoProps> = ({ title, description }) => {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = title;
     setMetaTag('description', description, 'name');

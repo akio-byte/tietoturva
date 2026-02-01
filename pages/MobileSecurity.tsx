@@ -56,7 +56,7 @@ const MobileSecurity: React.FC = () => {
           Avoimet verkot kahviloissa ja lentokentillä ovat hyökkääjien leikkikenttiä. Suojaa liikenteesi salaamalla se VPN-yhteydellä.
         </Section>
 
-        <CTA label="Mobiiliturvan pikaohje (A4)" />
+        <CTA label="PDF-opas tulossa" disabled />
       </div>
     </PageLayout>
   );

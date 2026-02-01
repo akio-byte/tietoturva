@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-6">Resurssit</h4>
             <p className="text-sm">
               Päivitetty helmikuussa 2026.<br />
-              Versio 1.1 (Source of Truth Edition)
+              Versio 1.2 (Source of Truth Edition)
             </p>
           </div>
         </div>

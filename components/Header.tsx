@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     { name: 'Etusivu', path: '/' },
     { name: 'Kyberperusteet', path: '/cyber-basics' },
     { name: 'AI-turva', path: '/ai-safety' },
-    { name: 'Mobiiliturva', path: '/mobile-security' },
+    { name: 'Mobiili', path: '/mobile-security' },
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
   ];

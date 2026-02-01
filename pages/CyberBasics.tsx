@@ -6,7 +6,7 @@ const CyberBasics: React.FC = () => {
     <PageLayout>
       <SEO 
         title="Kyberturvallisuuden perusteet | Lapland AI Lab" 
-        description="Opi tietoturvan peruspilarit: CIA-malli, MFA ja salasanojen hallinta Lapland AI Labin oppaassa." 
+        description="Opi tietoturvan peruspilarit: CIA-malli, MFA, salasanojen hallinta ja sosiaalisen manipuloinnin tunnistaminen." 
       />
       <Hero 
         title="Kyberturvallisuuden peruspilarit"
@@ -30,31 +30,36 @@ const CyberBasics: React.FC = () => {
         </Section>
 
         <Section 
-          title="Salasanojen hallinta"
+          title="Salasanojen hallinta ja MFA"
           importanceTitle="Miksi tämä on tärkeää?"
-          importanceDesc="Valtaosa murroista alkaa heikoista tunnuksista."
+          importanceDesc="Valtaosa murroista alkaa heikoista tunnuksista. MFA on tehokkain yksittäinen suoja."
           checklist={[
             "Käytä salasanaohjelmaa (Password Manager)",
             "Luo vähintään 16 merkin salalauseita",
-            "Älä koskaan käytä samaa salasanaa kahdesti"
+            "Ota MFA käyttöön kaikissa kriittisissä palveluissa"
           ]}
           colorClass="bg-blue-500"
         >
-          Unohda muistilaput ja helposti arvattavat salasanat. Nykyaikainen tietoturva vaatii hallittua ja automatisoitua salasanojen käsittelyä.
+          Unohda muistilaput. Nykyaikainen tietoturva vaatii hallittua salasanojen käsittelyä ja monivaiheista tunnistautumista (MFA), joka toimii toisena lukkona ovesi takana.
         </Section>
 
         <Section 
-          title="Monivaiheinen tunnistautuminen (MFA)"
+          title="Sosiaalinen manipulointi"
           importanceTitle="Miksi tämä on tärkeää?"
-          importanceDesc="Vaikka salasana vuotaisi, hyökkääjä ei pääse sisään ilman puhelintasi."
+          importanceDesc="Tekniikka on usein vahvempaa kuin ihminen. Hyökkääjät hyödyntävät tunteita ja kiirettä."
           checklist={[
-            "Ota MFA käyttöön sähköpostissa",
-            "Aktivoi MFA sosiaalisen median tileillä",
-            "Varmista MFA-suojaus kaikissa pankki- ja yrityspalveluissa"
+            "Tarkista aina lähettäjän todellinen sähköpostiosoite",
+            "Älä klikkaa linkkejä suoraan; mene palveluun selaimen kautta",
+            "Suhtaudu kriittisesti kiireellisiin pyyntöihin puhelimessa tai viesteissä"
           ]}
           colorClass="bg-purple-500"
         >
-          Toinen lukko oveen. Monivaiheinen tunnistautuminen on tehokkain yksittäinen tapa estää luvaton pääsy tileillesi.
+          <p className="mb-8">Sosiaalinen manipulointi pyrkii murtamaan suojat hyödyntämällä ihmisen luottamusta, kiirettä tai auktoriteettia. Kalastelu (Phishing) on tästä yleisin esimerkki.</p>
+          <RiskCard 
+            title="Kalasteluviesti"
+            example="Tilisi on lukittu! Kirjaudu sisään tästä 24h kuluessa tai menetät pääsyn."
+            description="Huijari luo keinotekoisen kiireen tunteen, jotta teet virheen ja paljastat tunnuksesi valesivustolla."
+          />
         </Section>
 
         <CTA label="PDF-opas tulossa" disabled />
