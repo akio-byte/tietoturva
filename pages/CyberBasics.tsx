@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { SEO, Hero, Section, CTA } from '../components/Shared';
+import { SEO, Hero, PageLayout, Section, CTA } from '../components/Shared';
 
 const CyberBasics: React.FC = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <PageLayout>
       <SEO 
         title="Kyberturvallisuuden perusteet | Lapland AI Lab" 
         description="Opi tietoturvan peruspilarit: CIA-malli, MFA ja salasanojen hallinta Lapland AI Labin oppaassa." 
@@ -58,9 +57,9 @@ const CyberBasics: React.FC = () => {
           Toinen lukko oveen. Monivaiheinen tunnistautuminen on tehokkain yksittäinen tapa estää luvaton pääsy tileillesi.
         </Section>
 
-        <CTA label="Lataa Kyberperusteet-muistilista (PDF)" />
+        <CTA label="PDF-opas tulossa" disabled />
       </div>
-    </div>
+    </PageLayout>
   );
 };
 

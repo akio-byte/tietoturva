@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -32,11 +31,12 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden lg:flex space-x-6">
+          <nav className="hidden lg:flex space-x-6" aria-label="Päänavigaatio">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
+                aria-current={isActive(item.path) ? 'page' : undefined}
                 className={`text-sm font-medium transition-all hover:text-emerald-400 ${
                   isActive(item.path) ? 'text-emerald-400' : 'text-slate-400'
                 }`}
@@ -50,8 +50,12 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-400 hover:text-white p-2"
+              aria-label={isOpen ? 'Sulje valikko' : 'Avaa valikko'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="sr-only">{isOpen ? 'Sulje valikko' : 'Avaa valikko'}</span>
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -64,13 +68,14 @@ const Header: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-slate-900 border-b border-slate-800">
+        <div className="lg:hidden bg-slate-900 border-b border-slate-800" id="mobile-menu" aria-label="Mobiilivalikko">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
+                aria-current={isActive(item.path) ? 'page' : undefined}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   isActive(item.path)
                     ? 'bg-slate-800 text-emerald-400'
