@@ -1,9 +1,14 @@
 
 import React from 'react';
+import Seo from '../components/Seo';
 
 const MobileSecurity: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <Seo
+        title="Mobiiliturva | Lapland AI Lab"
+        description="Käytännön ohjeet mobiililaitteiden suojaamiseen, sovellusoikeuksien hallintaan ja turvallisiin verkkoihin."
+      />
       <div className="mb-20">
         <span className="text-purple-400 font-bold tracking-widest uppercase text-sm">Liikkuva Turvallisuus</span>
         <h1 className="text-5xl font-extrabold text-white mt-4 mb-6">Mobiiliturva</h1>
