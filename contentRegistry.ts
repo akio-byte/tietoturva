@@ -11,6 +11,81 @@ export interface ContentItem {
 }
 
 export const contentRegistry: Record<string, ContentItem> = {
+  "aurora-ai-alignment": {
+    "slug": "aurora-ai-alignment",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "Aurora AI Safety",
+    "seo": {
+      "title": "Aurora AI Alignment & Safety | Arctic Security",
+      "description": "Defend against adversarial attacks and ensure model alignment with our Aurora AI safety framework. Secure your intelligence layer."
+    },
+    "hero": {
+      "title": "Aurora AI Alignment",
+      "subtitle": "Guiding your intelligence through the shifting winds of adversarial threats with crystalline precision."
+    },
+    "sections": [
+      {
+        "title": "Adversarial Defense",
+        "body": "In the shifting landscape of machine learning, your models face constant pressure from sophisticated adversarial attacks. These subtle perturbations in data can lead to catastrophic failures in decision-making. Our Aurora framework implements robust input sanitization and gradient masking to ensure your neural networks remain resilient against prompt injections and data poisoning, maintaining the integrity of your intellectual core."
+      },
+      {
+        "title": "Model Alignment",
+        "body": "Like the steady glow of the northern lights, your AI must remain aligned with human intent and organizational values. We utilize advanced reinforcement learning from human feedback (RLHF) and constitutional AI principles to ensure model alignment. This process creates a stable ethical compass for your autonomous agents, preventing drift and ensuring that every output resonates with your brand's high-end standards."
+      }
+    ],
+    "checklist": [
+      "Monitor model drift continuously",
+      "Sanitize all input vectors",
+      "Validate alignment metrics weekly",
+      "Stress-test against adversarial attacks",
+      "Audit training data provenance"
+    ],
+    "cta": {
+      "text": "Secure Your Intelligence",
+      "route": "/contact"
+    }
+  },
+  "ai-studio-audit": {
+    "slug": "ai-studio-audit",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "AI Studio Audit",
+    "seo": {
+      "title": "AI Studio Auditointi | Adversarial Attacks & Model Alignment",
+      "description": "Varmista tekoälyratkaisujesi murtovarmuus. Erikoistunut auditointimme kattaa adversarial attacks -suojauksen ja model alignment -varmistuksen."
+    },
+    "hero": {
+      "title": "Pohjoinen Valo Tekoälyn Pimeisiin Kulmiin",
+      "subtitle": "AI Studio -auditointi on syväluotaava katsaus tekoälysi rakenteelliseen eheyteen. Varmistamme, että mallisi kestävät manipulaation ja noudattavat asetettuja rajoja."
+    },
+    "sections": [
+      {
+        "title": "Jäänmurtaja Tekoälyn Haavoittuvuuksille",
+        "body": "Tekoälyratkaisut ovat kuin arktinen jääpeite: päältä vankkoja, mutta pinnan alla piilee näkymättömiä virtauksia. AI Studio -auditointimme keskittyy tunnistamaan kriittiset heikkoudet ennen kuin ne muuttuvat halkeamiksi. Käytämme edistyksellisiä menetelmiä, joilla paljastamme, miten mallisi reagoi poikkeuksellisiin syötteisiin ja yllättäviin tilanteisiin."
+      },
+      {
+        "title": "Adversarial Attacks ja Vastustuskyky",
+        "body": "Nykyaikaiset uhat eivät ole vain suoria hyökkäyksiä, vaan hienovaraista manipulaatiota. Analysoimme järjestelmäsi alttiuden adversarial attacks -menetelmille, joissa syötteitä muokataan harhauttamaan tekoälyä. Rakennamme suojakerroksen, joka toimii kuin ikirouta – muuttumattomana ja periksiantamattomana ulkoisen paineen alla."
+      },
+      {
+        "title": "Model Alignment – Arvojen ja Toiminnan Synkronointi",
+        "body": "Tekoälyn on toimittava organisaatiosi eettisten ja toiminnallisten raamien sisällä. Model alignment -tarkastuksessamme varmistamme, että kielimallit ja agentit eivät poikkea määritellyltä polulta. Tämä prosessi on kuin kompassin kalibrointi pohjoisella pallonpuoliskolla: tarkkuus on elinehto eksymisen välttämiseksi."
+      }
+    ],
+    "checklist": [
+      "Analysoi mallin syötehaavoittuvuudet.",
+      "Testaa vastustuskyky adversarial attacks -hyökkäyksille.",
+      "Varmista model alignment organisaation sääntöihin.",
+      "Auditoi harjoitusdatan eheys ja puhtaus.",
+      "Määritä turvapiiri tekoälyagenteille.",
+      "Dokumentoi riskitasot ja korjaavat toimenpiteet."
+    ],
+    "cta": {
+      "text": "Varaa asiantuntija-auditointi",
+      "route": "/ota-yhteytta"
+    }
+  },
   "arctic-security-opus": {
     "slug": "arctic-security-opus",
     "category": "routines",
@@ -60,7 +135,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       }
     ],
     "checklist": [
-      "Implementoi päästä-päähän-salaus kaikkeen viestintään",
+      "Implementoi päästä-päähän-salaus kaikkeen viestinnät",
       "Hajauta avainten hallinta HSM-moduuleihin",
       "Auditoi nollatieto-protokollien eheys säännöllisesti"
     ],
@@ -229,36 +304,30 @@ export const contentRegistry: Record<string, ContentItem> = {
   "arctic-codex-protocol": {
     "slug": "arctic-codex-protocol",
     "category": "routines",
-    "featured": true,
-    "navLabel": "Codex-protokolla",
+    "featured": false,
+    "navLabel": "Codex",
     "seo": {
-      "title": "Arctic Codex Protocol | Digitaalinen Kurinalaisuus",
-      "description": "Arctic Securityn Codex-protokolla on rutiinien selkäranka. Lue mitä on saavutettu ja miten vahvistamme operatiivista turvallisuutta tulevaisuudessa."
+      "title": "Arctic Codex Protocol | Arkkitehtuurin Peruskivi",
+      "description": "Tekninen protokolla järjestelmien karkaisuun ja arktiseen infrastruktuuriin."
     },
     "hero": {
       "title": "Arctic Codex Protocol",
-      "subtitle": "Kun rutiinit jäätyvät osaksi murtamatonta rakennetta, syntyy horjumaton turva."
+      "subtitle": "Järjestelmäarkkitehtuurin muuttumaton peruskivi."
     },
     "sections": [
       {
-        "title": "Saavutettu vakaus: Perustukset laskettu",
-        "body": "Codex-protokollan ensimmäinen vaihe on saatettu päätökseen. Olemme luoneet 'ikuisen roudan' tason suojan, jossa kriittiset rutiinit on dokumentoitu ja jalkautettu osaksi päivittäistä toimintaa. Tähän mennessä olemme onnistuneet standardoimaan identiteetinhallinnan syklit ja varmistaneet, että jokainen digitaalinen jalanjälki on tarkasti valvottu. Järjestelmä on nyt yhtä selkeä ja vakaa kuin tyyni talviyö."
-      },
-      {
-        "title": "Seuraavat railot: Mitä on vielä edessä",
-        "body": "Vaikka perusta on kova kuin jää, horisontissa siintää uusia haasteita. Seuraava askeleemme on automaation syventäminen – tavoitteena on, että Codex ei ainoastaan ohjeista, vaan korjaa itse itsensä havaitessaan poikkeamia. Meidän on vielä integroitava reaaliaikainen uhka-analyysi suoraan rutiiniprotokolliin, jotta voimme reagoida ennen kuin ensimmäinenkään särö ilmestyy pintaan. Revontulten tavoin turvallisuuden on oltava dynaamista, mutta ennustettavaa."
+        "title": "Infrastruktuurin karkaisu",
+        "body": "Codex määrittelee standardit, joilla digitaalinen ympäristö eristetään ja suojataan ulkoisilta häiriöiltä."
       }
     ],
     "checklist": [
-      "Vahvista nykyiset pääsynhallinnan rutiinit",
-      "Implementoi automaattinen poikkeamien korjaus",
-      "Auditoi kolmansien osapuolten rajapinnat",
-      "Skaalaa protokolla mobiiliympäristöihin",
-      "Päivitä kriisinhallinnan vasteajat"
+      "Implementoi Zero Trust -arkkitehtuuri",
+      "Koveta palvelinympäristöt",
+      "Automatisoi lokien analysointi"
     ],
     "cta": {
-      "text": "Tarkasta protokollan tila",
-      "route": "/codex-status"
+      "text": "Lue Protokolla",
+      "route": "/codex-details"
     }
   },
   "arctic-automation-hub": {
