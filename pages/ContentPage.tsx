@@ -8,7 +8,7 @@ const ContentPage: React.FC = () => {
   const { slug: paramsSlug } = useParams<{ slug: string }>();
   const location = useLocation();
   
-  // Use the slug from URL params or infer it from the pathname (e.g., /incident-response)
+  // Etsitään slug joko urlista tai suorasta polusta
   const slug = paramsSlug || location.pathname.substring(1);
   const content = contentRegistry[slug];
 
@@ -50,8 +50,11 @@ const ContentPage: React.FC = () => {
         {content.cta.route ? (
           <CTA label={content.cta.text} link={content.cta.route} />
         ) : (
-          <div className="py-10 border-t border-slate-800 mt-20">
-            <p className="text-center text-slate-500 text-sm italic">Tämä on itsenäinen sisältöpaketti osana Lapland AI Labin tietoturvaopasta.</p>
+          <div className="text-center py-10 opacity-50 grayscale">
+            <button disabled className="bg-slate-800 text-slate-400 font-bold px-10 py-5 rounded-full cursor-not-allowed">
+              {content.cta.text} (Tulossa)
+            </button>
+            <p className="mt-4 text-xs text-slate-500 italic">Tämä osio on tällä hetkellä työn alla.</p>
           </div>
         )}
       </div>
