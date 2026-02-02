@@ -52,7 +52,7 @@ export const contentRegistry: Record<string, ContentItem> = {
   "data-privacy": {
     "slug": "data-privacy",
     "category": "privacy",
-    "featured": true,
+    "featured": false,
     "navLabel": "Tietosuoja",
     "seo": { "title": "Tietosuoja ja GDPR pk-yrityksille | Lapland AI Lab", "description": "Yksinkertainen opas henkilötietojen käsittelyyn ja luottamuksen rakentamiseen." },
     "hero": { "title": "Luottamuksen rakentaminen", "subtitle": "Henkilötieto on arvokkainta, mitä asiakas antaa. Käsittele sitä kunnioituksella." },
@@ -71,7 +71,7 @@ export const contentRegistry: Record<string, ContentItem> = {
   "ai-intellectual-property": {
     "slug": "ai-intellectual-property",
     "category": "ai",
-    "featured": true,
+    "featured": false,
     "navLabel": "AI-oikeudet",
     "seo": { "title": "AI ja tekijänoikeudet | Lapland AI Lab", "description": "Miten suojata yrityksen liikesalaisuudet tekoälyaikakaudella?" },
     "hero": { "title": "Kenen on koodi?", "subtitle": "Tekoäly on tehokas työkalu, mutta se vaatii tarkat säännöt organisaation IP-omaisuuden suojaamiseksi." },
@@ -106,68 +106,8 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "cta": { "text": "Tunnista tekoälyhuijaukset", "route": "/ai-safety" }
   },
-  "pilviturvallisuuden-koventaminen": {
-    "slug": "pilviturvallisuuden-koventaminen",
-    "category": "cloud",
-    "featured": true,
-    "navLabel": "Pilviturva",
-    "seo": { "title": "Pilviturvallisuuden koventaminen | Lapland AI Lab", "description": "Käytännön askeleet pilvipalveluiden koventamiseen ja väärinkäyttöjen ehkäisyyn." },
-    "hero": { "title": "Pilvi on yhteinen vastuu", "subtitle": "Oikeat oletukset, selkeä vastuunjako ja näkyvyys estävät suurimmat pilviriskit." },
-    "sections": [
-      { "title": "Perusasetukset kuntoon", "body": "Varmista, että oletuskonfiguraatiot eivät jätä tallennus- tai identiteettipalveluja julkisiksi. Auditointi kannattaa aloittaa oikeuksista." }
-    ],
-    "checklist": [
-      "Rajoita julkiset tallennuslokerot ja poista tarpeettomat julkaisut",
-      "Ota MFA käyttöön kaikille pilvitileille",
-      "Käy läpi IAM-roolit ja poista ylisuuria oikeuksia",
-      "Kytke lokitus ja hälytykset kriittisille resursseille",
-      "Testaa palautuspolut ja varmistukset säännöllisesti"
-    ],
-    "cta": { "text": "Siirry kyberperusteisiin", "route": "/cyber-basics" }
-  },
-  "psykologia": {
-    "slug": "psykologia",
-    "category": "psychology",
-    "featured": true,
-    "navLabel": "Psykologia",
-    "seo": { "title": "Ihmisen psykologia tietoturvassa | Lapland AI Lab", "description": "Ymmärrä käyttäytymisen heikkoudet ja vahvista turvallisuuskulttuuria." },
-    "hero": { "title": "Ihminen ratkaisee", "subtitle": "Teknologia suojaa, mutta käyttäytyminen ratkaisee lopputuloksen." },
-    "sections": [
-      { "title": "Miksi virheitä tapahtuu", "body": "Stressi, kiire ja pelko ohjaavat huonoihin päätöksiin. Turvallinen kulttuuri tekee oikean valinnan helpoksi." }
-    ],
-    "checklist": [
-      "Rakenna selkeät toimintamallit kiiretilanteisiin",
-      "Vähennä pelkoa raportoida virheistä",
-      "Harjoittele huijaustilanteita matalalla kynnyksellä",
-      "Pidä ohjeet näkyvillä ja helposti löydettävissä",
-      "Palkitse turvallisesta toiminnasta"
-    ],
-    "cta": { "text": "Aloita tiimin koulutus", "route": null }
-  },
-  "tekoälystrategia": {
-    "slug": "tekoälystrategia",
-    "category": "ai",
-    "featured": true,
-    "navLabel": "AI-strategia",
-    "seo": { "title": "Tekoälystrategia pk-yrityksille | Lapland AI Lab", "description": "Selkeä suunnitelma tekoälyn hyödyntämiseen ilman hallitsemattomia riskejä." },
-    "hero": { "title": "Tekoälyä suunnitelmallisesti", "subtitle": "Hyödyt syntyvät tavoitteista, eivät kokeilujen määrästä." },
-    "sections": [
-      { "title": "Tavoitteet ennen työkaluja", "body": "Määrittele liiketoiminnan tärkein ongelma, jonka tekoäly ratkaisee. Vasta sen jälkeen valitse työkalut." }
-    ],
-    "checklist": [
-      "Määrittele 1–3 selkeää käyttötapausta",
-      "Arvioi datan laatu ja saatavuus",
-      "Sovi vastuista ja omistajuudesta",
-      "Tee riskikartoitus ennen käyttöönottoa",
-      "Kouluta tiimi ymmärtämään tekoälyn rajat"
-    ],
-    "cta": { "text": "Lue AI-turvaopas", "route": "/ai-safety" }
-  },
   "staff-training": {
     "slug": "staff-training",
-    "category": "kyber",
-    "featured": true,
-    "navLabel": "Henkilöstö",
     "category": "routines",
     "featured": false,
     "navLabel": "Koulutus",
@@ -183,11 +123,11 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Tee tietoturvasta osa perehdytystä",
       "Harjoittele kalasteluviestien tunnistamista"
     ],
-    "cta": { "text": "Aloita tiimin koulutus", "route": null }
+    "cta": { "text": "Aloita tiimin koulutus", "route": "/routines" }
   },
   "annual-security-cycle": {
     "slug": "annual-security-cycle",
-    "category": "kyber",
+    "category": "routines",
     "featured": false,
     "navLabel": "Vuosikello",
     "seo": { "title": "Tietoturvan vuosikello | Lapland AI Lab", "description": "Suunnitelmallinen malli tietoturvan ylläpitoon koko kalenterivuoden ajaksi." },
