@@ -260,14 +260,20 @@ export const contentRegistry: Record<string, ContentItem> = {
     "slug": "arctic-mobile-hardening",
     "category": "mobile",
     "featured": true,
-    "navLabel": "Arctic Hardening",
+    "navLabel": "Arctic Mobile",
     "seo": { "title": "Mobiililaitteiden koventaminen | Lapland AI Lab", "description": "Puhelimen tietoturvan maksimointi pohjoisissa ääriolosuhteissa." },
-    "hero": { "title": "Jäätynyt laite, turvattu data", "subtitle": "Ääriolosuhteet vaativat äärimmäistä tietoturvaa. Näin kovennat mobiililaitteesi tunturikäyttöön." },
+    "hero": { "title": "Arctic Mobile Hardening", "subtitle": "Rauhallinen, asiantunteva kovennusohjelma, joka pitää mobiilidatan turvassa kuin routa varjelee maan ydintä." },
     "sections": [
-      { "title": "Kylmäkäynnistys ja salaus", "body": "Varmista, että laitteen levyn salaus on päällä ja vaatii PIN-koodin käynnistyksessä (Secure Boot). Älä luota pelkkään sormenjälkeen, joka ei toimi hanskoilla." },
-      { "title": "Radiokurinalaisuus", "body": "Erämaassa tai rajavyöhykkeellä jokainen signaali on riski. Kytke Bluetooth, NFC ja Wi-Fi pois päältä (Hard Off), kun et tarvitse niitä, välttääksesi seurantaa." }
+      { "title": "Kylmäkäynnistys ja salaus", "body": "Pidä levyn salaus aina päällä ja vaadi PIN-koodi käynnistyksessä. Se on kuin tunturissa kulkeva kompassi: hiljainen, luotettava ja välttämätön silloin kun olosuhteet kiristyvät." },
+      { "title": "Radiokurinalaisuus", "body": "Sulje Bluetooth, NFC ja Wi-Fi, kun et tarvitse niitä. Hiljainen radio on kuin tyyni järvenselkä: vähemmän heijastuksia, vähemmän havaittavaa." },
+      { "title": "Lukitus ja valvonta", "body": "Ota käyttöön automaattinen lukitus ja etäpyyhintä. Kun laite katoaa, rauhallinen toimintamalli palauttaa järjestyksen kuten revontulten alla tehty suunnitelma." }
     ],
-    "checklist": ["Kytke levyn salaus päälle", "Käytä 6-numeroista PIN-koodia", "Poista Bluetooth käytöstä", "Aktivoi etäpyyhintä"],
-    "cta": { "text": "Tarkista laiteasetukset", "route": "/mobile-security" }
+    "checklist": [
+      "Varmista levyn salaus ja Secure Boot",
+      "Käytä vähintään 6-numeroista PIN-koodia",
+      "Pidä radiot hiljaisina tarpeettomina",
+      "Aktivoi etäpyyhintä ja lukituspolitiikka"
+    ],
+    "cta": { "text": "Päivitä mobiilikovennus", "route": "/mobile-security" }
   }
 };
