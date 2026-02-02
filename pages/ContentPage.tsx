@@ -8,7 +8,7 @@ const ContentPage: React.FC = () => {
   const { slug: paramsSlug } = useParams<{ slug: string }>();
   const location = useLocation();
   
-  // Use the slug from URL params or infer it from the pathname (e.g., /incident-response)
+  // Etsitään slug joko urlista tai suorasta polusta
   const slug = paramsSlug || location.pathname.substring(1);
   const content = contentRegistry[slug];
 
@@ -25,7 +25,7 @@ const ContentPage: React.FC = () => {
       <Hero 
         title={content.hero.title}
         subtitle={content.hero.subtitle}
-        label="Tietoturvasyväsukellus"
+        label={`Tietoturvasyväsukellus | ${content.category.toUpperCase()}`}
       />
 
       <div className="space-y-12">
@@ -54,6 +54,7 @@ const ContentPage: React.FC = () => {
             <button disabled className="bg-slate-800 text-slate-400 font-bold px-10 py-5 rounded-full cursor-not-allowed">
               {content.cta.text} (Tulossa)
             </button>
+            <p className="mt-4 text-xs text-slate-500 italic">Tämä osio on tällä hetkellä työn alla.</p>
           </div>
         )}
       </div>
