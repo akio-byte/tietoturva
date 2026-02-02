@@ -116,7 +116,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Stop & Think -rutiini", "body": "Pysähdy hetkeksi ennen kuin klikkaat. Tarkista lähettäjän osoite ja linkin todellinen kohde viemällä hiiri sen päälle." }
     ],
     "checklist": ["Tarkista lähettäjän todellinen osoite", "Älä syötä tunnuksia linkeistä", "Varmista rahansiirrot toista kanavaa pitkin", "Luota vaistoosi: jos se tuntuu oudolta, kysy IT-tuelta"],
-    "cta": { "text": "Tee kalastelutesti", "route": null }
+    "cta": { "text": "Tee kalastelutesti", "route": "/content/social-engineering" }
   },
   "incident-response": {
     "slug": "incident-response",
@@ -130,7 +130,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Eskalaatiopolku", "body": "Tiedä ketä soittaa. Tallenna Labin turvavalvomon numero offline-tilaan jo tänään." }
     ],
     "checklist": ["Eristä laite: Katkaise verkkoyhteydet heti", "Säilytä tila: Älä sammuta virtaa", "Ilmoita: Ota yhteys Labin turvavalvomoon", "Vaihda kriittiset salasanat puhtaalla laitteella"],
-    "cta": { "text": "Soita päivystykseen", "route": null }
+    "cta": { "text": "Soita päivystykseen", "route": "/incident-response" }
   },
   "arctic-digital-survival": {
     "slug": "arctic-digital-survival",
@@ -182,7 +182,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Datan luottamuksellisuus", "body": "Älä syötä arkaluontoista asiakasdataa tai liikesalaisuuksia julkisiin kielimalleihin. Käytä aina organisaation sisäisiä instansseja." }
     ],
     "checklist": ["Validoi AI-tuotosten eheys", "Käytä suljettuja instansseja sensitiiviselle datalle", "Monitoroi poikkeavia kehotteita", "Anonymisoi data ennen syöttöä"],
-    "cta": { "text": "Lue tekninen whitepaper", "route": null }
+    "cta": { "text": "Lue tekninen whitepaper", "route": "/content/ai-technical-security" }
   },
   "arctic-hardware-safety": {
     "slug": "arctic-hardware-safety",
@@ -210,7 +210,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Pääsynhallinta", "body": "Rajaa kumppanien pääsy vain välttämättömään tietoon. Käytä 'Least Privilege' -periaatetta kaikissa integraatioissa." }
     ],
     "checklist": ["Auditoi kriittiset kumppanit", "Vaadi SOP-sopimukset", "Rajaa ulkopuolinen pääsy", "Monitoroi integraatioiden lokeja"],
-    "cta": { "text": "Lataa auditointipohja", "route": null }
+    "cta": { "text": "Lataa auditointipohja", "route": "/content/supply-chain" }
   },
   "backup-strategies": {
     "slug": "backup-strategies",
@@ -249,7 +249,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Miten aloitan siirtymän?", "body": "1. Identiteetti: MFA pakolliseksi kaikille. 2. Laitteet: MDM-hallinta päälle. 3. Pienimmät oikeudet: Anna pääsy vain tarpeelliseen tietoon." }
     ],
     "checklist": ["Varmista identiteetti (MFA)", "Tarkista laitteen kunto", "Rajoita oikeudet pienimpiin (Least Privilege)", "Segmentoi verkko"],
-    "cta": { "text": "Siirry Zero Trustiin", "route": null }
+    "cta": { "text": "Siirry Zero Trustiin", "route": "/content/zero-trust-architecture" }
   },
   "privacy-ai-training": {
     "slug": "privacy-ai-training",
@@ -269,7 +269,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Kytke 'Opt-out' päälle estääksesi datan käytön mallin koulutuksessa",
       "Lue palvelun tietosuojakäytäntö: missä data säilytetään?"
     ],
-    "cta": { "text": "Lue tietosuojakäytäntö", "route": null }
+    "cta": { "text": "Lue tietosuojakäytäntö", "route": "/content/privacy-ai-training" }
   },
   "arctic-mobile-hardening": {
     "slug": "arctic-mobile-hardening",
