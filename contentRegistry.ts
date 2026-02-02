@@ -15,100 +15,87 @@ export const contentRegistry: Record<string, ContentItem> = {
     "slug": "arctic-security-opus",
     "category": "routines",
     "featured": true,
-    "navLabel": "Arktinen Opus",
+    "navLabel": "Opus",
     "seo": {
-      "title": "Arctic Security Opus - Kokonaisvaltainen Turvaopas",
-      "description": "Lataa Lapland AI Labin kattava opas arktiseen kyberturvallisuuteen ja tekoälyn hallintaan."
+      "title": "Arctic Security Opus | Strateginen Selviytymisopas",
+      "description": "Pohjoisen digitaalisen turvallisuuden perusteos. Strategiat, rutiinit ja mielenmalli arktiseen kyberympäristöön."
     },
     "hero": {
-      "title": "Arktinen Opus: Selviytymisopas Digitaaliseen Talveen",
-      "subtitle": "Kattava arkkitehtuurikuvaus ja toimintaohjeisto kriittisen infrastruktuurin ja tekoälyratkaisujen suojaamiseen."
+      "title": "Arctic Security Opus",
+      "subtitle": "Strateginen perusteos digitaaliseen selviytymiseen."
     },
     "sections": [
       {
-        "title": "Dokumentin Arkkitehtuuri",
-        "body": "Tämä opus ei ole pelkkä manuaali, vaan strateginen viitekehys. Se yhdistää Lapland AI Labin 'Arctic Security' -filosofian käytännön teknisiin kontrolleihin. Sisältö on jaettu kuuteen pääteemaan: Kyberresilienssi, AI-turva, Mobiili karkaisu, Kriisinhallinta, Tietosuoja ja Päivittäiset rutiinit."
-      },
-      {
-        "title": "Zero Trust Arktisessa Verkossa",
-        "body": "Luottamus on ansaittava uudelleen jokaisessa pakkasasteessa. Verkkoarkkitehtuurimme ei luota sisä- eikä ulkoverkon liikenteeseen oletusarvoisesti. Jokainen yhteys todennetaan, salataan ja valtuutetaan erikseen, aivan kuten jokainen askel heikoilla jäillä."
+        "title": "Pohjoinen mielenmalli",
+        "body": "Turvallisuus ei ole työkalu, vaan tila. Opus opastaa rakentamaan rutiinit, jotka kestävät vaativimmatkin olosuhteet."
       }
     ],
     "checklist": [
-      "Määrittele dokumentin kohderyhmä (CISO vs. Arkkitehdit)",
-      "Valitse visuaalinen teema (Slate-950 tausta, Emerald-500 korostukset)",
-      "Generoi sisältö lukukohtaisesti asiantuntijatason varmistamiseksi",
-      "Lisää konkreettiset tarkistuslistat jokaisen luvun loppuun"
+      "Määritä kriittiset digitaaliset resurssit",
+      "Luo päivittäinen tarkistuslista",
+      "Vakiinnuta turvalliset viestintäkanavat"
     ],
     "cta": {
-      "text": "Lataa Opasluonnos",
-      "route": null
+      "text": "Lataa Opus",
+      "route": "/download/opus"
     }
   },
   "arctic-codex-protocol": {
     "slug": "arctic-codex-protocol",
     "category": "routines",
-    "featured": true,
-    "navLabel": "Arctic Codex",
+    "featured": false,
+    "navLabel": "Codex",
     "seo": {
-      "title": "Arctic Codex: Arkkitehtuurin peruskivi",
-      "description": "Miten Lapland AI Labin Codex ohjaa turvallisuutta ja brändin eheyttä kaikissa olosuhteissa."
+      "title": "Arctic Codex Protocol | Arkkitehtuurin Peruskivi",
+      "description": "Tekninen protokolla järjestelmien karkaisuun ja arktiseen infrastruktuuriin."
     },
     "hero": {
-      "title": "Ikiroudan vakaus: Arctic Codex",
-      "subtitle": "Järjestelmän muuttumaton ydin, joka takaa turvallisuuden ja jatkuvuuden."
+      "title": "Arctic Codex Protocol",
+      "subtitle": "Järjestelmäarkkitehtuurin muuttumaton peruskivi."
     },
     "sections": [
       {
-        "title": "Codexin rooli: Permafrost-kerros",
-        "body": "Codex ei ole pelkkä dokumentti, vaan se on arkkitehtuurimme alin kerros. Se määrittelee ne rajat, joita tekoäly ja sisällöntuotanto eivät saa ylittää. Se on 'North Star', joka ohjaa navigointia silloinkin, kun näkyvyys on nolla."
-      },
-      {
-        "title": "Ohjaus ja Auditointi",
-        "body": "Codexin tehtävänä on validoida jokainen vastaus ja toiminto suhteessa 'Arctic Security' -brändiin. Se varmistaa, että tekninen asiantuntijuus yhdistyy rauhalliseen, pohjoiseen vakauteen ilman kompromisseja."
+        "title": "Infrastruktuurin karkaisu",
+        "body": "Codex määrittelee standardit, joilla digitaalinen ympäristö eristetään ja suojataan ulkoisilta häiriöiltä."
       }
     ],
     "checklist": [
-      "Määrittele Codexin muuttumattomat ydinsäännöt",
-      "Aseta kielelliset ja tekniset turvarajat",
-      "Auditoi ulostulo suhteessa brändin visuaaliseen ja sanalliseen identiteettiin"
+      "Implementoi Zero Trust -arkkitehtuuri",
+      "Koveta palvelinympäristöt",
+      "Automatisoi lokien analysointi"
     ],
     "cta": {
-      "text": "Lue protokolla",
-      "route": "/routines"
+      "text": "Lue Protokolla",
+      "route": "/codex-details"
     }
   },
   "arctic-automation-hub": {
     "slug": "arctic-automation-hub",
     "category": "routines",
-    "featured": true,
-    "navLabel": "Automaatio & Dev",
+    "featured": false,
+    "navLabel": "Automaatio",
     "seo": {
-      "title": "Automaatio ja Dev-tila | Lapland AI Lab",
-      "description": "Rakenna itseohjautuva infrastruktuuri reaaliaikaisella logiikkakartalla ja manuaalisella ohjauskeskuksella."
+      "title": "Arctic Automation Hub | Turvallinen Dev-tila",
+      "description": "Automaation ja turvallisen ohjelmistokehityksen keskus."
     },
     "hero": {
-      "title": "Komentokeskus: Automaatio",
-      "subtitle": "Hallitse digitaalista ekosysteemiäsi kuin jäänmurtajaa. Automatisoi rutiinit, mutta säilytä manuaalinen hallinta kriittisissä solmukohdissa."
+      "title": "Arctic Automation Hub",
+      "subtitle": "Tehokkuutta turvallisuuden ehdoilla."
     },
     "sections": [
       {
-        "title": "Itseohjautuva infrastruktuuri",
-        "body": "Moderni arkkitehtuuri ei ainoastaan suorita koodia, vaan valvoo itseään. Käytä CI/CD-putkia automatisoidaksesi testauksen ja käyttöönoton. Kun ympäristö on vakioitu, virhemarginaali kutistuu kuin hanki keväällä."
-      },
-      {
-        "title": "Dev Mode: Ihmisen ja koneen liitto",
-        "body": "Kaikkea ei voi jättää algoritmien varaan. Dev Mode on 'Human-in-the-loop' -rajapinta, joka pysäyttää prosessin ja pyytää vahvistusta, kun järjestelmä kohtaa poikkeaman tai vaatii strategista päätöksentekoa."
+        "title": "Turvallinen CI/CD",
+        "body": "Automaatio poistaa inhimilliset virheet. Hub tarjoaa työkalut jatkuvaan ja turvalliseen toimitukseen."
       }
     ],
     "checklist": [
-      "Määritä pisteet, jotka vaativat manuaalista hyväksyntää",
-      "Rakenna reaaliaikainen dashboard järjestelmän logiikan visualisointiin",
-      "Automatisoi toistuvat ylläpitotehtävät skripteillä"
+      "Skannaa koodi haavoittuvuuksien varalta",
+      "Automatisoi päivityssyklit",
+      "Validoi konfiguraatiomuutokset"
     ],
     "cta": {
-      "text": "Aktivoi automaatio",
-      "route": null
+      "text": "Avaa Hub",
+      "route": "/automation-tools"
     }
   },
   "arctic-privacy-vault": {
@@ -117,100 +104,89 @@ export const contentRegistry: Record<string, ContentItem> = {
     "featured": true,
     "navLabel": "Tietosuoja",
     "seo": {
-      "title": "Arktinen tietosuoja ja datasuvereniteetti | Lapland AI Lab",
-      "description": "Suojaa organisaatiosi arkaluontoisin tieto pohjoisen peruskallion varmuudella. Datasuvereniteetti ja nollaluottamus."
+      "title": "Arctic Privacy Vault | Digitaalinen Ikirouta",
+      "description": "Datasuvereniteetti ja yksityisyyden suojaaminen äärimmäisissä olosuhteissa."
     },
     "hero": {
-      "title": "Digitaalinen ikirouta",
-      "subtitle": "Tietosuoja ei ole vain vaatimus, se on turvasatama. Rakennamme ratkaisuja, joissa data pysyy hallinnassasi, vaikka ympärillä myrskyäisi."
+      "title": "Arctic Privacy Vault",
+      "subtitle": "Datan suvereniteetti ja digitaalinen ikirouta."
     },
     "sections": [
       {
-        "title": "Datasuvereniteetti",
-        "body": "Varmistamme, että kriittinen data ei koskaan poistu määritellyn jurisdiktion ulkopuolelle. Käytämme hajautettua tallennusta ja vahvaa salausta, joka kestää aikaa."
+        "title": "Digitaalinen ikirouta",
+        "body": "Tallennamme kriittisen tiedon tavalla, joka säilyy muuttumattomana ja saavuttamattomana ulkopuolisille. Tämä on datan suvereniteetin korkein muoto."
       },
       {
-        "title": "Nollaluottamus-arkkitehtuuri",
-        "body": "Yksityisyys on oletusarvo. Jokainen pääsypyyntö on todennettava, riippumatta siitä, tuleeko se verkon sisältä vai ulkoa."
+        "title": "Yksityisyyden kerrokset",
+        "body": "Käytämme monikerroksista salausta ja hajautettua tallennusta varmistaaksemme, ettei yksittäinen murtuma vaaranna kokonaisuutta."
       }
     ],
     "checklist": [
-      "Kartoita datan sijainti ja virtaus",
-      "Aktivoi päästä päähän -salaus kaikessa viestinnässä",
-      "Minimoi kerättävän datan määrä (Data Minimization)",
-      "Auditoi kolmansien osapuolten pääsyasetukset"
+      "Käytä päästä päähän -salausta kaikessa viestinnässä",
+      "Minimoi kerättävän datan määrä",
+      "Auditoi kolmansien osapuolten pääsyoikeudet"
     ],
     "cta": {
-      "text": "Lataa tietosuojaviite",
-      "route": null
+      "text": "Suojaa Datasi",
+      "route": "/privacy-setup"
     }
   },
   "mobile-field-hardening": {
     "slug": "mobile-field-hardening",
     "category": "mobile",
     "featured": true,
-    "navLabel": "Mobiilikarkaisu",
+    "navLabel": "Mobiili",
     "seo": {
-      "title": "Mobiililaitteiden koventaminen äärioloihin | Lapland AI Lab",
-      "description": "Älypuhelimen suojaus kenttäolosuhteissa. Fyysinen ja digitaalinen karkaisu."
+      "title": "Mobiilikarkaisu | Arctic Field Hardening",
+      "description": "Mobiililaitteiden syväkarkaisu kenttäolosuhteisiin."
     },
     "hero": {
-      "title": "Karkaistu yhteys",
-      "subtitle": "Kentällä mobiililaite on sekä työkalu että riski. Arctic Hardening -protokollamme varmistaa, että viestintäsi pysyy murtumattomana myös verkon reunalla."
+      "title": "Mobiilikarkaisu",
+      "subtitle": "Laitteesi on etulinjan puolustus."
     },
     "sections": [
       {
-        "title": "Laitetason karkaisu",
-        "body": "Poistamme tarpeettomat palvelut ja suljemme hyökkäyspinnat. Käytämme hiekkalaatikointia ja rautapohjaista salausta suojaamaan laitteen muistia."
-      },
-      {
-        "title": "Viestintä vihamielisessä verkossa",
-        "body": "Kun avoimet verkot ovat ainoa vaihtoehto, käytämme dynaamisia VPN-tunneleita ja peitettyä liikennettä (obfuscation) estämään seurannan."
+        "title": "Kenttäkarkaisu",
+        "body": "Mobiililaite on usein heikoin lenkki. Karkaisemme käyttöjärjestelmän ja sovellukset kestämään kohdistettuja hyökkäyksiä."
       }
     ],
     "checklist": [
-      "Poista käytöstä automaattinen Wi-Fi-liittyminen",
-      "Käytä vain biometrisesti varmennettuja avainnippuja",
-      "Asenna hätätyhjennys-toiminto (Remote Wipe)",
-      "Vaihda fyysinen SIM-kortti suojattuun eSIM-profiiliin"
+      "Poista tarpeettomat radioliitännät (BT/NFC)",
+      "Käytä laitteistopohjaista salausta",
+      "Eristä työ- ja henkilökohtainen profiili"
     ],
     "cta": {
-      "text": "Lue karkaisuohje",
-      "route": null
+      "text": "Aloita Karkaisu",
+      "route": "/mobile-guide"
     }
   },
   "adversarial-ai-defense": {
     "slug": "adversarial-ai-defense",
     "category": "ai",
     "featured": true,
-    "navLabel": "AI-vastatoimet",
+    "navLabel": "AI-Turva",
     "seo": {
-      "title": "Adversarial Attacks & Model Alignment | Lapland AI Lab",
-      "description": "Suojaa tekoälymallisi manipulaatiolta. Syväsukellus vastakkaisiin hyökkäyksiin ja mallien linjaukseen."
+      "title": "AI-vastatoimet | Adversarial AI Defense",
+      "description": "Suojaudu tekoälypohjaisilta hyökkäyksiltä ja varmista mallien linjaus (alignment)."
     },
     "hero": {
-      "title": "Tekoälyn puolustuslinja",
-      "subtitle": "Kun algoritmit ohjaavat päätöksentekoa, niiden eheys on kriittistä. Torjumme adversarial attacks -hyökkäykset ja varmistamme model alignment -prosessin toteutumisen."
+      "title": "AI-vastatoimet",
+      "subtitle": "Puolustus tekoälypohjaisia uhkia vastaan."
     },
     "sections": [
       {
-        "title": "Vastakkaiset hyökkäykset",
-        "body": "Hyökkääjät voivat syöttää malleille manipuloitua dataa, joka muuttaa niiden toimintaa huomaamatta. Rakennamme robustit suodattimet, jotka tunnistavat poikkeamat syötteissä."
-      },
-      {
-        "title": "Mallien linjaus (Alignment)",
-        "body": "Varmistamme, että tekoäly toimii eettisten ja turvallisten raamien sisällä. Model alignment ei ole vain koodia, se on arvojen kääntämistä matemaattisiksi rajoitteiksi."
+        "title": "Adversarial Attacks & Alignment",
+        "body": "Tekoälymallit ovat alttiita manipuloinnille. Keskitymme mallien linjaukseen (alignment) ja vastakkaisten hyökkäysten (adversarial attacks) tunnistamiseen."
       }
     ],
     "checklist": [
-      "Suorita stressitesti vastakkaisilla syötteillä",
-      "Varmista opetusdatan puhtaus (Data Sanitization)",
-      "Implementoi jatkuva monitorointi mallin ulostuloille",
-      "Määrittele kovat turvarajat (Guardrails) vastauksille"
+      "Testaa mallit syötteen manipuloinnin varalta",
+      "Varmista mallien eettinen linjaus",
+      "Monitoroi tekoälyn ulostuloja poikkeamien varalta"
     ],
     "cta": {
-      "text": "Tekninen katsaus",
-      "route": null
+      "text": "Tutki AI-turvaa",
+      "route": "/ai-defense-lab"
     }
   },
   "arctic-business-continuity": {
@@ -219,71 +195,114 @@ export const contentRegistry: Record<string, ContentItem> = {
     "featured": true,
     "navLabel": "Jatkuvuus",
     "seo": {
-      "title": "Liiketoiminnan jatkuvuus arktisissa kriiseissä | Lapland AI Lab",
-      "description": "Miten varmistat organisaatiosi toimintakyvyn, kun digitaalinen infrastruktuuri pettää?"
+      "title": "Arctic Business Continuity | Jatkuvuussuunnittelu",
+      "description": "Liiketoiminnan jatkuvuus kriisitilanteissa ja Arctic Freeze -protokolla."
     },
     "hero": {
-      "title": "Routa ei riko rutiineja",
-      "subtitle": "Varautuminen on taitoa toimia silloin, kun suunnitelma A sulaa alta. Rakennamme resilienssiä, joka kestää sähkökatkot ja tietoliikennehäiriöt."
+      "title": "Jatkuvuussuunnittelu",
+      "subtitle": "Toimintakyky kaikissa olosuhteissa."
     },
     "sections": [
       {
-        "title": "Digitaalinen varautuminen",
-        "body": "Kriisinhallinta ei ole vain palomuureja; se on kykyä operoida 'offline-tilassa'. Organisaation on tunnistettava kriittiset prosessit, joiden on toimittava silloinkin, kun pilvipalvelut ovat saavuttamattomissa."
-      },
-      {
-        "title": "Vasteketjun jäädyttäminen",
-        "body": "Kun hyökkäys tai häiriö havaitaan, ensimmäiset minuutit ratkaisevat. Selkeät, etukäteen harjoitellut protokollat estävät paniikin ja minimoivat vahingot. Kutsumme tätä 'Arctic Freeze' -protokollaksi: eristetään saastunut alue välittömästi."
+        "title": "Arctic Freeze -protokolla",
+        "body": "Kun kriisi iskee, aktivoimme Arctic Freeze -protokollan. Se varmistaa kriittisten toimintojen jatkumisen offline-tilassa ja eristetyssä verkossa."
       }
     ],
     "checklist": [
-      "Määritä kriittiset offline-toiminnot",
-      "Päivitä yhteystietolista fyysiseen muotoon",
-      "Testaa palautumisaika (RTO) neljännesvuosittain",
-      "Varmista varaviestintäkanavien toimivuus"
+      "Luo offline-toimintasuunnitelma",
+      "Testaa varajärjestelmien käynnistys",
+      "Kouluta henkilöstö poikkeustilaan"
     ],
     "cta": {
-      "text": "Lataa jatkuvuusopas",
-      "route": null
+      "text": "Varmista Jatkuvuus",
+      "route": "/continuity-plan"
     }
   },
   "remote-work-security": {
     "slug": "remote-work-security",
     "category": "kyber",
-    "featured": true,
+    "featured": false,
     "navLabel": "Etätyö",
-    "seo": { "title": "Etätyön tietoturvaopas | Lapland AI Lab", "description": "Käytännön ohjeet turvalliseen etätyöhön pohjoisissa oloissa." },
-    "hero": { "title": "Toimisto ilman seiniä", "subtitle": "Varmista VPN-yhteys ennen tunturiin nousua. Näin pidät työtietosi turvassa missä tahansa." },
+    "seo": {
+      "title": "Etätyön Turvallisuus | Arctic Remote",
+      "description": "Turvallinen työskentely toimiston ulkopuolella."
+    },
+    "hero": {
+      "title": "Etätyön Turvallisuus",
+      "subtitle": "Toimisto on siellä missä sinäkin."
+    },
     "sections": [
-      { "title": "Kotiverkon kriittiset pisteet", "body": "Reititin on kotisi tietoturvan ovi. Jos oletussalasana on 'admin', ovi on selällään. Vaihda salasana ennen kuin kirjaudut työkoneella." }
+      {
+        "title": "Turvallinen etäyhteys",
+        "body": "Varmista, että jokainen yhteys on suojattu ja jokainen käyttäjä on tunnistettu vahvasti."
+      }
     ],
-    "checklist": ["Varmista VPN-yhteys aina", "Vaihda reitittimen oletussalasana", "Peitä kamera fyysisellä suojalla", "Käytä tietosuojakalvoa julkisilla paikoilla"],
-    "cta": { "text": "Tutustu fyysiseen turvaan", "route": null }
+    "checklist": [
+      "Käytä vahvaa monivaiheista tunnistautumista",
+      "Varmista VPN-yhteyden eheys",
+      "Päivitä kotiverkon laitteet"
+    ],
+    "cta": {
+      "text": "Lue Ohjeet",
+      "route": "/remote-security"
+    }
   },
   "social-engineering": {
     "slug": "social-engineering",
     "category": "kyber",
-    "featured": true,
+    "featured": false,
     "navLabel": "Tunturivaisto",
-    "seo": { "title": "Sosiaalinen manipulointi | Lapland AI Lab", "description": "Kehitä organisaatiollesi tunturivaisto tunnistamaan digitaaliset petokset." },
-    "hero": { "title": "Inhimillinen valpautus", "subtitle": "Tekniikka on vain niin vahvaa kuin sen käyttäjä. Sosiaalinen manipulointi on yleisin tapa murtaa suojat." },
+    "seo": {
+      "title": "Tunturivaisto | Sosiaalinen Manipulointi",
+      "description": "Tunnista ja torju sosiaalisen manipuloinnin yritykset."
+    },
+    "hero": {
+      "title": "Tunturivaisto",
+      "subtitle": "Ihmisen puolustusmekanismit digiajassa."
+    },
     "sections": [
-      { "title": "Tunnista kalastelu", "body": "Kalasteluviestit hyödyntävät usein kiirettä, pelkoa tai auktoriteettia. Jos pyyntö tuntuu epätavalliselta, se todennäköisesti on sitä." }
+      {
+        "title": "Psykologinen puolustus",
+        "body": "Tekniikka ei riitä, jos ihminen erehtyy. Tunturivaisto opettaa tunnistamaan manipuloinnin merkit."
+      }
     ],
-    "checklist": ["Tarkista lähettäjän todellinen osoite", "Älä syötä tunnuksia linkeistä", "Luota vaistoosi: jos se tuntuu oudolta, kysy"],
-    "cta": { "text": "Tee kalastelutesti", "route": null }
+    "checklist": [
+      "Varmista pyynnön esittäjän henkilöllisyys",
+      "Suhtaudu kriittisesti kiireellisiin pyyntöihin",
+      "Ilmoita epäilyttävistä havainnoista"
+    ],
+    "cta": {
+      "text": "Kehitä Vaistoasi",
+      "route": "/social-eng-defense"
+    }
   },
   "incident-response": {
     "slug": "incident-response",
     "category": "crisis",
-    "featured": true,
-    "navLabel": "Kriisinhallinta",
-    "seo": { "title": "Tietomurto-ohjeistus | Lapland AI Lab", "description": "Välitön toimintaohje poikkeustilanteisiin." },
-    "hero": { "title": "Kun vahinko sattuu", "subtitle": "Rauhallisuus on vahvin suojasi. Aika on kriittisin tekijäsi: eristä, ilmoita, reagoi." },
+    "featured": false,
+    "navLabel": "Vaste",
+    "seo": {
+      "title": "Kriisinhallinta | Incident Response",
+      "description": "Nopea vaste ja toipuminen tietoturvapoikkeamista."
+    },
+    "hero": {
+      "title": "Kriisinhallinta",
+      "subtitle": "Kun vahinko on tapahtunut."
+    },
     "sections": [
-      { "title": "Sekunneilla on väliä", "body": "Mitä nopeammin katkaiset verkkoyhteyden, sitä vähemmän dataa hyökkääjä ehtii viedä. Älä viivyttele analyysin pelossa." }
+      {
+        "title": "Välitön vaste",
+        "body": "Ensimmäiset minuutit ratkaisevat. Selkeä vasteohjeistus minimoi vahingot ja nopeuttaa toipumista."
+      }
     ],
-    "checklist": ["Eristä laite: Katkaise verkkoyhteydet", "Säilytä tila: Älä sammuta virtaa", "Ilmoita: Ota yhteys turvavalvomoon"],
-    "cta": { "text": "Soita päivystykseen", "route": null }
+    "checklist": [
+      "Eristä saastuneet järjestelmät",
+      "Aktivoi kriisiviestintäkanavat",
+      "Analysoi hyökkäyksen juurisyy"
+    ],
+    "cta": {
+      "text": "Vasteohjeet",
+      "route": "/ir-protocol"
+    }
   }
 };
