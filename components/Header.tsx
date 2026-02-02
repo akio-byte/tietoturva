@@ -10,6 +10,7 @@ const Header: React.FC = () => {
     { name: 'Perusteet', path: '/cyber-basics' },
     { name: 'AI-Turva', path: '/ai-safety' },
     { name: 'Mobiili', path: '/mobile-security' },
+    { name: 'Kriisi', path: '/crisis' },
     { name: 'Suoja', path: '/privacy' },
     { name: 'Audit', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },

@@ -301,6 +301,41 @@ export const contentRegistry: Record<string, ContentItem> = {
       "route": "/crisis/survival"
     }
   },
+  "glacier-breach": {
+    "slug": "glacier-breach",
+    "category": "crisis",
+    "featured": false,
+    "navLabel": "Glacier Breach",
+    "seo": {
+      "title": "Glacier Breach | Incident Response & Sosiaalinen Manipulointi",
+      "description": "Kriisitilanteen vaste ja sosiaalisen manipuloinnin torjunta yhtenäiseksi toimintamalliksi."
+    },
+    "hero": {
+      "title": "Glacier Breach",
+      "subtitle": "Yhdistä nopea incident response ja psykologinen puolustus yhdeksi arktiseksi vasteeksi."
+    },
+    "sections": [
+      {
+        "title": "Tilannekuva ja välitön vaste",
+        "body": "Kun hyökkäys läpäisee jäärintaman, nopea eristys ja tilannekuvan muodostaminen ratkaisevat. Glacier Breach -malli varmistaa, että tekninen incident response käynnistyy minuuteissa, ei tunneissa."
+      },
+      {
+        "title": "Sosiaalisen manipuloinnin torjunta",
+        "body": "Kriisitilanteissa ihmiset ovat haavoittuvia kiireelle ja pelolle. Rakennamme käytännöt, jotka estävät huijaukset, harhautukset ja väärät ohjeet, jotta vaste pysyy hallittuna."
+      }
+    ],
+    "checklist": [
+      "Eristä: Sulje kompromisoidut tilit ja laitteet välittömästi",
+      "Vahvista: Tarkista kaikki kriisiviestit kaksinkertaisella varmennuksella",
+      "Koordinoi: Nimeä selkeä incident response -johtaja",
+      "Harjoittele: Simuloi sosiaalisen manipuloinnin skenaariot",
+      "Dokumentoi: Kirjaa päätökset ja opit jatkokehitystä varten"
+    ],
+    "cta": {
+      "text": "Aktivoi Glacier Breach",
+      "route": "/crisis"
+    }
+  },
   "arctic-codex-protocol": {
     "slug": "arctic-codex-protocol",
     "category": "routines",

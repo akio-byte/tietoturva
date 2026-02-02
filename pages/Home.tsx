@@ -93,6 +93,14 @@ const Home: React.FC = () => {
                   <CategoryIcon category={cat.slug} className="w-6 h-6" />
                 </div>
                 <span className={`${cat.color} font-black text-[10px] block mb-6 uppercase tracking-[0.25em] group-hover:scale-110 transition-transform`}>{cat.name}</span>
+                {cat.slug === 'crisis' && (
+                  <Link
+                    to="/crisis"
+                    className="text-[10px] text-red-300 uppercase tracking-[0.25em] font-black hover:text-red-200 transition-colors"
+                  >
+                    Avaa kriisisisällöt
+                  </Link>
+                )}
                 <div className="flex flex-col gap-4">
                   {Object.values(contentRegistry)
                     .filter(item => item.category === cat.slug)
