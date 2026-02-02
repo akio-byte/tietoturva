@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -8,12 +7,12 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Etusivu', path: '/' },
-    { name: 'Kyberperusteet', path: '/cyber-basics' },
-    { name: 'AI-turva', path: '/ai-safety' },
+    { name: 'Perusteet', path: '/cyber-basics' },
+    { name: 'AI-Turva', path: '/ai-safety' },
     { name: 'Mobiili', path: '/mobile-security' },
-    { name: 'Auditointi', path: '/business-audit' },
+    { name: 'Audit', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
-    { name: 'Kriisinhallinta', path: '/incident-response' },
+    { name: 'Kriisi', path: '/incident-response' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -33,13 +32,13 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden xl:flex space-x-4">
+          <nav className="hidden xl:flex space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
-                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
+                className={`text-[13px] font-bold uppercase tracking-wider transition-all hover:text-emerald-400 whitespace-nowrap px-3 py-2 rounded-lg ${
+                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-400'
                 }`}
               >
                 {item.name}
