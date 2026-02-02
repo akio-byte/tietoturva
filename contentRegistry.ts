@@ -18,9 +18,12 @@ export const contentRegistry: Record<string, ContentItem> = {
     "navLabel": "Etätyö",
     "seo": { "title": "Etätyön tietoturvaopas | Lapland AI Lab", "description": "Käytännön ohjeet turvalliseen etätyöhön." },
     "hero": { "title": "Toimisto ilman seiniä", "subtitle": "Näin pidät työtietosi turvassa tunturissa, kahvilassa ja kotona." },
-    "sections": [{ "title": "Kotiverkon kriittiset pisteet", "body": "Reititin on kotisi tietoturvan ovi. Jos oletussalasana on 'admin', ovi on käytännössä auki." }],
-    "checklist": ["Käytä VPN:ää", "Vaihda reitittimen salasana", "Peitä kamera"],
-    "cta": { "text": "Varmista etätyön suojaus", "route": "/cyber-basics" }
+    "sections": [
+      { "title": "Kotiverkon kriittiset pisteet", "body": "Reititin on kotisi tietoturvan ovi. Jos oletussalasana on 'admin', ovi on käytännössä auki." },
+      { "title": "Liikkuva työ ja fyysinen suoja", "body": "Kun työskentelet julkisissa tiloissa, muista että suurin uhka on usein vieressä istuva silmäpari. Katso myös 'Fyysinen turva' -osio laitteiden suojaamiseen." }
+    ],
+    "checklist": ["Käytä VPN:ää", "Vaihda reitittimen salasana", "Peitä kamera", "Käytä tietosuojakalvoa julkisilla paikoilla"],
+    "cta": { "text": "Tutustu fyysiseen turvaan", "route": "/content/physical-defense" }
   },
   "incident-response": {
     "slug": "incident-response",
@@ -28,12 +31,12 @@ export const contentRegistry: Record<string, ContentItem> = {
     "featured": true,
     "navLabel": "Kriisinhallinta",
     "seo": { "title": "Tietomurto-ohjeistus | Lapland AI Lab", "description": "Mitä tehdä, kun tietomurto tapahtuu?" },
-    "hero": { "title": "Kun vahinko sattuu", "subtitle": "Rauhallisuus on vahvin suojasi. Seuraa näitä askeleita välittömästi." },
+    "hero": { "title": "Kun vahinko sattuu", "subtitle": "Rauhallisuus on vahvin suojasi. Seuraa näitä askeleita välittömästi. Aika on kriittisin tekijäsi." },
     "sections": [
-      { "title": "Eristä ja ilmoita", "body": "Estä hyökkäyksen leviäminen katkaisemalla verkkoyhteydet laitteesta välittömästi." },
-      { "title": "Toipuminen ja analyysi", "body": "Kun tilanne on hallinnassa, palauta puhtaat varmuuskopiot, vaihda kaikki salasanat ja analysoi hyökkäysvektori vastaavien tapausten estämiseksi." }
+      { "title": "Sekunneilla on väliä", "body": "Mitä nopeammin katkaiset verkkoyhteyden, sitä vähemmän dataa hyökkääjä ehtii viedä tai salata. Älä viivyttele 'varmuuden vuoksi'." },
+      { "title": "Toipuminen ja viestintä", "body": "Kun tilanne on hallinnassa, palauta puhtaat varmuuskopiot ja tiedota sidosryhmiä avoimesti. Luottamus palautuu läpinäkyvyydellä." }
     ],
-    "checklist": ["Katkaise Wi-Fi", "Älä sammuta virtaa", "Ota yhteys IT-tukeen", "Vaihda salasanat eristetyssä laitteessa", "Tiedota sidosryhmiä"],
+    "checklist": ["Katkaise Wi-Fi/Irrota verkkokaapeli", "Älä sammuta virtaa (tärkeää analyysille)", "Ota yhteys IT-tukeen", "Vaihda salasanat eristetyssä laitteessa"],
     "cta": { "text": "Lataa kriisinhallintamalli", "route": null }
   },
   "backup-strategies": {
@@ -56,7 +59,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "hero": { "title": "Lukot ja suojat", "subtitle": "Älä jätä digitaalista avainta pöydälle. Fyysinen pääsy laitteeseen tarkoittaa usein pääsyä kaikkeen." },
     "sections": [{ "title": "Taskun ulkopuoliset uhat", "body": "Julkisissa tiloissa työskentely vaatii tarkkaavaisuutta. Tietosuojakalvot ja laitteiden lukitseminen ovat perusvaatimuksia." }],
     "checklist": ["Käytä tietosuojakalvoa", "Älä jätä laitteita autoon", "Käytä vain omia latureita julkisilla paikoilla"],
-    "cta": { "text": "Tarkista fyysinen turva", "route": null }
+    "cta": { "text": "Takaisin etätyöoppaaseen", "route": "/content/remote-work-security" }
   },
   "cloud-saas-security": {
     "slug": "cloud-saas-security",
@@ -67,7 +70,6 @@ export const contentRegistry: Record<string, ContentItem> = {
     "hero": { "title": "Turvallisesti pilvessä", "subtitle": "Pilvipalvelut siirtävät vastuun infrastruktuurista, mutta vastuu datasta säilyy aina sinulla." },
     "sections": [{ "title": "Jaetun vastuun malli", "body": "Palveluntarjoaja (esim. Microsoft, Google) vastaa pilven turvallisuudesta, mutta käyttäjä vastaa pilvessä olevan datan oikeuksista." }],
     "checklist": ["Auditointi jako-oikeuksille", "Pakollinen MFA kaikille tileille", "Seuraa kirjautumislokeja"],
-    // Fix: Removed 'null: null' typo from the object literal on line 70
     "cta": { "text": "Auditoi pilvipalvelut", "route": "/business-audit" }
   },
   "software-lifecycle": {
@@ -77,7 +79,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "navLabel": "Päivitykset",
     "seo": { "title": "Ohjelmistopäivitysten hallinta | Lapland AI Lab", "description": "Vanhentunut koodi on avoin ovi hyökkääjälle." },
     "hero": { "title": "Päivitys on turva", "subtitle": "Viivyttely päivityksissä on kutsu hyökkääjille. Tee päivityksistä automaattinen rutiini." },
-    "sections": [{ "title": "Haavoittuvuuksien hallinta", "body": "Suurin osa hyökkäyksistä kohdistuu tunnettuihin haavoittuvuuksiin, joihin on jo olemassa korjaupdates." }],
+    "sections": [{ "title": "Haavoittuvuuksien hallinta", "body": "Suurin osa hyökkäyksistä kohdistuu tunnettuihin haavoittuvuuksiin, joihin on jo olemassa korjauspäivitykset." }],
     "checklist": ["Kytke automaattiset päivitykset päälle", "Poista vanhat laitteet verkosta", "Käytä vain tuettuja ohjelmistoja"],
     "cta": { "text": "Päivitä laitekanta", "route": "/cyber-basics" }
   },
@@ -100,10 +102,10 @@ export const contentRegistry: Record<string, ContentItem> = {
     "seo": { "title": "Vastuullinen tekoäly | Lapland AI Lab", "description": "Tekoälyn eettinen käyttö ja turvallisuus organisaatiossa." },
     "hero": { "title": "Etiikka on turvaa", "subtitle": "Vastuullinen tekoälyn käyttö ehkäisee maineriskejä ja varmistaa syrjimättömyyden." },
     "sections": [
-      { "title": "Läpinäkyvyys", "body": "Käyttäjien on tiedettävä, milloin he asioivat tekoälyn kanssa. Läpinäkyvyys rakentaa luottamusta." },
+      { "title": "Hallusinaatioiden tunnistus", "body": "Tekoäly voi tuottaa faktuaalisesti väärää tietoa erittäin vakuuttavasti. Tarkista aina kriittiset tiedot (kuten lait, koodit tai lääketieteelliset ohjeet) alkuperäisestä lähteestä. Jos vastaus tuntuu 'liian täydelliseltä', se voi olla hallusinaatio." },
       { "title": "AI-käyttöpolitiikka", "body": "Luo organisaatiollesi selkeät raamit: Mitä työkaluja saa käyttää? Mitä tietoa (esim. asiakasdataa) ei saa ikinä syöttää julkisiin malleihin?" }
     ],
-    "checklist": ["Luo kirjallinen AI-politiikka", "Nimeä vastuullinen AI-vastaava", "Ole avoin AI-käytöstä", "Kouluta tiimi tunnistamaan hallusinaatiot"],
+    "checklist": ["Ristiintarkista AI:n tuottamat faktat", "Luo kirjallinen AI-politiikka", "Nimeä vastuullinen AI-vastaava", "Ole avoin AI-käytöstä"],
     "cta": { "text": "Luo AI-pelisäännöt", "route": "/ai-safety" }
   },
   "zero-trust-architecture": {
@@ -113,8 +115,11 @@ export const contentRegistry: Record<string, ContentItem> = {
     "navLabel": "Nollaluottamus",
     "seo": { "title": "Nollaluottamus-arkkitehtuuri | Lapland AI Lab", "description": "Älä koskaan luota, varmista aina." },
     "hero": { "title": "Zero Trust: Uusi normaali", "subtitle": "Moderni tietoturva ei luota kehenkään verkon sisällä tai ulkopuolella." },
-    "sections": [{ "title": "Periaatteet", "body": "Jokainen pyyntö on todennettava, valtuutettava ja salattava, vaikka se tulisi sisäverkosta." }],
-    "checklist": ["Identiteetin varmistus", "Laitteen kunnon tarkistus", "Pienimmät oikeudet"],
+    "sections": [
+      { "title": "Periaatteet", "body": "Jokainen pyyntö on todennettava, valtuutettava ja salattava, vaikka se tulisi sisäverkosta." },
+      { "title": "Miten aloitan siirtymän?", "body": "1. Identiteetti: MFA pakolliseksi kaikille. 2. Laitteet: MDM-hallinta päälle. 3. Pienimmät oikeudet: Anna pääsy vain tarpeelliseen tietoon." }
+    ],
+    "checklist": ["Identiteetin varmistus (MFA)", "Laitteen kunnon tarkistus", "Pienimmät oikeudet (Least Privilege)", "Verkon segmentointi"],
     "cta": { "text": "Siirry Zero Trustiin", "route": null }
   }
 };
