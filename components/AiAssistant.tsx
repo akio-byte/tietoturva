@@ -3,44 +3,25 @@ import { useLocation } from 'react-router-dom';
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { contentRegistry } from '../contentRegistry';
 
-// 1. EXACT SCHEMA DEFINITION (From Screenshot 5)
 const SCHEMA_CONTEXT = `
-// STRICT INTERFACE DEFINITION
 interface ContentItem {
-  slug: string; // URL-friendly ID (e.g., "arctic-mobile-hardening")
+  slug: string;
   category: 'kyber' | 'ai' | 'mobile' | 'crisis' | 'privacy' | 'routines';
   featured: boolean;
-  navLabel: string; // Max 20 chars!
+  navLabel: string;
   seo: { title: string; description: string };
   hero: { title: string; subtitle: string };
   sections: Array<{ title: string; body: string }>;
-  checklist: string[]; // Min 3 concrete steps
+  checklist: string[];
   cta: { text: string; route: string | null };
 }
 `;
 
-// 2. DESIGN & BRAND CONTEXT (From Screenshot 3 & 4)
 const BRAND_CONTEXT = `
-# BRAND IDENTITY: "Arctic Security"
-- Tone: High-end, Calm, Expert. Use metaphors related to winter, ice, northern lights, or survival where appropriate, but keep it technical.
-- Visuals: Slate-950 (darkness), Emerald-500 (aurora/safety), Glassmorphism.
-- Rules: 
-  - navLabel must be under 20 characters.
-  - Checklists must be concrete actions (verb-first).
-  - CTA buttons should usually be emerald-500 to maintain conversion continuity.
-`;
-
-// 3. AUDIT FINDINGS (Updated after Opus & Codex implementation)
-const AUDIT_CONTEXT = `
-# CURRENT AUDIT REPORT
-- COMPLETED:
-  - 'arctic-security-opus' (The Master Opus)
-  - 'arctic-codex-protocol' (The Permafrost layer)
-- REMAINING GAPS: 
-  - 'privacy' category is STILL empty (CRITICAL).
-  - 'mobile' category needs more deep-dive content (e.g. "arctic-mobile-hardening").
-- SEO NOTES: 
-  - AI Safety needs terms like "adversarial attacks" and "model alignment".
+# BRAND: "Arctic Security"
+- Tone: High-end, Calm, Expert.
+- Visuals: Slate-950, Emerald-500, Glassmorphism.
+- Arctic metaphors required (winter, ice, northern lights, survival).
 `;
 
 const AiAssistant: React.FC = () => {
@@ -48,90 +29,37 @@ const AiAssistant: React.FC = () => {
   const [isDevMode, setIsDevMode] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string}[]>([
-    {role: 'assistant', content: 'Hei! Olen Lapland AI Labin virtuaalinen tietoturva-analyytikko. Miten voin auttaa sinua tänään?'}
+    {role: 'assistant', content: 'Hei! Olen Lapland AI Labin virtuaalinen tietoturva-analyytikko.'}
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, isLoading]);
 
   const toggleDevMode = () => {
     const newMode = !isDevMode;
     setIsDevMode(newMode);
-    setMessages([{
-      role: 'assistant', 
-      content: newMode 
-        ? '🏗️ **SYSTEM ACCESS GRANTED: DEV ARCHITECT**\n\nOpus ja Codex kuitattu valmiiksi. Auditointiraportin mukaan seuraava kriittinen tehtävä on **Privacy**-aukkojen täyttäminen.\n\nHaluatko generoida tietosuoja-sisältöä?' 
-        : 'Hei! Olen Lapland AI Labin virtuaalinen tietoturva-analyytikko. Miten voin auttaa sinua tänään?'
-    }]);
-  };
+    
+    // Dynaaminen auditointiraportti analyysia varten
+    const privacyCount = Object.values(contentRegistry).filter(i => i.category === 'privacy').length;
+    const mobileCount = Object.values(contentRegistry).filter(i => i.category === 'mobile').length;
+    
+    let report = '🏗️ **DEV ARCHITECT: LIVE AUDIT**\n\n';
+    if (privacyCount < 2) report += '⚠️ **PRIVACY-AUKKO:** Tietosuoja-osio kaipaa syvempää sisältöä.\n';
+    if (mobileCount < 2) report += '⚠️ **MOBILE-AUKKO:** Arctic Hardening -ohjeistus puuttuu.\n';
+    report += '\nValmiina generoimaan uutta sisältöä SoT-standardin mukaisesti.';
 
-  const getContentMap = () => {
-    return Object.values(contentRegistry).map(item => 
-      `- ${item.navLabel} (${item.slug}) [${item.category}]`
-    ).join('\n');
+    setMessages([{ role: 'assistant', content: newMode ? report : 'Hei! Olen Lapland AI Labin analyytikko.' }]);
   };
 
   const getCurrentPageContext = () => {
-    const slug = location.pathname.substring(1).split('/').pop() || "";
-    
-    if (location.pathname === '/admin') return "Sivu: Hallintapaneeli (Admin)";
-    if (location.pathname === '/business-audit') return "Sivu: Pika-auditointi (Lomake)";
-    if (location.pathname === '/cyber-basics') return "Sivu: Kyberperusteet (Staattinen)";
-    if (location.pathname === '/') return "Sivu: Etusivu";
-
+    const slug = location.pathname.split('/').pop() || "";
     const content = contentRegistry[slug];
-    if (content) {
-      if (isDevMode) {
-        return `EDITING CONTEXT: ${JSON.stringify(content, null, 2)}`;
-      } else {
-        return `
-          Olet sivulla: "${content.navLabel}".
-          Tiivistelmä: ${content.hero.subtitle}.
-          Sisältö: ${content.sections.map(s => s.title + ": " + s.body).join(' | ')}.
-          Tehtävät: ${content.checklist.join(', ')}.
-        `;
-      }
-    }
-    return "Sivu: Tuntematon";
-  };
-
-  const getSystemInstruction = (pageContext: string) => {
-    if (isDevMode) {
-      return `
-      ROLE: Lead Architect & Content Strategist for Lapland AI Lab.
-      
-      YOUR TASK: Validate, audit, and generate content that fits the "Arctic Security" brand.
-      
-      ${BRAND_CONTEXT}
-      
-      ${SCHEMA_CONTEXT}
-      
-      ${AUDIT_CONTEXT}
-      
-      CURRENT PAGE CONTEXT:
-      ${pageContext}
-      
-      EXISTING CONTENT INVENTORY:
-      ${getContentMap()}
-      
-      INSTRUCTIONS FOR GENERATION:
-      1. When asked for JSON, return ONLY the JSON object. No markdown wrappers unless requested.
-      2. Ensure strict adherence to TypeScript interface.
-      3. Use the 'Arctic Security' tone (Professional, Calm, Expert).
-      `;
-    }
-
-    return `
-    ROLE: Lapland AI Lab Virtual Analyst.
-    CONTEXT: ${pageContext}
-    INSTRUCTIONS: Answer questions based on page content. Tone: Calm, Helpful, Finnish language. Keep answers short (max 4 sentences).
-    `;
+    if (content) return isDevMode ? `EDITING: ${JSON.stringify(content)}` : `Sivu: ${content.navLabel}`;
+    return `Sivu: ${location.pathname}`;
   };
 
   const handleSend = async (customMessage?: string) => {
@@ -146,20 +74,19 @@ const AiAssistant: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const currentContext = getCurrentPageContext();
       
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-
       const chat = ai.chats.create({
         model: 'gemini-3-flash-preview',
         config: {
-          systemInstruction: getSystemInstruction(currentContext),
-          temperature: isDevMode ? 0.3 : 0.7, // Lower temperature for code precision
+          systemInstruction: isDevMode 
+            ? `ROLE: Senior Architect. Brand: ${BRAND_CONTEXT}. Schema: ${SCHEMA_CONTEXT}. Tasks: Focus on Privacy and Mobile gaps. Registry size: ${Object.keys(contentRegistry).length} items.` 
+            : `ROLE: Security Analyst. Context: ${currentContext}. Answer in Finnish.`,
         },
       });
 
       const result = await chat.sendMessageStream({ message: messageToSend });
-
       let fullResponse = "";
-      
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
       for await (const chunk of result) {
         const c = chunk as GenerateContentResponse;
         if (c.text) {
@@ -171,95 +98,50 @@ const AiAssistant: React.FC = () => {
           });
         }
       }
-
     } catch (error) {
-      console.error(error);
-      setMessages(prev => {
-        const newMsgs = prev.slice(0, -1); 
-        return [...newMsgs, { role: 'assistant', content: 'Yhteyshäiriö tunturissa. (API Error)' }];
-      });
+      setMessages(prev => [...prev.slice(0, -1), { role: 'assistant', content: 'Yhteysvirta katkesi tunturissa.' }]);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const userQuickActions = [
-    { label: "Tiivistä tämä sivu", prompt: "Tiivistä tämän sivun tärkeimmät opit 3 ranskalaiseen viivaan." },
-    { label: "Testaa minua", prompt: "Kysy yksi monivalintakysymys (A,B,C) liittyen tähän sivuun." },
-    { label: "Selitä termit", prompt: "Selitä sivun vaikeimmat termit yksinkertaisesti." }
-  ];
-
-  // Updated Dev Actions based on Screenshots
   const devQuickActions = [
-    { 
-      label: "Täytä Privacy-aukko", 
-      prompt: "Luo uusi ContentItem JSON 'privacy'-kategoriaan. Aihe: 'Tietosuoja ja AI-mallien opetus'. Varmista: 3 konkreettista checklist-kohtaa (Anonymisointi, Minimointi, Lokit). NavLabel < 20 merkkiä." 
-    },
-    { 
-      label: "Luo Arctic Mobile", 
-      prompt: "Luo ContentItem JSON slugilla 'arctic-mobile-hardening'. Kategoria: 'mobile'. Teema: Mobiiliturva pakkasessa ja äärioloissa. Tone: Arctic Security." 
-    },
-    { 
-      label: "Validoi sivu", 
-      prompt: "Analysoi nykyinen sivu: Vastaako se 'Arctic Security' brändiä? Onko checklist konkreettinen? Onko CTA houkutteleva?" 
-    }
+    { label: "Auditointi", prompt: "Analysoi koko contentRegistry: missä on heikoimmat lenkit ja mitä kategoriaa pitäisi vahvistaa seuraavaksi?" },
+    { label: "Luo Hardening", prompt: "Luo uusi ContentItem JSON slugilla 'arctic-mobile-hardening'. Kategoria: 'mobile'. Teema: Mobiiliturva äärioloissa. Tone: Arctic Security." },
+    { label: "Luo Privacy", prompt: "Luo uusi ContentItem JSON 'privacy'-kategoriaan aiheesta 'GDPR ja Tekoäly: Käytännön opas'." }
   ];
-
-  const quickActions = isDevMode ? devQuickActions : userQuickActions;
-  const borderColor = isDevMode ? 'border-amber-500' : 'border-emerald-500';
 
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
       {!isOpen ? (
         <button 
           onClick={() => setIsOpen(true)}
-          className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform group relative ${isDevMode ? 'bg-amber-500 shadow-amber-500/40' : 'bg-emerald-500 shadow-emerald-500/40'}`}
+          className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform ${isDevMode ? 'bg-amber-500 shadow-amber-500/40' : 'bg-emerald-500 shadow-emerald-500/40'}`}
         >
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-slate-950"></div>
-          
           {isDevMode ? (
-             <svg className="w-8 h-8 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-             </svg>
+             <svg className="w-8 h-8 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
           ) : (
-            <svg className="w-8 h-8 text-slate-950 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
+            <svg className="w-8 h-8 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
           )}
         </button>
       ) : (
-        <div className={`glass w-[350px] md:w-[450px] h-[600px] rounded-3xl flex flex-col shadow-2xl animate-in slide-in-from-bottom-10 border overflow-hidden ${borderColor} border-opacity-30`}>
+        <div className={`glass w-[400px] h-[600px] rounded-3xl flex flex-col shadow-2xl border ${isDevMode ? 'border-amber-500/30' : 'border-emerald-500/30'} overflow-hidden`}>
           {/* Header */}
-          <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/80 backdrop-blur-xl z-10">
+          <div className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/80 backdrop-blur-xl">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className={`w-3 h-3 rounded-full animate-pulse ${isDevMode ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
-              </div>
+              <div className={`w-3 h-3 rounded-full animate-pulse ${isDevMode ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
               <div>
                 <span className={`font-bold block text-sm ${isDevMode ? 'text-amber-400' : 'aurora-text'}`}>
-                  {isDevMode ? 'Dev Architect' : 'Lapland AI Analyst'}
-                </span>
-                <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">
-                  {isLoading ? 'Processing...' : isDevMode ? 'System Access' : 'Online'}
+                  {isDevMode ? 'Dev Architect' : 'Arctic Analyst'}
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button 
-                onClick={toggleDevMode}
-                className={`text-[10px] font-bold px-2 py-1 rounded border transition-colors ${
-                  isDevMode 
-                  ? 'bg-amber-500 text-slate-900 border-amber-500' 
-                  : 'text-slate-500 border-slate-700 hover:text-white'
-                }`}
-              >
+              <button onClick={toggleDevMode} className={`text-[10px] font-bold px-2 py-1 rounded border ${isDevMode ? 'bg-amber-500 text-slate-900 border-amber-500' : 'text-slate-500 border-slate-700'}`}>
                 {isDevMode ? 'DEV ON' : 'DEV OFF'}
               </button>
-              <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white transition-colors">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+              <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
             </div>
           </div>
@@ -267,70 +149,36 @@ const AiAssistant: React.FC = () => {
           {/* Chat Area */}
           <div ref={scrollRef} className="flex-grow overflow-y-auto p-4 space-y-6 scroll-smooth">
             {messages.map((m, idx) => (
-              <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                <div className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed shadow-lg ${
-                  m.role === 'user' 
-                    ? `${isDevMode ? 'bg-amber-600' : 'bg-emerald-600'} text-white rounded-tr-none` 
-                    : 'bg-slate-800/90 text-slate-200 rounded-tl-none border border-slate-700/50'
-                }`}>
+              <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${m.role === 'user' ? (isDevMode ? 'bg-amber-600' : 'bg-emerald-600') + ' text-white rounded-tr-none' : 'bg-slate-800/90 text-slate-200 rounded-tl-none border border-slate-700/50'}`}>
                   {m.content.split('\n').map((line, i) => (
-                    <span key={i} className={`block min-h-[1em] ${line.startsWith('```') || line.startsWith('    ') ? 'font-mono text-xs bg-black/30 p-2 rounded my-1 overflow-x-auto' : ''}`}>
-                      {line}
-                    </span>
+                    <span key={i} className={`block min-h-[1.2em] ${line.startsWith('```') ? 'font-mono text-xs bg-black/30 p-2 rounded' : ''}`}>{line}</span>
                   ))}
                 </div>
               </div>
             ))}
-            {isLoading && messages[messages.length - 1]?.role !== 'assistant' && (
-              <div className="flex justify-start">
-                <div className="bg-slate-800/50 p-4 rounded-2xl rounded-tl-none border border-slate-700/50 flex gap-2">
-                  <div className={`w-2 h-2 rounded-full animate-bounce ${isDevMode ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
-                  <div className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.15s] ${isDevMode ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
-                  <div className={`w-2 h-2 rounded-full animate-bounce [animation-delay:-0.3s] ${isDevMode ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
-                </div>
-              </div>
-            )}
           </div>
 
-          {/* Quick Actions & Input */}
-          <div className="bg-slate-900/80 backdrop-blur-xl border-t border-slate-800 p-4 space-y-4">
-            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar mask-gradient">
-              {quickActions.map((action, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleSend(action.prompt)}
-                  disabled={isLoading}
-                  className={`whitespace-nowrap px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:bg-slate-700 text-xs font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${
-                    isDevMode ? 'text-amber-400 hover:border-amber-500/50' : 'text-emerald-400 hover:border-emerald-500/50'
-                  }`}
-                >
-                  {action.label}
-                </button>
-              ))}
-            </div>
-
+          {/* Input Area */}
+          <div className="bg-slate-900/80 backdrop-blur-xl border-t border-slate-800 p-4 space-y-3">
+            {isDevMode && (
+              <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+                {devQuickActions.map((action, idx) => (
+                  <button key={idx} onClick={() => handleSend(action.prompt)} className="whitespace-nowrap px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-amber-400 text-xs hover:border-amber-500 transition-all">{action.label}</button>
+                ))}
+              </div>
+            )}
             <div className="relative">
               <input 
                 type="text" 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={isDevMode ? "Komenna (esim. 'Luo uusi JSON')..." : "Kysy tietoturvasta..."}
-                disabled={isLoading}
-                className={`w-full bg-slate-950/50 border border-slate-700 rounded-xl pl-4 pr-12 py-3.5 text-sm focus:outline-none focus:ring-1 transition-all text-slate-200 placeholder-slate-500 disabled:opacity-50 ${
-                  isDevMode ? 'focus:border-amber-500 focus:ring-amber-500/20' : 'focus:border-emerald-500 focus:ring-emerald-500/20'
-                }`}
+                placeholder={isDevMode ? "Suorita koodi- tai sisältötehtävä..." : "Kysy tietoturvasta..."}
+                className={`w-full bg-slate-950 border border-slate-700 rounded-xl pl-4 pr-12 py-3.5 text-sm focus:outline-none focus:ring-1 ${isDevMode ? 'focus:border-amber-500 focus:ring-amber-500/20' : 'focus:border-emerald-500 focus:ring-emerald-500/20'}`}
               />
-              <button 
-                onClick={() => handleSend()}
-                disabled={!input.trim() || isLoading}
-                className={`absolute right-2 top-2 p-1.5 text-slate-950 rounded-lg transition-colors disabled:opacity-0 disabled:scale-75 transform duration-200 ${
-                  isDevMode ? 'bg-amber-500 hover:bg-amber-400' : 'bg-emerald-500 hover:bg-emerald-400'
-                }`}
-              >
-                <svg className="w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                </svg>
+              <button onClick={() => handleSend()} className={`absolute right-2 top-2 p-1.5 rounded-lg ${isDevMode ? 'bg-amber-500 text-slate-950' : 'bg-emerald-500 text-slate-950'}`}>
+                <svg className="w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
               </button>
             </div>
           </div>
