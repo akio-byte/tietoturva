@@ -1,4 +1,3 @@
-
 export interface ContentItem {
   slug: string;
   category: 'kyber' | 'ai' | 'mobile' | 'crisis' | 'privacy' | 'routines';
@@ -163,61 +162,58 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "cta": { "text": "Vahvista johdon strategia", "route": "/business-audit" }
   },
-  "cloud-security-hardening": {
-    "slug": "cloud-security-hardening",
+  "pilviturvallisuuden-koventaminen": {
+    "slug": "pilviturvallisuuden-koventaminen",
     "category": "kyber",
     "featured": false,
     "navLabel": "Pilviturva",
-    "seo": { "title": "Pilvipalveluiden suojaus | Lapland AI Lab", "description": "Miten varmistaa Microsoft 365, Google Workspace ja muiden pilvipalveluiden turvallisuus." },
-    "hero": { "title": "Turvallinen pilvipalvelu", "subtitle": "Pilvi on vain jonkun muun tietokone. Varmista, että hallitset pääsyä omaan dataasi." },
+    "seo": { "title": "Pilvipalveluiden tietoturvan koventaminen | Lapland AI Lab", "description": "Opas pilvipalveluiden, kuten M365 ja Google Workspace, turvalliseen konfigurointiin." },
+    "hero": { "title": "Pilvi haltuun turvallisesti", "subtitle": "Pilvipalvelut tarjoavat joustavuutta, mutta niiden turvallisuus riippuu omista valinnoistasi." },
     "sections": [
-      { "title": "Vastuunjako pilvessä", "body": "Muista, että pilvipalvelun tarjoaja vastaa alustasta, mutta sinä vastaat datasta ja sen pääsynhallinnasta." }
+      { "title": "Jaettu vastuu pilvessä", "body": "Pilvipalveluntarjoaja vastaa fyysisestä infrastruktuurista, mutta sinä vastaat datasta, identiteeteistä ja pääsynhallinnasta." }
     ],
     "checklist": [
-      "Aktivoi MFA kaikille pilvipalvelun käyttäjille",
-      "Tarkista ulkoiset jakolinkit kerran kuukaudessa",
-      "Rajoita pääsynhallinta vain tarvittaviin maihin (Geo-blocking)",
-      "Varmuuskopioi kriittinen pilvidata erilliseen sijaintiin",
-      "Poista vanhat käyttäjätunnukset heti työsuhteen päättyessä"
+      "Ota MFA käyttöön poikkeuksetta kaikille käyttäjille",
+      "Tarkista jaetut tiedostolinkit ja niiden käyttöoikeudet",
+      "Määrittele geo-blocking kriittisille kirjautumisille",
+      "Auditoida pilviympäristön lokit säännöllisesti"
     ],
-    "cta": { "text": "Lue kyberperusteet", "route": "/cyber-basics" }
+    "cta": { "text": "Lue lisää pilviturvasta", "route": null }
   },
-  "social-engineering-psychology": {
-    "slug": "social-engineering-psychology",
+  "vaikuttaminen-ja-psykologia": {
+    "slug": "vaikuttaminen-ja-psykologia",
     "category": "kyber",
     "featured": false,
-    "navLabel": "Vaikuttaminen",
-    "seo": { "title": "Sosiaalisen manipuloinnin psykologia | Lapland AI Lab", "description": "Miksi lankeamme huijauksiin ja miten voimme suojautua psykologiselta vaikuttamiselta." },
-    "hero": { "title": "Ihmismielen haavoittuvuudet", "subtitle": "Hyökkääjä ei murra koodia, vaan luottamuksen. Tunnista manipulaation merkit ajoissa." },
+    "navLabel": "Psykologia",
+    "seo": { "title": "Vaikuttaminen ja psykologia tietoturvassa | Lapland AI Lab", "description": "Ymmärrä miten hyökkääjät manipuloivat ihmismieltä ja miten suojautua." },
+    "hero": { "title": "Mielen murtaminen", "subtitle": "Hyökkääjä ei aina tarvitse monimutkaista koodia, jos hän hallitsee psykologisen vaikuttamisen ja manipuloinnin." },
     "sections": [
-      { "title": "Vaikuttamisen kuusi peruspilaria", "body": "Auktoriteetti, kiire, niukkuus, miellyttäminen, vastavuoroisuus ja johdonmukaisuus ovat huijarin työkaluja." }
+      { "title": "Manipulaation yleisimmät tekniikat", "body": "Kiireen tuntu, auktoriteetin teeskentely ja pelon lietsominen ovat hyökkääjän yleisimmät työkalut luottamuksen murtamiseen." }
     ],
     "checklist": [
-      "Pysähdy, jos viesti vaatii välitöntä toimintaa",
-      "Varmista oudot pyynnöt soittamalla lähettäjälle",
-      "Älä kerro arkaluonteisia tietoja puhelimessa yllättävälle soittajalle",
-      "Sovi organisaatioon selkeät prosessit rahansiirroille",
-      "Opeta tiimille, että kysyminen on aina turvallisempaa kuin olettaminen"
+      "Pysähdy ja hengitä, jos viesti vaatii välitöntä toimintaa",
+      "Varmista pyyntö aina toista, tuttua kanavaa pitkin",
+      "Älä toimi paineen alla; kysy neuvoa kollegalta",
+      "Ole kriittinen liian hyviltä kuulostaville tarjouksille"
     ],
-    "cta": { "text": "Tee auditointi", "route": "/business-audit" }
+    "cta": { "text": "Suojaudu manipulaatiolta", "route": null }
   },
-  "ai-governance-strategy": {
-    "slug": "ai-governance-strategy",
+  "ai-hallintostrategia": {
+    "slug": "ai-hallintostrategia",
     "category": "ai",
     "featured": false,
     "navLabel": "AI-hallinta",
-    "seo": { "title": "Tekoälyn hallintamalli pk-yritykselle | Lapland AI Lab", "description": "Luo yrityksellesi selkeät raamit tekoälyn turvalliseen ja eettiseen käyttöön." },
-    "hero": { "title": "Strateginen AI-turva", "subtitle": "Tekoäly ilman ohjausta on riski. Luo säännöt, jotka mahdollistavat innovaation turvallisesti." },
+    "seo": { "title": "Tekoälyn hallintastrategia organisaatiolle | Lapland AI Lab", "description": "Luo raamit ja säännöt tekoälyn turvalliselle hyödyntämiselle yrityksessäsi." },
+    "hero": { "title": "Hallittu tekoäly-siirtymä", "subtitle": "Innovaatio vaatii ohjausta. Luo organisaatiollesi kestävä ja turvallinen AI-strategia." },
     "sections": [
-      { "title": "AI-politiikka osana tietoturvaa", "body": "Organisaation tulee määritellä, mitä tekoälytyökaluja käytetään ja miten dataa käsitellään niissä." }
+      { "title": "Politiikka ja pelisäännöt", "body": "Määrittele selkeästi, mitä tekoälytyökaluja organisaatiossa saa käyttää ja mitä tietoa niihin saa syöttää." }
     ],
     "checklist": [
-      "Kirjaa ylös hyväksytyt AI-työkalut",
-      "Määrittele kielletyt tietotyypit (esim. lähdekoodi julkiseen malliin)",
-      "Nimeä vastuuhenkilö tekoälyn valvontaan",
-      "Varmista, että AI-tuotokset tarkistetaan aina asiantuntijan toimesta",
-      "Päivitä työsopimukset huomioimaan AI-oikeudet"
+      "Luo kirjallinen AI-käyttöohjeistus henkilöstölle",
+      "Nimeä vastuuhenkilö tekoälytyökalujen arviointiin",
+      "Kouluta tiimi tunnistamaan tekoälyyn liittyvät riskit",
+      "Päivitä tietosuojaselosteet vastaamaan AI-käyttöä"
     ],
-    "cta": { "text": "Siirry AI-turvaan", "route": "/ai-safety" }
+    "cta": { "text": "Luo AI-strategia", "route": null }
   }
 };
