@@ -40,6 +40,93 @@ export const contentRegistry: Record<string, ContentItem> = {
       "route": "/download/opus"
     }
   },
+  "nollatieto-glacier": {
+    "slug": "nollatieto-glacier",
+    "category": "privacy",
+    "featured": true,
+    "navLabel": "Nollatieto-suoja",
+    "seo": {
+      "title": "Zero-Knowledge -arkkitehtuuri arktisessa tietosuojassa",
+      "description": "Miten rakentaa tietosuoja, jossa edes palveluntarjoaja ei pääse käsiksi dataasi."
+    },
+    "hero": {
+      "title": "Jäänmurtaja tietosuojalle",
+      "subtitle": "Varmista datasi koskemattomuus Zero-Knowledge -protokollilla."
+    },
+    "sections": [
+      {
+        "title": "Matemaattinen eristys",
+        "body": "Nollatietotodistus mahdollistaa tiedon oikeellisuuden varmistamisen paljastamatta itse tietoa. Se on kuin revontuli: näet loisteen, mutta et voi koskettaa sen lähdettä."
+      }
+    ],
+    "checklist": [
+      "Implementoi päästä-päähän-salaus kaikkeen viestintään",
+      "Hajauta avainten hallinta HSM-moduuleihin",
+      "Auditoi nollatieto-protokollien eheys säännöllisesti"
+    ],
+    "cta": {
+      "text": "Lataa arkkitehtuurikuvaus",
+      "route": "/vault/zero-knowledge"
+    }
+  },
+  "field-hardened-comms": {
+    "slug": "field-hardened-comms",
+    "category": "mobile",
+    "featured": false,
+    "navLabel": "Kenttäkovennus",
+    "seo": {
+      "title": "Mobiililaitteiden kovennus kenttäolosuhteisiin",
+      "description": "Suojaa mobiiliviestintäsi signaalitiedustelulta ja fyysiseltä kajoamiselta."
+    },
+    "hero": {
+      "title": "Signaali pimeydessä",
+      "subtitle": "Karkaistu mobiilistrategia kriittiseen viestintään."
+    },
+    "sections": [
+      {
+        "title": "Radiosuojaus",
+        "body": "Kun operoidaan verkon reunalla, laitteen on oltava hiljaa. Käytä Faraday-suojausta ja selektiivistä radioliikennettä minimoidaksesi digitaalisen jalonjälkesi."
+      }
+    ],
+    "checklist": [
+      "Poista käytöstä tarpeettomat radiotaajuudet (NFC, BT)",
+      "Käytä vain GrapheneOS-tyyppisiä karkaistuja käyttöjärjestelmiä",
+      "Aktivoi automaattinen datan pyyhintä väärien yritysten jälkeen"
+    ],
+    "cta": {
+      "text": "Aloita kovennus",
+      "route": "/mobile/hardening-guide"
+    }
+  },
+  "ai-agent-governance": {
+    "slug": "ai-agent-governance",
+    "category": "ai",
+    "featured": false,
+    "navLabel": "Agentti-hallinta",
+    "seo": {
+      "title": "AI-Agenttien hallinta ja auditointi | Lapland AI Lab",
+      "description": "Määritä rajat autonomisille agenteille ja varmista ihmisen valvonta (human-in-the-loop)."
+    },
+    "hero": {
+      "title": "Agentti-hallinta",
+      "subtitle": "Hallittu autonomia on turvallisuuden tae pohjoisessa AI-ekosysteemissä."
+    },
+    "sections": [
+      {
+        "title": "Autonomian rajat",
+        "body": "Agentit tarvitsevat selkeät hiekkalaatikot ja pääsynhallinnan. Ilman valvontaa autonominen järjestelmä voi muuttua arvaamattomaksi ja alttiiksi manipuloinnille."
+      }
+    ],
+    "checklist": [
+      "Määritä kriittiset kynnykset ihmisvalvonnalle",
+      "Rajoita agenttien API-pääsyä vähimmän oikeuden periaatteella",
+      "Lokita kaikki agenttien tekemät päätöksentekoprosessit"
+    ],
+    "cta": {
+      "text": "Lue hallintamalli",
+      "route": "/ai/governance"
+    }
+  },
   "arctic-data-sovereignty": {
     "slug": "arctic-data-sovereignty",
     "category": "privacy",
@@ -347,61 +434,4 @@ export const contentRegistry: Record<string, ContentItem> = {
     }
   },
   "social-engineering": {
-    "slug": "social-engineering",
-    "category": "kyber",
-    "featured": false,
-    "navLabel": "Tunturivaisto",
-    "seo": {
-      "title": "Tunturivaisto | Sosiaalinen Manipulointi",
-      "description": "Tunnista ja torju sosiaalisen manipuloinnin yritykset."
-    },
-    "hero": {
-      "title": "Tunturivaisto",
-      "subtitle": "Ihmisen puolustusmekanismit digiajassa."
-    },
-    "sections": [
-      {
-        "title": "Psykologinen puolustus",
-        "body": "Tekniikka ei riitä, jos ihminen erehtyy. Tunturivaisto opettaa tunnistamaan manipuloinnin merkit."
-      }
-    ],
-    "checklist": [
-      "Varmista pyynnön esittäjän henkilöllisyys",
-      "Suhtaudu kriittisesti kiireellisiin pyyntöihin",
-      "Ilmoita epäilyttävistä havainnoista"
-    ],
-    "cta": {
-      "text": "Kehitä Vaistoasi",
-      "route": "/social-eng-defense"
-    }
-  },
-  "incident-response": {
-    "slug": "incident-response",
-    "category": "crisis",
-    "featured": false,
-    "navLabel": "Vaste",
-    "seo": {
-      "title": "Kriisinhallinta | Incident Response",
-      "description": "Nopea vaste ja toipuminen tietoturvapoikkeamista."
-    },
-    "hero": {
-      "title": "Kriisinhallinta",
-      "subtitle": "Kun vahinko on tapahtunut."
-    },
-    "sections": [
-      {
-        "title": "Välitön vaste",
-        "body": "Ensimmäiset minuutit ratkaisevat. Selkeä vasteohjeistus minimoi vahingot ja nopeuttaa toipumista."
-      }
-    ],
-    "checklist": [
-      "Eristä saastuneet järjestelmät",
-      "Aktivoi kriisiviestintäkanavat",
-      "Analysoi hyökkäyksen juurisyy"
-    ],
-    "cta": {
-      "text": "Vasteohjeet",
-      "route": "/ir-protocol"
-    }
-  }
-};
+    "slug": "social-engineering

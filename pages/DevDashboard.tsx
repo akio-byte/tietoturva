@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { SEO, Hero } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
@@ -5,21 +6,35 @@ import { contentRegistry } from '../contentRegistry';
 const DevDashboard: React.FC = () => {
   const [activeAgent, setActiveAgent] = useState<'ai' | 'dev' | 'codex'>('ai');
   const [auditResults, setAuditResults] = useState<{ category: string; count: number; status: 'ok' | 'warning' | 'error' }[]>([]);
+  const [isScanning, setIsScanning] = useState(false);
 
   useEffect(() => {
-    // Run simple audit on load
-    const categories = ['kyber', 'ai', 'mobile', 'crisis', 'privacy', 'routines'];
-    const results = categories.map(cat => {
-      const items = Object.values(contentRegistry).filter(item => item.category === cat);
-      const count = items.length;
-      return {
-        category: cat,
-        count: count,
-        status: count >= 2 ? 'ok' : count === 1 ? 'warning' : 'error' as any
-      };
-    });
-    setAuditResults(results);
+    runAudit();
   }, []);
+
+  const runAudit = () => {
+    setIsScanning(true);
+    setTimeout(() => {
+      const categories = ['kyber', 'ai', 'mobile', 'crisis', 'privacy', 'routines'];
+      const results = categories.map(cat => {
+        const items = Object.values(contentRegistry).filter(item => item.category === cat);
+        const count = items.length;
+        return {
+          category: cat,
+          count: count,
+          status: count >= 2 ? 'ok' : count === 1 ? 'warning' : 'error' as any
+        };
+      });
+      setAuditResults(results);
+      setIsScanning(false);
+    }, 800);
+  };
+
+  const triggerAgentAction = (prompt: string) => {
+    // Custom event to communicate with AiAssistant component
+    const event = new CustomEvent('agent-command', { detail: { prompt, mode: 'dev' } });
+    window.dispatchEvent(event);
+  };
 
   const agents = [
     {
@@ -61,7 +76,7 @@ const DevDashboard: React.FC = () => {
       <Hero 
         title="Arctic Command Center"
         subtitle="Hallitse agentteja, auditoi sisältöä ja ohjaa portaalin kehitystä reaaliajassa."
-        label="Dev Mode v2.1 - Management Dashboard"
+        label="Dev Mode v2.2 - Advanced Management"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -95,13 +110,10 @@ const DevDashboard: React.FC = () => {
           <div className="glass p-10 rounded-[2.5rem] border border-slate-800 relative h-72 flex items-center justify-center overflow-hidden">
              <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] border-b border-slate-900/5"></div>
              
-             {/* Simple SVG Flow */}
              <svg className="w-full max-w-lg relative z-10 overflow-visible" viewBox="0 0 400 120">
-                {/* Connections */}
                 <path d="M50 60 Q 125 10, 200 60" stroke="currentColor" className={`transition-opacity duration-700 ${activeAgent === 'ai' || activeAgent === 'dev' ? 'text-emerald-500 opacity-40' : 'text-slate-800 opacity-10'}`} fill="none" strokeWidth="2" strokeDasharray="4 4" />
                 <path d="M200 60 Q 275 110, 350 60" stroke="currentColor" className={`transition-opacity duration-700 ${activeAgent === 'dev' || activeAgent === 'codex' ? 'text-blue-500 opacity-40' : 'text-slate-800 opacity-10'}`} fill="none" strokeWidth="2" strokeDasharray="4 4" />
                 
-                {/* Agent Nodes */}
                 <g className="cursor-pointer" onClick={() => setActiveAgent('ai')}>
                   <circle cx="50" cy="60" r="15" className={`transition-all duration-500 ${activeAgent === 'ai' ? 'fill-emerald-500 shadow-xl' : 'fill-slate-800'}`} />
                   <circle cx="50" cy="60" r="25" className={`fill-emerald-500/20 transition-opacity ${activeAgent === 'ai' ? 'opacity-100 animate-ping' : 'opacity-0'}`} />
@@ -135,23 +147,37 @@ const DevDashboard: React.FC = () => {
           </h3>
           <div className="glass p-8 rounded-[2.5rem] border border-slate-800 space-y-4">
             {auditResults.map(res => (
-              <div key={res.category} className="flex items-center justify-between border-b border-slate-800/30 pb-3">
-                <span className="text-slate-400 font-bold uppercase text-[10px] tracking-widest">{res.category}</span>
-                <div className="flex items-center gap-3">
-                  <span className="text-xs text-slate-500 font-mono">{res.count} Pgs</span>
-                  <div className={`w-2 h-2 rounded-full ${
-                    res.status === 'ok' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 
-                    res.status === 'warning' ? 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.5)]' : 'bg-red-500 animate-ping'
-                  }`}></div>
+              <div key={res.category} className="flex flex-col border-b border-slate-800/30 pb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-400 font-bold uppercase text-[10px] tracking-widest">{res.category}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-slate-500 font-mono">{res.count} Pgs</span>
+                    <div className={`w-2 h-2 rounded-full ${
+                      res.status === 'ok' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 
+                      res.status === 'warning' ? 'bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.5)]' : 'bg-red-500 animate-ping'
+                    }`}></div>
+                  </div>
                 </div>
+                {res.status !== 'ok' && (
+                  <button 
+                    onClick={() => triggerAgentAction(`Luo uusi moduuli kategoriaan '${res.category}'.`)}
+                    className="text-[9px] text-emerald-400 hover:text-emerald-300 font-bold uppercase tracking-widest flex items-center gap-2 group transition-colors"
+                  >
+                    <svg className="w-3 h-3 group-hover:rotate-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 4v16m8-8H4" />
+                    </svg>
+                    Luo puuttuva sisältö
+                  </button>
+                )}
               </div>
             ))}
             <div className="pt-4">
               <button 
-                className="w-full bg-slate-900 border border-slate-800 hover:border-emerald-500/50 text-emerald-400 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest transition-all shadow-xl hover:shadow-emerald-500/10"
-                onClick={() => window.location.reload()}
+                disabled={isScanning}
+                className={`w-full bg-slate-900 border border-slate-800 hover:border-emerald-500/50 text-emerald-400 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest transition-all shadow-xl hover:shadow-emerald-500/10 ${isScanning ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={runAudit}
               >
-                PÄIVITÄ AUDITOINTI (FORCE SCAN)
+                {isScanning ? 'SKANNATAAN...' : 'PÄIVITÄ AUDITOINTI'}
               </button>
             </div>
           </div>
@@ -160,7 +186,7 @@ const DevDashboard: React.FC = () => {
              <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-3">Repo Status</h4>
              <div className="flex items-center gap-2 text-[10px] text-slate-500 font-mono">
                 <span className="text-emerald-500">●</span> main [branch]
-                <span className="ml-auto">v2.1.0-RC1</span>
+                <span className="ml-auto">v2.2.0-STABLE</span>
              </div>
           </div>
         </div>
@@ -220,7 +246,7 @@ const DevDashboard: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                  </svg>
               </div>
-              "Voit käyttää kelluvaa AI-avustajaa antaaksesi suoria komentoja valitulle agentille. Kokeile: 'Luo uusi moduuli'."
+              "Arctic Command Center mahdollistaa agenttien suoran ohjaamisen. Klikkaa 'Luo puuttuva sisältö' aloittaaksesi."
             </div>
           </div>
         </div>
