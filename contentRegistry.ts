@@ -229,30 +229,36 @@ export const contentRegistry: Record<string, ContentItem> = {
   "arctic-codex-protocol": {
     "slug": "arctic-codex-protocol",
     "category": "routines",
-    "featured": false,
-    "navLabel": "Codex",
+    "featured": true,
+    "navLabel": "Codex-protokolla",
     "seo": {
-      "title": "Arctic Codex Protocol | Arkkitehtuurin Peruskivi",
-      "description": "Tekninen protokolla järjestelmien karkaisuun ja arktiseen infrastruktuuriin."
+      "title": "Arctic Codex Protocol | Digitaalinen Kurinalaisuus",
+      "description": "Arctic Securityn Codex-protokolla on rutiinien selkäranka. Lue mitä on saavutettu ja miten vahvistamme operatiivista turvallisuutta tulevaisuudessa."
     },
     "hero": {
       "title": "Arctic Codex Protocol",
-      "subtitle": "Järjestelmäarkkitehtuurin muuttumaton peruskivi."
+      "subtitle": "Kun rutiinit jäätyvät osaksi murtamatonta rakennetta, syntyy horjumaton turva."
     },
     "sections": [
       {
-        "title": "Infrastruktuurin karkaisu",
-        "body": "Codex määrittelee standardit, joilla digitaalinen ympäristö eristetään ja suojataan ulkoisilta häiriöiltä."
+        "title": "Saavutettu vakaus: Perustukset laskettu",
+        "body": "Codex-protokollan ensimmäinen vaihe on saatettu päätökseen. Olemme luoneet 'ikuisen roudan' tason suojan, jossa kriittiset rutiinit on dokumentoitu ja jalkautettu osaksi päivittäistä toimintaa. Tähän mennessä olemme onnistuneet standardoimaan identiteetinhallinnan syklit ja varmistaneet, että jokainen digitaalinen jalanjälki on tarkasti valvottu. Järjestelmä on nyt yhtä selkeä ja vakaa kuin tyyni talviyö."
+      },
+      {
+        "title": "Seuraavat railot: Mitä on vielä edessä",
+        "body": "Vaikka perusta on kova kuin jää, horisontissa siintää uusia haasteita. Seuraava askeleemme on automaation syventäminen – tavoitteena on, että Codex ei ainoastaan ohjeista, vaan korjaa itse itsensä havaitessaan poikkeamia. Meidän on vielä integroitava reaaliaikainen uhka-analyysi suoraan rutiiniprotokolliin, jotta voimme reagoida ennen kuin ensimmäinenkään särö ilmestyy pintaan. Revontulten tavoin turvallisuuden on oltava dynaamista, mutta ennustettavaa."
       }
     ],
     "checklist": [
-      "Implementoi Zero Trust -arkkitehtuuri",
-      "Koveta palvelinympäristöt",
-      "Automatisoi lokien analysointi"
+      "Vahvista nykyiset pääsynhallinnan rutiinit",
+      "Implementoi automaattinen poikkeamien korjaus",
+      "Auditoi kolmansien osapuolten rajapinnat",
+      "Skaalaa protokolla mobiiliympäristöihin",
+      "Päivitä kriisinhallinnan vasteajat"
     ],
     "cta": {
-      "text": "Lue Protokolla",
-      "route": "/codex-details"
+      "text": "Tarkasta protokollan tila",
+      "route": "/codex-status"
     }
   },
   "arctic-automation-hub": {
