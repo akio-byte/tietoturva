@@ -1,16 +1,22 @@
 
 export interface ContentItem {
   slug: string;
+  category: string;
+  featured: boolean;
+  navLabel: string;
   seo: { title: string; description: string };
   hero: { title: string; subtitle: string };
   sections: Array<{ title: string; body: string }>;
   checklist: string[];
-  cta: { text: string; route: string };
+  cta: { text: string; route: string | null };
 }
 
 export const contentRegistry: Record<string, ContentItem> = {
   "remote-work-security": {
     "slug": "remote-work-security",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Etätyö",
     "seo": { "title": "Etätyön tietoturvaopas | Lapland AI Lab", "description": "Käytännön ohjeet turvalliseen etätyöhön ja kotiverkon suojaamiseen." },
     "hero": { "title": "Toimisto ilman seiniä", "subtitle": "Näin pidät työtietosi turvassa tunturissa, kahvilassa ja kotona." },
     "sections": [
@@ -27,6 +33,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
   "incident-response": {
     "slug": "incident-response",
+    "category": "crisis",
+    "featured": true,
+    "navLabel": "Kriisinhallinta",
     "seo": { "title": "Tietomurto-ohjeistus | Lapland AI Lab", "description": "Mitä tehdä, kun tietomurto tapahtuu? Selkeät askeleet vahinkojen minimoimiseksi." },
     "hero": { "title": "Kun vahinko sattuu", "subtitle": "Rauhallisuus on vahvin suojasi. Seuraa näitä askeleita välittömästi, jos epäilet tietomurtoa." },
     "sections": [
@@ -39,10 +48,13 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Kirjaa ylös kaikki poikkeavat havainnot",
       "Vaihda tärkeimmät salasanat toisella laitteella"
     ],
-    "cta": { "text": "Lataa kriisinhallintaopas", "route": "TULOSSA" }
+    "cta": { "text": "Lataa kriisinhallintaopas", "route": null }
   },
   "data-privacy": {
     "slug": "data-privacy",
+    "category": "privacy",
+    "featured": true,
+    "navLabel": "Tietosuoja",
     "seo": { "title": "Tietosuoja ja GDPR pk-yrityksille | Lapland AI Lab", "description": "Yksinkertainen opas henkilötietojen käsittelyyn ja luottamuksen rakentamiseen." },
     "hero": { "title": "Luottamuksen rakentaminen", "subtitle": "Henkilötieto on arvokkainta, mitä asiakkaasi sinulle antaa. Käsittele sitä kunnioituksella." },
     "sections": [
@@ -59,6 +71,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
   "ai-intellectual-property": {
     "slug": "ai-intellectual-property",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "AI-oikeudet",
     "seo": { "title": "AI ja tekijänoikeudet | Lapland AI Lab", "description": "Miten suojata yrityksen liikesalaisuudet tekoälyaikakaudella?" },
     "hero": { "title": "Kenen on koodi?", "subtitle": "Tekoäly on tehokas työkalu, mutta se vaatii tarkat säännöt organisaation IP-omaisuuden suojaamiseksi." },
     "sections": [
@@ -75,6 +90,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
   "deepfakes-and-influence": {
     "slug": "deepfakes-and-influence",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "Deepfakes",
     "seo": { "title": "Deepfakes ja huijaukset | Lapland AI Lab", "description": "Näin tunnistat tekoälyllä luodut valevideot ja huijausyritykset." },
     "hero": { "title": "Älä usko silmiäsi", "subtitle": "Tekoäly osaa matkia ääntä ja kuvaa. Opi tunnistamaan uuden sukupolven huijaukset ennen virhettä." },
     "sections": [
@@ -91,6 +109,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
   "staff-training": {
     "slug": "staff-training",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Henkilöstö",
     "seo": { "title": "Henkilöstön tietoturvakoulutus | Lapland AI Lab", "description": "Näin rakennat organisaatioon positiivisen ja valppaan tietoturvakulttuurin." },
     "hero": { "title": "Vahvin lenkki: Ihminen", "subtitle": "Tietoturva ei ole vain tekniikkaa, se on ihmisten välistä luottamusta ja yhteisiä toimintatapoja." },
     "sections": [
@@ -103,10 +124,13 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Tee tietoturvasta osa perehdytystä",
       "Harjoittele kalasteluviestien tunnistamista"
     ],
-    "cta": { "text": "Aloita tiimin koulutus", "route": "TULOSSA" }
+    "cta": { "text": "Aloita tiimin koulutus", "route": null }
   },
   "annual-security-cycle": {
     "slug": "annual-security-cycle",
+    "category": "kyber",
+    "featured": false,
+    "navLabel": "Vuosikello",
     "seo": { "title": "Tietoturvan vuosikello | Lapland AI Lab", "description": "Suunnitelmallinen malli tietoturvan ylläpitoon koko kalenterivuoden ajaksi." },
     "hero": { "title": "Jatkuvuus on vakauden perusta", "subtitle": "Tietoturva ei ole kertahanke. Vuosikello auttaa jakamaan tehtävät hallittaviin osiin." },
     "sections": [
@@ -122,6 +146,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
   "management-security-strategy": {
     "slug": "management-security-strategy",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Johdon tuki",
     "seo": { "title": "Tietoturvajohtaminen pk-yrityksessä | Lapland AI Lab", "description": "Tietoturva on liiketoiminnan jatkuvuuden ja arvon säilyttämisen työkalu." },
     "hero": { "title": "Turvallisuus on kilpailuetu", "subtitle": "Johtoryhmän tehtävä on varmistaa, että tietoturva tukee liiketoiminnan kasvua ja kestävyyttä." },
     "sections": [

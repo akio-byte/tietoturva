@@ -47,14 +47,14 @@ const ContentPage: React.FC = () => {
           Seuraa näitä askeleita varmistaaksesi aihealueen turvallisuuden organisaatiossasi.
         </Section>
 
-        {content.cta.route === "TULOSSA" ? (
+        {typeof content.cta.route === "string" && content.cta.route.startsWith("/") ? (
+          <CTA label={content.cta.text} link={content.cta.route} />
+        ) : (
           <div className="text-center py-10 opacity-50 grayscale">
             <button disabled className="bg-slate-800 text-slate-400 font-bold px-10 py-5 rounded-full cursor-not-allowed">
               {content.cta.text} (Tulossa)
             </button>
           </div>
-        ) : (
-          <CTA label={content.cta.text} link={content.cta.route} />
         )}
       </div>
     </div>

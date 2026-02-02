@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO, Section } from '../components/Shared';
+import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
   const cards = [
@@ -40,14 +41,7 @@ const Home: React.FC = () => {
     }
   ];
 
-  const topics = [
-    { title: "Etätyö", slug: "remote-work-security" },
-    { title: "Tietosuoja", slug: "data-privacy" },
-    { title: "Deepfakes", slug: "deepfakes-and-influence" },
-    { title: "AI-oikeudet", slug: "ai-intellectual-property" },
-    { title: "Henkilöstö", slug: "staff-training" },
-    { title: "Johdon tuki", slug: "management-security-strategy" }
-  ];
+  const topics = Object.values(contentRegistry).filter((topic) => topic.featured);
 
   return (
     <div className="relative overflow-hidden">
@@ -105,7 +99,7 @@ const Home: React.FC = () => {
                 to={`/content/${topic.slug}`}
                 className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group"
               >
-                <span className="text-slate-400 group-hover:text-emerald-400 font-bold text-sm">{topic.title}</span>
+                <span className="text-slate-400 group-hover:text-emerald-400 font-bold text-sm">{topic.navLabel}</span>
               </Link>
             ))}
           </div>
