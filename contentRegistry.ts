@@ -219,6 +219,41 @@ export const contentRegistry: Record<string, ContentItem> = {
     "checklist": ["Anonymisoi kaikki henkilötiedot", "Minimoi syötettävä data", "Tarkista audit-logit säännöllisesti", "Kielletään mallin opetus datallasi (Opt-out)"],
     "cta": { "text": "Lue tietosuojakäytäntö", "route": null }
   },
+  "ai-privacy-blueprint": {
+    "slug": "ai-privacy-blueprint",
+    "category": "privacy",
+    "featured": false,
+    "navLabel": "AI & Tietosuoja",
+    "seo": {
+      "title": "AI & Tietosuoja: Hallittu käyttöönotto | Lapland AI Lab",
+      "description": "Rauhallinen ja selkeä malli AI-käytön tietosuojariskien hallintaan."
+    },
+    "hero": {
+      "title": "AI & Tietosuoja",
+      "subtitle": "Tietosuoja ei hidasta innovointia, kun pelisäännöt ovat kirkkaat ja data virtaa hallitusti."
+    },
+    "sections": [
+      {
+        "title": "Tietovirrat näkyviksi",
+        "body": "Ensimmäinen askel on rauhallinen kartoitus: mitä dataa kerätään, missä se käsitellään ja mihin se päätyy. Kun virrat ovat näkyvissä, riskit voidaan mitoittaa ja päätökset tehdä ilman arvaamista."
+      },
+      {
+        "title": "Sopivat kontrollit oikeaan paikkaan",
+        "body": "Valitse kontrollit datan herkkyyden mukaan: henkilötiedot eristetään, lokitus varmistaa jäljitettävyyden ja käyttöoikeudet rajaavat tarpeettoman pääsyn. Näin AI saa tarvitsemansa datan ilman, että luottamus vaarantuu."
+      },
+      {
+        "title": "Luottamuksen elinkaari",
+        "body": "Tietosuoja ei ole kertaprojekti. Päivitä DPIA-arviot, seuraa mallien käyttöä ja viesti avoimesti sidosryhmille. Selkeä rytmi luo jatkuvaa varmuutta."
+      }
+    ],
+    "checklist": [
+      "Kartoita datavirrat ja käsittelypaikat",
+      "Luokittele data herkkyyden mukaan",
+      "Määritä lokitus ja pääsynhallinta",
+      "Pidä DPIA-arviot ajan tasalla"
+    ],
+    "cta": { "text": "Aloita tietosuojapolku", "route": null }
+  },
   "arctic-mobile-hardening": {
     "slug": "arctic-mobile-hardening",
     "category": "mobile",
