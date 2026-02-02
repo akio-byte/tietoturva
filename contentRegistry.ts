@@ -248,7 +248,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       { "title": "Periaatteet", "body": "Jokainen pyyntö on todennettava, valtuutettava ja salattava, vaikka se tulisi sisäverkosta." },
       { "title": "Miten aloitan siirtymän?", "body": "1. Identiteetti: MFA pakolliseksi kaikille. 2. Laitteet: MDM-hallinta päälle. 3. Pienimmät oikeudet: Anna pääsy vain tarpeelliseen tietoon." }
     ],
-    "checklist": ["Identiteetin varmistus (MFA)", "Laitteen kunnon tarkistus", "Pienimmät oikeudet (Least Privilege)", "Verkon segmentointi"],
+    "checklist": ["Varmista identiteetti (MFA)", "Tarkista laitteen kunto", "Rajoita oikeudet pienimpiin (Least Privilege)", "Segmentoi verkko"],
     "cta": { "text": "Siirry Zero Trustiin", "route": null }
   },
   "privacy-ai-training": {
