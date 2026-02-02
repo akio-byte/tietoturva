@@ -1,6 +1,1 @@
-import React from 'react';
-import ContentPage from '../components/ContentPage';
-
-const SocialEngineering: React.FC = () => <ContentPage slug="social-engineering" />;
-
-export default SocialEngineering;
+// File removed to comply with the 6-page limit mandated by the Source of Truth.
