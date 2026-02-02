@@ -20,3 +20,6 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 - React 19
 - Tailwind CSS
 - React Router 7
+
+## AI-avain ja välityspääte
+Sovellus käyttää palvelinpuolista `/api/ai`-välityspäätettä. Aseta `GEMINI_API_KEY` (tai `API_KEY`) ympäristömuuttuja palvelimelle, jotta AI-kutsut toimivat ilman että avain päätyy selaimen bundleen.
