@@ -29,8 +29,7 @@ const BusinessAudit: React.FC = () => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
   };
 
-  // Fix: Explicitly type acc and curr as numbers to avoid 'unknown' type errors in strict environments
-  const totalScore = Object.values(answers).reduce((acc: number, curr: number) => acc + curr, 0);
+  const totalScore = (Object.values(answers) as number[]).reduce((acc: number, curr: number) => acc + curr, 0);
   const allAnswered = Object.keys(answers).length === questions.length;
 
   const getResult = () => {
@@ -167,7 +166,7 @@ const BusinessAudit: React.FC = () => {
         )}
 
         <div className="mt-20 print:hidden">
-          <CTA label="Lataa koko Kyberperusteet-opas (Tulossa)" link="#/cyber-basics" />
+          <CTA label="Lue Kyberperusteet-opas" link="/cyber-basics" />
         </div>
       </div>
     </div>

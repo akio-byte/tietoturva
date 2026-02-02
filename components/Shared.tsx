@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 interface SeoProps {
   title: string;
@@ -97,11 +98,17 @@ export const RiskCard: React.FC<{ title: string; example: string; description: s
 export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => (
   <section className="text-center py-10">
     {link ? (
-      <a href={link} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block">
+      <Link 
+        to={link} 
+        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block"
+      >
         {label}
-      </a>
+      </Link>
     ) : (
-      <button onClick={onClick} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20">
+      <button 
+        onClick={onClick} 
+        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20"
+      >
         {label}
       </button>
     )}

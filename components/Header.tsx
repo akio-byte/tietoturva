@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const Header: React.FC = () => {
     { name: 'Mobiili', path: '/mobile-security' },
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
+    { name: 'Kriisinhallinta', path: '/incident-response' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -31,13 +33,13 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden lg:flex space-x-6">
+          <nav className="hidden xl:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap ${
-                  isActive(item.path) ? 'text-emerald-400' : 'text-slate-400'
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
+                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
                 }`}
               >
                 {item.name}
@@ -45,7 +47,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-400 hover:text-white p-2"
@@ -64,7 +66,7 @@ const Header: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-slate-900 border-b border-slate-800">
+        <div className="xl:hidden bg-slate-900 border-b border-slate-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link

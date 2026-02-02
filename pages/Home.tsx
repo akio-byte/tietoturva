@@ -28,16 +28,25 @@ const Home: React.FC = () => {
       )
     },
     {
-      title: 'Mobiiliturvallisuus',
-      desc: 'Suojaa tärkein työvälineesi. Käytännön ohjeet älypuhelimien tietoturvaan.',
-      link: '/mobile-security',
-      color: 'from-purple-400 to-purple-600',
+      title: 'Kriisinhallinta',
+      desc: 'Toimintaohjeet tilanteisiin, joissa suojat murtuvat. Rauhallisuus on vahvin suojasi.',
+      link: '/incident-response',
+      color: 'from-red-400 to-red-600',
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
       )
     }
+  ];
+
+  const topics = [
+    { title: "Etätyö", slug: "remote-work-security" },
+    { title: "Tietosuoja", slug: "data-privacy" },
+    { title: "Deepfakes", slug: "deepfakes-and-influence" },
+    { title: "AI-oikeudet", slug: "ai-intellectual-property" },
+    { title: "Henkilöstö", slug: "staff-training" },
+    { title: "Johdon tuki", slug: "management-security-strategy" }
   ];
 
   return (
@@ -85,6 +94,21 @@ const Home: React.FC = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mb-32">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center uppercase tracking-widest">Syvenny uusiin aiheisiin</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {topics.map((topic) => (
+              <Link 
+                key={topic.slug} 
+                to={`/content/${topic.slug}`}
+                className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group"
+              >
+                <span className="text-slate-400 group-hover:text-emerald-400 font-bold text-sm">{topic.title}</span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-12 max-w-4xl mx-auto">

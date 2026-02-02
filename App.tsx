@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -8,6 +9,7 @@ import CyberBasics from './pages/CyberBasics';
 import MobileSecurity from './pages/MobileSecurity';
 import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
+import ContentPage from './pages/ContentPage';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +24,10 @@ const App: React.FC = () => {
             <Route path="/mobile-security" element={<MobileSecurity />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
+            {/* Dynamic content routes */}
+            <Route path="/content/:slug" element={<ContentPage />} />
+            {/* Direct route for the main IA item 'Incident Response' */}
+            <Route path="/incident-response" element={<ContentPage />} />
           </Routes>
         </main>
         <Footer />
