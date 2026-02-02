@@ -132,6 +132,44 @@ export const contentRegistry: Record<string, ContentItem> = {
     "checklist": ["Eristä laite: Katkaise verkkoyhteydet heti", "Säilytä tila: Älä sammuta virtaa", "Ilmoita: Ota yhteys Labin turvavalvomoon", "Vaihda kriittiset salasanat puhtaalla laitteella"],
     "cta": { "text": "Soita päivystykseen", "route": null }
   },
+  "arctic-digital-survival": {
+    "slug": "arctic-digital-survival",
+    "category": "crisis",
+    "featured": true,
+    "navLabel": "Digitaalinen Selviytyminen",
+    "seo": {
+      "title": "Arctic Digital Survival Kit | Lapland AI Lab",
+      "description": "Selviytymispaketti digikatkoksiin: toimi nopeasti, turvaa viestintä ja säilytä toimintakyky poikkeusoloissa."
+    },
+    "hero": {
+      "title": "Digitaalinen Selviytyminen",
+      "subtitle": "Kun verkot kaatuvat ja näkyvyys nollautuu, tämä paketti pitää organisaatiosi toimintakykyisenä."
+    },
+    "sections": [
+      {
+        "title": "Tilannekuva minuuteissa",
+        "body": "Ensimmäinen tavoite on ymmärtää, mikä on poissa käytöstä ja mikä toimii edelleen. Rakenna nopea tilannekuva: yhteydet, kriittiset palvelut, henkilöstön tavoitettavuus ja asiakkaiden vaikutus."
+      },
+      {
+        "title": "Viestinnän varareitit",
+        "body": "Kytke käyttöön varaviestintäkanavat: satelliittiyhteydet, radio, offline-viestit ja ennalta sovitut kokoontumispisteet. Varmista, että jokainen tietää missä ja miten ilmoittautua."
+      },
+      {
+        "title": "Turvallinen työtila",
+        "body": "Eristä kriittiset laitteet ja luo suojattu työtila ilman tarpeettomia yhteyksiä. Käytä paperisia ohjeita ja offline-tilassa toimivia tarkistuslistoja."
+      }
+    ],
+    "checklist": [
+      "Laadi 15 minuutin tilannekuva (palvelut, verkot, henkilöstö)",
+      "Aktivoi varaviestintäkanavat ja päivitä yhteystiedot",
+      "Eristä kriittiset laitteet ja varmistu offline-työkalujen toimivuudesta",
+      "Nimeä päätöksentekijä ja viestintävastuut poikkeustilaan"
+    ],
+    "cta": {
+      "text": "Avaa selviytymispaketti",
+      "route": "/content/arctic-digital-survival"
+    }
+  },
   "ai-technical-security": {
     "slug": "ai-technical-security",
     "category": "ai",
