@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate, useLocation } from 'react-router-dom';
 import { SEO, Hero, Section, CTA, ArcticLoader } from '../components/Shared';
