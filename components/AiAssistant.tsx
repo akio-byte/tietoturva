@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { contentRegistry } from '../contentRegistry';
 
 // 1. EXACT SCHEMA DEFINITION (From Screenshot 5)
@@ -140,34 +139,34 @@ const AiAssistant: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const currentContext = getCurrentPageContext();
       
       setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
 
-      const chat = ai.chats.create({
-        model: 'gemini-3-flash-preview',
-        config: {
-          systemInstruction: getSystemInstruction(currentContext),
-          temperature: isDevMode ? 0.3 : 0.7, // Lower temperature for code precision
+      const response = await fetch('/api/ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          message: messageToSend,
+          systemInstruction: getSystemInstruction(currentContext),
+          temperature: isDevMode ? 0.3 : 0.7,
+        }),
       });
 
-      const result = await chat.sendMessageStream({ message: messageToSend });
-
-      let fullResponse = "";
-      
-      for await (const chunk of result) {
-        const c = chunk as GenerateContentResponse;
-        if (c.text) {
-          fullResponse += c.text;
-          setMessages(prev => {
-            const newMsgs = [...prev];
-            newMsgs[newMsgs.length - 1] = { role: 'assistant', content: fullResponse };
-            return newMsgs;
-          });
-        }
+      if (!response.ok) {
+        throw new Error('AI request failed');
       }
+
+      const data = await response.json() as { text?: string };
+      const fullResponse = data.text?.trim() || 'Vastaus jäi tyhjäksi.';
+
+      setMessages(prev => {
+        const newMsgs = [...prev];
+        newMsgs[newMsgs.length - 1] = { role: 'assistant', content: fullResponse };
+        return newMsgs;
+      });
 
     } catch (error) {
       console.error(error);
