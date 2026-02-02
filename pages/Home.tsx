@@ -2,8 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO, Section } from '../components/Shared';
+import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
+  const featuredItems = Object.values(contentRegistry).filter(item => item.featured);
+  
   const cards = [
     {
       title: 'AI-turvallisuus',
@@ -28,25 +31,25 @@ const Home: React.FC = () => {
       )
     },
     {
-      title: 'Kriisinhallinta',
-      desc: 'Toimintaohjeet tilanteisiin, joissa suojat murtuvat. Rauhallisuus on vahvin suojasi.',
-      link: '/incident-response',
-      color: 'from-red-400 to-red-600',
+      title: 'Auditointi',
+      desc: 'Tee nopea pika-auditointi ja selvitä organisaatiosi tietoturvan nykytila.',
+      link: '/business-audit',
+      color: 'from-indigo-400 to-indigo-600',
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       )
     }
   ];
 
-  const topics = [
-    { title: "Etätyö", slug: "remote-work-security" },
-    { title: "Tietosuoja", slug: "data-privacy" },
-    { title: "Deepfakes", slug: "deepfakes-and-influence" },
-    { title: "AI-oikeudet", slug: "ai-intellectual-property" },
-    { title: "Henkilöstö", slug: "staff-training" },
-    { title: "Johdon tuki", slug: "management-security-strategy" }
+  const categories = [
+    { name: "Kyber", color: "text-blue-400", slug: "kyber" },
+    { name: "AI", color: "text-emerald-400", slug: "ai" },
+    { name: "Mobiili", color: "text-purple-400", slug: "mobile" },
+    { name: "Kriisi", color: "text-red-400", slug: "crisis" },
+    { name: "Tietosuoja", color: "text-indigo-400", slug: "privacy" },
+    { name: "Rutiinit", color: "text-slate-400", slug: "routines" }
   ];
 
   return (
@@ -97,16 +100,52 @@ const Home: React.FC = () => {
         </div>
 
         <div className="mb-32">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center uppercase tracking-widest">Syvenny uusiin aiheisiin</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {topics.map((topic) => (
+          <h2 className="text-3xl font-bold text-white mb-8 text-center uppercase tracking-widest">Suositeltua sisältöä</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredItems.map((item) => (
               <Link 
-                key={topic.slug} 
-                to={`/content/${topic.slug}`}
-                className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group"
+                key={item.slug} 
+                to={`/content/${item.slug}`}
+                className="glass p-6 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all group relative overflow-hidden"
               >
-                <span className="text-slate-400 group-hover:text-emerald-400 font-bold text-sm">{topic.title}</span>
+                <div className="absolute top-0 right-0 p-2 opacity-20">
+                  <svg className="w-12 h-12 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2 block">{item.navLabel}</span>
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">{item.hero.title}</h3>
+                <p className="text-sm text-slate-400 line-clamp-2">{item.hero.subtitle}</p>
               </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-32">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center uppercase tracking-widest">Selaa kategorioittain</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {categories.map((cat) => (
+              <div 
+                key={cat.slug} 
+                className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-slate-600 transition-all"
+              >
+                <span className={`${cat.color} font-bold text-sm block mb-4`}>{cat.name}</span>
+                <div className="flex flex-col gap-2">
+                  {Object.values(contentRegistry)
+                    .filter(item => item.category === cat.slug)
+                    .slice(0, 3)
+                    .map(item => (
+                      <Link 
+                        key={item.slug} 
+                        to={`/content/${item.slug}`}
+                        className="text-xs text-slate-500 hover:text-emerald-400 transition-colors truncate"
+                      >
+                        {item.navLabel}
+                      </Link>
+                    ))
+                  }
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -124,26 +163,6 @@ const Home: React.FC = () => {
             colorClass="bg-indigo-500"
           >
             Tämä opas ei ole vain teknisille asiantuntijoille. Se on kirjoitettu selkokielellä, jotta jokainen organisaation jäsen ymmärtää roolinsa digitaalisen turvallisuuden ketjussa.
-            <div className="mt-4 p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
-              Esimerkki riskistä: Tietoturva ulkoistetaan ajatuksissa "vain IT-osaston ongelmaksi", jolloin muu organisaatio toimii välinpitämättömästi ja altistuu hyökkäyksille.
-            </div>
-          </Section>
-
-          <Section 
-            title="Näin otat oppaan haltuun"
-            importanceTitle="Miksi tämä on tärkeää?"
-            importanceDesc="Tietotulva voi uuvuttaa. Järjestelmällinen eteneminen takaa parhaat tulokset organisaatiollesi."
-            checklist={[
-              "Aloita Kyberperusteista ja varmista MFA-suojaus heti",
-              "Käy läpi Yrityksen pika-auditointi tiimin tai johdon kanssa",
-              "Ota Arjen rutiinit osaksi viikoittaista tai kuukausittaista toimintaa",
-              "Seuraa AI-turvallisuusosiota säännöllisesti uusien uhkien varalta"
-            ]}
-          >
-            Tämä opas on suunniteltu käytännönläheiseksi työkalupakiksi. Suosittelemme etenemään perusasioista kohti syvällisempää AI-ymmärtämistä.
-            <div className="mt-4 p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
-              Esimerkki riskistä: Yritys lukee oppaan mutta ei vie yhtäkään suositusta käytäntöön, jolloin suojaustaso ei parane lainkaan.
-            </div>
           </Section>
         </div>
       </div>

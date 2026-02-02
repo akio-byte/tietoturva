@@ -25,7 +25,7 @@ const ContentPage: React.FC = () => {
       <Hero 
         title={content.hero.title}
         subtitle={content.hero.subtitle}
-        label="Tietoturvasyväsukellus"
+        label={`Tietoturvasyväsukellus | ${content.category.toUpperCase()}`}
       />
 
       <div className="space-y-12">
@@ -47,14 +47,12 @@ const ContentPage: React.FC = () => {
           Seuraa näitä askeleita varmistaaksesi aihealueen turvallisuuden organisaatiossasi.
         </Section>
 
-        {content.cta.route === "TULOSSA" ? (
-          <div className="text-center py-10 opacity-50 grayscale">
-            <button disabled className="bg-slate-800 text-slate-400 font-bold px-10 py-5 rounded-full cursor-not-allowed">
-              {content.cta.text} (Tulossa)
-            </button>
-          </div>
-        ) : (
+        {content.cta.route ? (
           <CTA label={content.cta.text} link={content.cta.route} />
+        ) : (
+          <div className="py-10 border-t border-slate-800 mt-20">
+            <p className="text-center text-slate-500 text-sm italic">Tämä on itsenäinen sisältöpaketti osana Lapland AI Labin tietoturvaopasta.</p>
+          </div>
         )}
       </div>
     </div>
