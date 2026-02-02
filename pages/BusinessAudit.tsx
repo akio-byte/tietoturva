@@ -31,6 +31,13 @@ const BusinessAudit: React.FC = () => {
 
   const totalScore = (Object.values(answers) as number[]).reduce((acc: number, curr: number) => acc + curr, 0);
   const allAnswered = Object.keys(answers).length === questions.length;
+  const taskItems = questions
+    .map((question) => ({
+      ...question,
+      score: answers[question.id] ?? -1,
+    }))
+    .filter((question) => question.score < 2);
+  const completedCount = questions.filter((question) => answers[question.id] === 2).length;
 
   const getResult = () => {
     if (totalScore <= 8) return {
@@ -132,6 +139,51 @@ const BusinessAudit: React.FC = () => {
               <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed mb-10">
                 {result.feedback}
               </p>
+
+              <div className="text-left max-w-3xl mx-auto bg-slate-950/50 border border-slate-800 rounded-3xl p-6 md:p-8">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
+                  <div>
+                    <h4 className="text-lg font-bold text-white">Tehtävälista</h4>
+                    <p className="text-sm text-slate-400">
+                      Nosta tasoa täyttämällä nämä kohdat. {completedCount} / {questions.length} kunnossa.
+                    </p>
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                    Auditointi → Toimenpiteet
+                  </span>
+                </div>
+                {taskItems.length > 0 ? (
+                  <ul className="space-y-3">
+                    {taskItems.map((task) => {
+                      const status =
+                        task.score === 1
+                          ? { label: 'Osittain', badge: 'text-yellow-300 border-yellow-500/40 bg-yellow-500/10' }
+                          : { label: 'Puute', badge: 'text-red-300 border-red-500/40 bg-red-500/10' };
+                      return (
+                        <li
+                          key={task.id}
+                          className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-3"
+                        >
+                          <div>
+                            <p className="text-slate-100 font-medium">{task.text}</p>
+                            <p className="text-xs text-slate-500 mt-1">{task.category}</p>
+                          </div>
+                          <span className={`text-xs font-bold px-3 py-1 rounded-full border ${status.badge}`}>
+                            {status.label}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-4">
+                    <p className="text-emerald-200 font-semibold">Kaikki kriittiset kohdat ovat kunnossa.</p>
+                    <p className="text-sm text-emerald-100/80 mt-2">
+                      Jatka ylläpitoa ja dokumentoi parhaat käytännöt seuraavaa auditointia varten.
+                    </p>
+                  </div>
+                )}
+              </div>
               
               <div className="flex flex-col md:flex-row gap-4 justify-center print:hidden">
                 <button 
