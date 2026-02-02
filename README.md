@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Lapland AI Lab - Tietoturvaopas
 
-# Run and deploy your AI Studio app
+Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
 
-This contains everything you need to run your app locally.
+## AI-orkestroitu kehitys
 
-View your app in AI Studio: https://ai.studio/apps/drive/1SZZq920XwUp9qwRfG14wS4c_qm9cm6o3
+Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö on jaettu **AI Studion** (suunnittelu ja sisältö) ja **Codexin** (toteutus) välillä.
 
-## Run Locally
+### Kehitysprosessi (3 vaihetta)
+1. **Määrittely:** AI Studio luo ominaisuuden kuvauksen ja sisällön (Markdown/JSON).
+2. **Tehtävänanto:** AI Studio tuottaa standardoidun Codex-promptin.
+3. **Toteutus:** Codex lukee promptin ja päivittää koodin vastaamaan vaatimuksia.
 
-**Prerequisites:**  Node.js
+### Dokumentaatio
+- [AGENT.md](./AGENT.md) - Projektin säännöt ja yleiskuvaus.
+- [codex/skill.md](./codex/skill.md) - Codexin toimintaohjeet ja laatuvaatimukset.
+- [ai-studio/bridge.md](./ai-studio/bridge.md) - AI Studion rooli ja kommunikaatiopohjat.
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Teknologiat
+- React 19
+- Tailwind CSS
+- React Router 7
