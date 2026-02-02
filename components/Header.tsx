@@ -14,6 +14,7 @@ const Header: React.FC = () => {
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
     { name: 'Kriisinhallinta', path: '/incident-response' },
+    { name: 'Admin', path: '/admin' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -40,7 +41,7 @@ const Header: React.FC = () => {
                 to={item.path}
                 className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
                   isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
-                }`}
+                } ${item.name === 'Admin' ? 'border border-amber-500/30 text-amber-500 hover:bg-amber-500/5' : ''}`}
               >
                 {item.name}
               </Link>
@@ -77,7 +78,7 @@ const Header: React.FC = () => {
                   isActive(item.path)
                     ? 'bg-slate-800 text-emerald-400'
                     : 'text-slate-400 hover:bg-slate-800 hover:text-white'
-                }`}
+                } ${item.name === 'Admin' ? 'text-amber-500' : ''}`}
               >
                 {item.name}
               </Link>
