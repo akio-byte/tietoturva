@@ -11,74 +11,78 @@ export interface ContentItem {
 }
 
 export const contentRegistry: Record<string, ContentItem> = {
+  "arctic-command-interactive": {
+    "slug": "arctic-command-interactive",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "Arctic Command",
+    "seo": {
+      "title": "Arctic Command: AI Model Alignment & Codex Execution",
+      "description": "Hallitse infrastruktuuria interaktiivisesti. Suojaudu adversarial attacks -hyökkäyksiltä ja varmista model alignment AI Studio -ympäristössä."
+    },
+    "hero": {
+      "title": "Pohjoinen Komentokeskus",
+      "subtitle": "Interaktiivinen hallinta Codex-automaatiolle ja AI-mallien eettiselle linjaukselle."
+    },
+    "sections": [
+      {
+        "title": "Interaktiivinen Lasimorfismi",
+        "body": "Admin-käyttöliittymä ei ole vain staattinen näkymä, vaan elävä revontuli. Käytämme Slate-950-syvyyttä ja Emerald-500-tila-indikaattoreita luomaan visuaalisen vasteen jokaiselle komennolle. Dashboard integroi reaaliaikaisen telemetrian suoraan Codex-suorittimesta, mahdollistaen välittömän reagoinnin poikkeamiin."
+      },
+      {
+        "title": "Codex Executor: Automaation Sydän",
+        "body": "Codex Executor on rutiinien (routines) selkäranka. Se mahdollistaa monimutkaisten työnkulkujen ajamisen eristetyssä ympäristössä. Jokainen suoritus on kuin jään murtaminen: tarkkaa, voimakasta ja hallittua. Executor mahdollistaa scriptien ajon suoraan hallintapaneelista ilman manuaalista väliintuloa."
+      },
+      {
+        "title": "AI Studio & Model Alignment",
+        "body": "AI Studio on laboratorionne, jossa varmistetaan mallien turvallisuus. Keskitymme erityisesti 'adversarial attacks' -torjuntaan ja 'model alignment' -protokolliin. Täällä tekoäly muovataan palvelemaan organisaation arvoja, estäen hallitsemattomat ulostulot ja varmistaen, että algoritmit pysyvät määritetyllä polulla kuin kokenut opas tunturissa."
+      }
+    ],
+    "checklist": [
+      "Aktivoi interaktiivinen lasimorfismi-näkymä.",
+      "Konfiguroi Codex Executor -oikeudet.",
+      "Suorita model alignment -tarkistus AI Studiossa.",
+      "Monitoroi adversarial attacks -indikaattoreita.",
+      "Varmista rutiinien eheys digitaalisessa ikiroudassa."
+    ],
+    "cta": {
+      "text": "Avaa Komentokeskus",
+      "route": null // Draft mode until specialized dashboard link is confirmed
+    }
+  },
   "aurora-ai-alignment": {
     "slug": "aurora-ai-alignment",
     "category": "ai",
     "featured": true,
     "navLabel": "Aurora AI Safety",
     "seo": {
-      "title": "Aurora AI Alignment | Adversarial Defense & Safety",
-      "description": "Varmista mallien model alignment ja torju adversarial attacks -uhat Aurora-kehyksellä. Suojaa tekoälyn päätöksenteko ja luottamus."
+      "title": "Aurora AI Alignment & Safety | Arctic Security",
+      "description": "Defend against adversarial attacks and ensure model alignment with our Aurora AI safety framework. Secure your intelligence layer."
     },
     "hero": {
       "title": "Aurora AI Alignment",
-      "subtitle": "Pidä tekoälysi suunnassa ja suojaa se adversarial attacks -uhkilta kirkkaalla, pohjoisella kurssilla."
+      "subtitle": "Guiding your intelligence through the shifting winds of adversarial threats with crystalline precision."
     },
     "sections": [
       {
         "title": "Adversarial Defense",
-        "body": "Tekoälymallit altistuvat jatkuvasti adversarial attacks -häirinnälle, joka voi kääntää päätöksenteon harhaan. Aurora tuo suojakerroksen syötteiden validointiin, turvalliseen kontekstitarkistukseen ja model alignment -valvontaan, jotta päätöksenteko pysyy vakaana."
+        "body": "In the shifting landscape of machine learning, your models face constant pressure from sophisticated adversarial attacks. These subtle perturbations in data can lead to catastrophic failures in decision-making. Our Aurora framework implements robust input sanitization and gradient masking to ensure your neural networks remain resilient against prompt injections and data poisoning, maintaining the integrity of your intellectual core."
       },
       {
         "title": "Model Alignment",
-        "body": "Aurora varmistaa, että mallit toimivat arvojesi ja sääntöjesi mukaisesti. Yhdistämme jatkuvan policy-testauksen, ihmisen valvomat palautesilmukat ja riskiskenaariot, jotta alignment pysyy linjassa myös paineen alla."
+        "body": "Like the steady glow of the northern lights, your AI must remain aligned with human intent and organizational values. We utilize advanced reinforcement learning from human feedback (RLHF) and constitutional AI principles to ensure model alignment. This process creates a stable ethical compass for your autonomous agents, preventing drift and ensuring that every output resonates with your brand's high-end standards."
       }
     ],
     "checklist": [
-      "Havaitse mallin ajautumat reaaliajassa",
-      "Validioi syötteet ennen päätöksentekoa",
-      "Varmista alignment-mittarit säännöllisesti",
-      "Simuloi adversarial attacks -skenaariot",
-      "Auditoi koulutusdatan alkuperä"
+      "Monitor model drift continuously",
+      "Sanitize all input vectors",
+      "Validate alignment metrics weekly",
+      "Stress-test against adversarial attacks",
+      "Audit training data provenance"
     ],
     "cta": {
-      "text": "Aloita Aurora-auditointi",
-      "route": "/ai-safety"
-    }
-  },
-  "permafrost-data-sovereignty": {
-    "slug": "permafrost-data-sovereignty",
-    "category": "privacy",
-    "featured": false,
-    "navLabel": "Permafrost Data",
-    "seo": {
-      "title": "Permafrost Data Sovereignty | Datansuvereniteetti",
-      "description": "Rakennamme permafrost-tasoisen datansuvereniteetin: hallittu sijainti, kryptattu käyttö ja omistajuuden varmistus."
-    },
-    "hero": {
-      "title": "Permafrost Data Sovereignty",
-      "subtitle": "Lukitse data ikiroudan tavoin: paikallaan, läpinäkymättömänä ja omassa hallinnassa."
-    },
-    "sections": [
-      {
-        "title": "Sijainti ja omistajuus",
-        "body": "Määritämme datan fyysisen ja loogisen sijainnin, jotta tieto pysyy halutussa oikeudenkäyttöpiirissä ja omistajuus säilyy yksiselitteisenä."
-      },
-      {
-        "title": "Pääsyn hallittu jääkerros",
-        "body": "Käytämme monikerroksista salaus- ja avainhallintaa, joka estää luvattoman käytön ja varmistaa auditointikelpoisen pääsynhallinnan."
-      }
-    ],
-    "checklist": [
-      "Rajaa datan sijaintialueet",
-      "Kryptaa levotilassa oleva data",
-      "Vahvista avainten hallintamalli",
-      "Dokumentoi datan omistajuus",
-      "Testaa palautus ja poistoprosessit"
-    ],
-    "cta": {
-      "text": "Kartoita suvereniteetti",
-      "route": "/cyber-basics"
+      "text": "Secure Your Intelligence",
+      "route": "/contact"
     }
   },
   "ai-studio-audit": {
@@ -199,48 +203,13 @@ export const contentRegistry: Record<string, ContentItem> = {
       }
     ],
     "checklist": [
-      "Poista käytöstä tarpeettomat radiotaajuudet (NFC, BT)",
+      "Poista käytöstä tarpeettored radiotaajuudet (NFC, BT)",
       "Käytä vain GrapheneOS-tyyppisiä karkaistuja käyttöjärjestelmiä",
       "Aktivoi automaattinen datan pyyhintä väärien yritysten jälkeen"
     ],
     "cta": {
       "text": "Aloita kovennus",
       "route": "/mobile/hardening-guide"
-    }
-  },
-  "signal-silence-protocol": {
-    "slug": "signal-silence-protocol",
-    "category": "mobile",
-    "featured": false,
-    "navLabel": "Signal Silence",
-    "seo": {
-      "title": "Signal Silence Protocol | Mobiilin radiosuojaus",
-      "description": "Vähennä mobiililaitteiden signaalijälki ja minimoi tiedusteluriskit hallitulla radiokurin protokollalla."
-    },
-    "hero": {
-      "title": "Signal Silence Protocol",
-      "subtitle": "Kun hiljaisuus on turvaa, jokainen signaali on päätös."
-    },
-    "sections": [
-      {
-        "title": "Radiokuri kentällä",
-        "body": "Määritämme radiokäytännöt, jotka minimoivat bluetooth-, NFC- ja Wi-Fi -päästöt. Protokolla ohjaa laitekohtaiset asetukset ja operatiivisen rytmin."
-      },
-      {
-        "title": "Signaalin hallittu näkyvyys",
-        "body": "Rakennamme käytännöt, joissa yhteydet aktivoidaan vain tarpeeseen ja valvotaan jatkuvasti. Näin signaalijälki pysyy pienenä ja ennustettavana."
-      }
-    ],
-    "checklist": [
-      "Määritä radioprofiilit käyttötarpeen mukaan",
-      "Katkaise taustalla lähettelevät protokollat",
-      "Aikatauluta yhteysikkunat",
-      "Valvo signaalilokeja säännöllisesti",
-      "Kouluta tiimi radiokuriin"
-    ],
-    "cta": {
-      "text": "Käynnistä radiosuojaus",
-      "route": "/mobile-security"
     }
   },
   "ai-agent-governance": {
@@ -369,41 +338,6 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": {
       "text": "Aloita varautuminen",
       "route": "/crisis/survival"
-    }
-  },
-  "glacier-breach": {
-    "slug": "glacier-breach",
-    "category": "crisis",
-    "featured": false,
-    "navLabel": "Glacier Breach",
-    "seo": {
-      "title": "Glacier Breach | Incident Response & Sosiaalinen Manipulointi",
-      "description": "Kriisitilanteen vaste ja sosiaalisen manipuloinnin torjunta yhtenäiseksi toimintamalliksi."
-    },
-    "hero": {
-      "title": "Glacier Breach",
-      "subtitle": "Yhdistä nopea incident response ja psykologinen puolustus yhdeksi arktiseksi vasteeksi."
-    },
-    "sections": [
-      {
-        "title": "Tilannekuva ja välitön vaste",
-        "body": "Kun hyökkäys läpäisee jäärintaman, nopea eristys ja tilannekuvan muodostaminen ratkaisevat. Glacier Breach -malli varmistaa, että tekninen incident response käynnistyy minuuteissa, ei tunneissa."
-      },
-      {
-        "title": "Sosiaalisen manipuloinnin torjunta",
-        "body": "Kriisitilanteissa ihmiset ovat haavoittuvia kiireelle ja pelolle. Rakennamme käytännöt, jotka estävät huijaukset, harhautukset ja väärät ohjeet, jotta vaste pysyy hallittuna."
-      }
-    ],
-    "checklist": [
-      "Eristä: Sulje kompromisoidut tilit ja laitteet välittömästi",
-      "Vahvista: Tarkista kaikki kriisiviestit kaksinkertaisella varmennuksella",
-      "Koordinoi: Nimeä selkeä incident response -johtaja",
-      "Harjoittele: Simuloi sosiaalisen manipuloinnin skenaariot",
-      "Dokumentoi: Kirjaa päätökset ja opit jatkokehitystä varten"
-    ],
-    "cta": {
-      "text": "Aktivoi Glacier Breach",
-      "route": "/crisis"
     }
   },
   "arctic-codex-protocol": {
@@ -666,7 +600,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Aktivoi kriisiviestintäkanavat",
       "Analysoi hyökkäyksen juurisyy"
     ],
-  "cta": {
+    "cta": {
       "text": "Vasteohjeet",
       "route": "/ir-protocol"
     }

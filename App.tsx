@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import AISafety from './pages/AISafety';
 import CyberBasics from './pages/CyberBasics';
 import MobileSecurity from './pages/MobileSecurity';
-import Crisis from './pages/Crisis';
 import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
 import Privacy from './pages/Privacy';
@@ -25,7 +24,6 @@ const App: React.FC = () => {
             <Route path="/ai-safety" element={<AISafety />} />
             <Route path="/cyber-basics" element={<CyberBasics />} />
             <Route path="/mobile-security" element={<MobileSecurity />} />
-            <Route path="/crisis" element={<Crisis />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
             <Route path="/privacy" element={<Privacy />} />

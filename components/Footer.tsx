@@ -20,7 +20,6 @@ const Footer: React.FC = () => {
               <li><Link to="/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</Link></li>
               <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</Link></li>
               <li><Link to="/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</Link></li>
-              <li><Link to="/crisis" className="hover:text-emerald-400 transition-colors">Kriisivalmius</Link></li>
               <li><Link to="/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</Link></li>
               <li><Link to="/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</Link></li>
             </ul>
