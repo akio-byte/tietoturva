@@ -1,6 +1,16 @@
+
 # AI Studio Bridge - Orkestrointimalli
 
-Tämä tiedosto kuvaa, miten AI Studio kommunikoi Codexin kanssa.
+Tämä tiedosto kuvaa, miten AI Studio kommunikoi Codexin kanssa ja miten sovellus upotetaan osaksi pääsivustoa.
+
+## Integraatio laplandailab.fi:hin
+
+Sovellus upotetaan polkuun `laplandailab.fi/tietoturva/`. 
+
+### Vaatimukset integraatiolle:
+1. **Pääsivuston yläpalkki:** Headerin tulee säilyttää visuaalinen linja pääsivuston kanssa.
+2. **Reititys:** `HashRouter` mahdollistaa helpon upotuksen staattisena tiedostona mihin tahansa kansioon ilman palvelinpuolen uudelleenohjaussääntöjä.
+3. **Linkitys:** Sisäiset linkit osoittavat `/content/slug` ja ulkoiset takaisin pääsivuston juureen.
 
 ## AI Studion rooli
 1. Toimia siltana käyttäjän toiveiden ja teknisen toteutuksen välillä.
@@ -26,6 +36,3 @@ Muuta tiedostoa [polku] ja toteuta [ominaisuus]:
 - [Kriteeri 1]
 - [Kriteeri 2]
 ```
-
-## Sisältöformaatit
-Ominaisuuden määrittelyssä on aina annettava sekä Markdown-rakenne että vastaava JSON-metadata, jotta Codex voi integroida ne suoraan koodiin tai tyyppeihin.

@@ -163,48 +163,61 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "cta": { "text": "Vahvista johdon strategia", "route": "/business-audit" }
   },
-  "email-safety": {
-    "slug": "email-safety",
+  "cloud-security-hardening": {
+    "slug": "cloud-security-hardening",
     "category": "kyber",
     "featured": false,
-    "navLabel": "Sähköposti",
-    "seo": { "title": "Sähköpostin suojausopas | Lapland AI Lab", "description": "Näin tunnistat hienostuneet kalasteluviestit." },
-    "hero": { "title": "Rauhallinen valppaus postilaatikolla", "subtitle": "Sähköposti on edelleen yleisin tie organisaatioon." },
-    "sections": [{ "title": "Kalastelun uudet muodot", "body": "Tekoälyllä luodut viestit ovat kieliopillisesti täydellisiä." }],
-    "checklist": ["Tarkista lähettäjä", "Älä klikkaa linkkejä", "Ilmoita IT-tuelle"],
-    "cta": { "text": "Lue lisää", "route": "/cyber-basics" }
+    "navLabel": "Pilviturva",
+    "seo": { "title": "Pilvipalveluiden suojaus | Lapland AI Lab", "description": "Miten varmistaa Microsoft 365, Google Workspace ja muiden pilvipalveluiden turvallisuus." },
+    "hero": { "title": "Turvallinen pilvipalvelu", "subtitle": "Pilvi on vain jonkun muun tietokone. Varmista, että hallitset pääsyä omaan dataasi." },
+    "sections": [
+      { "title": "Vastuunjako pilvessä", "body": "Muista, että pilvipalvelun tarjoaja vastaa alustasta, mutta sinä vastaat datasta ja sen pääsynhallinnasta." }
+    ],
+    "checklist": [
+      "Aktivoi MFA kaikille pilvipalvelun käyttäjille",
+      "Tarkista ulkoiset jakolinkit kerran kuukaudessa",
+      "Rajoita pääsynhallinta vain tarvittaviin maihin (Geo-blocking)",
+      "Varmuuskopioi kriittinen pilvidata erilliseen sijaintiin",
+      "Poista vanhat käyttäjätunnukset heti työsuhteen päättyessä"
+    ],
+    "cta": { "text": "Lue kyberperusteet", "route": "/cyber-basics" }
   },
-  "backup-basics": {
-    "slug": "backup-basics",
-    "category": "crisis",
+  "social-engineering-psychology": {
+    "slug": "social-engineering-psychology",
+    "category": "kyber",
     "featured": false,
-    "navLabel": "Varmuuskopiot",
-    "seo": { "title": "Varmuuskopioinnin 3-2-1-sääntö | Lapland AI Lab", "description": "Tietosi ovat turvassa vain, jos ne on varmuuskopioitu." },
-    "hero": { "title": "Tietosi ovat vakaalla kalliolla", "subtitle": "Varmuuskopio on ainoa todellinen vakuutus." },
-    "sections": [{ "title": "3-2-1 Sääntö", "body": "3 kopiota, 2 mediaa, 1 offline." }],
-    "checklist": ["Testaa palautus", "Automaatio päälle", "Pidä yksi offline-kopio"],
-    "cta": { "text": "Katso rutiinit", "route": "/routines" }
+    "navLabel": "Vaikuttaminen",
+    "seo": { "title": "Sosiaalisen manipuloinnin psykologia | Lapland AI Lab", "description": "Miksi lankeamme huijauksiin ja miten voimme suojautua psykologiselta vaikuttamiselta." },
+    "hero": { "title": "Ihmismielen haavoittuvuudet", "subtitle": "Hyökkääjä ei murra koodia, vaan luottamuksen. Tunnista manipulaation merkit ajoissa." },
+    "sections": [
+      { "title": "Vaikuttamisen kuusi peruspilaria", "body": "Auktoriteetti, kiire, niukkuus, miellyttäminen, vastavuoroisuus ja johdonmukaisuus ovat huijarin työkaluja." }
+    ],
+    "checklist": [
+      "Pysähdy, jos viesti vaatii välitöntä toimintaa",
+      "Varmista oudot pyynnöt soittamalla lähettäjälle",
+      "Älä kerro arkaluonteisia tietoja puhelimessa yllättävälle soittajalle",
+      "Sovi organisaatioon selkeät prosessit rahansiirroille",
+      "Opeta tiimille, että kysyminen on aina turvallisempaa kuin olettaminen"
+    ],
+    "cta": { "text": "Tee auditointi", "route": "/business-audit" }
   },
-  "ai-prompt-security": {
-    "slug": "ai-prompt-security",
+  "ai-governance-strategy": {
+    "slug": "ai-governance-strategy",
     "category": "ai",
     "featured": false,
-    "navLabel": "AI-kehotteet",
-    "seo": { "title": "Turvallinen AI-kehotteiden käyttö | Lapland AI Lab", "description": "Käytä AI:ta vuotamatta liikesalaisuuksia." },
-    "hero": { "title": "Kirkkaat ajatukset, turvalliset kehotteet", "subtitle": "Opi suojaamaan syötteesi." },
-    "sections": [{ "title": "Kehotemuotoilu", "body": "Opeta tiimisi anonymisoimaan data." }],
-    "checklist": ["Poista nimet", "Älä syötä salaisuuksia", "Käytä yrityslisenssejä"],
-    "cta": { "text": "Syvenny AI-turvaan", "route": "/ai-safety" }
-  },
-  "mobile-vpn-guide": {
-    "slug": "mobile-vpn-guide",
-    "category": "mobile",
-    "featured": false,
-    "navLabel": "VPN-opas",
-    "seo": { "title": "VPN mobiililaitteissa | Lapland AI Lab", "description": "Suojaa tietoliikenteesi matkalla." },
-    "hero": { "title": "Suojattu tunneli tunturiin", "subtitle": "VPN on välttämätön varuste." },
-    "sections": [{ "title": "Avoimen verkon vaarat", "body": "Julkinen Wi-Fi on riski." }],
-    "checklist": ["Maksullinen VPN", "Always-on päälle", "Testaa ennen matkaa"],
-    "cta": { "text": "Mobiiliturva", "route": "/mobile-security" }
+    "navLabel": "AI-hallinta",
+    "seo": { "title": "Tekoälyn hallintamalli pk-yritykselle | Lapland AI Lab", "description": "Luo yrityksellesi selkeät raamit tekoälyn turvalliseen ja eettiseen käyttöön." },
+    "hero": { "title": "Strateginen AI-turva", "subtitle": "Tekoäly ilman ohjausta on riski. Luo säännöt, jotka mahdollistavat innovaation turvallisesti." },
+    "sections": [
+      { "title": "AI-politiikka osana tietoturvaa", "body": "Organisaation tulee määritellä, mitä tekoälytyökaluja käytetään ja miten dataa käsitellään niissä." }
+    ],
+    "checklist": [
+      "Kirjaa ylös hyväksytyt AI-työkalut",
+      "Määrittele kielletyt tietotyypit (esim. lähdekoodi julkiseen malliin)",
+      "Nimeä vastuuhenkilö tekoälyn valvontaan",
+      "Varmista, että AI-tuotokset tarkistetaan aina asiantuntijan toimesta",
+      "Päivitä työsopimukset huomioimaan AI-oikeudet"
+    ],
+    "cta": { "text": "Siirry AI-turvaan", "route": "/ai-safety" }
   }
 };
