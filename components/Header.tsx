@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -13,7 +14,6 @@ const Header: React.FC = () => {
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
     { name: 'Kriisinhallinta', path: '/incident-response' },
-    { name: 'Admin', path: '/admin' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -33,14 +33,14 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden xl:flex space-x-2">
+          <nav className="hidden xl:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[11px] uppercase tracking-widest font-bold transition-all hover:text-emerald-400 whitespace-nowrap px-3 py-2 rounded-lg ${
-                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-500'
-                } ${item.name === 'Admin' ? 'border border-amber-500/20 text-amber-500/50 hover:text-amber-400' : ''}`}
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
+                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
+                }`}
               >
                 {item.name}
               </Link>
