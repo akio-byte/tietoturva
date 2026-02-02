@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -25,11 +24,11 @@ export const SEO: React.FC<SeoProps> = ({ title, description }) => {
 
 export const Hero: React.FC<{ title: string; subtitle: string; label?: string }> = ({ title, subtitle, label }) => (
   <div className="mb-20">
-    {label && <span className="text-emerald-400 font-bold tracking-widest uppercase text-sm">{label}</span>}
-    <h1 className="text-5xl md:text-6xl font-extrabold text-white mt-4 mb-6 tracking-tight leading-tight">
-      {title}
+    {label && <span className="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-4 block animate-pulse">{label}</span>}
+    <h1 className="text-5xl md:text-7xl font-black text-white mt-4 mb-8 tracking-tighter leading-none">
+      <span className="aurora-text">{title}</span>
     </h1>
-    <p className="text-xl text-slate-400 leading-relaxed max-w-3xl">
+    <p className="text-xl text-slate-400 leading-relaxed max-w-3xl border-l-2 border-emerald-500/20 pl-6">
       {subtitle}
     </p>
   </div>
@@ -44,36 +43,36 @@ export const Section: React.FC<{
   colorClass?: string;
 }> = ({ title, children, importanceTitle, importanceDesc, checklist, colorClass = "bg-emerald-500" }) => (
   <section className="mb-24">
-    <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
-      <span className={`w-2 h-8 ${colorClass} rounded-full mr-4`}></span>
+    <h2 className="text-3xl font-black text-white mb-8 flex items-center tracking-tight">
+      <span className={`w-3 h-10 ${colorClass} rounded-full mr-6 shadow-lg shadow-current/20`}></span>
       {title}
     </h2>
-    <div className="glass p-8 rounded-3xl border border-slate-800 mb-8">
-      <div className="text-slate-300 leading-relaxed mb-8">
+    <div className="glass p-10 rounded-[2.5rem] border border-slate-800/50 mb-8 shadow-2xl">
+      <div className="text-slate-300 leading-relaxed mb-10 text-lg">
         {children}
       </div>
       
       {importanceTitle && importanceDesc && (
-        <div className="bg-indigo-900/30 border border-indigo-500/30 p-8 rounded-2xl mb-8">
-          <h3 className="text-indigo-400 font-bold mb-4 text-lg">Miksi tämä on tärkeää?</h3>
-          <p className="text-slate-300">
-            {importanceDesc}
+        <div className="bg-indigo-900/20 border border-indigo-500/20 p-8 rounded-3xl mb-10">
+          <h3 className="text-indigo-400 font-bold mb-4 text-sm uppercase tracking-widest">Miksi tämä on tärkeää?</h3>
+          <p className="text-slate-300 italic">
+            "{importanceDesc}"
           </p>
         </div>
       )}
 
       {checklist && (
-        <div>
-          <h4 className="text-emerald-400 font-bold mb-6 flex items-center">
-            Tee näin
+        <div className="bg-slate-900/50 p-8 rounded-3xl border border-emerald-500/10">
+          <h4 className="text-emerald-400 font-black mb-8 flex items-center text-xs uppercase tracking-[0.2em]">
+            Toimenpidelista
           </h4>
-          <ul className="space-y-4">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {checklist.map((item, idx) => (
-              <li key={idx} className="flex items-start">
-                <svg className="w-6 h-6 text-emerald-500 mr-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <li key={idx} className="flex items-start bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                <svg className="w-5 h-5 text-emerald-500 mr-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-slate-300 font-medium">{item}</span>
+                <span className="text-slate-300 font-medium text-sm leading-tight">{item}</span>
               </li>
             ))}
           </ul>
@@ -84,9 +83,9 @@ export const Section: React.FC<{
 );
 
 export const RiskCard: React.FC<{ title: string; example: string; description: string }> = ({ title, example, description }) => (
-  <div className="bg-slate-900/80 border border-red-500/20 p-8 rounded-3xl h-full flex flex-col">
-    <h4 className="text-red-400 font-bold mb-4 text-xl">{title}</h4>
-    <div className="bg-black/40 p-4 rounded-xl mb-6 font-mono text-sm text-red-300/80 italic border border-red-500/10">
+  <div className="bg-slate-900/80 border border-red-500/20 p-10 rounded-[2.5rem] h-full flex flex-col shadow-inner">
+    <h4 className="text-red-400 font-black mb-6 text-xl tracking-tight">{title}</h4>
+    <div className="bg-black/60 p-6 rounded-2xl mb-8 font-mono text-xs text-red-300/70 italic border border-red-500/10 leading-relaxed">
       "Esimerkki riskistä: {example}"
     </div>
     <p className="text-slate-400 text-sm leading-relaxed mt-auto">
@@ -96,18 +95,18 @@ export const RiskCard: React.FC<{ title: string; example: string; description: s
 );
 
 export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => (
-  <section className="text-center py-10">
+  <section className="text-center py-12">
     {link ? (
       <Link 
         to={link} 
-        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block"
+        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-2xl transition-all text-xl shadow-2xl shadow-emerald-500/30 inline-block transform hover:scale-105"
       >
         {label}
       </Link>
     ) : (
       <button 
         onClick={onClick} 
-        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20"
+        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-2xl transition-all text-xl shadow-2xl shadow-emerald-500/30 transform hover:scale-105"
       >
         {label}
       </button>

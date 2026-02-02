@@ -33,6 +33,11 @@ const Home: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       );
+      case 'routines': return (
+        <svg className="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      );
       default: return (
         <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -53,74 +58,86 @@ const Home: React.FC = () => {
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div className="text-center mb-24 relative">
+        <div className="text-center mb-32 relative">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] animate-fade-in">
             Lapland AI Lab Academy
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
-            Pohjoisen <br/><span className="aurora-text">Digitaalinen Turva</span>
+          <h1 className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.85]">
+            Pohjoinen <br/><span className="aurora-text">Digitaaliturva</span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Lapland AI Labin asiantuntijoiden kuratoima tietopankki, joka auttaa organisaatiota navigoimaan turvallisesti nykyajan kyberviidakossa.
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+            Tietoturva ei ole projekti, se on jatkuva tapa. Tunturista kotiin – me pidämme huolen, että olet valmis.
           </p>
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/cyber-basics" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-2xl shadow-emerald-500/20 text-lg">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link to="/cyber-basics" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-[1.25rem] transition-all transform hover:scale-105 shadow-2xl shadow-emerald-500/20 text-xl">
               Aloita perusteista
             </Link>
-            <Link to="/business-audit" className="w-full sm:w-auto glass hover:bg-slate-800 text-white font-bold px-10 py-5 rounded-2xl transition-all">
+            <Link to="/business-audit" className="w-full sm:w-auto glass hover:bg-slate-800/80 text-white font-black px-12 py-6 rounded-[1.25rem] transition-all text-xl">
               Tee pika-auditointi
             </Link>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
           {featuredItems.map((item) => (
             <Link
               key={item.slug}
               to={`/content/${item.slug}`}
-              className="group glass p-8 rounded-[2.5rem] hover:border-emerald-500/50 transition-all duration-500 transform hover:-translate-y-2 border border-slate-800 flex flex-col h-full"
+              className="group glass p-10 rounded-[3rem] hover:border-emerald-500/50 transition-all duration-700 transform hover:-translate-y-4 border border-slate-800/50 flex flex-col h-full shadow-2xl relative overflow-hidden"
             >
-              <div className="w-16 h-16 bg-slate-900/80 rounded-2xl flex items-center justify-center mb-10 border border-slate-700 group-hover:border-emerald-500/30 transition-colors shadow-inner">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] group-hover:bg-emerald-500/10 transition-colors"></div>
+              <div className="w-20 h-20 bg-slate-900/90 rounded-[1.5rem] flex items-center justify-center mb-12 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
                 {getIconForCategory(item.category)}
               </div>
-              <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
+              <h2 className="text-3xl font-black text-white mb-6 group-hover:text-emerald-400 transition-colors tracking-tight">
                 {item.navLabel}
               </h2>
-              <p className="text-slate-400 mb-8 leading-relaxed line-clamp-3 text-sm flex-grow">
+              <p className="text-slate-400 mb-10 leading-relaxed line-clamp-3 text-base flex-grow font-medium">
                 {item.hero.subtitle}
               </p>
-              <div className="flex items-center text-emerald-400 font-bold text-xs tracking-widest uppercase">
-                Lue lisää
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <div className="flex items-center text-emerald-400 font-black text-xs tracking-[0.2em] uppercase">
+                Syvenny aiheeseen
+                <svg className="w-5 h-5 ml-3 group-hover:translate-x-3 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mb-32">
-          <h2 className="text-2xl font-black text-white mb-16 text-center uppercase tracking-[0.3em]">Sisältökirjasto</h2>
+        <div className="mb-40">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Kaikki mitä tarvitset <span className="text-slate-600">yhdessä paikassa.</span></h2>
+            <div className="h-px bg-slate-800 flex-grow mx-12 hidden lg:block mb-6"></div>
+            <div className="text-right">
+              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">12+</span>
+              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Sisältöpakettia</p>
+            </div>
+          </div>
+          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {categories.map((cat) => (
               <div 
                 key={cat.slug} 
-                className="glass p-8 rounded-3xl text-center border border-slate-800 hover:border-slate-600 transition-all group"
+                className="glass p-8 rounded-[2rem] text-center border border-slate-800/50 hover:border-slate-600 transition-all group shadow-xl"
               >
-                <span className={`${cat.color} font-black text-xs block mb-6 uppercase tracking-widest group-hover:scale-110 transition-transform`}>{cat.name}</span>
-                <div className="flex flex-col gap-3">
+                <span className={`${cat.color} font-black text-[10px] block mb-6 uppercase tracking-[0.25em] group-hover:scale-110 transition-transform`}>{cat.name}</span>
+                <div className="flex flex-col gap-4">
                   {Object.values(contentRegistry)
                     .filter(item => item.category === cat.slug)
                     .map(item => (
                       <Link 
                         key={item.slug} 
                         to={`/content/${item.slug}`}
-                        className="text-[10px] text-slate-500 hover:text-emerald-400 transition-colors truncate font-bold uppercase tracking-wider"
+                        className="text-[11px] text-slate-500 hover:text-emerald-400 transition-colors truncate font-bold uppercase tracking-widest block"
                       >
                         {item.navLabel}
                       </Link>
                     ))
                   }
+                  {Object.values(contentRegistry).filter(item => item.category === cat.slug).length === 0 && (
+                    <span className="text-[10px] text-slate-700 italic font-medium">Tulossa...</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -129,17 +146,17 @@ const Home: React.FC = () => {
 
         <div className="space-y-12 max-w-4xl mx-auto">
           <Section 
-            title="Tietoturva on jatkuva prosessi"
-            importanceTitle="Miksi tämä on tärkeää?"
-            importanceDesc="Tietotulva voi uuvuttaa, mutta järjestelmällisyys pelastaa."
+            title="Jatkuva Oppiminen"
+            importanceTitle="Valmius on valttia"
+            importanceDesc="Tietoturvaopas päivittyy säännöllisesti AI Studion asiantuntijoiden toimesta."
             checklist={[
-              "Päivitä osaamistasi säännöllisesti AI-assistenttimme avulla",
-              "Tee pika-auditointi neljännesvuosittain",
-              "Ota uudet AI-työkalut hallitusti käyttöön"
+              "Hyödynnä AI-analyytikkoa päivittäisissä kysymyksissä",
+              "Päivitä yrityksen AI-politiikka vähintään kerran vuodessa",
+              "Suorita kriisinhallintaharjoitus tiimin kanssa"
             ]}
-            colorClass="bg-indigo-500"
+            colorClass="bg-indigo-600"
           >
-            Tämä opas on rakennettu kasvamaan. Seuraamme teknologian kehitystä ja hyödynnämme tekoälyä sisällön rikastamisessa. Kysy rohkeasti oikean alakulman assistentilta neuvoa!
+            Tämä opas on elävä organismi. Teknologia ja uhat kehittyvät, joten mekin kehitymme. Olemme lisänneet uusia syventäviä osioita pilviturvasta ja AI-etiikasta auttaaksemme sinua pysymään askeleen edellä.
           </Section>
         </div>
       </div>
