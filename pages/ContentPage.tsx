@@ -57,6 +57,7 @@ const ContentPage: React.FC = () => {
             title={section.title}
             slug={slug}
             colorClass={idx % 2 === 0 ? "bg-emerald-500" : "bg-blue-500"}
+            showAuroraIndicator
           >
             {section.body}
           </Section>
@@ -67,6 +68,7 @@ const ContentPage: React.FC = () => {
           checklist={content.checklist}
           slug={slug}
           colorClass="bg-purple-500"
+          showAuroraIndicator
         >
           Käy läpi tämä lista ja kuittaa tehtävät, kun olet varmistanut ne organisaatiossasi. Tilasi tallentuu automaattisesti tähän selaimeen.
         </Section>

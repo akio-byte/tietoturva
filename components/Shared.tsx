@@ -42,7 +42,17 @@ export const Section: React.FC<{
   checklist?: string[];
   colorClass?: string;
   slug?: string; // Käytetään checklistin tallennukseen
-}> = ({ title, children, importanceTitle, importanceDesc, checklist, colorClass = "bg-emerald-500", slug }) => {
+  showAuroraIndicator?: boolean;
+}> = ({
+  title,
+  children,
+  importanceTitle,
+  importanceDesc,
+  checklist,
+  colorClass = "bg-emerald-500",
+  slug,
+  showAuroraIndicator = false,
+}) => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
@@ -64,7 +74,7 @@ export const Section: React.FC<{
 
   return (
     <section className="mb-24 relative">
-      <span className="aurora-vertical-line" aria-hidden="true"></span>
+      {showAuroraIndicator && <span className="aurora-vertical-line" aria-hidden="true"></span>}
       <h2 className="text-3xl font-black text-white mb-8 flex items-center tracking-tight">
         <span className={`w-3 h-10 ${colorClass} rounded-full mr-6 shadow-lg shadow-current/20`}></span>
         {title}
