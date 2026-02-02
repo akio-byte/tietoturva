@@ -47,7 +47,7 @@ const ContentPage: React.FC = () => {
           Seuraa näitä askeleita varmistaaksesi aihealueen turvallisuuden organisaatiossasi.
         </Section>
 
-        {typeof content.cta.route === "string" && content.cta.route.startsWith("/") ? (
+        {content.cta.route ? (
           <CTA label={content.cta.text} link={content.cta.route} />
         ) : (
           <div className="text-center py-10 opacity-50 grayscale">
