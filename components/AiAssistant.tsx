@@ -311,7 +311,12 @@ const AiAssistant: React.FC = () => {
                 type="text" 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.isComposing) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
                 placeholder={isDevMode ? "Komenna (esim. 'Luo uusi JSON')..." : "Kysy tietoturvasta..."}
                 disabled={isLoading}
                 className={`w-full bg-slate-950/50 border border-slate-700 rounded-xl pl-4 pr-12 py-3.5 text-sm focus:outline-none focus:ring-1 transition-all text-slate-200 placeholder-slate-500 disabled:opacity-50 ${
