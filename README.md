@@ -18,8 +18,3 @@ View your app in AI Studio: https://ai.studio/apps/drive/1SZZq920XwUp9qwRfG14wS4
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
-
-## AI Studio → Codex workflow
-1. AI Studio tuottaa sisältöpaketin / Codex-promptin.
-2. Codex tekee repo-muutokset.
-3. Tarkistus: reitit, UI, build.
