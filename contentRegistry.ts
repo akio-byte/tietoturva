@@ -275,5 +275,445 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Aktivoi etäpyyhintä ja lukituspolitiikka"
     ],
     "cta": { "text": "Päivitä mobiilikovennus", "route": "/mobile-security" }
+  },
+  "pohjoinen-kilpi": {
+    "slug": "pohjoinen-kilpi",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Perussuojaus",
+    "seo": {
+      "title": "Pohjoinen Kilpi: Kyberhygienian Perusta | Arctic Security",
+      "description": "Perussuojaus, joka rakentaa ensimmäisen suojamuurin arktisissa oloissa."
+    },
+    "hero": {
+      "title": "Pohjoinen Kilpi",
+      "subtitle": "Perussuojaus on kuin tuulensuoja: se estää kylmän ennen kuin se pääsee iholle."
+    },
+    "sections": [
+      {
+        "title": "Kovuus syntyy rutiineista",
+        "body": "Kyberturva alkaa arkisista päätöksistä: päivitykset, vahvat salasanat ja MFA luovat kerroksen, joka kestää hyökkäysten peruspainetta."
+      },
+      {
+        "title": "Hygienia ennen hybridiuhkia",
+        "body": "Ilman perushygieniaa hienostuneet kontrollit jäävät ohueksi jääksi. Varmista, että jokainen laite ja käyttäjä noudattaa samaa perustasoa."
+      }
+    ],
+    "checklist": [
+      "Pakota monivaiheinen tunnistautuminen",
+      "Pidä käyttöjärjestelmät ja sovellukset ajan tasalla",
+      "Käytä yksilöllisiä, pitkiä salasanoja",
+      "Poista tarpeettomat käyttöoikeudet"
+    ],
+    "cta": { "text": "Aloita perushygienia", "route": "/kyber-basics" }
+  },
+  "synteettinen-tundra": {
+    "slug": "synteettinen-tundra",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "Tekoälyn uhat",
+    "seo": {
+      "title": "Synteettinen Tundra: Tekoälyn Uhat | Arctic Security",
+      "description": "Tunnista tekoälyyn kohdistuvat uhkat ja rakenna puolustus kerroksittain."
+    },
+    "hero": {
+      "title": "Synteettinen Tundra",
+      "subtitle": "Uhat muuttuvat nopeammin kuin sää. Tekoälyn turva vaatii jatkuvaa valppautta."
+    },
+    "sections": [
+      {
+        "title": "Mallien manipulointi",
+        "body": "Mallien syötteitä voidaan myrkyttää tai ohjata harhaan. Turvaa opetusdata ja valvo mallien käyttäytymistä jatkuvasti."
+      },
+      {
+        "title": "Tuotosten luotettavuus",
+        "body": "Hallusinaatiot voivat näyttää vakuuttavilta. Rakennamme varmistusketjun, joka edellyttää lähdeviitteitä ja kriittistä validointia."
+      }
+    ],
+    "checklist": [
+      "Vahvista opetusdatan eheys",
+      "Seuraa mallien poikkeamia",
+      "Rajaa syötteet luotettuihin lähteisiin",
+      "Pidä ihmisvarmennus kriittisissä päätöksissä"
+    ],
+    "cta": { "text": "Suojaa AI-kerros", "route": "/ai-threats" }
+  },
+  "signaalituli": {
+    "slug": "signaalituli",
+    "category": "mobile",
+    "featured": true,
+    "navLabel": "Salattu viestintä",
+    "seo": {
+      "title": "Signaalituli: Salattu Viestintä | Arctic Security",
+      "description": "Pidä viestit piilossa kuin revontulet pilviverhon takana."
+    },
+    "hero": {
+      "title": "Signaalituli",
+      "subtitle": "Kun yhteys on ainoa silta, sen on oltava salattu ja luotettava."
+    },
+    "sections": [
+      {
+        "title": "Päästä päähän -suojaus",
+        "body": "Valitse viestintäkanavat, joissa salaus on oletus, ei lisäosa. Varmista avainten hallinta ja varmuus sekä käyttäjän tunnistaminen."
+      },
+      {
+        "title": "Metadatan minimointi",
+        "body": "Sisältö on vain osa riskiä. Suojaa myös metatiedot rajaamalla lokit, signaalit ja tarpeettomat kuittaukset."
+      }
+    ],
+    "checklist": [
+      "Käytä E2EE-viestintää",
+      "Vahvista turvakoodit kasvotusten",
+      "Minimoi viestien säilytysaika",
+      "Vältä pilvivarmuuskopioita viesteille"
+    ],
+    "cta": { "text": "Valitse salattu kanava", "route": "/mobile-encryption" }
+  },
+  "jaatynyt-kehays": {
+    "slug": "jaatynyt-kehays",
+    "category": "mobile",
+    "featured": true,
+    "navLabel": "Laitteiston karkaisu",
+    "seo": {
+      "title": "Jäätynyt Kehä: Mobiililaitteen Koventaminen | Arctic Security",
+      "description": "Muuta mobiililaitteesi murtumattomaksi linnakkeeksi. Asiantuntijaopas laitteiston karkaisuun arktisella tarkkuudella."
+    },
+    "hero": {
+      "title": "Jäätynyt Kehä",
+      "subtitle": "Kun signaali on ainoa yhteys ulkomaailmaan, sen on oltava murtumaton."
+    },
+    "sections": [
+      {
+        "title": "Perinteisen suojan murtuminen",
+        "body": "Nykyaikainen mobiililaite on avoin haavoittuvuus, ellei sitä ole eristetty kuin tunturimaja talvimyrskyn keskellä. Standardiasetukset on suunniteltu mukavuuden, ei selviytymisen ehdoilla."
+      },
+      {
+        "title": "Eristysstrategia",
+        "body": "Karkaisu alkaa peruskerroksista: BIOS-tason lukituksista ja hiekkalaatikoinnista. Emerald-500 -tason suojaus vaatii nollaluottamuksen periaatetta jokaiselle sovellukselle ja yhteydelle."
+      }
+    ],
+    "checklist": [
+      "Biometrisen tunnistautumisen deaktivointi kriittisissä pisteissä",
+      "Laitetason salausavaimen vahvistaminen",
+      "USB-porttien lukitus dataliikenteeltä",
+      "Baseband-prosessorin tarkkailu"
+    ],
+    "cta": {
+      "text": "Lataa karkaisuohje",
+      "route": "/guides/mobile-hardening"
+    }
+  },
+  "vaeltaja-tutka": {
+    "slug": "vaeltaja-tutka",
+    "category": "mobile",
+    "featured": false,
+    "navLabel": "Seurannan esto",
+    "seo": {
+      "title": "Vaeltaja-tutka: Seurannan Esto | Arctic Security",
+      "description": "Katkaise jäljitysverkot ja vähennä mobiililaitteen paljastamaa metatietoa."
+    },
+    "hero": {
+      "title": "Vaeltaja-tutka",
+      "subtitle": "Jäljet lumessa katoavat nopeasti — varmista, että myös digitaaliset katoavat."
+    },
+    "sections": [
+      {
+        "title": "Sijainnin hallinta",
+        "body": "Hallinnoi sijaintia sovelluskohtaisesti. Salli vain välttämättömät oikeudet ja käytä väliaikaista sijaintia tarpeen mukaan."
+      },
+      {
+        "title": "Mainostunnisteiden jäädytys",
+        "body": "Nollaa mainostunnisteet ja estä ristiinseuranta. Pienennä sovellusten lupa-alueita kuin tiivistät varusterepun."
+      }
+    ],
+    "checklist": [
+      "Poista tarpeettomat sijaintioikeudet",
+      "Nollaa mainostunnisteet säännöllisesti",
+      "Rajoita taustalla toimivia sovelluksia",
+      "Kytke Bluetooth/NFC päälle vain tarvittaessa"
+    ],
+    "cta": { "text": "Sulje jäljitysreitit", "route": "/mobile-privacy" }
+  },
+  "syva-ikirouta": {
+    "slug": "syva-ikirouta",
+    "category": "privacy",
+    "featured": false,
+    "navLabel": "Tietosuvereniteetti",
+    "seo": {
+      "title": "Syvä Ikirouta: Tietojen Lopullinen Suoja | Arctic Security",
+      "description": "Miten varmistat datasi yksityisyyden tilanteessa, jossa pilvipalvelut sulavat? Syvä Ikirouta on ratkaisu tietosuvereniteettiin."
+    },
+    "hero": {
+      "title": "Syvä Ikirouta",
+      "subtitle": "Tieto on arvokkainta silloin, kun kukaan muu ei tiedä sen olemassaolosta."
+    },
+    "sections": [
+      {
+        "title": "Datan suvereniteetti",
+        "body": "Arktisessa strategiassa emme luota kolmansiin osapuoliin. Data on säilytettävä omassa hallinnassa, salattuna kerroksilla, jotka eivät murru vaikka infrastruktuuri ympärillä pettäisi."
+      },
+      {
+        "title": "Kylmäsäilytys ja hajautus",
+        "body": "Aito yksityisyys syntyy hajauttamisesta. Käytämme menetelmiä, joissa informaatio sirpaloituu kuin jää, ja vain oikea avain voi koota sen takaisin luettavaan muotoon."
+      }
+    ],
+    "checklist": [
+      "Hajautetun tallennuksen (IPFS) protokollat",
+      "PGA-tason fyysiset suoja-avaimet",
+      "Metadata-strippaus ennen arkistointia",
+      "Paikallinen LLM-analyysi pilvipalveluiden sijaan"
+    ],
+    "cta": {
+      "text": "Siirry holviin",
+      "route": "/vault/sovereignty"
+    }
+  },
+  "aurora-obscura": {
+    "slug": "aurora-obscura",
+    "category": "privacy",
+    "featured": true,
+    "navLabel": "Identiteetin maskaus",
+    "seo": {
+      "title": "Aurora Obscura: Identiteetin Maskaus | Arctic Security",
+      "description": "Suojaa identiteetti kuin revontulten varjo: näkyvä mutta jäljittämätön."
+    },
+    "hero": {
+      "title": "Aurora Obscura",
+      "subtitle": "Maskaus ei ole pako, vaan kontrollin palautus."
+    },
+    "sections": [
+      {
+        "title": "Pseudonymisointi käytännössä",
+        "body": "Pidä yksilö dataerillään. Tunnisteet, lokit ja asiakaspolut tulee irrottaa toisistaan niin, ettei yhtä voi kytkeä toiseen."
+      },
+      {
+        "title": "Turvallinen tunnistautuminen",
+        "body": "Käytä vahvaa tunnistautumista ilman tarpeettomia henkilötietoja. Minimoi säilytettävä data ja rajoita sen näkyvyys."
+      }
+    ],
+    "checklist": [
+      "Erottele tunnisteet ja lokit",
+      "Vaihda tunnisteet määräajoin",
+      "Rajaa henkilötietojen näkyvyys",
+      "Päivitä tietosuojakäytännöt"
+    ],
+    "cta": { "text": "Rakenna maskausmalli", "route": "/privacy-masking" }
+  },
+  "jaljet-lumessa": {
+    "slug": "jaljet-lumessa",
+    "category": "privacy",
+    "featured": false,
+    "navLabel": "Digitaalinen jalanjälki",
+    "seo": {
+      "title": "Jäljet Lumessa: Digitaalinen Jalanjälki | Arctic Security",
+      "description": "Hallinnoi näkyvyyttä ja pienennä datajälkiä arktisessa ympäristössä."
+    },
+    "hero": {
+      "title": "Jäljet Lumessa",
+      "subtitle": "Kaikki liike jättää jäljen — tärkeintä on päättää, mitä näkyy."
+    },
+    "sections": [
+      {
+        "title": "Kartoitus ja minimointi",
+        "body": "Aloita kartoittamalla, missä tieto elää. Poista tarpeettomat lomakkeet, evästeet ja käyttöoikeudet."
+      },
+      {
+        "title": "Elinkaaren hallinta",
+        "body": "Aseta tiedolle elinkaari. Vanha data on kylmää painolastia, joka altistaa vuodoille."
+      }
+    ],
+    "checklist": [
+      "Inventoi kerätty data",
+      "Lyhennä säilytysaikoja",
+      "Poista tarpeettomat evästeet",
+      "Dokumentoi poistopolitiikka"
+    ],
+    "cta": { "text": "Siivoa jalanjälki", "route": "/privacy-footprint" }
+  },
+  "lasiholvi": {
+    "slug": "lasiholvi",
+    "category": "privacy",
+    "featured": true,
+    "navLabel": "Kryptografia",
+    "seo": {
+      "title": "Lasiholvi: Kryptografia | Arctic Security",
+      "description": "Kryptografia tekee tiedosta mihin tahansa sijoitettaessa lukematonta."
+    },
+    "hero": {
+      "title": "Lasiholvi",
+      "subtitle": "Läpinäkyvä mutta murtumaton: näkyvä rakenne, piilotettu sisältö."
+    },
+    "sections": [
+      {
+        "title": "Avainhallinnan periaatteet",
+        "body": "Kryptografia on vain niin vahva kuin avainten hallinta. Pidä avaimet erillään datasta ja rajoita niiden käyttöä."
+      },
+      {
+        "title": "Kerrostettu salaus",
+        "body": "Yksi kerros ei riitä. Yhdistä levysalaus, tiedostokohtainen salaus ja siirtosalaus."
+      }
+    ],
+    "checklist": [
+      "Keskitetty avainhallinta (KMS/HSM)",
+      "Avainrotaatio ajastetusti",
+      "Salaa data levossa ja siirrossa",
+      "Pidä varmuusavaimet offline-tilassa"
+    ],
+    "cta": { "text": "Syvenny kryptografiaan", "route": "/privacy-crypto" }
+  },
+  "lumimyrsky-protokolla": {
+    "slug": "lumimyrsky-protokolla",
+    "category": "crisis",
+    "featured": true,
+    "navLabel": "Hätätilanteet",
+    "seo": {
+      "title": "Lumimyrsky-protokolla: Hätätilanteet | Arctic Security",
+      "description": "Kriisinhallinta, joka pitää toiminnan pystyssä myös myrskyn keskellä."
+    },
+    "hero": {
+      "title": "Lumimyrsky-protokolla",
+      "subtitle": "Kun näkyvyys katoaa, protokolla pitää suunnan."
+    },
+    "sections": [
+      {
+        "title": "Ensimmäiset 30 minuuttia",
+        "body": "Kriisin alussa nopeus ratkaisee. Eristä kriittiset järjestelmät ja varmista viestintäkanavat."
+      },
+      {
+        "title": "Tilannekuvan ylläpito",
+        "body": "Päivitä tilannekuvaa säännöllisesti. Ilman yhteistä tilannekuvaa resurssit valuvat hukkaan."
+      }
+    ],
+    "checklist": [
+      "Aktivoi kriisiryhmä ja viestintäkanava",
+      "Eristä kriittiset verkkoalueet",
+      "Varmista varajärjestelmien saatavuus",
+      "Pidä yhteys viranomaisiin"
+    ],
+    "cta": { "text": "Avaa kriisiprotokolla", "route": "/crisis-response" }
+  },
+  "ydin-yllapito": {
+    "slug": "ydin-yllapito",
+    "category": "crisis",
+    "featured": false,
+    "navLabel": "Off-grid selviytyminen",
+    "seo": {
+      "title": "Ydin-ylläpito: Off-grid Selviytyminen | Arctic Security",
+      "description": "Pidä ydintoiminnot käynnissä myös silloin, kun verkko kaatuu."
+    },
+    "hero": {
+      "title": "Ydin-ylläpito",
+      "subtitle": "Kun sähköt katkeavat, perusjärjestelmien on jatkettava."
+    },
+    "sections": [
+      {
+        "title": "Offline-kyvykkyydet",
+        "body": "Varmista, että kriittiset prosessit toimivat ilman ulkoisia riippuvuuksia. Harjoittele irtikytkentätilaa säännöllisesti."
+      },
+      {
+        "title": "Varavoima ja viestintä",
+        "body": "Pidä varavoima testattuna ja suunnittele viestintä myös ilman internetiä: satelliitti, radio, paikallinen mesh."
+      }
+    ],
+    "checklist": [
+      "Testaa varavoima kuukausittain",
+      "Harjoittele offline-toimintaa",
+      "Pidä kriittinen dokumentaatio paikallisesti",
+      "Varmista vaihtoehtoiset viestintäkanavat"
+    ],
+    "cta": { "text": "Rakenna off-grid suunnitelma", "route": "/crisis-offgrid" }
+  },
+  "paivittainen-vartio": {
+    "slug": "paivittainen-vartio",
+    "category": "routines",
+    "featured": true,
+    "navLabel": "OpSec rutiinit",
+    "seo": {
+      "title": "Päivittäinen Vartio: OpSec Rutiinit | Arctic Security",
+      "description": "Operatiivinen turvallisuus syntyy päivittäisistä rutiineista."
+    },
+    "hero": {
+      "title": "Päivittäinen Vartio",
+      "subtitle": "Rutiinit ovat yhtä vahvoja kuin niiden toisto."
+    },
+    "sections": [
+      {
+        "title": "Rutiinien rytmi",
+        "body": "Aamun tarkistuslista, päivän varmistukset ja iltaraportti muodostavat turvallisen rytmin."
+      },
+      {
+        "title": "Tunnistamisen kulttuuri",
+        "body": "OpSec tarkoittaa hereilläoloa: havainnot kirjataan ja poikkeamat tutkitaan."
+      }
+    ],
+    "checklist": [
+      "Tarkista MFA- ja VPN-tila",
+      "Varmista työaseman lukituspolitiikka",
+      "Kirjaa poikkeamat päivän aikana",
+      "Sulje päivän päätteeksi avoimet istunnot"
+    ],
+    "cta": { "text": "Ota vartio käyttöön", "route": "/routines-opsec" }
+  },
+  "algoritminen-pakkanen": {
+    "slug": "algoritminen-pakkanen",
+    "category": "ai",
+    "featured": false,
+    "navLabel": "Manipulaation tunnistus",
+    "seo": {
+      "title": "Algoritminen Pakkanen: Manipulaation Tunnistus | Arctic Security",
+      "description": "Tunnista ohjaus, harhautus ja manipulointi tekoälyjärjestelmissä."
+    },
+    "hero": {
+      "title": "Algoritminen Pakkanen",
+      "subtitle": "Kun data kylmenee, poikkeamat näkyvät selkeämmin."
+    },
+    "sections": [
+      {
+        "title": "Poikkeamien signaalit",
+        "body": "Seuraa mallien ulostuloja systemaattisesti ja tunnista epätavalliset kuvioit kuten käsikirjoitettu toisto."
+      },
+      {
+        "title": "Vastapuolen taktiikat",
+        "body": "Manipulaatio näkyy usein pieninä painotuksina. Kalibroi valvonta niin, että havaitset myös hienovaraiset ohjaukset."
+      }
+    ],
+    "checklist": [
+      "Rakenna poikkeamien baseline",
+      "Monitoroi epätavallisia syötekuvioita",
+      "Vahvista ulostulojen lähdeaineisto",
+      "Pidä red team -testit säännöllisinä"
+    ],
+    "cta": { "text": "Vahvista manipulaatiosuoja", "route": "/ai-detection" }
+  },
+  "nollapiste": {
+    "slug": "nollapiste",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Infrastruktuurin suojaus",
+    "seo": {
+      "title": "Nollapiste: Infrastruktuurin Suojaus | Arctic Security",
+      "description": "Ydinpalveluiden suojaus on koko ekosysteemin perusta."
+    },
+    "hero": {
+      "title": "Nollapiste",
+      "subtitle": "Infrastruktuurin suojaus alkaa nollapisteestä: kaikesta kriittisestä."
+    },
+    "sections": [
+      {
+        "title": "Kriittisten palveluiden kartta",
+        "body": "Määrittele kriittiset palvelut ja niiden riippuvuudet. Ilman karttaa et voi suojata reittiä."
+      },
+      {
+        "title": "Segmentointi ja valvonta",
+        "body": "Segmentoi palvelut ja lisää näkyvyys jokaiseen vyöhykkeeseen. Näin rajaaminen on nopeaa häiriötilanteessa."
+      }
+    ],
+    "checklist": [
+      "Dokumentoi kriittiset palvelut",
+      "Segmentoi verkkoalueet",
+      "Vahvista lokitus ja valvonta",
+      "Testaa palautuspolut säännöllisesti"
+    ],
+    "cta": { "text": "Kartoita infrastruktuuri", "route": "/kyber-infrastructure" }
   }
 };
