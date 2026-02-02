@@ -78,7 +78,7 @@ const Home: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Kaikki mitä tarvitset <span className="text-slate-600">yhdessä paikassa.</span></h2>
             <div className="h-px bg-slate-800 flex-grow mx-12 hidden lg:block mb-6"></div>
             <div className="text-right">
-              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">12+</span>
+              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">{Object.keys(contentRegistry).length}+</span>
               <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Sisältöpakettia</p>
             </div>
           </div>
@@ -106,7 +106,7 @@ const Home: React.FC = () => {
                       </Link>
                     ))
                   }
-                  {Object.values(contentRegistry).filter(item => item.category === cat.slug).length === 0 && (
+                  {Object.values(contentRegistry).filter(item => item.category === (cat.slug as any)).length === 0 && (
                     <span className="text-[10px] text-slate-700 italic font-medium">Tulossa...</span>
                   )}
                 </div>

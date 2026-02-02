@@ -23,7 +23,7 @@ const ContentPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-40">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-40 min-h-screen">
         <ArcticLoader />
       </div>
     );
