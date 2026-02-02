@@ -30,13 +30,15 @@ const BRAND_CONTEXT = `
   - CTA buttons should usually be emerald-500 to maintain conversion continuity.
 `;
 
-// 3. AUDIT FINDINGS (From Screenshot 6)
+// 3. AUDIT FINDINGS (Updated after Opus & Codex implementation)
 const AUDIT_CONTEXT = `
 # CURRENT AUDIT REPORT
-- GAPS DETECTED: 
-  - 'privacy' category is empty.
-  - 'mobile' category needs deep-dive content (e.g. "arctic-mobile-hardening").
-  - 'crisis' category relies on a single page.
+- COMPLETED:
+  - 'arctic-security-opus' (The Master Opus)
+  - 'arctic-codex-protocol' (The Permafrost layer)
+- REMAINING GAPS: 
+  - 'privacy' category is STILL empty (CRITICAL).
+  - 'mobile' category needs more deep-dive content (e.g. "arctic-mobile-hardening").
 - SEO NOTES: 
   - AI Safety needs terms like "adversarial attacks" and "model alignment".
 `;
@@ -64,7 +66,7 @@ const AiAssistant: React.FC = () => {
     setMessages([{
       role: 'assistant', 
       content: newMode 
-        ? '🏗️ **SYSTEM ACCESS GRANTED: DEV ARCHITECT**\n\nOlen ladannut auditointiraportin ja ContentItem-skeeman. Tietokannassa havaittu puutteita kategorioissa: **Privacy** ja **Mobile**.\n\nGeneroidaanko puuttuva sisältö?' 
+        ? '🏗️ **SYSTEM ACCESS GRANTED: DEV ARCHITECT**\n\nOpus ja Codex kuitattu valmiiksi. Auditointiraportin mukaan seuraava kriittinen tehtävä on **Privacy**-aukkojen täyttäminen.\n\nHaluatko generoida tietosuoja-sisältöä?' 
         : 'Hei! Olen Lapland AI Labin virtuaalinen tietoturva-analyytikko. Miten voin auttaa sinua tänään?'
     }]);
   };
@@ -78,6 +80,7 @@ const AiAssistant: React.FC = () => {
   const getCurrentPageContext = () => {
     const slug = location.pathname.substring(1).split('/').pop() || "";
     
+    if (location.pathname === '/admin') return "Sivu: Hallintapaneeli (Admin)";
     if (location.pathname === '/business-audit') return "Sivu: Pika-auditointi (Lomake)";
     if (location.pathname === '/cyber-basics') return "Sivu: Kyberperusteet (Staattinen)";
     if (location.pathname === '/') return "Sivu: Etusivu";
