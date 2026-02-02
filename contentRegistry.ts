@@ -26,24 +26,16 @@ export const contentRegistry: Record<string, ContentItem> = {
     },
     "sections": [
       {
-        "title": "Dokumentin Arkkitehtuuri",
-        "body": "Tämä opus ei ole pelkkä manuaali, vaan strateginen viitekehys. Se yhdistää Lapland AI Labin 'Arctic Security' -filosofian käytännön teknisiin kontrolleihin. Sisältö on jaettu kuuteen pääteemaan: Kyberresilienssi, AI-turva, Mobiili karkaisu, Kriisinhallinta, Tietosuoja ja Päivittäiset rutiinit. Jokainen luku on suunniteltu kestämään aikaa, aivan kuten peruskallio jään alla."
+        "title": "Auditointipisteraportti v3.0",
+        "body": "Sisältö on synkronoitu johtavan arkkitehdin auditointipisteraportin sanomuotoihin. Jokainen kappale vastaa tarkasti JSON-lohkoja (Opus, AI Studio, Nollaluottamus), jotta strategiset linjaukset ja tekniset kontrollit pysyvät samassa rytmissä."
       },
       {
-        "title": "Zero Trust Arktisessa Verkossa",
-        "body": "Luottamus on ansaittava uudelleen jokaisessa pakkasasteessa. Verkkoarkkitehtuurimme ei luota sisä- eikä ulkoverkon liikenteeseen oletusarvoisesti. Jokainen yhteys todennetaan, salataan ja valtuutetaan erikseen, aivan kuten jokainen askel heikoilla jäillä."
+        "title": "Opus-linjaukset",
+        "body": "Opus-lohko määrittää järjestelmän pysyvän ydinviestin: riskiluokitus, auditointiketju ja hyväksyntäpolku. Näin varmistetaan, että Lapland AI Labin turvallisuuskuvaus pysyy yhtenäisenä jokaisessa näkymässä."
       },
       {
-        "title": "Tekoälymallien Suojaaminen (Adversarial Attacks)",
-        "body": "Suojaamme mallimme 'myrkytyksiltä' ja syötehyökkäyksiltä kerrostetulla puolustuksella. Datan eheys varmistetaan kryptografisesti, ja mallien vastauksia monitoroidaan reaaliaikaisesti poikkeamien varalta."
-      },
-      {
-        "title": "Mobiililaitteiden fyysinen ja digitaalinen karkaisu",
-        "body": "Arktinen ympäristö vaatii laitteilta enemmän. Akut hyytyvät, näytöt jäätyvät. Digitaalisesti laite on kovettava: poista turhat sovellukset, kytke yhteydet (BT, NFC) pois (Hard Off) ja käytä vain suojattuja yhteyksiä. Fyysinen eristys kylmästä on yhtä kriittistä kuin looginen eristys verkosta."
-      },
-      {
-        "title": "Kriisiviestintä pimeän sään aikana",
-        "body": "Kun digitaalinen pimeys laskeutuu (sähkökatko tai kyberhyökkäys), viestinnän on jatkuttava. Varmista, että kriittiset yhteystiedot ovat saatavilla offline-tilassa (paperilla tai suojatulla paikallisella laitteella). Harjoittele viestintää ilman pääverkkoa, kuten satelliitti- tai radioteitse, jos toiminta sitä vaatii."
+        "title": "Kokonaisarkkitehtuuri",
+        "body": "AI Studio -lohko ohjaa mallien hallintaa ja koulutuksen hallittua läpivalaisua, kun taas Nollaluottamus-lohko ankkuroidaan identiteettivarmistukseen, segmentointiin ja jatkuvaan valvontaan. Tämä trio muodostaa arktisen turvallisuusrunkoon sidotun kokonaisuuden."
       }
     ],
     "checklist": [
@@ -199,6 +191,21 @@ export const contentRegistry: Record<string, ContentItem> = {
     "checklist": ["Ristiintarkista AI:n tuottamat faktat", "Luo kirjallinen AI-politiikka", "Nimeä vastuullinen AI-vastaava", "Ole avoin AI-käytöstä"],
     "cta": { "text": "Luo AI-pelisäännöt", "route": "/ai-safety" }
   },
+  "ai-studio-governance": {
+    "slug": "ai-studio-governance",
+    "category": "ai",
+    "featured": true,
+    "navLabel": "AI Studio",
+    "seo": { "title": "AI Studio -hallinta | Lapland AI Lab", "description": "Johtavan arkkitehdin v3.0 -sanomuotoihin synkronoitu AI Studio -hallintamalli." },
+    "hero": { "title": "AI Studio: Hallittu luovuus", "subtitle": "Käyttöliittymä, jossa mallit, datalähteet ja auditointipisteet kohtaavat turvallisesti." },
+    "sections": [
+      { "title": "Sanomuodot ja auditointi", "body": "AI Studio -lohko varmistaa, että jokainen mallikutsu kirjautuu auditointipisteraportin mukaisena JSON-viestinä. Tämä säilyttää jäljitettävyyden ja hyväksyntäketjun." },
+      { "title": "Koulutus ja data", "body": "Datalähteet on luokiteltu luottamustasoittain, ja koulutus tapahtuu vain hyväksytyssä Secure Context -ympäristössä. Jokainen datasetti allekirjoitetaan ennen käyttöä." },
+      { "title": "Operatiivinen turva", "body": "Malliversiot, promtien muutokset ja käyttölokit lukitaan suvereniteettiperiaatteen mukaisesti. Vain kriittiset toiminnot ovat näkyvissä, jotta riskipinta pysyy minimissä." }
+    ],
+    "checklist": ["Varmista Secure Context -ympäristö", "Lukitse auditointipisteiden JSON-lohkot", "Segmentoi malliversiot", "Hyväksytä muutokset kahden tason kautta"],
+    "cta": { "text": "Avaa AI Studio -raportti", "route": "/content/ai-studio-governance" }
+  },
   "zero-trust-architecture": {
     "slug": "zero-trust-architecture",
     "category": "kyber",
@@ -207,8 +214,9 @@ export const contentRegistry: Record<string, ContentItem> = {
     "seo": { "title": "Nollaluottamus-arkkitehtuuri | Lapland AI Lab", "description": "Älä koskaan luota, varmista aina." },
     "hero": { "title": "Zero Trust: Uusi normaali", "subtitle": "Moderni tietoturva ei luota kehenkään verkon sisällä tai ulkopuolella." },
     "sections": [
-      { "title": "Periaatteet", "body": "Jokainen pyyntö on todennettava, valtuutettava ja salattava, vaikka se tulisi sisäverkosta." },
-      { "title": "Miten aloitan siirtymän?", "body": "1. Identiteetti: MFA pakolliseksi kaikille. 2. Laitteet: MDM-hallinta päälle. 3. Pienimmät oikeudet: Anna pääsy vain tarpeelliseen tietoon." }
+      { "title": "Nollaluottamus-lohko", "body": "Johtavan arkkitehdin v3.0 -sanomuoto määrittää Nollaluottamus-lohkon: identiteetti, laite, sovellus, data. Jokainen pyyntö kirjataan auditointilokiin ennen kuin mitään sallitaan." },
+      { "title": "Siirtymäpolku", "body": "1) Identiteetti: MFA pakolliseksi kaikille. 2) Laite: MDM ja kunnon tarkistus. 3) Segmentointi: kriittiset palvelut erilleen. 4) Jatkuva todentaminen: ei pysyviä sessioita." },
+      { "title": "Ylläpidon rytmi", "body": "Nollaluottamus ei ole projekti vaan jatkuva rytmi. Auditointipisteet tarkistetaan viikoittain, ja poikkeamahälytykset eskaloidaan välittömästi." }
     ],
     "checklist": ["Identiteetin varmistus (MFA)", "Laitteen kunnon tarkistus", "Pienimmät oikeudet (Least Privilege)", "Verkon segmentointi"],
     "cta": { "text": "Siirry Zero Trustiin", "route": null }
