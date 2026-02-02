@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
+import { SEO, Hero, Section, CTA } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const CyberBasics: React.FC = () => {
