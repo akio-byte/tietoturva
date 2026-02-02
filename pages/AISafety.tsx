@@ -1,11 +1,8 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
-import { contentRegistry } from '../contentRegistry';
 
 const AISafety: React.FC = () => {
-  const relatedItems = Object.values(contentRegistry).filter(item => item.category === 'ai');
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
@@ -15,7 +12,6 @@ const AISafety: React.FC = () => {
       <Hero 
         title="Tekoäly ja uudet uhat"
         subtitle="Tekoäly muuttaa työtä, mutta se tuo mukanaan uudenlaisia hyökkäysvektoreita. Opas vastuulliseen AI-käyttöön."
-        category="ai"
         label="Tekoälyn uudet uhat"
       />
 
@@ -38,24 +34,72 @@ const AISafety: React.FC = () => {
           />
         </Section>
 
-        {relatedItems.length > 0 && (
-          <div className="mb-24">
-            <h3 className="text-white font-black uppercase tracking-widest text-sm mb-8 flex items-center">
-               <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></span>
-               AI-kategorian syventävät moduulit
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {relatedItems.map(item => (
-                <Link key={item.slug} to={`/content/${item.slug}`} className="glass p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all group">
-                  <h4 className="text-white font-bold mb-2 group-hover:text-emerald-400">{item.navLabel}</h4>
-                  <p className="text-slate-500 text-xs line-clamp-2">{item.hero.subtitle}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <Section 
+          title="Deepfake-huijaukset ja media"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Tekoäly pystyy jäljittelemään ääntä ja kuvaa pelottavan aidosti. 'Toimitusjohtajahuijaukset' siirtyvät videopuheluihin."
+          checklist={[
+            "Sovi sisäinen 'turvasana' puhelinasiointiin (esim. rahansiirrot)",
+            "Varmista epäilyttävä pyyntö aina toista kanavaa pitkin (soita takaisin)",
+            "Suhtaudu varauksella tuntemattomien videopuheluihin tai ääniviesteihin"
+          ]}
+          colorClass="bg-red-500"
+        >
+          <p className="mb-4">Generatiivinen tekoäly mahdollistaa kenen tahansa äänen tai kasvojen kopioimisen. Tätä käytetään yhä enemmän kohdennetuissa huijauksissa.</p>
+          <RiskCard 
+            title="CEO Fraud (Videopuhelu)"
+            example="Talousjohtaja saa videopuhelun toimitusjohtajalta, joka pyytää pikasiirtoa. Todellisuudessa videossa on AI-generoitu hahmo."
+            description="Huijaus hyödyntää luottamusta ja teknologiaa ohittaakseen normaalit tarkistusprosessit."
+          />
+        </Section>
 
-        <CTA label="Tarkista organisaatiosi AI-turvataso" link="/business-audit" />
+        <Section 
+          title="Hallitsematon tekoäly (Shadow AI)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Työntekijöiden oma-aloitteinen tekoälyn käyttö ilman valvontaa altistaa yrityksen tietovuodoille."
+          checklist={[
+            "Määrittele selkeästi sallitut ja kielletyt tekoälytyökalut",
+            "Ohjeista, mitä tietoa (esim. lähdekoodi, asiakasdata) ei saa syöttää",
+            "Suosi yritystason lisenssejä, joissa dataa ei käytetä mallin kouluttamiseen",
+            "Kouluta henkilöstö tunnistamaan tekoälyn tuottamat virheet"
+          ]}
+          colorClass="bg-emerald-500"
+        >
+          <p className="mb-4">Shadow AI tarkoittaa organisaation it-hallinnon ulkopuolista tekoälyn käyttöä. Se on merkittävä riski tietosuojalle ja immateriaalioikeuksille.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Työntekijä pyytää tekoälyä tiivistämään salaisen kokouspöytäkirjan, jolloin arkaluonteiset tiedot tallentuvat ulkopuolisen palveluntarjoajan tietokantaan.
+          </div>
+        </Section>
+
+        <Section 
+          title="Datan myrkytys"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Väärä tai saastunut tieto opettaa tekoälylle vääriä ja vaarallisia toimintatapoja."
+          checklist={[
+            "Käytä vain tunnettuja ja tarkastettuja tietolähteitä hakuun (RAG)",
+            "Valvo mallin vastauksia ja niiden sävyä säännöllisesti",
+            "Hyödynnä anomaliantunnistusta tekoälylle syötettävässä datassa"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Datan myrkytys (Data Poisoning) tapahtuu, kun hyökkääjä onnistuu saastuttamaan mallin koulutus- tai hakuaineiston virheellisellä tiedolla.
+        </Section>
+
+        <Section 
+          title="Henkilötiedot ja AI: Muista GDPR"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Julkisiin tekoälyihin syötetty tieto voi päätyä osaksi mallin koulutusdataa ja muiden käyttäjien vastauksia."
+          checklist={[
+            "Anonymisoi kaikki henkilötiedot ennen syöttämistä tekoälyyn",
+            "Älä syötä asiakasrekistereitä tai arkaluonteisia potilastietoja",
+            "Varmista, että palveluntarjoaja noudattaa EU:n tietosuojasäädöksiä"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          Tietosuoja on AI-aikakaudella haastavampaa kuin koskaan. Varmista, että organisaatiosi noudattaa tietosuojalainsäädäntöä myös tekoälykokeiluissa.
+        </Section>
+
+        <CTA label="Tarkista organisaatiosi AI-turvataso" link="#/business-audit" />
       </div>
     </div>
   );

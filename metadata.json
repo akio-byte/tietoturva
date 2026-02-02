@@ -1,5 +1,5 @@
 {
-  "name": "Lapland AI Lab - Tietoturvaportaali",
-  "description": "Arktisen tietoturvan Source of Truth (SoT). Kattava opas kyberperusteista AI-agenttien hallintaan.",
+  "name": "Lapland AI Lab - Tietoturva",
+  "description": "Lapland AI Labin kattava 6-osainen tietoturvaopas: Tekoäly, kyberturvallisuus, mobiiliturva ja rutiinit.",
   "requestFramePermissions": []
 }

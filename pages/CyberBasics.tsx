@@ -1,11 +1,8 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SEO, Hero, Section, CTA } from '../components/Shared';
-import { contentRegistry } from '../contentRegistry';
+import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
 
 const CyberBasics: React.FC = () => {
-  const relatedItems = Object.values(contentRegistry).filter(item => item.category === 'kyber');
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
@@ -15,7 +12,6 @@ const CyberBasics: React.FC = () => {
       <Hero 
         title="Kyberturvallisuuden peruspilarit"
         subtitle="Kaikki turvallisuus alkaa kolmesta sanasta: Luottamuksellisuus, Eheys ja Saatavuus. Täältä löydät perussäännöt arkeen."
-        category="kyber"
         label="Digitaalisen turvan kivijalka"
       />
 
@@ -47,26 +43,63 @@ const CyberBasics: React.FC = () => {
           colorClass="bg-indigo-500"
         >
           <p className="mb-4">Tietojen luokittelu auttaa hahmottamaan, missä suurin riski piilee. Älä käytä aikaa lounaslistan salaamiseen, vaan keskitä voimat asiakasrekisteriin.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Työntekijä lähettää salaisen tuotekehityssuunnitelman omaan sähköpostiinsa tehdäkseen töitä kotona, jolloin tieto vuotaa suojaamattomaan ympäristöön.
+          </div>
         </Section>
 
-        {relatedItems.length > 0 && (
-          <div className="mb-24">
-            <h3 className="text-white font-black uppercase tracking-widest text-sm mb-8 flex items-center">
-               <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-               Kyber-kategorian syventävät moduulit
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {relatedItems.map(item => (
-                <Link key={item.slug} to={`/content/${item.slug}`} className="glass p-6 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
-                  <h4 className="text-white font-bold mb-2 group-hover:text-blue-400">{item.navLabel}</h4>
-                  <p className="text-slate-500 text-xs line-clamp-2">{item.hero.subtitle}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <Section 
+          title="Salasanojen hallinta ja MFA"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Valtaosa murroista alkaa heikoista tunnuksista. MFA on tehokkain yksittäinen suoja hyökkäyksiä vastaan."
+          checklist={[
+            "Käytä salasanaohjelmaa (Password Manager) kaikissa laitteissa",
+            "Luo vähintään 16 merkin salalauseita numeroiden ja merkkien kera",
+            "Ota MFA käyttöön kaikissa kriittisissä ja sosiaalisen median palveluissa"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Unohda muistilaput. Nykyaikainen tietoturva vaatii hallittua salasanojen käsittelyä ja monivaiheista tunnistautumista (MFA), joka toimii toisena lukkona ovesi takana.
+        </Section>
 
-        <CTA label="Tee pika-auditointi" link="/business-audit" />
+        <Section 
+          title="Ohjelmistopäivitykset ja haavoittuvuudet"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Päivitykset eivät tuo vain uusia ominaisuuksia, vaan ne ovat kriittisiä paikkoja tietoturva-aukoille."
+          checklist={[
+            "Ota automaattiset päivitykset käyttöön kaikissa käyttöjärjestelmissä",
+            "Älä viivytä kriittisiä tietoturvapäivityksiä yli 24 tuntia",
+            "Tarkista säännöllisesti reitittimen ja muiden verkkolaitteiden päivitykset",
+            "Luovu laitteista, joiden valmistaja on lopettanut päivitystuen"
+          ]}
+          colorClass="bg-indigo-500"
+        >
+          <p className="mb-4">Haavoittuvuudet ovat ohjelmistojen virheitä, joita hyökkääjät hyödyntävät päästäkseen käsiksi tietoihisi. Päivitykset tukkivat nämä reiät.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Hyökkääjä käyttää hyväkseen kuukausia vanhaa haavoittuvuutta selaimessa, johon päivitystä ei ole asennettu, ja saa laitteen hallintaansa.
+          </div>
+        </Section>
+
+        <Section 
+          title="Sosiaalinen manipulointi"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Tekniikka on usein vahvempaa kuin ihminen. Hyökkääjät hyödyntävät tunteita, kiirettä ja auktoriteettia."
+          checklist={[
+            "Tarkista aina lähettäjän todellinen sähköpostiosoite",
+            "Älä klikkaa linkkejä suoraan; mene palveluun selaimen kautta",
+            "Suhtaudu kriittisesti kiireellisiin pyyntöihin puhelimessa tai viesteissä"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          <p className="mb-8">Sosiaalinen manipulointi pyrkii murtamaan suojat hyödyntämällä ihmisen luottamusta tai kiirettä. Kalastelu (Phishing) on tästä yleisin esimerkki.</p>
+          <RiskCard 
+            title="Kalasteluviesti"
+            example="Tilisi on lukittu! Kirjaudu sisään tästä 24h kuluessa tai menetät pääsyn."
+            description="Huijari luo keinotekoisen kiireen tunteen, jotta teet virheen ja paljastat tunnuksesi valesivustolla."
+          />
+        </Section>
+
+        <CTA label="Lataa Kyberperusteet-muistilista (PDF - Tulossa)" />
       </div>
     </div>
   );

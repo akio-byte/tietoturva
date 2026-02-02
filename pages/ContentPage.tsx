@@ -1,43 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Navigate, useLocation } from 'react-router-dom';
-import { SEO, Hero, Section, CTA, ArcticLoader } from '../components/Shared';
+import { SEO, Hero, Section, CTA } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const ContentPage: React.FC = () => {
   const { slug: paramsSlug } = useParams<{ slug: string }>();
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
   
+  // Etsitään slug joko urlista tai suorasta polusta
   const slug = paramsSlug || location.pathname.substring(1).split('/').pop() || "";
   const content = contentRegistry[slug];
-
-  useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => setIsLoading(false), 600); // Frost loading effect duration
-    return () => clearTimeout(timer);
-  }, [slug]);
 
   if (!content) {
     return <Navigate to="/" replace />;
   }
 
-  if (isLoading) {
-    return (
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-40 min-h-screen">
-        <ArcticLoader />
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
         title={content.seo.title} 
         description={content.seo.description} 
       />
       
       {slug === 'incident-response' && (
-        <div className="mb-12 glass border-red-500/30 p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mb-12 glass border-red-500/30 p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 animate-in fade-in slide-in-from-top-4 duration-700">
           <div className="flex items-center gap-6">
             <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-slate-950 shadow-xl shadow-red-500/20">
               <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +47,6 @@ const ContentPage: React.FC = () => {
       <Hero 
         title={content.hero.title}
         subtitle={content.hero.subtitle}
-        category={content.category}
         label={`Tietoturvasyväsukellus | ${content.category.toUpperCase()}`}
       />
 

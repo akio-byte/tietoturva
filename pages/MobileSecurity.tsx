@@ -1,11 +1,8 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
-import { contentRegistry } from '../contentRegistry';
 
 const MobileSecurity: React.FC = () => {
-  const relatedItems = Object.values(contentRegistry).filter(item => item.category === 'mobile');
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
@@ -15,7 +12,6 @@ const MobileSecurity: React.FC = () => {
       <Hero 
         title="Tasku-kyber: Suojaa liikkuva toimisto"
         subtitle="Puhelimesi on todennäköisesti henkilökohtaisin ja samalla haavoittuvin laitteesi. Pidä se lukittuna ja valvottuna."
-        category="mobile"
         label="Taskussa kulkevan tiedon suojaus"
       />
 
@@ -33,22 +29,68 @@ const MobileSecurity: React.FC = () => {
           Fyysinen turvallisuus on usein mobiililaitteiden heikoin lenkki. Laitteen varastaminen tai katoaminen on arkipäiväinen riski, joka on taklattava etukäteen.
         </Section>
 
-        {relatedItems.length > 0 && (
-          <div className="mb-24">
-            <h3 className="text-white font-black uppercase tracking-widest text-sm mb-8 flex items-center">
-               <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-               Mobiili-kategorian syventävät moduulit
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {relatedItems.map(item => (
-                <Link key={item.slug} to={`/content/${item.slug}`} className="glass p-6 rounded-2xl border border-slate-800 hover:border-purple-500/50 transition-all group">
-                  <h4 className="text-white font-bold mb-2 group-hover:text-purple-400">{item.navLabel}</h4>
-                  <p className="text-slate-500 text-xs line-clamp-2">{item.hero.subtitle}</p>
-                </Link>
-              ))}
-            </div>
+        <Section 
+          title="USB-lataus ja Juice Jacking"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Julkiset USB-latauspisteet voivat siirtää dataa sähkön lisäksi. Puhelimesi voi saastua pelkästä latauksesta."
+          checklist={[
+            "Käytä aina omaa laturia ja pistorasiaa, vältä julkisia USB-portteja",
+            "Hanki 'USB data blocker' -välikappale, joka estää datasiirron",
+            "Älä koskaan hyväksy 'Luota tähän tietokoneeseen' -ilmoitusta latauksen yhteydessä"
+          ]}
+          colorClass="bg-red-500"
+        >
+          <p className="mb-4">Lentokenttien ja kahviloiden ilmaiset latauspisteet ovat käteviä, mutta riskialttiita. Juice Jacking on hyökkäys, jossa latauskaapelin kautta asennetaan haittaohjelma.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Matkustaja kytkee puhelimensa lataustolppaan, ja taustalla oleva mikrotietokone kopioi puhelimen kuvat ja yhteystiedot huomaamatta.
           </div>
-        )}
+        </Section>
+
+        <Section 
+          title="Viestintäsovellukset ja salaus"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Arkaluonteinen tieto voi paljastua, jos viestintää ei ole suojattu päästä päähän -salauksella (E2EE)."
+          checklist={[
+            "Käytä ensisijaisesti E2EE-sovelluksia (Signal, WhatsApp)",
+            "Käytä katoavia viestejä (disappearing messages) arkaluonteiseen tietoon",
+            "Älä jaa salasanoja tai koodia tavallisella tekstiviestillä",
+            "Varmista, että sovellusten varmuuskopiot on myös salattu"
+          ]}
+          colorClass="bg-emerald-500"
+        >
+          <p className="mb-4">Perinteiset tekstiviestit ja monet ilmaiset sähköpostit eivät ole salattuja. Käytä turvallisia kanavia työhön ja yksityisyyteen.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Tekstiviestit voidaan kaapata verkkotasolla, jolloin MFA-koodit tai salasanat päätyvät vääriin käsiin ilman, että huomaat mitään.
+          </div>
+        </Section>
+
+        <Section 
+          title="Sovellusluvat: Kuka kuuntelee?"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Monet sovellukset pyytävät pääsyä mikrofoniiin, kameraan tai sijaintiin ilman todellista tarvetta."
+          checklist={[
+            "Käy läpi sovellusluvat kerran kuussa puhelimen asetuksista",
+            "Poista kaikki sovellukset, joita et ole käyttänyt 3 kuukauteen",
+            "Lataa sovelluksia vain virallisista kaupoista (App Store / Play Store)"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Sovellukset keräävät valtavia määriä dataa taustalla. Ole kriittinen sille, mitä tietoa annat puhelimessasi oleville ohjelmille.
+        </Section>
+
+        <Section 
+          title="Turvattomat verkot: Wi-Fi on ansa"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Julkiset verkot ovat helppoja paikkoja 'man-in-the-middle' -hyökkäyksille."
+          checklist={[
+            "Käytä aina VPN-yhteyttä julkisessa Wi-Fissä (hotellit, kahvilat)",
+            "Suosi mobiilidataa ja omaa hotspottia avoimen verkon sijaan",
+            "Sammuta Wi-Fi ja Bluetooth, kun et tarvitse niitä aktiivisesti"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          Avoimet verkot kahviloissa ja lentokentillä ovat hyökkääjien leikkikenttiä. Suojaa liikenteesi salaamalla se luotettavalla VPN-yhteydellä.
+        </Section>
 
         <CTA label="Mobiiliturvan pikaohje (A4 - Tulossa)" />
       </div>

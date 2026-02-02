@@ -1,11 +1,8 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
-import { contentRegistry } from '../contentRegistry';
 
 const Routines: React.FC = () => {
-  const relatedItems = Object.values(contentRegistry).filter(item => item.category === 'routines');
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO 
@@ -15,7 +12,6 @@ const Routines: React.FC = () => {
       <Hero 
         title="Turvallisuuden arjen rutiinit"
         subtitle="Tietoturva ei ole projekti, se on jatkuva tapa. Tässä ovat listat, joilla pidät huolen, ettei unohduksia tapahdu."
-        category="routines"
         label="Viikko- ja kuukausitason tarkistuslistat"
       />
 
@@ -33,22 +29,69 @@ const Routines: React.FC = () => {
           Viikon startti on paras aika varmistaa, että perustekniikka on kunnossa ja valvonta aktiivista uuden viikon haasteita varten.
         </Section>
 
-        {relatedItems.length > 0 && (
-          <div className="mb-24">
-            <h3 className="text-white font-black uppercase tracking-widest text-sm mb-8 flex items-center">
-               <span className="w-2 h-2 bg-slate-500 rounded-full mr-3"></span>
-               Rutiinit-kategorian syventävät moduulit
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {relatedItems.map(item => (
-                <Link key={item.slug} to={`/content/${item.slug}`} className="glass p-6 rounded-2xl border border-slate-800 hover:border-slate-500/50 transition-all group">
-                  <h4 className="text-white font-bold mb-2 group-hover:text-white">{item.navLabel}</h4>
-                  <p className="text-slate-500 text-xs line-clamp-2">{item.hero.subtitle}</p>
-                </Link>
-              ))}
-            </div>
+        <Section 
+          title="Kuukauden huolto (Kuukausittainen)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Ajan myötä järjestelmiin kertyy turhaa painolastia ja vanhentuneita oikeuksia."
+          checklist={[
+            "Poista turhat tiedostot ja käyttämättömät sovellukset",
+            "Tarkista jaetut tiedostolinkit (ovatko vielä tarpeellisia?)",
+            "Vaihda kriittiset salasanat tai tarkista salasanaohjelman terveys"
+          ]}
+          colorClass="bg-blue-500"
+        >
+          Syvempi katsaus kerran kuussa varmistaa, että pääsynhallinta on ajan tasalla ja turhat riskit on siivottu pois.
+        </Section>
+
+        <Section 
+          title="Matkustajan muistilista (Tarvittaessa)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Tietoturvariski moninkertaistuu toimiston ulkopuolella. Varkaudet ja vakoilu ovat yleisiä matkalla."
+          checklist={[
+            "Ota mukaan vain välttämättömät laitteet (Clean Travel)",
+            "Varmuuskopioi kaikki tiedot ennen lähtöä ja jätä kopio kotiin",
+            "Käytä tietosuojakalvoa (Privacy Screen) kannettavassa ja puhelimessa",
+            "Älä koskaan jätä laitteita vartioimatta hotellihuoneeseen tai autoon"
+          ]}
+          colorClass="bg-indigo-500"
+        >
+          <p className="mb-4">Työmatka on hyökkääjälle otollinen hetki. Väsynyt matkustaja tekee virheitä, ja laitteet ovat alttiina varkauksille.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Kilpailija tai vakooja kuvaa kannettavan näytön lentokoneessa tai junassa, saaden haltuunsa luottamuksellista strategiamateriaalia.
           </div>
-        )}
+        </Section>
+
+        <Section 
+          title="Poikkeustilanneharjoitus (Incident Response)"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Paniikki on pahin vihollinen hyökkäyksen sattuessa. Harjoittelu luo selkäydinmuistin."
+          checklist={[
+            "Järjestä simuloitu kalasteluhyökkäys organisaatiollesi",
+            "Suorita varmuuskopioiden palautuskoe täysin tyhjään laitteeseen",
+            "Päivitä kriittisten henkilöiden yhteystietolista (myös offline)",
+            "Käy läpi opit ja päivitä toimintaohjeet havaintojen perusteella"
+          ]}
+          colorClass="bg-emerald-500"
+        >
+          <p className="mb-4">Tiedätkö mitä tehdä, jos yrityksesi tiedostot lukitaan tänään? Harjoittele vastausta ennen kuin se on välttämätöntä.</p>
+          <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl italic text-slate-400">
+            Esimerkki riskistä: Yritys palauttaa varmuuskopion vasta hyökkäyksen jälkeen, mutta huomaa vasta silloin, että kopio on korruptoitunut kuukausia sitten.
+          </div>
+        </Section>
+
+        <Section 
+          title="Vuosittainen suursiivous"
+          importanceTitle="Miksi tämä on tärkeää?"
+          importanceDesc="Vuodessa uhat, työntekijät ja liiketoiminnan tarpeet muuttuvat."
+          checklist={[
+            "Päivitä organisaation koko tietoturvaohjeistus vastaamaan nykyhetkeä",
+            "Vaihda fyysiset lukot tai päivitä kulkukorttien oikeudet",
+            "Järjestä uusi tietoturvakoulutus koko tiimille uusista AI-uhista"
+          ]}
+          colorClass="bg-purple-500"
+        >
+          Strategisella tasolla on katsottava eteenpäin kerran vuodessa. Onko organisaatiosi valmis kohtaamaan tulevan vuoden uudet haasteet?
+        </Section>
 
         <CTA label="Tilaa muistutus (Tulossa)" />
       </div>
