@@ -434,4 +434,61 @@ export const contentRegistry: Record<string, ContentItem> = {
     }
   },
   "social-engineering": {
-    "slug": "social-engineering
+    "slug": "social-engineering",
+    "category": "kyber",
+    "featured": false,
+    "navLabel": "Tunturivaisto",
+    "seo": {
+      "title": "Tunturivaisto | Sosiaalinen Manipulointi",
+      "description": "Tunnista ja torju sosiaalisen manipuloinnin yritykset."
+    },
+    "hero": {
+      "title": "Tunturivaisto",
+      "subtitle": "Ihmisen puolustusmekanismit digiajassa."
+    },
+    "sections": [
+      {
+        "title": "Psykologinen puolustus",
+        "body": "Tekniikka ei riitä, jos ihminen erehtyy. Tunturivaisto opettaa tunnistamaan manipuloinnin merkit."
+      }
+    ],
+    "checklist": [
+      "Varmista pyynnön esittäjän henkilöllisyys",
+      "Suhtaudu kriittisesti kiireellisiin pyyntöihin",
+      "Ilmoita epäilyttävistä havainnoista"
+    ],
+    "cta": {
+      "text": "Kehitä Vaistoasi",
+      "route": "/social-eng-defense"
+    }
+  },
+  "incident-response": {
+    "slug": "incident-response",
+    "category": "crisis",
+    "featured": false,
+    "navLabel": "Vaste",
+    "seo": {
+      "title": "Kriisinhallinta | Incident Response",
+      "description": "Nopea vaste ja toipuminen tietoturvapoikkeamista."
+    },
+    "hero": {
+      "title": "Kriisinhallinta",
+      "subtitle": "Kun vahinko on tapahtunut."
+    },
+    "sections": [
+      {
+        "title": "Välitön vaste",
+        "body": "Ensimmäiset minuutit ratkaisevat. Selkeä vasteohjeistus minimoi vahingot ja nopeuttaa toipumista."
+      }
+    ],
+    "checklist": [
+      "Eristä saastuneet järjestelmät",
+      "Aktivoi kriisiviestintäkanavat",
+      "Analysoi hyökkäyksen juurisyy"
+    ],
+    "cta": {
+      "text": "Vasteohjeet",
+      "route": "/ir-protocol"
+    }
+  }
+};
