@@ -76,7 +76,7 @@ export const CONTENT: Record<string, ContentPackage> = {
     ],
     cta: {
       label: 'Tarkista organisaatiosi AI-turvataso',
-      link: '/business-audit',
+      link: '/ai-safety-check',
     },
   },
   'cyber-basics': {
@@ -154,6 +154,10 @@ export const CONTENT: Record<string, ContentPackage> = {
         colorClass: 'bg-purple-500',
       },
     ],
+    cta: {
+      label: 'Lataa Kyberperusteet-muistilista',
+      link: '/print/cyber-basics',
+    },
   },
   'mobile-security': {
     slug: 'mobile-security',
@@ -228,6 +232,10 @@ export const CONTENT: Record<string, ContentPackage> = {
         colorClass: 'bg-purple-500',
       },
     ],
+    cta: {
+      label: 'Mobiiliturvan pikaohje',
+      link: '/print/mobile-security',
+    },
   },
   routines: {
     slug: 'routines',
@@ -303,6 +311,10 @@ export const CONTENT: Record<string, ContentPackage> = {
         colorClass: 'bg-purple-500',
       },
     ],
+    cta: {
+      label: 'Tilaa muistutus',
+      link: '/reminders',
+    },
   },
   'social-engineering': {
     slug: 'social-engineering',

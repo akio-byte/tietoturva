@@ -167,7 +167,7 @@ const BusinessAudit: React.FC = () => {
         )}
 
         <div className="mt-20 print:hidden">
-          <CTA label="Lataa koko Kyberperusteet-opas (Tulossa)" link="#/cyber-basics" />
+          <CTA label="Lataa koko Kyberperusteet-opas" link="/print/cyber-basics" />
         </div>
       </div>
     </div>
