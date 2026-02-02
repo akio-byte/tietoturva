@@ -75,9 +75,10 @@ export const CONTENT: Record<string, ContentPackage> = {
       },
     ],
     cta: {
-      label: 'Tarkista organisaatiosi AI-turvataso',
-      link: '/ai-safety-check',
-    },
+  label: 'Tarkista organisaatiosi AI-turvataso',
+  link: '#/ai-safety-check',
+},
+
   },
   'cyber-basics': {
     slug: 'cyber-basics',
@@ -155,16 +156,18 @@ export const CONTENT: Record<string, ContentPackage> = {
       },
     ],
     cta: {
-      label: 'Lataa Kyberperusteet-muistilista',
-      link: '/print/cyber-basics',
-    },
+  label: 'Lataa Kyberperusteet-muistilista',
+  link: '#/print/cyber-basics',
+},
+
   },
   'mobile-security': {
     slug: 'mobile-security',
-    seo: {
-      title: 'Mobiiliturvallisuus ja viestintä | Lapland AI Lab',
-      description: 'Suojaa älypuhelimesi, tablettisi ja viestintäsi julkisissa verkoissa ja huolehdi fyysisestä turvasta.',
-    },
+    cta: {
+  label: 'Mobiiliturvan pikaohje',
+  link: '#/print/mobile-security',
+},
+
     hero: {
       title: 'Tasku-kyber: Suojaa liikkuva toimisto',
       subtitle: 'Puhelimesi on todennäköisesti henkilökohtaisin ja samalla haavoittuvin laitteesi. Pidä se lukittuna ja valvottuna.',
@@ -312,9 +315,10 @@ export const CONTENT: Record<string, ContentPackage> = {
       },
     ],
     cta: {
-      label: 'Tilaa muistutus',
-      link: '/reminders',
-    },
+  label: 'Tilaa muistutus',
+  link: '#/reminders',
+},
+
   },
   'social-engineering': {
     slug: 'social-engineering',
