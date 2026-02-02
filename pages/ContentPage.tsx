@@ -6,13 +6,55 @@ import { contentRegistry } from '../contentRegistry';
 const ContentPage: React.FC = () => {
   const { slug: paramsSlug } = useParams<{ slug: string }>();
   const location = useLocation();
+  const [loading, setLoading] = React.useState(true);
   
   // Etsitään slug joko urlista tai suorasta polusta
   const slug = paramsSlug || location.pathname.substring(1).split('/').pop() || "";
   const content = contentRegistry[slug];
 
-  if (!content) {
+  React.useEffect(() => {
+    setLoading(true);
+    const timeoutId = window.setTimeout(() => {
+      setLoading(false);
+    }, 480);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [slug]);
+
+  if (!content && !loading) {
     return <Navigate to="/" replace />;
+  }
+
+  if (loading) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="glass border border-slate-800/60 rounded-3xl p-10 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-cyan-400/20" />
+          <div className="relative z-10 space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/15 shadow-inner animate-pulse" />
+              <div className="space-y-3 w-full">
+                <p className="text-xs uppercase tracking-[0.35em] text-cyan-200/70 font-semibold">Arctic Loader</p>
+                <div className="h-6 bg-white/10 rounded-full w-2/3 animate-pulse" />
+                <div className="h-4 bg-white/10 rounded-full w-1/2 animate-pulse" />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="h-10 bg-white/10 rounded-2xl animate-pulse" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="h-32 bg-white/10 rounded-2xl animate-pulse" />
+                <div className="h-32 bg-white/10 rounded-2xl animate-pulse" />
+              </div>
+              <div className="h-5 bg-white/10 rounded-full w-5/6 animate-pulse" />
+              <div className="h-5 bg-white/10 rounded-full w-2/3 animate-pulse" />
+            </div>
+
+            <div className="mt-6 h-12 bg-cyan-300/10 rounded-full border border-cyan-200/20 animate-pulse" />
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
