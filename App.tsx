@@ -9,6 +9,8 @@ import CyberBasics from './pages/CyberBasics';
 import MobileSecurity from './pages/MobileSecurity';
 import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
+import Crisis from './pages/Crisis';
+import Privacy from './pages/Privacy';
 import ContentPage from './pages/ContentPage';
 import DevDashboard from './pages/DevDashboard';
 import AiAssistant from './components/AiAssistant';
@@ -26,6 +28,8 @@ const App: React.FC = () => {
             <Route path="/mobile-security" element={<MobileSecurity />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
+            <Route path="/crisis" element={<Crisis />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/dev-dashboard" element={<DevDashboard />} />
             {/* Dynamic content routes */}
             <Route path="/content/:slug" element={<ContentPage />} />
