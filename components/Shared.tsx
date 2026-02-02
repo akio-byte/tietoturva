@@ -94,16 +94,41 @@ export const RiskCard: React.FC<{ title: string; example: string; description: s
   </div>
 );
 
-export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => (
-  <section className="text-center py-10">
-    {link ? (
-      <a href={link} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block">
-        {label}
-      </a>
-    ) : (
-      <button onClick={onClick} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20">
-        {label}
-      </button>
-    )}
-  </section>
-);
+const normalizeCtaLink = (href: string) => {
+  if (href.startsWith('#/')) {
+    return href;
+  }
+  if (href.startsWith('/')) {
+    return `#${href}`;
+  }
+  return href;
+};
+
+const isExternalLink = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
+
+export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => {
+  const normalizedLink = link ? normalizeCtaLink(link) : undefined;
+  const isExternal = normalizedLink ? isExternalLink(normalizedLink) : false;
+
+  return (
+    <section className="text-center py-10">
+      {normalizedLink ? (
+        <a
+          href={normalizedLink}
+          className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20 inline-block"
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer noopener' : undefined}
+        >
+          {label}
+        </a>
+      ) : (
+        <button
+          onClick={onClick}
+          className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-10 py-5 rounded-full transition-all text-xl shadow-xl shadow-emerald-500/20"
+        >
+          {label}
+        </button>
+      )}
+    </section>
+  );
+};
