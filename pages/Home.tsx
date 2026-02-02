@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO, Section } from '../components/Shared';
+import { getCategoryIcon } from '../components/categoryIcons';
 import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
@@ -15,36 +16,6 @@ const Home: React.FC = () => {
     { name: "Tietosuoja", color: "text-indigo-400", slug: "privacy" },
     { name: "Rutiinit", color: "text-slate-400", slug: "routines" }
   ];
-
-  const getIconForCategory = (category: string) => {
-    switch (category) {
-      case 'ai': return (
-        <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      );
-      case 'crisis': return (
-        <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-      );
-      case 'mobile': return (
-        <svg className="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      );
-      case 'routines': return (
-        <svg className="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      );
-      default: return (
-        <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      );
-    }
-  };
 
   return (
     <div className="relative overflow-hidden bg-[#020617]">
@@ -87,7 +58,7 @@ const Home: React.FC = () => {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] group-hover:bg-emerald-500/10 transition-colors"></div>
               <div className="w-20 h-20 bg-slate-900/90 rounded-[1.5rem] flex items-center justify-center mb-12 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
-                {getIconForCategory(item.category)}
+                {getCategoryIcon(item.category)}
               </div>
               <h2 className="text-3xl font-black text-white mb-6 group-hover:text-emerald-400 transition-colors tracking-tight">
                 {item.navLabel}
