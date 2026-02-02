@@ -369,6 +369,46 @@ export const contentRegistry: Record<string, ContentItem> = {
       "route": "/codex-details"
     }
   },
+  "arctic-codex-audit": {
+    "slug": "arctic-codex-audit",
+    "category": "routines",
+    "featured": true,
+    "navLabel": "Codex Audit",
+    "seo": {
+      "title": "Arctic Codex: System Audit Protocol | High-Integrity Review",
+      "description": "Implement the Arctic Codex protocol for deep system auditing, adversarial attack prevention, and model alignment in high-security environments."
+    },
+    "hero": {
+      "title": "The Codex Audit",
+      "subtitle": "Carving clarity from the digital permafrost through systematic integrity verification."
+    },
+    "sections": [
+      {
+        "title": "The Frozen Standard",
+        "body": "In the heart of the northern wilderness, clarity is survival. The Arctic Codex Audit is not merely a checklist; it is a deep-tissue scan of your digital infrastructure. We treat every line of code like a layer of ancient ice—seeking the fractures before the weight of a crisis causes a collapse. This protocol ensures that your systems remain as unyielding as the permafrost, even when subjected to the shifting winds of adversarial pressure."
+      },
+      {
+        "title": "The Audit Prompt: Core Directive",
+        "body": "To initiate a Codex-level review, utilize the following high-integrity prompt within your secure LLM environment: 'Act as the Arctic Security Lead Architect. Audit the following system architecture for structural integrity, model alignment, and resilience against adversarial attacks. Identify any thermal leaks in data privacy and ensure all logic follows the principle of least privilege. Provide a report with the clarity of a winter morning, highlighting critical vulnerabilities and hardening recommendations.'"
+      },
+      {
+        "title": "Adversarial Resilience & Alignment",
+        "body": "Modern threats do not just knock on the door; they attempt to reshape the reality of your AI models. Our audit focuses heavily on model alignment—ensuring that your autonomous agents remain tethered to your core values. We simulate adversarial attacks to test the thickness of your digital hull, ensuring that no external influence can steer your mission off-course."
+      }
+    ],
+    "checklist": [
+      "Analyze system logs for structural anomalies.",
+      "Verify model alignment against core safety parameters.",
+      "Scan for adversarial attack vectors in input layers.",
+      "Harden access control via glassmorphic authentication.",
+      "Audit data sovereignty within the privacy vault.",
+      "Document integrity gaps with crystalline precision."
+    ],
+    "cta": {
+      "text": "Download Full Protocol",
+      "route": "/vault/codex-protocol"
+    }
+  },
   "arctic-automation-hub": {
     "slug": "arctic-automation-hub",
     "category": "routines",
