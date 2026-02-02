@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -10,6 +9,7 @@ import MobileSecurity from './pages/MobileSecurity';
 import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
 import ContentPage from './pages/ContentPage';
+import AiAssistant from './components/AiAssistant';
 
 const App: React.FC = () => {
   return (
@@ -30,6 +30,7 @@ const App: React.FC = () => {
             <Route path="/incident-response" element={<ContentPage />} />
           </Routes>
         </main>
+        <AiAssistant />
         <Footer />
       </div>
     </Router>
