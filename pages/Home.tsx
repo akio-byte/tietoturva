@@ -5,7 +5,7 @@ import { SEO, Section } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
-  // Generoidaan featured-kortit suoraan registrystä SOPIMUKSEN mukaan
+  // Generoidaan featured-kortit suoraan registrystä
   const featuredItems = Object.values(contentRegistry).filter(item => item.featured);
   
   const categories = [
@@ -17,13 +17,37 @@ const Home: React.FC = () => {
     { name: "Rutiinit", color: "text-slate-400", slug: "routines" }
   ];
 
+  // Apufunktio ikoneille (agentti voi laajentaa tätä)
+  const getIconForCategory = (category: string) => {
+    switch (category) {
+      case 'ai': return (
+        <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      );
+      case 'crisis': return (
+        <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      );
+      default: return (
+        <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      );
+    }
+  };
+
   return (
     <div className="relative overflow-hidden">
       <SEO 
         title="Lapland AI Lab | Tietoturvaopas" 
         description="Kattava opas kyber- ja AI-turvallisuuteen pk-yrityksille ja opiskelijoille Lapland AI Labin asiantuntijoilta." 
       />
+      
+      {/* Aurora Background Decor */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center mb-24">
@@ -48,10 +72,8 @@ const Home: React.FC = () => {
               to={`/content/${item.slug}`}
               className="group glass p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-500 transform hover:-translate-y-2 border border-slate-800"
             >
-              <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 border border-emerald-500/20">
-                <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              <div className="w-14 h-14 bg-slate-800/50 rounded-2xl flex items-center justify-center mb-8 border border-slate-700 group-hover:border-emerald-500/30 transition-colors">
+                {getIconForCategory(item.category)}
               </div>
               <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
                 {item.navLabel}
@@ -75,9 +97,9 @@ const Home: React.FC = () => {
             {categories.map((cat) => (
               <div 
                 key={cat.slug} 
-                className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-slate-600 transition-all"
+                className="glass p-6 rounded-2xl text-center border border-slate-800 hover:border-slate-600 transition-all group"
               >
-                <span className={`${cat.color} font-bold text-sm block mb-4 uppercase`}>{cat.name}</span>
+                <span className={`${cat.color} font-bold text-sm block mb-4 uppercase group-hover:scale-110 transition-transform`}>{cat.name}</span>
                 <div className="flex flex-col gap-2">
                   {Object.values(contentRegistry)
                     .filter(item => item.category === cat.slug)
