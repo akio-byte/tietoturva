@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -11,9 +10,10 @@ const Header: React.FC = () => {
     { name: 'Perusteet', path: '/cyber-basics' },
     { name: 'AI-Turva', path: '/ai-safety' },
     { name: 'Mobiili', path: '/mobile-security' },
+    { name: 'Suoja', path: '/privacy' },
     { name: 'Audit', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
-    { name: 'Hallinta', path: '/dev-dashboard' },
+    { name: 'Admin', path: '/dev-dashboard' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[13px] font-bold uppercase tracking-wider transition-all hover:text-emerald-400 whitespace-nowrap px-3 py-2 rounded-lg ${
+                className={`text-[12px] font-bold uppercase tracking-wider transition-all hover:text-emerald-400 whitespace-nowrap px-3 py-2 rounded-lg ${
                   isActive(item.path) ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-400'
                 }`}
               >
