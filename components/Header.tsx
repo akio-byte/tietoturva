@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ const Header: React.FC = () => {
     { name: 'Mobiili', path: '/mobile-security' },
     { name: 'Audit', path: '/business-audit' },
     { name: 'Rutiinit', path: '/routines' },
-    { name: 'Kriisi', path: '/incident-response' },
+    { name: 'Hallinta', path: '/dev-dashboard' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

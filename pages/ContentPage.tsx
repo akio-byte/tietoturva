@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Navigate, useLocation } from 'react-router-dom';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
-import { getCategoryIcon } from '../components/categoryIcons';
 import { contentRegistry } from '../contentRegistry';
 
 const ContentPage: React.FC = () => {
@@ -44,16 +43,6 @@ const ContentPage: React.FC = () => {
           </a>
         </div>
       )}
-
-      <div className="mb-10 flex flex-col sm:flex-row items-center gap-6 glass border border-slate-800/60 px-6 py-5 rounded-3xl">
-        <div className="w-16 h-16 bg-slate-900/80 rounded-2xl border border-slate-700 flex items-center justify-center shadow-inner">
-          {getCategoryIcon(content.category, { className: 'w-9 h-9' })}
-        </div>
-        <div className="text-center sm:text-left">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 font-bold">Kategoria</p>
-          <p className="text-lg font-black text-white">{content.category}</p>
-        </div>
-      </div>
 
       <Hero 
         title={content.hero.title}

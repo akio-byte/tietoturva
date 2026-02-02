@@ -40,6 +40,105 @@ export const contentRegistry: Record<string, ContentItem> = {
       "route": "/download/opus"
     }
   },
+  "arctic-data-sovereignty": {
+    "slug": "arctic-data-sovereignty",
+    "category": "privacy",
+    "featured": true,
+    "navLabel": "Datan Hallinta",
+    "seo": {
+      "title": "Arctic Data Sovereignty | Digitaalinen Itsemääräämisoikeus",
+      "description": "Varmista tietojesi koskemattomuus pohjoisen tiukimpien tietosuojastandardien mukaisesti. Hallitse digitaalista jalanjälkeäsi."
+    },
+    "hero": {
+      "title": "Datan Itsemääräämisoikeus",
+      "subtitle": "Suojaa yksityisyytesi kuin ikirouta suojaa maanperää – murtumattomasti ja pysyvästi."
+    },
+    "sections": [
+      {
+        "title": "Digitaalinen Eristys",
+        "body": "Nykyaikaisessa verkossa tieto on valuuttaa, jota kerätään ilman lupaa. Arctic Data Sovereignty -malli perustuu nollaluottamukseen ja tietojen hajauttamiseen siten, ettei mikään yksittäinen taho voi muodostaa kokonaiskuvaa toiminnastasi."
+      },
+      {
+        "title": "Sijaintitiedon Arkkitehtuuri",
+        "body": "Palvelimien fyysinen sijainti on kriittinen tekijä. Hyödynnämme pohjoismaista lainsäädäntöä ja teknistä salausta varmistaaksemme, että datasi pysyy oikeudenkäyttöpiirissä, joka kunnioittaa yksilönvapautta."
+      }
+    ],
+    "checklist": [
+      "Auditointi: Kartoita nykyinen datan sijainti",
+      "Salaus: Ota käyttöön päästä-päähän-salaus kaikessa viestinnässä",
+      "Minimointi: Poista tarpeeton metatieto digitaalisista varannoista"
+    ],
+    "cta": {
+      "text": "Vahvista tietosuoja",
+      "route": "/privacy/vault"
+    }
+  },
+  "arctic-mobile-hardening": {
+    "slug": "arctic-mobile-hardening",
+    "category": "mobile",
+    "featured": true,
+    "navLabel": "Mobiili-Kovennus",
+    "seo": {
+      "title": "Arctic Mobile Hardening | Mobiililaitteiden Turvaaminen",
+      "description": "Syväsukellus mobiililaitteiden tekniseen koventamiseen. Suojaudu seurannalta ja tietomurroilta kenttäolosuhteissa."
+    },
+    "hero": {
+      "title": "Mobiili-Kovennus",
+      "subtitle": "Muuta älypuhelimesi haavoittuvasta sensorista turvalliseksi viestintävälineeksi."
+    },
+    "sections": [
+      {
+        "title": "Radiosignaalien Hallinta",
+        "body": "Mobiililaite lähettää jatkuvasti signaaleja, jotka paljastavat sijaintisi ja identiteettisi. Kovennusprosessi alkaa radioprotokollien (Bluetooth, Wi-Fi, NFC) tiukasta hallinnasta ja tarvittaessa fyysisestä eristämisestä."
+      },
+      {
+        "title": "Käyttöjärjestelmän Eristys",
+        "body": "Vakio-ohjelmistot sisältävät usein telemetriaa ja takaovia. Asennamme ja konfiguroimme tietoturvaan keskittyviä käyttöjärjestelmäkerroksia, jotka estävät luvattoman datan ulosvirtauksen."
+      }
+    ],
+    "checklist": [
+      "Konfiguroi: Poista käytöstä tarpeettomat taustaprosessit",
+      "Eristä: Käytä hiekkalaatikointia kriittisille sovelluksille",
+      "Suojaa: Ota käyttöön laitteistopohjainen tunnistautuminen"
+    ],
+    "cta": {
+      "text": "Lataa kovennusopas",
+      "route": "/mobile/hardening-guide"
+    }
+  },
+  "digital-survival-protocol": {
+    "slug": "digital-survival-protocol",
+    "category": "crisis",
+    "featured": false,
+    "navLabel": "Digi-Selviytyminen",
+    "seo": {
+      "title": "Digital Survival Protocol | Kriisiviestintä ja Jatkuvuus",
+      "description": "Toimintasuunnitelma digitaalisen infrastruktuurin pettäessä. Varmista viestintä ja tiedon saatavuus kaikissa olosuhteissa."
+    },
+    "hero": {
+      "title": "Digitaalinen Selviytyminen",
+      "subtitle": "Kun verkko pimenee, valmistautuminen ratkaisee. Strategia sähköiseen selviytymiseen."
+    },
+    "sections": [
+      {
+        "title": "Analoginen Varmistus",
+        "body": "Kriisitilanteessa digitaaliset järjestelmät ovat haavoittuvia. Protokollamme opastaa, miten kriittinen tieto siirretään offline-tilaan ja miten viestintä hoidetaan ilman keskitettyä infrastruktuuria."
+      },
+      {
+        "title": "Vastekyvyn Testaus",
+        "body": "Suunnitelma on vain paperia, jos sitä ei ole testattu. Simuloimme skenaarioita, joissa verkkoyhteydet ja sähkönhankinta on katkaistu, varmistaaksemme organisaatiosi toimintakyvyn säilymisen."
+      }
+    ],
+    "checklist": [
+      "Luo: Muodosta offline-arkisto kriittisestä tiedosta",
+      "Määritä: Valitse vaihtoehtoiset viestintäkanavat (Mesh/Satelliitti)",
+      "Harjoittele: Suorita säännölliset 'Blackout'-harjoitukset"
+    ],
+    "cta": {
+      "text": "Aloita varautuminen",
+      "route": "/crisis/survival"
+    }
+  },
   "arctic-codex-protocol": {
     "slug": "arctic-codex-protocol",
     "category": "routines",
