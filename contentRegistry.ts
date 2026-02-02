@@ -17,33 +17,68 @@ export const contentRegistry: Record<string, ContentItem> = {
     "featured": true,
     "navLabel": "Aurora AI Safety",
     "seo": {
-      "title": "Aurora AI Alignment & Safety | Arctic Security",
-      "description": "Defend against adversarial attacks and ensure model alignment with our Aurora AI safety framework. Secure your intelligence layer."
+      "title": "Aurora AI Alignment | Adversarial Defense & Safety",
+      "description": "Varmista mallien model alignment ja torju adversarial attacks -uhat Aurora-kehyksellä. Suojaa tekoälyn päätöksenteko ja luottamus."
     },
     "hero": {
       "title": "Aurora AI Alignment",
-      "subtitle": "Guiding your intelligence through the shifting winds of adversarial threats with crystalline precision."
+      "subtitle": "Pidä tekoälysi suunnassa ja suojaa se adversarial attacks -uhkilta kirkkaalla, pohjoisella kurssilla."
     },
     "sections": [
       {
         "title": "Adversarial Defense",
-        "body": "In the shifting landscape of machine learning, your models face constant pressure from sophisticated adversarial attacks. These subtle perturbations in data can lead to catastrophic failures in decision-making. Our Aurora framework implements robust input sanitization and gradient masking to ensure your neural networks remain resilient against prompt injections and data poisoning, maintaining the integrity of your intellectual core."
+        "body": "Tekoälymallit altistuvat jatkuvasti adversarial attacks -häirinnälle, joka voi kääntää päätöksenteon harhaan. Aurora tuo suojakerroksen syötteiden validointiin, turvalliseen kontekstitarkistukseen ja model alignment -valvontaan, jotta päätöksenteko pysyy vakaana."
       },
       {
         "title": "Model Alignment",
-        "body": "Like the steady glow of the northern lights, your AI must remain aligned with human intent and organizational values. We utilize advanced reinforcement learning from human feedback (RLHF) and constitutional AI principles to ensure model alignment. This process creates a stable ethical compass for your autonomous agents, preventing drift and ensuring that every output resonates with your brand's high-end standards."
+        "body": "Aurora varmistaa, että mallit toimivat arvojesi ja sääntöjesi mukaisesti. Yhdistämme jatkuvan policy-testauksen, ihmisen valvomat palautesilmukat ja riskiskenaariot, jotta alignment pysyy linjassa myös paineen alla."
       }
     ],
     "checklist": [
-      "Monitor model drift continuously",
-      "Sanitize all input vectors",
-      "Validate alignment metrics weekly",
-      "Stress-test against adversarial attacks",
-      "Audit training data provenance"
+      "Havaitse mallin ajautumat reaaliajassa",
+      "Validioi syötteet ennen päätöksentekoa",
+      "Varmista alignment-mittarit säännöllisesti",
+      "Simuloi adversarial attacks -skenaariot",
+      "Auditoi koulutusdatan alkuperä"
     ],
     "cta": {
-      "text": "Secure Your Intelligence",
-      "route": "/contact"
+      "text": "Aloita Aurora-auditointi",
+      "route": "/ai-safety"
+    }
+  },
+  "permafrost-data-sovereignty": {
+    "slug": "permafrost-data-sovereignty",
+    "category": "privacy",
+    "featured": false,
+    "navLabel": "Permafrost Data",
+    "seo": {
+      "title": "Permafrost Data Sovereignty | Datansuvereniteetti",
+      "description": "Rakennamme permafrost-tasoisen datansuvereniteetin: hallittu sijainti, kryptattu käyttö ja omistajuuden varmistus."
+    },
+    "hero": {
+      "title": "Permafrost Data Sovereignty",
+      "subtitle": "Lukitse data ikiroudan tavoin: paikallaan, läpinäkymättömänä ja omassa hallinnassa."
+    },
+    "sections": [
+      {
+        "title": "Sijainti ja omistajuus",
+        "body": "Määritämme datan fyysisen ja loogisen sijainnin, jotta tieto pysyy halutussa oikeudenkäyttöpiirissä ja omistajuus säilyy yksiselitteisenä."
+      },
+      {
+        "title": "Pääsyn hallittu jääkerros",
+        "body": "Käytämme monikerroksista salaus- ja avainhallintaa, joka estää luvattoman käytön ja varmistaa auditointikelpoisen pääsynhallinnan."
+      }
+    ],
+    "checklist": [
+      "Rajaa datan sijaintialueet",
+      "Kryptaa levotilassa oleva data",
+      "Vahvista avainten hallintamalli",
+      "Dokumentoi datan omistajuus",
+      "Testaa palautus ja poistoprosessit"
+    ],
+    "cta": {
+      "text": "Kartoita suvereniteetti",
+      "route": "/cyber-basics"
     }
   },
   "ai-studio-audit": {
@@ -171,6 +206,41 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": {
       "text": "Aloita kovennus",
       "route": "/mobile/hardening-guide"
+    }
+  },
+  "signal-silence-protocol": {
+    "slug": "signal-silence-protocol",
+    "category": "mobile",
+    "featured": false,
+    "navLabel": "Signal Silence",
+    "seo": {
+      "title": "Signal Silence Protocol | Mobiilin radiosuojaus",
+      "description": "Vähennä mobiililaitteiden signaalijälki ja minimoi tiedusteluriskit hallitulla radiokurin protokollalla."
+    },
+    "hero": {
+      "title": "Signal Silence Protocol",
+      "subtitle": "Kun hiljaisuus on turvaa, jokainen signaali on päätös."
+    },
+    "sections": [
+      {
+        "title": "Radiokuri kentällä",
+        "body": "Määritämme radiokäytännöt, jotka minimoivat bluetooth-, NFC- ja Wi-Fi -päästöt. Protokolla ohjaa laitekohtaiset asetukset ja operatiivisen rytmin."
+      },
+      {
+        "title": "Signaalin hallittu näkyvyys",
+        "body": "Rakennamme käytännöt, joissa yhteydet aktivoidaan vain tarpeeseen ja valvotaan jatkuvasti. Näin signaalijälki pysyy pienenä ja ennustettavana."
+      }
+    ],
+    "checklist": [
+      "Määritä radioprofiilit käyttötarpeen mukaan",
+      "Katkaise taustalla lähettelevät protokollat",
+      "Aikatauluta yhteysikkunat",
+      "Valvo signaalilokeja säännöllisesti",
+      "Kouluta tiimi radiokuriin"
+    ],
+    "cta": {
+      "text": "Käynnistä radiosuojaus",
+      "route": "/mobile-security"
     }
   },
   "ai-agent-governance": {
@@ -596,7 +666,7 @@ export const contentRegistry: Record<string, ContentItem> = {
       "Aktivoi kriisiviestintäkanavat",
       "Analysoi hyökkäyksen juurisyy"
     ],
-    "cta": {
+  "cta": {
       "text": "Vasteohjeet",
       "route": "/ir-protocol"
     }
