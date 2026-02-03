@@ -132,5 +132,80 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "checklist": ["Sopimusklausuulit kunnossa", "MFA vaatimus kumppaneille", "Auditointioikeus varmistettu"],
     "cta": { "text": "Hankintaohjeistus", "route": null }
+  },
+  "mfa-deep-dive": {
+    "type": "article",
+    "slug": "mfa-deep-dive",
+    "category": "kyber",
+    "featured": false,
+    "navLabel": "MFA syväluotaus",
+    "seo": { "title": "MFA syväluotaus | Lapland AI Lab", "description": "Phishing-resistentti MFA ja riskiperusteinen tunnistautuminen." },
+    "hero": { "title": "MFA syväluotaus", "subtitle": "Monivaiheinen todennus ei ole vain koodi – se on kriittinen päätöksentekokerros." },
+    "sections": [
+      { "title": "Phishing-resistentti MFA", "body": "Priorisoi FIDO2/WebAuthn-avaimet ja passkeyt SMS-koodien sijaan. Varmista, että korkean riskin toiminnot vaativat vahvempaa todennusta." },
+      { "title": "Riskiperusteinen hallinta", "body": "Kytke poikkeamahavainnot (uusi maa, uusi laite, epänormaali käyttäytyminen) lisävahvistuksiin. Lokita kaikki MFA-päätökset auditointia varten." }
+    ],
+    "checklist": ["FIDO2/passy käytössä", "SMS-koodi poistettu kriittisistä toiminnoista", "Riskiperusteiset säännöt määritelty", "MFA-lokit tallennetaan 12 kk"],
+    "cta": { "text": "MFA-mallipolitiikka", "route": null }
+  },
+  "backup-3-2-1": {
+    "type": "checklist",
+    "slug": "backup-3-2-1",
+    "category": "routines",
+    "featured": false,
+    "navLabel": "3-2-1 varmuus",
+    "seo": { "title": "3-2-1 varmuuskopiointi | Lapland AI Lab", "description": "Rutiini, joka estää lunastusvaatimukset ja datamenetykset." },
+    "hero": { "title": "3-2-1 varmuuskopiointi", "subtitle": "Kolme kopiota, kaksi mediaa, yksi offsite – selkeä malli arjen turvaksi." },
+    "sections": [
+      { "title": "Perusperiaate", "body": "Pidä vähintään kolme kopiota datasta: tuotantodata, paikallinen varmuuskopio ja erillinen offsite-kopio. Varmista, että yksi kopio on offline tai immuuttinen." },
+      { "title": "Palautusharjoitukset", "body": "Varmuuskopio ei ole valmis ennen kuin palautus on testattu. Ajasta kvartaaleittaiset palautusharjoitukset." }
+    ],
+    "checklist": ["3 kopiota tunnistettu", "2 eri mediaa käytössä", "1 offsite/immut. kopio", "Palautus testattu viimeisen 90 päivän aikana"],
+    "cta": { "text": "Varmuuskopiointipohja", "route": null }
+  },
+  "shadow-ai-guardrails": {
+    "type": "article",
+    "slug": "shadow-ai-guardrails",
+    "category": "ai",
+    "featured": false,
+    "navLabel": "Shadow AI",
+    "seo": { "title": "Shadow AI -hallinta | Lapland AI Lab", "description": "Näin hallitset luvattoman tekoälyn käytön ja varmistat datan suojan." },
+    "hero": { "title": "Shadow AI -hallinta", "subtitle": "Luvattomat työkalut ohittavat kontrollit ja tuovat riskit suoraan sisälle." },
+    "sections": [
+      { "title": "Havaitseminen", "body": "Kartoita hyväksymättömät työkalut liikenteestä, selainlaajennuksista ja tiedostojen siirtopalveluista. Hyödynnä CASB/DLP-hälytyksiä." },
+      { "title": "Ohjaus ja koulutus", "body": "Tarjoa virallinen AI-työkaluvalikoima ja selkeät käyttöohjeet. Liitä AI-käytön säännöt tietoturvakoulutukseen." }
+    ],
+    "checklist": ["Shadow AI -kartoitus tehty", "Hyväksytyt työkalut listattu", "DLP/CASB-hälytykset käytössä", "AI-koulutus päivitetty"],
+    "cta": { "text": "Shadow AI -kyselypohja", "route": null }
+  },
+  "mobile-hardening-basics": {
+    "type": "module",
+    "slug": "mobile-hardening-basics",
+    "category": "mobile",
+    "featured": false,
+    "navLabel": "Mobiilikarkaisu",
+    "seo": { "title": "Mobiililaitteiden karkaisu | Lapland AI Lab", "description": "Kriittiset asetukset kenttä- ja toimistokäyttöön." },
+    "hero": { "title": "Mobiililaitteiden karkaisu", "subtitle": "Puhelin on yrityksen taskussa kulkeva palvelin. Suojaa se kuin datakeskus." },
+    "sections": [
+      { "title": "Laite- ja sovellushallinta", "body": "Pakota laitteen salaus, vahva PIN ja automaattinen lukitus. Hallitse sovelluslupa- ja asennuskäytäntöjä MDM:llä." },
+      { "title": "Verkkoturva liikkeellä", "body": "Estä automaattinen Wi-Fi-liittyminen ja vaadi VPN kriittisille sovelluksille. Poista kehittäjätila tuotantolaitteista." }
+    ],
+    "checklist": ["Laite-salaus päällä", "Vahva PIN/biometria pakotettu", "MDM-työkalut käytössä", "VPN pakotettu yrityssovelluksille", "Wi-Fi automaattiyhteydet pois"],
+    "cta": { "text": "MDM-asetuslista", "route": null }
+  },
+  "privacy-data-minimization": {
+    "type": "article",
+    "slug": "privacy-data-minimization",
+    "category": "privacy",
+    "featured": false,
+    "navLabel": "Data minimointi",
+    "seo": { "title": "Datan minimointi | Lapland AI Lab", "description": "Kerää vain tarpeellinen data ja lyhennä säilytysaikaa." },
+    "hero": { "title": "Datan minimointi", "subtitle": "Mitä vähemmän säilytät, sitä vähemmän vuotaa." },
+    "sections": [
+      { "title": "Tietotarpeen määrittely", "body": "Määrittele joka kentälle liiketoiminnallinen tarve ja säilytysaika. Poista ylimääräiset attribuutit tietomalleista." },
+      { "title": "Automaattinen poistaminen", "body": "Ota käyttöön elinkaarisäännöt, jotka anonymisoivat tai poistavat tiedot määräajan jälkeen." }
+    ],
+    "checklist": ["Tietomallit karsittu", "Säilytysajat dokumentoitu", "Automaattinen poistopolitiikka käytössä", "Poistologit auditoitu"],
+    "cta": { "text": "Minimointipolitiikka", "route": null }
   }
 };
