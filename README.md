@@ -1,5 +1,7 @@
 # Lapland AI Lab - Tietoturvaopas
 
+**Live Deployment:** https://akio-byte.github.io/tietoturva/
+
 Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
 
 ## AI-orkestroitu kehitys
@@ -20,6 +22,4 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 - React 19
 - Tailwind CSS
 - React Router 7
-
-## Live URL
-https://akio-byte.github.io/tietoturva/
+- Vite (Static Build)
