@@ -20,3 +20,6 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 - React 19
 - Tailwind CSS
 - React Router 7
+
+## Live URL
+https://akio-byte.github.io/tietoturva/
