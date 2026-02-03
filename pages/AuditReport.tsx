@@ -10,14 +10,39 @@ const AuditReport: React.FC = () => {
     { title: "Suorituskyky", status: "Pass", detail: "Asset-koko minimoitu, Vite-bundlaus käytössä." },
   ];
 
+  const leadDevActions = [
+    {
+      title: "P0: Auditointiloki ja riskimatriisi",
+      detail: "Lukitse auditointilogi `docs/CONFLICTS.md` + riskiluokitus per komponentti. Tämä varmistaa jäljitettävyyden ja vähentää muutosten riskiä."
+    },
+    {
+      title: "P1: Saavutettavuus sprintti (ARIA + kontrastit)",
+      detail: "Käy läpi dynaamiset UI-osat (AiAssistant, lomakkeet). Lisää ARIA-labelit ja kontrastitestit."
+    },
+    {
+      title: "P1: Visual regressio -suojaverkko",
+      detail: "Lisää minimikattavuus: 3–5 kriittistä näkymää (Home, Audit, Admin)."
+    },
+    {
+      title: "P2: Suorituskykybudjetti",
+      detail: "Dokumentoi bundle-rajat ja lisää CI-varoitus kun rajat ylitetään."
+    }
+  ];
+
+  const leadDevSignals = [
+    { title: "Arkkitehtuurin selkeys", status: "Pass", detail: "contentRegistry.ts toimii yksilähteenä sisällölle." },
+    { title: "Tekninen velka", status: "Warning", detail: "Auditointilogi ja regressiotestit puuttuvat." },
+    { title: "DX / Toimitusputki", status: "Warning", detail: "Ei automaattista visuaalitestausta." }
+  ];
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO title="Järjestelmän tila | Lapland AI Lab" description="Portaalin tekninen auditointi ja tila." />
       
       <Hero 
         title="Järjestelmän tila"
-        subtitle="Reaaliaikainen katsaus portaalin tekniseen eheyteen, suorituskykyyn ja tietoturvaan."
-        label="System Integrity Report"
+        subtitle="Pääkehittäjälle suunnattu tekninen auditointi: nykytila, riskit ja seuraavat askeleet."
+        label="Lead Developer Audit"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -49,6 +74,25 @@ const AuditReport: React.FC = () => {
 
         <div className="space-y-8">
           <div className="glass p-8 rounded-[2.5rem] border-slate-800 bg-slate-900/50">
+             <h4 className="text-white font-bold mb-6 text-sm">Pääkehittäjän signaalit</h4>
+             <div className="space-y-4">
+               {leadDevSignals.map((signal, idx) => (
+                 <div key={idx} className="border-b border-slate-800 pb-4 last:border-0">
+                   <div className="flex justify-between items-center mb-1">
+                     <span className="text-xs font-bold text-slate-200">{signal.title}</span>
+                     <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded ${
+                       signal.status === 'Pass' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                     }`}>
+                       {signal.status}
+                     </span>
+                   </div>
+                   <p className="text-[11px] text-slate-400">{signal.detail}</p>
+                 </div>
+               ))}
+             </div>
+          </div>
+
+          <div className="glass p-8 rounded-[2.5rem] border-slate-800 bg-slate-900/50">
              <h4 className="text-white font-bold mb-6 text-sm">Prioriteettitasot (Definition)</h4>
              <div className="space-y-6">
                 <div>
@@ -67,24 +111,21 @@ const AuditReport: React.FC = () => {
           </div>
 
           <div className="glass p-8 rounded-[2.5rem] border-emerald-500/20 bg-emerald-500/5">
-            <h4 className="text-emerald-400 font-black uppercase text-[10px] tracking-widest mb-4">Viimeisimmät P0-Fixit</h4>
-            <ul className="space-y-3">
-              <li className="flex gap-3 items-start">
-                <div className="w-4 h-4 bg-emerald-500 rounded flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-2 h-2 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-[11px] text-slate-300">Vite Build -optimointi valmis.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <div className="w-4 h-4 bg-emerald-500 rounded flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-2 h-2 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-[11px] text-slate-300">Vercel Deployment -valmius.</span>
-              </li>
+            <h4 className="text-emerald-400 font-black uppercase text-[10px] tracking-widest mb-4">Pääkehittäjän toimenpiteet</h4>
+            <ul className="space-y-4">
+              {leadDevActions.map((action, idx) => (
+                <li key={idx} className="flex gap-3 items-start">
+                  <div className="w-4 h-4 bg-emerald-500 rounded flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-2 h-2 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-slate-200 block">{action.title}</span>
+                    <span className="text-[11px] text-slate-400">{action.detail}</span>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
