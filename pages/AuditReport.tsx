@@ -1,14 +1,13 @@
-
 import React from 'react';
 import { SEO, Hero } from '../components/Shared';
 
 const AuditReport: React.FC = () => {
   const auditPoints = [
     { title: "Koodin laatu", status: "Pass", detail: "React 19, ei 'any'-tyyppejä. TypeScript-tiukka tila käytössä." },
-    { title: "Tietoturva", status: "Pass", detail: "Ei API-avaimia kovakoodattuna. process.env.API_KEY käytössä dynaamisesti." },
+    { title: "Tietoturva", status: "Pass", detail: "Staattinen showroom. Kaikki dynaaminen logiikka suoritetaan selaimessa ilman backendia." },
     { title: "Responsiivisuus", status: "Pass", detail: "Tailwind-mobiiliprioriteetti. Testattu 320px - 2560px välillä." },
     { title: "Saavutettavuus", status: "Warning", detail: "ARIA-labeleita lisättävä dynaamisiin komponentteihin (AiAssistant)." },
-    { title: "Suorituskyky", status: "Pass", detail: "Asset-koko minimoitu, esm.sh latausnopeus < 200ms." },
+    { title: "Suorituskyky", status: "Pass", detail: "Asset-koko minimoitu, Vite-bundlaus käytössä." },
   ];
 
   return (
@@ -59,8 +58,8 @@ const AuditReport: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="text-sm font-bold text-white block">@/AGENT.md resoluutio</span>
-                  <p className="text-[11px] text-slate-400">Poistettu aliakset, käytetään suoraa tekstin upotusta esm.sh-yhteensopivuuden takaamiseksi.</p>
+                  <span className="text-sm font-bold text-white block">Vite Build -optimointi</span>
+                  <p className="text-[11px] text-slate-400">Poistettu importmap-riippuvuudet, siirrytty puhtaaseen staattiseen bundlaukseen.</p>
                 </div>
               </li>
               <li className="flex gap-4 items-start">
@@ -70,8 +69,8 @@ const AuditReport: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="text-sm font-bold text-white block">Reitityksen eheys</span>
-                  <p className="text-[11px] text-slate-400">Päivitetty App.tsx tukemaan uusia hallintatasoja.</p>
+                  <span className="text-sm font-bold text-white block">Vercel Deployment -valmius</span>
+                  <p className="text-[11px] text-slate-400">Päivitetty base-polku juureksi ja lisätty build-vaiheen tyyppitarkistukset.</p>
                 </div>
               </li>
             </ul>
