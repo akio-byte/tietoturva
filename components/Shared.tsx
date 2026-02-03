@@ -66,13 +66,6 @@ export const Section: React.FC<{
     }
   };
 
-  const handleKeyToggle = (event: React.KeyboardEvent<HTMLLIElement>, idx: number) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      toggleItem(idx);
-    }
-  };
-
   const progress = checklist && checklist.length > 0 
     ? (Object.values(checkedItems).filter(Boolean).length / checklist.length) * 100 
     : 0;
@@ -122,38 +115,24 @@ export const Section: React.FC<{
                 <li 
                   key={idx} 
                   onClick={() => toggleItem(idx)}
-                  onKeyDown={(event) => handleKeyToggle(event, idx)}
-                  role="button"
-                  tabIndex={0}
-                  aria-pressed={checkedItems[idx] ? 'true' : 'false'}
-                  aria-label={`Tarkistuslista: ${item}`}
                   className={`flex items-start p-5 rounded-2xl border transition-all cursor-pointer group/item ${
                     checkedItems[idx] 
                       ? 'bg-emerald-500/10 border-emerald-500/30 opacity-60' 
                       : 'bg-slate-800/40 border-slate-700/50 hover:border-emerald-500/30 hover:bg-slate-800/60'
                   }`}
                 >
-                  <div className="flex flex-1 items-start justify-between gap-4">
-                    <div className="flex items-start">
-                      <div className={`w-6 h-6 mr-4 shrink-0 mt-0.5 rounded-lg flex items-center justify-center border transition-all ${
-                        checkedItems[idx] ? 'bg-emerald-500 border-emerald-500 scale-110' : 'border-slate-600 group-hover/item:border-emerald-500/50'
-                      }`}>
-                        {checkedItems[idx] && (
-                          <svg className="w-4 h-4 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        )}
-                      </div>
-                      <span className={`text-sm leading-tight transition-all ${checkedItems[idx] ? 'text-slate-400 line-through' : 'text-slate-200 font-bold'}`}>
-                        {item}
-                      </span>
-                    </div>
+                  <div className={`w-6 h-6 mr-4 shrink-0 mt-0.5 rounded-lg flex items-center justify-center border transition-all ${
+                    checkedItems[idx] ? 'bg-emerald-500 border-emerald-500 scale-110' : 'border-slate-600 group-hover/item:border-emerald-500/50'
+                  }`}>
                     {checkedItems[idx] && (
-                      <span className="text-[9px] font-black uppercase tracking-[0.25em] text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
-                        Checked
-                      </span>
+                      <svg className="w-4 h-4 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
                     )}
                   </div>
+                  <span className={`text-sm leading-tight transition-all ${checkedItems[idx] ? 'text-slate-400 line-through' : 'text-slate-200 font-bold'}`}>
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>

@@ -23,74 +23,41 @@ const Home: React.FC = () => {
         description="Pohjoisen digitaalisen turvan keskus. Kaikki blueprintit ja hallintamallit pk-yrityksille." 
       />
       
-      {/* Aurora Background */}
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-emerald-500/10 rounded-full blur-[140px] -z-10"></div>
-      <div className="absolute -bottom-40 right-10 w-[700px] h-[700px] bg-blue-500/10 rounded-full blur-[160px] -z-10"></div>
-      <div className="absolute top-10 left-10 w-72 h-72 bg-violet-500/10 rounded-full blur-[120px] -z-10"></div>
+      {/* Background Orbs */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center mb-28">
-          <div className="relative">
-            <div className="inline-flex items-center gap-3 px-4 py-2 mb-8 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-[10px] font-black uppercase tracking-[0.35em]">
-              Aurora showroom 02
-            </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-[0.95]">
-              Digiturva <span className="aurora-text">rakentuu</span>
-              <br />kohdattuihin riskeihin.
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-medium mb-10">
-              Arctic Hardening -showroom kokoaa auditoidut blueprintit, tarkistuslistat ja hallintamallit yhteen maisemaan. Valitse polku ja lähde liikkeelle.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link to="/materials" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-4 rounded-2xl transition-all transform hover:scale-[1.02] shadow-2xl shadow-emerald-500/30 text-sm uppercase tracking-[0.2em]">
-                Avaa showroom
-              </Link>
-              <Link to="/governance" className="glass hover:bg-slate-800 text-white font-bold px-10 py-4 rounded-2xl transition-all text-sm border-slate-700 uppercase tracking-[0.2em]">
-                Governance
-              </Link>
-            </div>
+        <div className="text-center mb-32 relative">
+          <div className="inline-block px-4 py-1.5 mb-8 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-[10px] font-black uppercase tracking-[0.25em] animate-in fade-in slide-in-from-top-4 duration-1000">
+            Arctic Hardening Platform v2.5
           </div>
-
-          <div className="glass rounded-[3rem] p-10 border border-white/5 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Nostot</p>
-                <h2 className="text-2xl font-black text-white uppercase tracking-tight mt-2">Aurora-hero</h2>
-              </div>
-              <span className="text-emerald-400 font-black text-4xl">{featuredItems.length}</span>
-            </div>
-            <div className="space-y-4">
-              {featuredItems.slice(0, 3).map((item) => (
-                <Link
-                  key={item.slug}
-                  to={`/content/${item.slug}`}
-                  className="flex items-center justify-between p-4 rounded-2xl border border-white/5 bg-slate-950/40 hover:border-emerald-500/30 transition-all"
-                >
-                  <div>
-                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.25em] mb-2">{item.category}</p>
-                    <p className="text-sm font-bold text-white uppercase tracking-[0.1em]">{item.navLabel}</p>
-                  </div>
-                  <div className="w-9 h-9 rounded-xl border border-slate-800 flex items-center justify-center text-emerald-400">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          <h1 className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+            Digital <br/><span className="aurora-text">Winter Proof.</span>
+          </h1>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium mb-14">
+            Organisaation selviytymisopas digitaalisessa talvessa. Auditoitu asiantuntijatieto ja tekniset blueprintit yhdessä showroomissa.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-24">
+            <Link to="/governance" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-2xl shadow-emerald-500/30 text-lg uppercase tracking-wider">
+              Governance
+            </Link>
+            <Link to="/business-audit" className="glass hover:bg-slate-800 text-white font-bold px-12 py-5 rounded-2xl transition-all text-lg border-slate-700 uppercase tracking-wider">
+              Auditointi
+            </Link>
           </div>
         </div>
 
         {/* Featured Showcase */}
         <div className="mb-40">
-          <div className="flex items-end justify-between mb-16 px-4">
-            <div>
-              <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-2">Showroom</h2>
-              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Valitut arkkitehtuurit</p>
-            </div>
-            <Link to="/materials" className="text-xs font-black text-emerald-400 uppercase tracking-widest hover:underline pb-1">Kaikki materiaalit &rarr;</Link>
-          </div>
+           <div className="flex items-end justify-between mb-16 px-4">
+              <div>
+                <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-2">Showroom</h2>
+                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Valitut arkkitehtuurit</p>
+              </div>
+              <Link to="/materials" className="text-xs font-black text-emerald-400 uppercase tracking-widest hover:underline pb-1">Kaikki materiaalit &rarr;</Link>
+           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredItems.slice(0, 3).map((item) => (
@@ -133,32 +100,28 @@ const Home: React.FC = () => {
 
         {/* Categories Matrix */}
         <div className="mb-40 pt-24 border-t border-white/5">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8 px-4">
-            <div>
-              <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.35em]">Kategoria-arkisto</p>
-              <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter max-w-md leading-[0.9] mt-4">
-                Koko <br/><span className="text-slate-600">showroom</span>
-              </h2>
-            </div>
+          <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8 px-4">
+            <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter max-w-md leading-[0.9]">Koko <br/><span className="text-slate-600">Arkisto</span></h2>
             <div className="text-right">
               <span className="text-emerald-400 font-black text-7xl md:text-8xl leading-none">{allItems.length}</span>
               <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] mt-2">Dynaamista moduulia</p>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {categories.map((cat) => {
               const count = allItems.filter(i => i.category === cat.slug).length;
               return (
                 <Link 
                   key={cat.slug} 
                   to="/materials"
-                  className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-emerald-500/30 transition-all group shadow-xl flex flex-col"
+                  className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-white/10 transition-all group shadow-xl flex flex-col"
                 >
-                  <div className="flex items-center justify-between mb-6">
-                    <span className={`${cat.color} text-[11px] font-black uppercase tracking-[0.3em]`}>{cat.name}</span>
-                    <span className="text-[10px] font-black text-slate-500">{count}</span>
+                  <div className="mb-8 flex items-center justify-between">
+                     <div className={`w-2 h-2 rounded-full ${cat.color.replace('text', 'bg')}`}></div>
+                     <span className="text-[10px] font-black text-slate-600">{count}</span>
                   </div>
+                  <h4 className={`${cat.color} font-black text-xs uppercase tracking-[0.2em] mb-4`}>{cat.name}</h4>
                   <div className="flex flex-col gap-3">
                     {allItems
                       .filter(item => item.category === cat.slug)
@@ -166,19 +129,15 @@ const Home: React.FC = () => {
                       .map(item => (
                         <div 
                           key={item.slug} 
-                          className="flex items-center justify-between text-[10px] text-slate-500 group-hover:text-slate-300 transition-colors uppercase tracking-[0.2em] font-bold"
+                          className="text-[10px] text-slate-500 group-hover:text-slate-400 transition-colors truncate font-bold uppercase tracking-widest"
                         >
-                          <span className="truncate">{item.navLabel}</span>
-                          <span className="text-slate-700">&rarr;</span>
+                          {item.navLabel}
                         </div>
                       ))
                     }
                     {count > 3 && (
                       <span className="text-[9px] text-slate-700 font-black uppercase tracking-widest">+{count - 3} lisää</span>
                     )}
-                  </div>
-                  <div className="mt-6 text-[10px] font-black uppercase tracking-[0.25em] text-slate-600 group-hover:text-emerald-400 transition-colors">
-                    Avaa arkisto
                   </div>
                 </Link>
               );

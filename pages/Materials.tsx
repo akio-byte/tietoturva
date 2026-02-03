@@ -31,46 +31,49 @@ const Materials: React.FC = () => {
           label="Knowledge Base"
         />
 
-        {/* Blueprint Grid - showroom card layout */}
+        {/* Blueprint Grid - exact match to screenshot style */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {items.map(item => (
             <div 
               key={item.slug} 
-              className="group glass p-10 rounded-[3rem] border border-white/5 hover:border-emerald-500/30 transition-all duration-500 flex flex-col h-full shadow-2xl relative overflow-hidden"
+              className="group glass p-12 rounded-[3.5rem] border border-white/5 hover:border-white/10 transition-all duration-500 flex flex-col h-full shadow-2xl relative"
             >
-              <div className="absolute -top-20 -right-10 w-56 h-56 bg-emerald-500/10 blur-[120px]"></div>
-
-              <div className="flex items-center justify-between mb-8 relative z-10">
-                <div className="w-12 h-12 bg-slate-900/80 rounded-2xl flex items-center justify-center border border-slate-800 shadow-inner">
-                  <svg className="w-6 h-6 text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <span className={`text-[10px] font-black uppercase tracking-[0.35em] ${getCategoryColor(item.category)}`}>
+              {/* Category Label at Top Right */}
+              <div className="absolute top-10 right-12">
+                <span className={`text-[10px] font-black uppercase tracking-[0.25em] ${getCategoryColor(item.category)}`}>
                   {item.category}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-black text-white mb-4 tracking-tight uppercase leading-tight group-hover:text-emerald-400 transition-colors relative z-10">
+              {/* Document Icon Top Left */}
+              <div className="w-16 h-16 bg-slate-900/80 rounded-2xl flex items-center justify-center mb-10 border border-slate-800 shadow-inner">
+                <svg className="w-7 h-7 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+
+              <h3 className="text-2xl font-black text-white mb-6 tracking-tight uppercase leading-tight group-hover:text-emerald-400 transition-colors">
                 {item.navLabel}
               </h3>
-
-              <p className="text-slate-400 text-sm leading-relaxed mb-10 flex-grow font-medium relative z-10">
+              
+              <p className="text-slate-400 text-sm leading-relaxed mb-12 flex-grow font-medium">
                 {item.hero.subtitle}
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 pt-8 border-t border-white/5 relative z-10">
+              <div className="flex items-center justify-between pt-10 border-t border-white/5">
                 <Link 
                   to={`/content/${item.slug}`} 
-                  className="flex-1 bg-emerald-500/90 hover:bg-emerald-400 text-slate-950 text-[10px] font-black uppercase tracking-[0.25em] px-4 py-3 rounded-xl text-center transition-all"
+                  className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-white transition-colors"
                 >
-                  Avaa
+                  Lue selaimessa
                 </Link>
                 <Link 
                   to={`/content/${item.slug}`} 
-                  className="flex-1 glass text-slate-300 text-[10px] font-black uppercase tracking-[0.25em] px-4 py-3 rounded-xl text-center border border-white/10 hover:border-emerald-500/30 transition-all"
+                  className="w-10 h-10 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-slate-950 transition-all shadow-lg"
                 >
-                  Lataa PDF
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 4v16m8-8H4" />
+                  </svg>
                 </Link>
               </div>
             </div>
