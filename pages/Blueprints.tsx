@@ -16,10 +16,10 @@ const Blueprints: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-20">
-      <SEO title="Blueprints | Arctic Hardening" description="Selaa Lapland AI Labin tietoturva-blueprinttejä." />
+      <SEO title="Blueprintit | Arctic Hardening" description="Selaa Lapland AI Labin tietoturva-blueprinttejä." />
       
       <div className="mb-16">
-        <h1 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter italic">Blueprints</h1>
+        <h1 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter italic">Blueprintit</h1>
         <p className="text-xl text-slate-400 border-l-2 border-emerald-500 pl-6">
           Valmiit arkkitehtuurit ja toimintamallit digitaaliseen karkaisuun.
         </p>
@@ -62,7 +62,7 @@ const Blueprints: React.FC = () => {
                 {item.category}
               </div>
               {item.featured && (
-                <span className="text-[10px] font-black bg-emerald-500 text-slate-950 px-2 py-0.5 rounded uppercase">Featured</span>
+                <span className="text-[10px] font-black bg-emerald-500 text-slate-950 px-2 py-0.5 rounded uppercase">Nosto</span>
               )}
             </div>
 
@@ -75,7 +75,7 @@ const Blueprints: React.FC = () => {
             </p>
 
             <div className="flex items-center text-emerald-500 text-xs font-black uppercase tracking-widest gap-2">
-              Avaa blueprint
+              Avaa blueprintti
               <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
