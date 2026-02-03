@@ -64,6 +64,9 @@ const Governance: React.FC = () => {
 
       <div className="glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px]"></div>
+        <p className="text-slate-400 leading-relaxed font-medium mb-6">
+          Alla on koottu selkeät pelisäännöt, joiden avulla varmistamme vastuullisen ja johdonmukaisen kehitystyön.
+        </p>
         <SimpleMarkdown content={AGENT_CONTENT} />
       </div>
       
