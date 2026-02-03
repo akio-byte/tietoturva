@@ -4,23 +4,36 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Vote from './pages/Vote';
-import Results from './pages/Results';
-import Admin from './pages/Admin';
+import AISafety from './pages/AISafety';
+import CyberBasics from './pages/CyberBasics';
+import MobileSecurity from './pages/MobileSecurity';
+import BusinessAudit from './pages/BusinessAudit';
+import Routines from './pages/Routines';
+import ContentPage from './pages/ContentPage';
+import AdminDashboard from './pages/AdminDashboard';
+import AiAssistant from './components/AiAssistant';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-slate-950 text-slate-100">
+      <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/vote" element={<Vote />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/ai-safety" element={<AISafety />} />
+            <Route path="/cyber-basics" element={<CyberBasics />} />
+            <Route path="/mobile-security" element={<MobileSecurity />} />
+            <Route path="/business-audit" element={<BusinessAudit />} />
+            <Route path="/routines" element={<Routines />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            {/* Dynamic content routes */}
+            <Route path="/content/:slug" element={<ContentPage />} />
+            {/* Direct route for the main IA item 'Incident Response' */}
+            <Route path="/incident-response" element={<ContentPage />} />
           </Routes>
         </main>
+        <AiAssistant />
         <Footer />
       </div>
     </Router>

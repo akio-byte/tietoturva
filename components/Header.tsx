@@ -8,9 +8,13 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Etusivu', path: '/' },
-    { name: 'Äänestä', path: '/vote' },
-    { name: 'Tulokset', path: '/results' },
-    { name: 'Ylläpito', path: '/admin' },
+    { name: 'Kyberperusteet', path: '/cyber-basics' },
+    { name: 'AI-turva', path: '/ai-safety' },
+    { name: 'Mobiili', path: '/mobile-security' },
+    { name: 'Auditointi', path: '/business-audit' },
+    { name: 'Rutiinit', path: '/routines' },
+    { name: 'Kriisinhallinta', path: '/incident-response' },
+    { name: 'Admin', path: '/admin' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -22,32 +26,40 @@ const Header: React.FC = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">VOTE</span>
+                <span className="text-white font-bold text-xs">LAIL</span>
               </div>
               <span className="text-xl font-bold tracking-tight">
-                Arctic <span className="aurora-text">Votes</span>
+                Lapland <span className="aurora-text">AI Lab</span>
               </span>
             </Link>
           </div>
           
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden xl:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-bold transition-all hover:text-emerald-400 px-3 py-2 rounded-lg ${
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
                   isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
-                }`}
+                } ${item.name === 'Admin' ? 'border border-amber-500/30 text-amber-500 hover:bg-amber-500/5' : ''}`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-400 p-2">
+          <div className="xl:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-slate-400 hover:text-white p-2"
+              aria-label="Avaa valikko"
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isOpen ? <path d="M6 18L18 6M6 6l12 12" strokeWidth={2} /> : <path d="M4 6h16M4 12h16M4 18h16" strokeWidth={2} />}
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
@@ -55,17 +67,23 @@ const Header: React.FC = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 p-4 space-y-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setIsOpen(false)}
-              className={`block px-4 py-2 rounded-md text-base font-medium ${isActive(item.path) ? 'bg-slate-800 text-emerald-400' : 'text-slate-400'}`}
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="xl:hidden bg-slate-900 border-b border-slate-800">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive(item.path)
+                    ? 'bg-slate-800 text-emerald-400'
+                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                } ${item.name === 'Admin' ? 'text-amber-500' : ''}`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </header>
