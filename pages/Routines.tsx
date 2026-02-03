@@ -93,6 +93,7 @@ const Routines: React.FC = () => {
           Strategisella tasolla on katsottava eteenpäin kerran vuodessa. Onko organisaatiosi valmis kohtaamaan tulevan vuoden uudet haasteet?
         </Section>
 
+        {/* TODO: Tilaa muistutus -ominaisuus lisätään myöhemmässä julkaisussa. */}
         <CTA label="Tilaa muistutus (Tulossa)" />
       </div>
     </div>
