@@ -54,32 +54,17 @@ const Governance: React.FC = () => {
         label="Vastuullinen Hallintamalli"
       />
 
-      <div className="mb-16 space-y-8">
-         <section>
-            <h2 className="text-2xl font-bold text-white tracking-tight mb-4">Miksi hallintamalli on tärkeä?</h2>
-            <p className="text-slate-400 leading-relaxed font-medium">
-               Hallintamalli (Governance) on organisaation selkäranka. Se varmistaa, että tekoälyä käytetään vastuullisesti ja tietoturvallisesti, ilman että innovaatio pysähtyy. 
-               Meille hallinto tarkoittaa selkeitä pelisääntöjä, läpinäkyvyyttä ja jatkuvaa auditointia.
-            </p>
-         </section>
-         
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
-               <span className="text-emerald-400 font-bold block mb-2">Selkeät vastuut</span>
-               <p className="text-xs text-slate-500">Jokaisella toimijalla on määritelty rooli ja rajat, mikä vähentää epävarmuutta kriisitilanteissa.</p>
-            </div>
-            <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
-               <span className="text-blue-400 font-bold block mb-2">Parempi tietoturva</span>
-               <p className="text-xs text-slate-500">Hallintamalli asettaa tekniset ja prosessuaaliset minimivaatimukset kaikelle kehitykselle.</p>
-            </div>
-         </div>
+      <div className="mb-16 space-y-6">
+         <h2 className="text-2xl font-bold text-white tracking-tight">Miksi hallintamalli on tärkeä?</h2>
+         <p className="text-slate-400 leading-relaxed font-medium">
+            Hallintamalli (Governance) on organisaation selkäranka. Se varmistaa, että tekoälyä käytetään vastuullisesti ja tietoturvallisesti, ilman että innovaatio pysähtyy. 
+            Tällä sivulla määrittelemme "Source of Truth" -periaatteet koodillemme.
+         </p>
       </div>
 
-      <div className="mb-8">
-        <h3 className="text-slate-500 font-black uppercase text-xs tracking-[0.3em] mb-6">Hallintoarkkitehtuuri ja säännöt</h3>
-        <div className="glass p-8 md:p-12 rounded-[3rem] border border-slate-800 shadow-2xl">
-          <SimpleMarkdown content={AGENT_CONTENT} />
-        </div>
+      <div className="glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px]"></div>
+        <SimpleMarkdown content={AGENT_CONTENT} />
       </div>
       
       <div className="mt-12 p-8 rounded-3xl bg-amber-500/5 border border-amber-500/20">
