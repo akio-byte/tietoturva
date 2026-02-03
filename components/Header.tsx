@@ -8,57 +8,58 @@ const Header: React.FC = () => {
     { name: 'Etusivu', path: '/' },
     { name: 'Governance', path: '/governance' },
     { name: 'Auditointi', path: '/business-audit' },
-    { name: 'Blueprintit', path: '/cyber-basics' },
-    { name: 'Materiaalit', path: '/materials' },
+    { name: 'Blueprintit', path: '/materials' }, // Point to Materials as it's the main showcase
     { name: 'Tietoa', path: '/contact' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname !== '/') return false;
+    return location.pathname.startsWith(path);
+  };
 
   return (
-    <header className="bg-slate-950/90 backdrop-blur-xl border-b border-slate-800 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        {/* Logo / Brand */}
-        <div className="flex-shrink-0">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xs shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-all">
-              LAIL
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-sm font-black text-white tracking-tighter uppercase">Lapland</span>
-              <span className="text-[10px] font-bold aurora-text tracking-widest uppercase">AI Lab</span>
-            </div>
-          </Link>
-        </div>
+    <header className="bg-[#020617]/80 backdrop-blur-2xl border-b border-white/5 sticky top-0 z-[100]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between h-20">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-4 group">
+          <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-blue-600 rounded-xl flex items-center justify-center text-slate-950 font-black text-[10px] shadow-2xl shadow-emerald-500/20 group-hover:scale-105 transition-all">
+            LAIL
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-xs font-black text-white tracking-tighter uppercase">Lapland</span>
+            <span className="text-[10px] font-bold aurora-text tracking-widest uppercase">AI Lab</span>
+          </div>
+        </Link>
         
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Navigation */}
+        <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-sm font-medium transition-colors hover:text-emerald-400 ${
+              className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
                 isActive(item.path) 
                   ? 'text-emerald-400' 
-                  : 'text-slate-400'
+                  : 'text-slate-500'
               }`}
             >
               {item.name}
             </Link>
           ))}
-          <div className="h-4 w-px bg-slate-800"></div>
+          <div className="h-6 w-px bg-white/5 mx-2"></div>
           <Link
             to="/audit"
-            className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg border border-amber-500/30 text-amber-500/80 hover:bg-amber-500/10 transition-all"
+            className="text-[10px] font-black uppercase tracking-[0.25em] px-5 py-2 rounded-lg border border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-all shadow-lg shadow-amber-500/5"
           >
-            Status
+            STATUS
           </Link>
         </nav>
 
-        {/* Mobile menu indicator */}
-        <div className="md:hidden text-[10px] font-bold text-slate-600 uppercase tracking-widest">
-          Valikko
-        </div>
+        {/* Mobile menu trigger placeholder */}
+        <button className="md:hidden flex flex-col gap-1.5 p-2">
+          <div className="w-6 h-0.5 bg-slate-400"></div>
+          <div className="w-6 h-0.5 bg-slate-400"></div>
+        </button>
       </div>
     </header>
   );

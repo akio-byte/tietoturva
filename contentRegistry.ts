@@ -1,7 +1,7 @@
 import { ContentItem } from './types';
 
 export const contentRegistry: Record<string, ContentItem> = {
-  // KYBER-KATEGORIA
+  // KYBER
   "network-hardening-arctic": {
     "type": "module",
     "slug": "network-hardening-arctic",
@@ -11,8 +11,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "seo": { "title": "Verkkoturvan karkaisu | Lapland AI Lab", "description": "Miten suojata organisaation verkko arktisella otteella." },
     "hero": { "title": "Verkkoturvan karkaisu", "subtitle": "Verkko on organisaation hermojärjestelmä. Segmentointi ja Zero Trust ovat pohjoisen puolustuksen peruskivet." },
     "sections": [
-      { "title": "Segmentointi ja Zero Trust", "body": "Älä luota keneenkään verkon sisällä. Segmentoi vierasverkko, tuotantoverkko ja hallintaverkko toisistaan. Käytä palomuureja, jotka ymmärtävät sovellustason liikenteen." },
-      { "title": "VPN ja turvalliset tunnelit", "body": "Etätyö vaatii murtumattoman yhteyden. Käytä moderneja protokollia (WireGuard) ja varmista, että jokainen yhteys on todennettu MFA:lla." }
+      { "title": "Segmentointi ja Zero Trust", "body": "Älä luota keneenkään verkon sisällä. Segmentoi vierasverkko, tuotantoverkko ja hallintaverkko toisistaan. Käytä palomuureja, jotka ymmärtävät sovellustason liikenteen." }
     ],
     "checklist": ["Verkko segmentointu", "Zero Trust -malli käytössä", "Vierasverkko eristetty", "IDS/IPS aktivoitu"],
     "cta": { "text": "Verkkokarttapohja", "route": null }
@@ -22,180 +21,163 @@ export const contentRegistry: Record<string, ContentItem> = {
     "slug": "mfa-best-practices",
     "category": "kyber",
     "featured": true,
-    "navLabel": "MFA Syväsukellus",
-    "seo": { "title": "MFA Parhaat käytännöt | Lapland AI Lab", "description": "Monivaiheinen tunnistautuminen on tärkein suojasi." },
-    "hero": { "title": "Monivaiheinen tunnistautuminen", "subtitle": "Salasana on vain puoli lukkoa. MFA on se toinen, joka pitää murtovarkaat loitolla." },
+    "navLabel": "MFA-opas",
+    "seo": { "title": "MFA Parhaat käytännöt", "description": "Monivaiheinen tunnistautuminen on tärkein suojasi." },
+    "hero": { "title": "MFA-suojaus", "subtitle": "Salasana on vain puoli lukkoa. MFA on se toinen, joka pitää murtovarkaat loitolla." },
     "sections": [
       { "title": "FIDO2 ja Fyysiset avaimet", "body": "Korkeimman turvatason saavuttamiseksi käytä fyysisiä turva-avaimia (YubiKey). Ne suojaavat jopa kehittyneiltä kalasteluhyökkäyksiltä." }
     ],
-    "checklist": ["MFA käytössä sähköpostissa", "FIDO2 avaimet kriittisille käyttäjille", "SMS-tunnistautumisesta luovuttu", "Varakoodit tallennettu kassakaappiin"],
-    "cta": { "text": "MFA Käyttöönotto-opas", "route": null }
+    "checklist": ["MFA sähköpostissa", "FIDO2 avaimet", "SMS-MFA poistettu", "Varakoodit tallessa"],
+    "cta": { "text": "Käyttöönotto-ohje", "route": null }
   },
 
-  // AI-KATEGORIA
+  // AI
   "ai-system-resilience": {
     "type": "article",
     "slug": "ai-system-resilience",
     "category": "ai",
     "featured": true,
     "navLabel": "AI-Resilienssi",
-    "seo": { "title": "AI-järjestelmien vastustuskyky | Lapland AI Lab", "description": "Prompt injection -hyökkäykset ja adversarial input -manipulaatio." },
-    "hero": { "title": "AI-järjestelmien vastustuskyky", "subtitle": "Uhat eivät ole vain ulkoisia. Puolustaudu prompt-injektioita ja vääristynyttä dataa vastaan." },
+    "seo": { "title": "AI-järjestelmien vastustuskyky", "description": "Prompt injection -hyökkäykset ja adversarial input." },
+    "hero": { "title": "AI-Resilienssi", "subtitle": "Uhat eivät ole vain ulkoisia. Puolustaudu prompt-injektioita ja vääristynyttä dataa vastaan." },
     "sections": [
-      { "title": "Puolustusmekanismit", "body": "Syötteiden sanitointi ja deterministiset mallit kriittisissä toiminnoissa ovat perusedellytys. Säännöllinen red teaming -testaus paljastaa heikot kohdat ennen hyökkääjiä." }
+      { "title": "Puolustusmekanismit", "body": "Syötteiden sanitointi ja deterministiset mallit kriittisissä toiminnoissa ovat perusedellytys. Säännöllinen red teaming -testaus paljastaa heikot kohdat." }
     ],
-    "checklist": ["Prompt-sanitointi käytössä", "Deterministiset mallit kriittisissä osissa", "Red teaming suoritettu"],
-    "cta": { "text": "Lataa red teaming -ohje", "route": null }
+    "checklist": ["Prompt-sanitointi", "Deterministiset mallit", "Red teaming tehty"],
+    "cta": { "text": "Red team -lista", "route": null }
   },
-  "llm-data-privacy": {
+  "shadow-ai-governance": {
     "type": "module",
-    "slug": "llm-data-privacy",
+    "slug": "shadow-ai-governance",
     "category": "ai",
-    "featured": false,
-    "navLabel": "LLM & Tietosuoja",
-    "seo": { "title": "Kielimallit ja Tietosuoja", "description": "Miten hallita dataa AI-aikakaudella." },
-    "hero": { "title": "Data LLM-maailmassa", "subtitle": "Mitä syötät tekoälylle, voi päätyä muiden vastauksiin. Hallitse näkyvyyttäsi." },
+    "featured": true,
+    "navLabel": "Shadow AI",
+    "seo": { "title": "Shadow AI -hallinta", "description": "Työntekijöiden oma-aloitteinen AI-käyttö ja sen riskit." },
+    "hero": { "title": "Shadow AI -hallinta", "subtitle": "Hallitsematon tekoäly on uusi Shadow IT. Luo säännöt ennen kuin data vuotaa." },
     "sections": [
-      { "title": "Data Governance", "body": "Määrittele mitkä tietotyypit ovat sallittuja tekoälytyökaluissa. Käytä yrityslisenssejä, jotka takaavat, ettei dataa käytetä mallien kouluttamiseen." }
+      { "title": "Käyttöpolitiikka", "body": "Määrittele selkeästi mitkä AI-työkalut ovat hyväksyttyjä ja miten niitä saa käyttää luottamuksellisen tiedon kanssa." }
     ],
-    "checklist": ["AI-käyttöpolitiikka luotu", "Henkilöstö koulutettu", "Data-opt-out tehty"],
-    "cta": { "text": "AI-sopimuspohja", "route": null }
+    "checklist": ["AI-politiikka luotu", "Sallitut työkalut listattu", "Data-koulutus pidetty"],
+    "cta": { "text": "AI-käyttösäännöt", "route": null }
   },
 
-  // MOBILE-KATEGORIA
-  "mobile-security-arctic": {
+  // MOBILE
+  "mobile-hardening-arctic": {
     "type": "module",
-    "slug": "mobile-security-arctic",
+    "slug": "mobile-hardening-arctic",
     "category": "mobile",
     "featured": true,
     "navLabel": "Mobiilikarkaisu",
-    "seo": { "title": "Mobiiliturva | Lapland AI Lab", "description": "Suojaa liikkuva toimisto." },
-    "hero": { "title": "Tasku-kyberin karkaisu", "subtitle": "Älypuhelimesi on organisaation heikoin lenkki. Karkaise se." },
+    "seo": { "title": "Mobiiliturvan karkaisu", "description": "Suojaa laitteesi arktisella otteella." },
+    "hero": { "title": "Mobiilikarkaisu", "subtitle": "Puhelimesi on taskussa kulkeva tietovuoto-riski. Lukitse ja karkaise se MDM-ratkaisuilla." },
     "sections": [
-      { "title": "MDM-hallinta", "body": "Käytä Mobile Device Management (MDM) -järjestelmää. Se mahdollistaa laitteiden etäpyyhinnän ja pakottaa turva-asetukset." }
+      { "title": "MDM ja Eristäminen", "body": "Käytä Mobile Device Management (MDM) -järjestelmää yrityksen datan ja sovellusten eristämiseen henkilökohtaisesta käytöstä." }
     ],
-    "checklist": ["Vahva PIN käytössä", "Biometrinen tunnistus", "Etäpyyhintä aktivoitu", "Sovellusluvat tarkistettu"],
-    "cta": { "text": "MDM Ohjeistus", "route": null }
+    "checklist": ["PIN/Biometria päällä", "Etäpyyhintä aktivoitu", "Sovellusluvat rajattu", "VPN käytössä"],
+    "cta": { "text": "MDM-valintaopas", "route": null }
+  },
+  "secure-comms-travel": {
+    "type": "checklist",
+    "slug": "secure-comms-travel",
+    "category": "mobile",
+    "featured": false,
+    "navLabel": "Turvallinen matka",
+    "seo": { "title": "Viestintä matkalla", "description": "Mobiiliturva liikkeellä ollessa." },
+    "hero": { "title": "Turvallinen viestintä", "subtitle": "Julkinen Wi-Fi ja USB-latauspisteet ovat ansoja. Suojaa viestisi päästä päähän -salauksella." },
+    "sections": [
+      { "title": "USB Data Blockers", "body": "Käytä latauksessa 'USB-kondomia' estämään datan siirtyminen latausportin kautta julkisissa paikoissa." }
+    ],
+    "checklist": ["Data blocker käytössä", "Signal/WhatsApp E2EE", "Ei julkista Wi-Fiä", "Hotspot päällä"],
+    "cta": { "text": "Matkailijan muistio", "route": null }
   },
 
-  // CRISIS-KATEGORIA
+  // CRISIS
   "incident-response-72h": {
     "type": "checklist",
     "slug": "incident-response-72h",
     "category": "crisis",
     "featured": true,
     "navLabel": "72h Valmius",
-    "seo": { "title": "72 tunnin kriisivalmius | Lapland AI Lab", "description": "Miten selvitä ensimmäiset 72 tuntia tietomurron jälkeen." },
-    "hero": { "title": "72 tunnin kriisivalmius", "subtitle": "Kun pilli soi, ei ole aikaa lukea käyttöohjeita. Toiminnan on tultava selkäytimestä." },
+    "seo": { "title": "Kriisivalmius 72h", "description": "Miten toimia hyökkäyksen sattuessa." },
+    "hero": { "title": "72 tunnin valmius", "subtitle": "Ensimmäiset tunnit ratkaisevat. Toimintaohjeet tietomurron ja kiristysohjelmien varalle." },
     "sections": [
-      { "title": "Eristäminen ja analyysi", "body": "Ensimmäinen tavoite: pysäytä leviäminen. Irrota saastuneet laitteet verkosta, mutta älä sammuta niitä." }
+      { "title": "Eristäminen", "body": "Pysäytä leviäminen välittömästi. Älä sammuta laitteita, vaan irrota ne verkosta." }
     ],
-    "checklist": ["Eristämissuunnitelma valmis", "Viestintäpohjat luotu", "Yhteystiedot offline-muodossa", "Viranomaisilmoitus-prosessi"],
-    "cta": { "text": "Kriisiviestintäpohja", "route": null }
+    "checklist": ["Kriisiryhmä nimetty", "Viestintäpohjat valmiina", "Offline-yhteystiedot", "Viranomaisilmoitus"],
+    "cta": { "text": "Lataa kriisi-A4", "route": null }
   },
-  "backup-strategy-321": {
+  "backup-masterplan-321": {
     "type": "article",
-    "slug": "backup-strategy-321",
+    "slug": "backup-masterplan-321",
     "category": "crisis",
     "featured": true,
-    "navLabel": "3-2-1 Varmuuskopiot",
-    "seo": { "title": "Varmuuskopiointi 3-2-1", "description": "Tiedon vakuutus." },
-    "hero": { "title": "3-2-1 Varmuuskopiointi", "subtitle": "Yksi kopio on nolla kotiota. Kolme kopiota on yksi kopio." },
+    "navLabel": "3-2-1 Backup",
+    "seo": { "title": "3-2-1 Varmuuskopiot", "description": "Tiedon vakuutus pohjoisella otteella." },
+    "hero": { "title": "3-2-1 Varmuuskopiointi", "subtitle": "Yksi kopio on nolla kopiota. Kolme kopiota on yksi kopio." },
     "sections": [
-      { "title": "Kultainen sääntö", "body": "3 kopiota datasta, 2 eri tallennusmediaa, 1 kopio täysin irrallaan verkosta (Off-site / Offline)." }
+      { "title": "3-2-1 Sääntö", "body": "3 kopiota datasta, 2 eri mediaa, 1 kopio täysin irti verkosta (Air-gapped)." }
     ],
-    "checklist": ["Automaatio toimii", "Palautuskoe tehty kuukausittain", "Offline-kopio olemassa"],
-    "cta": { "text": "Varmuuskopiointi-audit", "route": null }
+    "checklist": ["Automaatio ok", "Palautustesti tehty", "Offline-kopio olemassa"],
+    "cta": { "text": "Backup-audit", "route": null }
   },
 
-  // PRIVACY-KATEGORIA
-  "arctic-data-vault": {
+  // PRIVACY
+  "privacy-by-design-llm": {
     "type": "module",
-    "slug": "arctic-data-vault",
+    "slug": "privacy-by-design-llm",
     "category": "privacy",
     "featured": true,
-    "navLabel": "Data Vault",
-    "seo": { "title": "Arctic Data Vault | Lapland AI Lab", "description": "Datan suvereniteetti pohjoisessa mallissa. Hallitse omaa omaisuuttasi." },
-    "hero": { "title": "Arctic Data Vault", "subtitle": "Digitaalinen suvereniteetti tarkoittaa omistajuutta, hallintaa ja riippumattomuutta." },
+    "navLabel": "Privacy Design",
+    "seo": { "title": "Privacy by Design", "description": "Tietosuoja osana järjestelmäsuunnittelua." },
+    "hero": { "title": "Sisäänrakennettu suoja", "subtitle": "Tietosuoja ei ole taakka, se on kilpailuetu. Minimoi kerättävä data ja maksimoi hallinta." },
     "sections": [
-      { "title": "Datan suvereniteetti", "body": "Pohjoisessa mallissa data on omaisuutta, jota suojellaan hajautetulla tallennuksella ja Zero-Knowledge-periaatteilla." }
+      { "title": "Datan minimointi", "body": "Kerää vain tarvittava. Tekoälysovelluksissa käytä anonymisointia ennen syötteen lähettämistä pilveen." }
     ],
-    "checklist": ["Hajautettu tallennus käytössä", "Zero-Knowledge salaus aktivoitu", "Avoimen lähdekoodin auditointi tehty"],
-    "cta": { "text": "Tutustu vault-arkkitehtuuriin", "route": null }
+    "checklist": ["DPII tehty", "Datan poistopolitiikka", "Anonymisointi käytössä"],
+    "cta": { "text": "GDPR-työkalupakki", "route": null }
   },
-  "privacy-by-design-ai": {
+  "arctic-data-sovereignty": {
     "type": "article",
-    "slug": "privacy-by-design-ai",
+    "slug": "arctic-data-sovereignty",
     "category": "privacy",
     "featured": false,
-    "navLabel": "Privacy by Design",
-    "seo": { "title": "Sisäänrakennettu tietosuoja", "description": "Miten rakentaa järjestelmiä jotka kunnioittavat yksityisyyttä." },
-    "hero": { "title": "Privacy by Design", "subtitle": "Tietosuoja ei ole lisäosa, se on osa perustusta." },
+    "navLabel": "Data-suvereniteetti",
+    "seo": { "title": "Datan omistajuus", "description": "Hallitse omaa digitaalista omaisuuttasi." },
+    "hero": { "title": "Arctic Data Sovereignty", "subtitle": "Omista oma datasi. Älä anna tekoälymallien muuttua yrityksesi 'näkymättömäksi muistiksi'." },
     "sections": [
-      { "title": "Datan minimointi", "body": "Kerää vain se mitä tarvitset. Poista heti kun et tarvitse. Tämä on paras suoja tietomurron vaikutuksia vastaan." }
+      { "title": "Self-Hosting AI", "body": "Harkitse paikallisten tai suojattujen yksityisten kielimallien käyttöä kriittisimmille toiminnoille." }
     ],
-    "checklist": ["DPII suoritettu", "Datan säilytysajat määritelty", "Käyttöoikeudet minimoitu"],
-    "cta": { "text": "DPII-lomakepohja", "route": null }
+    "checklist": ["Konesali sijainti tiedossa", "Sopimusluvat kunnossa", "Local-AI testattu"],
+    "cta": { "text": "Lataa sijainti-opas", "route": null }
   },
 
-  // ROUTINES-KATEGORIA
-  "arctic-security-opus": {
-    "type": "article",
-    "slug": "arctic-security-opus",
-    "category": "routines",
-    "featured": true,
-    "navLabel": "Arktinen Opus",
-    "seo": {
-      "title": "Arctic Security Opus - Kokonaisvaltainen Turvaopas",
-      "description": "Lataa Lapland AI Labin kattava opas arktiseen kyberturvallisuuteen ja tekoälyn hallintaan."
-    },
-    "hero": {
-      "title": "Arktinen Opus: Selviytymisopas Digitaaliseen Talveen",
-      "subtitle": "Kattava arkkitehtuurikuvaus ja toimintaohjeisto kriittisen infrastruktuurin ja tekoälyratkaisujen suojaamiseen."
-    },
-    "sections": [
-      {
-        "title": "Dokumentin Arkkitehtuuri",
-        "body": "Tämä opus ei ole pelkkä manuaali, vaan strateginen viitekehys. Se yhdistää Lapland AI Labin 'Arctic Security' -filosofian käytännön teknisiin kontrolleihin. Sisältö on jaettu kuuteen pääteemaan: Kyberresilienssi, AI-turva, Mobiili karkaisu, Kriisinhallinta, Tietosuoja ja Päivittäiset rutiinit."
-      }
-    ],
-    "checklist": [
-      "Määrittele dokumentin kohderyhmä",
-      "Valitse visuaalinen teema",
-      "Lisää konkreettiset tarkistuslistat",
-      "Suorita vuotuinen päivityskierros"
-    ],
-    "cta": {
-      "text": "Lataa Opasluonnos",
-      "route": null
-    }
-  },
-  "daily-routines-security": {
+  // ROUTINES
+  "daily-arctic-routines": {
     "type": "checklist",
-    "slug": "daily-routines-security",
+    "slug": "daily-arctic-routines",
     "category": "routines",
     "featured": true,
     "navLabel": "Arjen rutiinit",
-    "seo": { "title": "Päivittäiset tietoturvarutiinit", "description": "Pienet teot, suuri turva." },
-    "hero": { "title": "Turvallisuus on tapa", "subtitle": "Tietoturva ei ole projekti, se on jatkuva prosessi." },
+    "seo": { "title": "Päivittäiset rutiinit", "description": "Pienet teot suojaavat suuret kokonaisuudet." },
+    "hero": { "title": "Päivittäinen resilienssi", "subtitle": "Tietoturva on tapa, ei projekti. Pidä työpöytäsi ja järjestelmäsi puhtaana joka päivä." },
     "sections": [
-      { "title": "Työpäivän startti", "body": "Tarkista päivitykset, avaa salasanaohjelma, varmista että VPN on päällä. Rutiini säästää sinut virheiltä kiireen keskellä." }
+      { "title": "Maanantai-rutiini", "body": "Päivitysten tarkistus, varmuuskopioiden login luku ja viikon riskikatsaus." }
     ],
-    "checklist": ["Puhtaat pöydät", "Lukitut näytöt", "Huolellinen sähköpostien luku", "Fyysinen avain tallessa"],
-    "cta": { "text": "Tulosta muistilista", "route": null }
+    "checklist": ["Päivitykset ok", "Login katsaus", "VPN-testi", "MFA-tarkistus"],
+    "cta": { "text": "Tulosta lista", "route": null }
   },
-  "security-awareness-training": {
-    "type": "module",
-    "slug": "security-awareness-training",
+  "arctic-security-opus-v2": {
+    "type": "article",
+    "slug": "arctic-security-opus-v2",
     "category": "routines",
-    "featured": false,
-    "navLabel": "Koulutusohjelma",
-    "seo": { "title": "Henkilöstön koulutusohjelma", "description": "Rakenna tietoturvakulttuuria." },
-    "hero": { "title": "Ihmispalomuuri", "subtitle": "Tekniikka on vain puoli voittoa. Koulutettu ihminen on paras puolustus." },
+    "featured": true,
+    "navLabel": "Arktinen Opus",
+    "seo": { "title": "Arctic Security Opus", "description": "Kokonaisvaltainen tietoturvamanifesti." },
+    "hero": { "title": "Arktinen Opus v2", "subtitle": "Kaikki tietotaito tiivistettynä yhteen dokumenttiin. Tämä on organisaatiosi turva-arkkitehtuuri." },
     "sections": [
-      { "title": "Jatkuva oppiminen", "body": "Tietoturvakoulutuksen ei tule olla kerran vuodessa tapahtuva kalvosulkeinen. Käytä simulaatioita, uutiskirjeitä ja lyhyitä tietoiskuja." }
+      { "title": "Manifesti", "body": "Resilienssi tarkoittaa kykyä selviytyä ja kukoistaa digitaalisessa talvessa." }
     ],
-    "checklist": ["Kalasteluharjoitus tehty", "Uudet työntekijät perehdytetty", "Palkitsemismalli käytössä"],
-    "cta": { "text": "Koulutusmateriaali", "route": null }
+    "checklist": ["Opus jaettu tiimille", "Vuosikatsaus sovittu", "Auditoija nimetty"],
+    "cta": { "text": "Lataa täysi Opus", "route": "/materials" }
   }
 };

@@ -23,7 +23,7 @@ export const SEO: React.FC<SeoProps> = ({ title, description }) => {
 };
 
 export const Hero: React.FC<{ title: string; subtitle: string; label?: string }> = ({ title, subtitle, label }) => (
-  <div className="mb-20">
+  <div className="mb-20 animate-in fade-in slide-in-from-top-4 duration-1000">
     {label && <span className="text-emerald-400 font-bold tracking-widest uppercase text-[10px] mb-4 block animate-pulse">{label}</span>}
     <h1 className="text-5xl md:text-8xl font-black text-white mt-4 mb-8 tracking-tighter leading-[0.9]">
       <span className="aurora-text">{title}</span>
@@ -49,7 +49,11 @@ export const Section: React.FC<{
     if (slug) {
       const saved = localStorage.getItem(`checklist-${slug}-${title}`);
       if (saved) {
-        setCheckedItems(JSON.parse(saved));
+        try {
+          setCheckedItems(JSON.parse(saved));
+        } catch (e) {
+          console.error("Virhe ladattaessa tarkistuslistaa", e);
+        }
       }
     }
   }, [slug, title]);
@@ -62,7 +66,9 @@ export const Section: React.FC<{
     }
   };
 
-  const progress = checklist ? (Object.values(checkedItems).filter(Boolean).length / checklist.length) * 100 : 0;
+  const progress = checklist && checklist.length > 0 
+    ? (Object.values(checkedItems).filter(Boolean).length / checklist.length) * 100 
+    : 0;
 
   return (
     <section className="mb-24 relative animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -70,7 +76,7 @@ export const Section: React.FC<{
         <span className={`w-3 h-10 ${colorClass} rounded-full mr-6 shadow-lg shadow-current/20`}></span>
         {title}
       </h2>
-      <div className="glass p-10 md:p-14 rounded-[3.5rem] border border-slate-800/50 mb-8 shadow-2xl relative overflow-hidden group">
+      <div className="glass p-10 md:p-14 rounded-[3.5rem] border border-white/5 mb-8 shadow-2xl relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[100px] -z-10 group-hover:bg-emerald-500/10 transition-all"></div>
         
         <div className="text-slate-300 leading-relaxed mb-10 text-lg relative z-10 font-medium">
@@ -79,8 +85,8 @@ export const Section: React.FC<{
         
         {importanceTitle && importanceDesc && (
           <div className="bg-slate-950/50 border border-white/5 p-8 rounded-3xl mb-10 relative z-10 shadow-inner">
-            <h3 className="text-emerald-400 font-bold mb-4 text-[10px] uppercase tracking-[0.2em]">Miksi tämä on tärkeää?</h3>
-            <p className="text-slate-300 italic text-lg">
+            <h3 className="text-emerald-400 font-bold mb-4 text-[10px] uppercase tracking-[0.2em]">{importanceTitle}</h3>
+            <p className="text-slate-300 italic text-lg leading-relaxed">
               "{importanceDesc}"
             </p>
           </div>
@@ -97,9 +103,9 @@ export const Section: React.FC<{
               </span>
             </div>
             
-            <div className="w-full h-1 bg-slate-800 rounded-full mb-10 overflow-hidden">
+            <div className="w-full h-1.5 bg-slate-800 rounded-full mb-10 overflow-hidden">
                <div 
-                className="h-full bg-emerald-500 transition-all duration-500" 
+                className="h-full bg-emerald-500 transition-all duration-700 ease-out" 
                 style={{ width: `${progress}%` }}
                ></div>
             </div>
@@ -138,7 +144,7 @@ export const Section: React.FC<{
 };
 
 export const RiskCard: React.FC<{ title: string; example: string; description: string }> = ({ title, example, description }) => (
-  <div className="bg-slate-900/80 border border-red-500/20 p-10 rounded-[2.5rem] h-full flex flex-col shadow-inner relative overflow-hidden group">
+  <div className="bg-slate-900/80 border border-red-500/20 p-10 rounded-[2.5rem] h-full flex flex-col shadow-inner relative overflow-hidden group mb-6 last:mb-0">
     <div className="absolute -top-10 -right-10 w-32 h-32 bg-red-500/5 blur-[50px] group-hover:bg-red-500/10 transition-all"></div>
     <h4 className="text-red-400 font-black mb-6 text-xl tracking-tight uppercase">{title}</h4>
     <div className="bg-black/40 p-6 rounded-2xl mb-8 font-mono text-xs text-red-300/70 italic border border-red-500/10 leading-relaxed">
@@ -153,12 +159,21 @@ export const RiskCard: React.FC<{ title: string; example: string; description: s
 export const CTA: React.FC<{ label: string; onClick?: () => void; link?: string }> = ({ label, onClick, link }) => (
   <section className="text-center py-20">
     {link ? (
-      <Link 
-        to={link} 
-        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-[2rem] transition-all text-xl shadow-2xl shadow-emerald-500/30 inline-block transform hover:scale-105 active:scale-95"
-      >
-        {label}
-      </Link>
+      link.startsWith('#') ? (
+        <a 
+          href={link}
+          className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-[2rem] transition-all text-xl shadow-2xl shadow-emerald-500/30 inline-block transform hover:scale-105 active:scale-95"
+        >
+          {label}
+        </a>
+      ) : (
+        <Link 
+          to={link} 
+          className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-[2rem] transition-all text-xl shadow-2xl shadow-emerald-500/30 inline-block transform hover:scale-105 active:scale-95"
+        >
+          {label}
+        </Link>
+      )
     ) : (
       <button 
         onClick={onClick} 
