@@ -7,10 +7,10 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Metodologia', path: '/methodology' },
-    { name: 'Blueprintit', path: '/blueprints' },
-    { name: 'Arkkitehtuuri', path: '/architecture' },
-    { name: 'Auditointi', path: '/audit' },
+    { name: 'Blueprints', path: '/blueprints' },
     { name: 'Hallinto', path: '/governance' },
+    { name: 'Arkkitehtuuri', path: '/architecture' },
+    { name: 'Auditointi', path: '/business-audit' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

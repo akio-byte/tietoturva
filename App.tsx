@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import StaticAiAssistant from './components/StaticAiAssistant';
+import AiAssistant from './components/AiAssistant';
 import Home from './pages/Home';
 import Methodology from './pages/Methodology';
 import Governance from './pages/Governance';
@@ -11,7 +11,6 @@ import Blueprints from './pages/Blueprints';
 import Architecture from './pages/Architecture';
 import ContentPage from './pages/ContentPage';
 import BusinessAudit from './pages/BusinessAudit';
-import Audit from './pages/Audit';
 
 const App: React.FC = () => {
   return (
@@ -25,12 +24,11 @@ const App: React.FC = () => {
             <Route path="/governance" element={<Governance />} />
             <Route path="/blueprints" element={<Blueprints />} />
             <Route path="/architecture" element={<Architecture />} />
-            <Route path="/audit" element={<Audit />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/content/:slug" element={<ContentPage />} />
           </Routes>
         </main>
-        <StaticAiAssistant />
+        <AiAssistant />
         <Footer />
       </div>
     </Router>
