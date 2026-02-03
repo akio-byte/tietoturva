@@ -1,39 +1,19 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-slate-400 py-16 mt-12 border-t border-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-white text-xl font-bold mb-6">Lapland <span className="aurora-text">AI Lab</span></h3>
-            <p className="text-sm leading-relaxed max-w-sm">
-              Edistämme vastuullista tekoälyä ja digitaalista turvallisuutta pohjoisella otteella. 
-              Tämä opas on osa Labin koulutusmateriaaleja.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-6">Navigaatio</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/cyber-basics" className="hover:text-emerald-400 transition-colors">Kyberperusteet</Link></li>
-              <li><Link to="/ai-safety" className="hover:text-emerald-400 transition-colors">AI-turvallisuus</Link></li>
-              <li><Link to="/mobile-security" className="hover:text-emerald-400 transition-colors">Mobiiliturva</Link></li>
-              <li><Link to="/business-audit" className="hover:text-emerald-400 transition-colors">Pika-auditointi</Link></li>
-              <li><Link to="/routines" className="hover:text-emerald-400 transition-colors">Arjen rutiinit</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-6">Resurssit</h4>
-            <p className="text-sm">
-              Päivitetty helmikuussa 2026.<br />
-              Versio 1.4 (Expanded Content Edition)
-            </p>
-          </div>
-        </div>
-        <div className="border-t border-slate-900 mt-12 pt-8 text-xs text-center">
-          &copy; 2026 Lapland AI Lab. Kaikki oikeudet pidätetään.
+    <footer className="bg-black text-slate-500 py-12 mt-20 border-t border-slate-900">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] mb-4">
+          Lapland <span className="text-white">AI Lab</span> &copy; 2026
+        </p>
+        <div className="flex justify-center gap-6 text-[10px] font-black uppercase tracking-widest">
+          <span className="text-emerald-500">Live Static App</span>
+          <span className="text-slate-700">|</span>
+          <span>No Backend Required</span>
+          <span className="text-slate-700">|</span>
+          <span>Local Storage Persistence</span>
         </div>
       </div>
     </footer>

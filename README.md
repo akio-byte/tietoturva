@@ -1,8 +1,6 @@
-# Lapland AI Lab - Tietoturvaportaali
+# Lapland AI Lab - Tietoturvaopas
 
-Tämä repo sisältää Lapland AI Labin staattisen tietoturvaportaalin. Portaali on demoympäristö, joka esittelee arktisen kyberturvan perusperiaatteet, auditointipohjat ja hallintamallin ilman taustapalveluita. Sisältö toimii täysin staattisesti, joten sivut ovat GitHub Pages -yhteensopivia.
-
-**Live-sivu:** https://akio-byte.github.io/tietoturva/
+Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
 
 ## AI-orkestroitu kehitys
 
@@ -17,26 +15,6 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 - [AGENT.md](./AGENT.md) - Projektin säännöt ja yleiskuvaus.
 - [codex/skill.md](./codex/skill.md) - Codexin toimintaohjeet ja laatuvaatimukset.
 - [ai-studio/bridge.md](./ai-studio/bridge.md) - AI Studion rooli ja kommunikaatiopohjat.
-
-## Paikallinen ajo ja build
-```bash
-npm ci
-npm run dev
-```
-
-```bash
-npm run build
-```
-
-## GitHub Pages -julkaisu
-1. Varmista, että `vite.config.ts` käyttää `base: "/tietoturva/"`.
-2. Puske muutokset `main`-haaraan.
-3. GitHub Actions ajaa `npm ci` ja `npm run build`, ja julkaisee `dist`-kansion Pagesiin.
-4. Julkaisun URL: https://akio-byte.github.io/tietoturva/
-
-## Huomioita
-- Portaali on täysin staattinen: ajonaikaisia AI-kutsuja ei tehdä.
-- Build-vaiheessa ei injektoida API-avaimia tai backend-integraatioita.
 
 ## Teknologiat
 - React 19
