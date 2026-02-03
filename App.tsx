@@ -10,6 +10,7 @@ import Governance from './pages/Governance';
 import Blueprints from './pages/Blueprints';
 import Architecture from './pages/Architecture';
 import ContentPage from './pages/ContentPage';
+import BusinessAudit from './pages/BusinessAudit';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
             <Route path="/governance" element={<Governance />} />
             <Route path="/blueprints" element={<Blueprints />} />
             <Route path="/architecture" element={<Architecture />} />
+            <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/content/:slug" element={<ContentPage />} />
           </Routes>
         </main>
