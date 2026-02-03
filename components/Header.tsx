@@ -9,7 +9,6 @@ const Header: React.FC = () => {
   const navItems = [
     { name: 'Metodologia', path: '/methodology' },
     { name: 'Hallinto (AGENT.md)', path: '/governance' },
-    { name: 'Audit (AUDIT.md)', path: '/audit' },
     { name: 'Oppaat', path: '/blueprints' },
     { name: 'Arkkitehtuuri', path: '/architecture' },
   ];
