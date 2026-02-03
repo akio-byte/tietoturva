@@ -7,6 +7,7 @@ import AiAssistant from './components/AiAssistant';
 import Home from './pages/Home';
 import Methodology from './pages/Methodology';
 import Governance from './pages/Governance';
+import Audit from './pages/Audit';
 import Blueprints from './pages/Blueprints';
 import Architecture from './pages/Architecture';
 import ContentPage from './pages/ContentPage';
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/governance" element={<Governance />} />
+            <Route path="/audit" element={<Audit />} />
             <Route path="/blueprints" element={<Blueprints />} />
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/business-audit" element={<BusinessAudit />} />

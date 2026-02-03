@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { SEO } from '../components/Shared';
+import MarkdownContent from '../components/MarkdownContent';
+import agentRules from '../AGENT.md?raw';
 
 const Governance: React.FC = () => {
   return (
@@ -44,19 +46,8 @@ const Governance: React.FC = () => {
 
         <div className="glass p-10 rounded-[2.5rem] border-slate-800">
           <h2 className="text-2xl font-black text-white mb-6 uppercase tracking-widest">Agent Rules (AGENT.md)</h2>
-          <div className="bg-black/40 p-6 rounded-xl font-mono text-xs text-emerald-400/80 max-h-[400px] overflow-y-auto leading-relaxed">
-            <pre>{`# Kehitystyön pelisäännöt
-
-## Vastuujaot
-- AI Studio: Määrittely & Sisältö
-- Codex: Toteutus & Logiikka
-
-## Conflict Resolution
-1. Lähdeprioriteetti: 
-   P1: PDF > P2: Repo > P3: Prompt
-2. Toimintatapa:
-   Flag & Ask (Oletus)
-   Assume & Proceed (Vain UI)`}</pre>
+          <div className="bg-black/40 p-6 rounded-xl max-h-[400px] overflow-y-auto">
+            <MarkdownContent content={agentRules} className="font-mono text-xs text-emerald-300/80" />
           </div>
         </div>
       </div>

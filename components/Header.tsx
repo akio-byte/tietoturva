@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     { name: 'Blueprints', path: '/blueprints' },
     { name: 'Hallinto', path: '/governance' },
     { name: 'Arkkitehtuuri', path: '/architecture' },
-    { name: 'Auditointi', path: '/business-audit' },
+    { name: 'Auditointi', path: '/audit' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
