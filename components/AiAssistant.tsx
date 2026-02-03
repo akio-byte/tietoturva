@@ -27,11 +27,14 @@ const AiAssistant: React.FC = () => {
 
     try {
       // Haetaan käyttäjän viimeisin auditointi kontekstiksi
-      const submissions = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
-      const latestAudit: AuditSubmission | null = submissions.length > 0 ? submissions[0] : null;
+      const submissions: AuditSubmission[] = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
+      const latestAudit = submissions.reduce<AuditSubmission | null>((latest, current) => {
+        if (!latest) return current;
+        return new Date(current.timestamp) > new Date(latest.timestamp) ? current : latest;
+      }, null);
       
       const auditContext = latestAudit 
-        ? `Käyttäjä on suorittanut auditoinnin pistein ${latestAudit.totalScore}/20. Taso: ${latestAudit.level}.` 
+        ? `Käyttäjä on juuri tehnyt auditoinnin ja saanut pisteet ${latestAudit.totalScore}/20. Hänen tasonsa on ${latestAudit.level}. Anna tähän pohjautuvia täsmävinkkejä.` 
         : "Käyttäjä ei ole vielä tehnyt auditointia.";
 
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
