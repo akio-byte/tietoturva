@@ -1,47 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { GoogleGenAI } from '@google/genai';
 import { SEO } from '../components/Shared';
+import MaturityRadar from '../components/MaturityRadar';
 import { contentRegistry } from '../contentRegistry';
 import { AuditSubmission } from '../types';
 
-const MaturityRadar: React.FC<{ score: number }> = ({ score }) => {
-  const normalizedScore = Math.min(Math.max(score, 0), 20);
-  const percentage = (normalizedScore / 20) * 100;
-  const radius = 40;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDasharray = circumference;
-  const strokeDashoffset = circumference - (percentage / 100) * circumference;
-
-  return (
-    <div className="relative w-48 h-48 flex items-center justify-center">
-      <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          className="stroke-slate-800 fill-none"
-          strokeWidth="8"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          className="stroke-emerald-500 fill-none transition-all duration-1000 ease-out"
-          strokeWidth="8"
-          strokeDasharray={strokeDasharray}
-          strokeDashoffset={strokeDashoffset}
-          strokeLinecap="round"
-        />
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center transform rotate-0">
-        <span className="text-4xl font-black text-white">{normalizedScore.toFixed(1)}</span>
-        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Maturity</span>
-      </div>
-    </div>
-  );
-};
-
 const AdminDashboard: React.FC = () => {
   const [submissions, setSubmissions] = useState<AuditSubmission[]>([]);
+  const [aiSummary, setAiSummary] = useState('Haetaan analytiikkaa...');
+  const [aiStatus, setAiStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const items = Object.values(contentRegistry);
   const categories = ['kyber', 'ai', 'mobile', 'crisis', 'privacy', 'routines'];
   
@@ -60,6 +27,67 @@ const AdminDashboard: React.FC = () => {
   const averageScore = submissions.length > 0 
     ? submissions.reduce((acc, curr) => acc + curr.totalScore, 0) / submissions.length 
     : 0;
+
+  useEffect(() => {
+    if (submissions.length === 0) {
+      setAiSummary('Ei vielä riittävästi auditointidataa. Suorita ensimmäinen auditointi analytiikan aktivoimiseksi.');
+      setAiStatus('idle');
+      return;
+    }
+
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      setAiSummary('Gemini API -avain puuttuu. Lisää API_KEY ympäristöön, jotta AI-analytiikka aktivoituu.');
+      setAiStatus('error');
+      return;
+    }
+
+    let isMounted = true;
+    setAiStatus('loading');
+
+    const scores = submissions.map(submission => submission.totalScore);
+    const minScore = Math.min(...scores);
+    const maxScore = Math.max(...scores);
+    const levelCounts = submissions.reduce<Record<string, number>>((acc, curr) => {
+      acc[curr.level] = (acc[curr.level] || 0) + 1;
+      return acc;
+    }, {});
+
+    const ai = new GoogleGenAI({ apiKey });
+    const summaryPrompt = `Auditointidata:
+- Auditointeja: ${submissions.length}
+- Keskimääräinen pistemäärä: ${averageScore.toFixed(1)}/20
+- Matala / korkea pistemäärä: ${minScore} / ${maxScore}
+- Tasojakauma: ${Object.entries(levelCounts)
+      .map(([level, count]) => `${level}: ${count}`)
+      .join(', ')}`;
+
+    ai.models.generateContent({
+      model: 'gemini-3-flash-preview',
+      contents: summaryPrompt,
+      config: {
+        systemInstruction: `Toimit Lapland AI Labin Arctic Command Center -analyytikkona.
+Laadi lyhyt, 2-3 virkkeen yhteenveto auditoitujen organisaatioiden yleisimmistä heikkouksista.
+Vastaa suomeksi, ole analyyttinen ja tarjoa yksi selkeä priorisoitu korjausvinkki.`,
+        temperature: 0.4,
+      },
+    })
+      .then(response => {
+        if (!isMounted) return;
+        setAiSummary(response.text || 'AI-yhteenveto ei ole saatavilla juuri nyt.');
+        setAiStatus('ready');
+      })
+      .catch(error => {
+        if (!isMounted) return;
+        console.error('Gemini Error:', error);
+        setAiSummary('AI-analytiikan generointi epäonnistui. Yritä myöhemmin uudelleen.');
+        setAiStatus('error');
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [averageScore, submissions]);
 
   const logs = [
     { id: 1, time: '11:20', event: 'Arctic Data Vault: Integrity check passed', status: 'ok' },
@@ -86,7 +114,7 @@ const AdminDashboard: React.FC = () => {
           </h1>
         </div>
         <div className="flex gap-4">
-          <div className="glass px-6 py-3 rounded-2xl border-emerald-500/20">
+          <div className="glass px-6 py-3 rounded-2xl border-emerald-500/20 status-badge-glow">
             <span className="text-[10px] text-slate-500 uppercase block font-bold">System Status</span>
             <span className="text-emerald-400 font-black flex items-center gap-2">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
@@ -98,8 +126,9 @@ const AdminDashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
         <div className="lg:col-span-1 glass p-8 rounded-[2.5rem] flex flex-col items-center justify-center text-center">
-          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">Average Security Maturity</h3>
+          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">Maturity Radar</h3>
           <MaturityRadar score={averageScore} />
+          <p className="mt-6 text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">Keskiarvo kaikista auditoinneista</p>
         </div>
         <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-4">
           {stats.map(s => (
@@ -171,6 +200,26 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         <div className="space-y-6">
+          <div className="glass p-8 rounded-[2.5rem] border-slate-800 shadow-2xl">
+            <h3 className="text-xl font-black text-white mb-4 flex items-center gap-3">
+              <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              AI Analytics
+            </h3>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-4">Gemini Summary</p>
+            <div className="bg-slate-900/60 border border-white/5 rounded-2xl p-5">
+              <p className="text-sm text-slate-200 leading-relaxed">
+                {aiSummary}
+              </p>
+              {aiStatus === 'loading' && (
+                <div className="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest text-emerald-400 font-bold">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Generoidaan...
+                </div>
+              )}
+            </div>
+          </div>
           <div className="glass p-8 rounded-[2.5rem] border-slate-800 shadow-2xl h-full">
             <h3 className="text-xl font-black text-white mb-8 flex items-center gap-3">
               <svg className="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
