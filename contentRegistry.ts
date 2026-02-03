@@ -2,7 +2,7 @@ import { ContentItem } from './types';
 
 export const contentRegistry: Record<string, ContentItem> = {
   "arctic-security-opus": {
-    "type": "article",
+    "type": "artikkeli",
     "slug": "arctic-security-opus",
     "category": "routines",
     "featured": true,
@@ -32,7 +32,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     }
   },
   "privacy-ai-training": {
-    "type": "article",
+    "type": "artikkeli",
     "slug": "privacy-ai-training",
     "category": "privacy",
     "featured": true,
@@ -47,7 +47,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Lue lisää GDPR-riskeistä", "route": null }
   },
   "arctic-data-vault": {
-    "type": "module",
+    "type": "moduuli",
     "slug": "arctic-data-vault",
     "category": "privacy",
     "featured": true,
@@ -61,7 +61,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Tutustu vault-arkkitehtuuriin", "route": null }
   },
   "ai-system-resilience": {
-    "type": "article",
+    "type": "artikkeli",
     "slug": "ai-system-resilience",
     "category": "ai",
     "featured": true,
@@ -75,7 +75,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Lataa red teaming -ohje", "route": null }
   },
   "crisis-offline-readiness": {
-    "type": "checklist",
+    "type": "tarkistuslista",
     "slug": "crisis-offline-readiness",
     "category": "crisis",
     "featured": true,
@@ -89,7 +89,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Kriisivalmiussuunnitelma", "route": "/incident-response" }
   },
   "ai-governance-audit": {
-    "type": "tool",
+    "type": "työkalu",
     "slug": "ai-governance-audit",
     "category": "ai",
     "featured": false,
@@ -103,7 +103,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Audit-raporttipohja", "route": null }
   },
   "arctic-mobile-hardening": {
-    "type": "article",
+    "type": "artikkeli",
     "slug": "arctic-mobile-hardening",
     "category": "mobile",
     "featured": true,
@@ -117,7 +117,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Mobiiliturva-auditointi", "route": "/mobile-security" }
   },
   "remote-work-security": {
-    "type": "article",
+    "type": "artikkeli",
     "slug": "remote-work-security",
     "category": "kyber",
     "featured": true,

@@ -9,6 +9,8 @@ Tämä tiedosto lukitsee säännöt tekoälyavusteiselle kehitykselle.
 ## Conflict Resolution (Konfliktien ratkaisu)
 Tekoälyagenttien on noudatettava seuraavaa hierarkiaa kohdatessaan ristiriitaista tietoa:
 
+**Lähdeprioriteetti (tiivistetty):** PDF > Repo > Prompt.
+
 1. **Lähdeprioriteetti:**
    - **P1: PDF-lähdemateriaali:** Tekninen ja asiasisällöllinen totuus.
    - **P2: Repo-konfiguraatio (AGENT.md / types.ts):** Järjestelmän säännöt ja rakenteellinen totuus.

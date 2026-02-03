@@ -8,7 +8,7 @@ export type CategoryType = 'kyber' | 'ai' | 'mobile' | 'crisis' | 'privacy' | 'r
 /**
  * Sisältötyypit eroteltuna unionina (Discriminated Union).
  */
-export type ContentType = 'article' | 'checklist' | 'tool' | 'module';
+export type ContentType = 'artikkeli' | 'tarkistuslista' | 'työkalu' | 'moduuli';
 
 /**
  * Branded String navLabelille (Compile-time suositus).
