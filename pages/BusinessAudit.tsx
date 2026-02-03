@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { SEO, Hero, CTA } from '../components/Shared';
+import { SEO, Hero } from '../components/Shared';
 
 interface Question {
   id: number;
@@ -23,6 +24,7 @@ const questions: Question[] = [
 const BusinessAudit: React.FC = () => {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isFinished, setIsFinished] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleAnswer = (questionId: number, value: number) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
@@ -56,6 +58,32 @@ const BusinessAudit: React.FC = () => {
   };
 
   const result = getResult();
+
+  const handleSendToLeadDev = () => {
+    const submission = {
+      id: Math.random().toString(36).substr(2, 9),
+      timestamp: new Date().toLocaleString('fi-FI'),
+      score: totalScore,
+      level: result.level,
+      answers: answers
+    };
+
+    // Tallennettaan simuloidusti localStorageen
+    const existing = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
+    localStorage.setItem('audit_submissions', JSON.stringify([submission, ...existing]));
+    
+    setIsSent(true);
+    
+    // Luodaan myös järjestelmäloki Adminiin
+    const logs = JSON.parse(localStorage.getItem('system_logs') || '[]');
+    const newLog = { 
+      id: Date.now(), 
+      time: new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }), 
+      event: `Uusi auditointi vastaanotettu: ${totalScore}/20 (${result.level})`, 
+      status: 'new' 
+    };
+    localStorage.setItem('system_logs', JSON.stringify([newLog, ...logs]));
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -146,10 +174,35 @@ const BusinessAudit: React.FC = () => {
                   Uusi testi
                 </button>
                 <button 
+                  onClick={handleSendToLeadDev}
+                  disabled={isSent}
+                  className={`font-black px-12 py-5 rounded-2xl transition-all shadow-2xl uppercase tracking-widest text-xs flex items-center gap-3 ${
+                    isSent 
+                    ? 'bg-slate-800 text-emerald-500 border border-emerald-500/30' 
+                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
+                  }`}
+                >
+                  {isSent ? (
+                    <>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Lähetetty pääkehittäjälle
+                    </>
+                  ) : (
+                    <>
+                      Lähetä pääkehittäjälle
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+                <button 
                   onClick={() => window.print()}
                   className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-5 rounded-2xl transition-all shadow-2xl shadow-emerald-500/20 uppercase tracking-widest text-xs"
                 >
-                  Lataa PDF-raportti
+                  Lataa PDF
                 </button>
               </div>
             </div>

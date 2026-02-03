@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 /**
@@ -87,4 +88,12 @@ export interface SystemLog {
   time: string;
   event: string;
   status: 'ok' | 'new' | 'security' | 'warning' | 'error';
+}
+
+export interface AuditSubmission {
+  id: string;
+  timestamp: string;
+  score: number;
+  level: string;
+  answers: Record<number, number>;
 }
