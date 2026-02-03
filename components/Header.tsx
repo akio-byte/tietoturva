@@ -7,17 +7,10 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Etusivu', path: '/' },
-    { name: 'Kyberperusteet', path: '/cyber-basics' },
-    { name: 'AI-turva', path: '/ai-safety' },
-    { name: 'Mobiili', path: '/mobile-security' },
+    { name: 'Governance', path: '/governance' },
     { name: 'Auditointi', path: '/business-audit' },
-    { name: 'Yhteystiedot', path: '/contact' },
-  ];
-
-  const adminItems = [
-    { name: 'Dashboard', path: '/admin' },
-    { name: 'Hallinto', path: '/governance' },
-    { name: 'Tekninen Audit', path: '/audit' },
+    { name: 'Blueprintit', path: '/cyber-basics' },
+    { name: 'Tietoa', path: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -37,34 +30,25 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <nav className="hidden xl:flex space-x-4 items-center">
+          <nav className="hidden xl:flex space-x-2 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-2 py-1 rounded-lg ${
-                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/5' : 'text-slate-400'
+                className={`text-sm font-medium transition-all hover:text-emerald-400 whitespace-nowrap px-4 py-2 rounded-lg ${
+                  isActive(item.path) ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-400'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="h-6 w-px bg-slate-800 mx-2"></div>
-            <div className="flex space-x-2">
-              {adminItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-md border transition-all ${
-                    isActive(item.path) 
-                      ? 'bg-amber-500/10 border-amber-500/50 text-amber-500' 
-                      : 'border-amber-500/20 text-amber-500/60 hover:text-amber-500 hover:border-amber-500/40'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+            <div className="h-6 w-px bg-slate-800 mx-4"></div>
+            <Link
+              to="/audit"
+              className="text-[11px] font-black uppercase tracking-widest px-4 py-2 rounded-md border border-amber-500/20 text-amber-500/60 hover:text-amber-500 hover:border-amber-500/40 transition-all"
+            >
+              Järjestelmän tila
+            </Link>
           </nav>
 
           <div className="xl:hidden">
@@ -102,21 +86,13 @@ const Header: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="border-t border-slate-800 pt-2 mt-2">
-              <span className="block px-3 py-1 text-[10px] font-black text-slate-500 uppercase tracking-widest">Admin</span>
-              {adminItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive(item.path) ? 'text-amber-500' : 'text-amber-500/50 hover:text-amber-500'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+            <Link
+              to="/audit"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-amber-500 font-bold"
+            >
+              Järjestelmän tila
+            </Link>
           </div>
         </div>
       )}

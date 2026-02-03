@@ -26,9 +26,6 @@ Agentin on noudatettava seuraavaa protokollaa kohdatessaan ristiriitaista ohjeis
 3. **Dokumentointi:**
    - Kaikki ratkaistut konfliktit kirjataan tiedostoon \`docs/CONFLICTS.md\` (Aikaleima | Kohde | Ristiriita | Päätös).
 
-**Esimerkki:** Prompt pyytää navLabeliksi "Mobiiliturva Pohjoisessa" (24 merkkiä).
--> **Ratkaisu:** Agentti ilmoittaa \`types.ts\`:n 20 merkin rajoitteesta ja ehdottaa muotoa "Mobiiliturva Arktis".
-
 ## Koodikartta
 - \`/pages\`: Sivukohtaiset komponentit (sisältö ja logiikka).
 - \`/components\`: Jaetut käyttöliittymäkomponentit.
@@ -48,13 +45,31 @@ Kaikki koodimuutokset on vahvistettava seuraavilla kriteereillä:
 const Governance: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <SEO title="Hallinto & Pelisäännöt | Lapland AI Lab" description="Kehitystyön ja sisällöntuotannon ohjeet." />
+      <SEO title="Governance & Hallinto | Lapland AI Lab" description="Kehitystyön ja sisällöntuotannon ohjeet ja hallintamallit." />
       
       <Hero 
         title="Governance & Hallinto"
         subtitle="Miten Lapland AI Lab hallitsee digitaalista omaisuuttaan ja tekoälyavusteista kehitystä."
-        label="Agent Rules & Compliance"
+        label="Vastuullinen Hallintamalli"
       />
+
+      <div className="mb-16 space-y-6">
+         <h2 className="text-2xl font-bold text-white tracking-tight">Miksi hallintamalli on tärkeä?</h2>
+         <p className="text-slate-400 leading-relaxed font-medium">
+            Hallintamalli (Governance) on organisaation selkäranka. Se varmistaa, että tekoälyä käytetään vastuullisesti ja tietoturvallisesti, ilman että innovaatio pysähtyy. 
+            Meille hallinto tarkoittaa selkeitä pelisääntöjä, läpinäkyvyyttä ja jatkuvaa auditointia.
+         </p>
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
+               <span className="text-emerald-400 font-bold block mb-2">Selkeät vastuut</span>
+               <p className="text-xs text-slate-500">Jokaisella toimijalla on määritelty rooli ja rajat, mikä vähentää epävarmuutta kriisitilanteissa.</p>
+            </div>
+            <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
+               <span className="text-blue-400 font-bold block mb-2">Parempi tietoturva</span>
+               <p className="text-xs text-slate-500">Hallintamalli asettaa tekniset ja prosessuaaliset minimivaatimukset kaikelle kehitykselle.</p>
+            </div>
+         </div>
+      </div>
 
       <div className="glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl">
         <div className="prose prose-invert max-w-none">

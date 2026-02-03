@@ -53,56 +53,63 @@ const Home: React.FC = () => {
   return (
     <div className="relative overflow-hidden bg-[#020617]">
       <SEO 
-        title="Lapland AI Lab | Governance Showroom" 
-        description="Arctic Hardening - Governance Showroom. Esittelyssä tietoturvan hallintamallit ja auditointityökalut." 
+        title="Lapland AI Lab | Arctic Hardening Showroom" 
+        description="Arctic Hardening - Tietoturvan ja AI-hallinnan showroom pk-yrityksille ja organisaatioille." 
       />
       
+      {/* Background Orbs */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div className="text-center mb-20 relative">
+        <div className="text-center mb-24 relative">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">
-            Lapland AI Lab
+            Pohjoista Tietoturvaa & Hallintaa
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
-            Arctic Hardening <br/><span className="aurora-text">Governance Showroom</span>
+          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.95]">
+            Arctic Hardening – <br/><span className="aurora-text">Governance Showroom</span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium mb-8">
-            Esittelyssä kokonaisvaltainen tietoturvan hallintamalli, auditointityökalut ja arktinen varautuminen pk-yrityksille.
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
+            Tarjoamme pk-yrityksille selkeän ja käytännönläheisen polun tekoälyn hallintaan ja digitaaliseen turvallisuuteen pohjoisella resilienssillä.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
-            <Link to="/cyber-basics" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-4 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-emerald-500/20 text-lg">
-              Blueprintit
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-20">
+            <Link to="/governance" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-emerald-500/20 text-lg">
+              Tutustu Governance-malliin
             </Link>
-            <Link to="/business-audit" className="glass hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-2xl transition-all text-lg border-slate-700">
-              Auditointi
-            </Link>
-            <Link to="/governance" className="glass hover:bg-slate-800 text-amber-500 border-amber-500/30 font-bold px-8 py-4 rounded-2xl transition-all text-lg">
-              Hallinto
+            <Link to="/business-audit" className="glass hover:bg-slate-800 text-white font-bold px-10 py-5 rounded-2xl transition-all text-lg border-slate-700">
+              Katso Auditointiesimerkki
             </Link>
           </div>
 
-          <div className="inline-flex flex-col items-start text-left bg-slate-900/50 p-8 rounded-3xl border border-slate-800/60 max-w-lg mx-auto">
-            <h3 className="text-white font-bold mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Mitä löydät täältä?
-            </h3>
-            <ul className="space-y-3 text-slate-400 text-sm font-medium">
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                Staattinen auditointidemo ja itsearviointityökalut
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                Tekoälyavusteisen kehityksen hallintamalli (Governance)
-              </li>
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                Arktiset selviytymisrutiinit ja offline-valmius
-              </li>
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
+             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
+                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                   Kyberresilienssi
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-medium">
+                   Oletamme vihamielisen ympäristön ja varaudumme kriiseihin ennalta arktisella otteella.
+                </p>
+             </div>
+             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
+                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                   Vastuullinen AI
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-medium">
+                   Hallitsemme Shadow AI -riskit ja varmistamme tekoälyn eettisen käytön organisaatiossa.
+                </p>
+             </div>
+             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
+                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                   Datan suvereniteetti
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed font-medium">
+                   Pidämme huolen, että yrityksen tärkein pääoma – data – pysyy omassa hallinnassa.
+                </p>
+             </div>
           </div>
         </div>
 
@@ -117,7 +124,7 @@ const Home: React.FC = () => {
               <div className="w-20 h-20 bg-slate-900/90 rounded-[1.5rem] flex items-center justify-center mb-12 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
                 {getIconForCategory(item.category)}
               </div>
-              <h2 className="text-3xl font-black text-white mb-6 group-hover:text-emerald-400 transition-colors tracking-tight">
+              <h2 className="text-2xl font-black text-white mb-6 group-hover:text-emerald-400 transition-colors tracking-tight">
                 {item.navLabel}
               </h2>
               <p className="text-slate-400 mb-10 leading-relaxed line-clamp-3 text-base flex-grow font-medium">
@@ -166,22 +173,6 @@ const Home: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="space-y-12 max-w-4xl mx-auto">
-          <Section 
-            title="Arktinen tietoturva-ajattelu"
-            importanceTitle="Miksi pohjoinen malli?"
-            importanceDesc="Oletamme vihamielisen ympäristön ja varaudumme kriiseihin ennalta."
-            checklist={[
-              "Data on omaisuutta – älä anna sitä pois ilmaiseksi",
-              "Yksinkertainen arkkitehtuuri kestää parhaiten",
-              "Offline-valmius on edellytys luottamukselle"
-            ]}
-            colorClass="bg-indigo-600"
-          >
-            Tämä opas ei ole vain kokoelma ohjeita, vaan kokonaisvaltainen tapa katsoa digitaalista maailmaa. Lapland AI Labin lähestymistapa perustuu suvereniteettiin, hallintaan ja riippumattomuuteen.
-          </Section>
         </div>
       </div>
     </div>
