@@ -32,25 +32,29 @@ const Header: React.FC = () => {
         </Link>
         
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
+              className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:text-white relative ${
                 isActive(item.path) 
                   ? 'text-emerald-400' 
                   : 'text-slate-500'
               }`}
             >
               {item.name}
+              {isActive(item.path) && (
+                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 h-1 w-8 rounded-full bg-emerald-500/80"></span>
+              )}
             </Link>
           ))}
           <div className="h-6 w-px bg-white/5 mx-2"></div>
           <Link
             to="/audit"
-            className="text-[10px] font-black uppercase tracking-[0.25em] px-5 py-2 rounded-lg border border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-all shadow-lg shadow-amber-500/5"
+            className="text-[10px] font-black uppercase tracking-[0.25em] px-5 py-2 rounded-lg border border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-all shadow-lg shadow-amber-500/5 flex items-center gap-2"
           >
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
             STATUS
           </Link>
         </nav>
