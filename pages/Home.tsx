@@ -4,7 +4,6 @@ import { SEO, Section } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
-  // Generoidaan featured-kortit suoraan registrystä
   const featuredItems = Object.values(contentRegistry).filter(item => item.featured);
   
   const categories = [
@@ -33,6 +32,11 @@ const Home: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       );
+      case 'privacy': return (
+        <svg className="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      );
       case 'routines': return (
         <svg className="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -50,30 +54,29 @@ const Home: React.FC = () => {
     <div className="relative overflow-hidden bg-[#020617]">
       <SEO 
         title="Lapland AI Lab | Tietoturvaopas" 
-        description="Kattava opas kyber- ja AI-turvallisuuteen pk-yrityksille ja opiskelijoille Lapland AI Labin asiantuntijoilta." 
+        description="Kattava opas kyber- ja AI-turvallisuuteen Lapland AI Labin asiantuntijoilta." 
       />
       
-      {/* Background Decor */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center mb-32 relative">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] animate-fade-in">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">
             Lapland AI Lab Academy
           </div>
           <h1 className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.85]">
-            Pohjoinen <br/><span className="aurora-text">Digitaaliturva</span>
+            Arctic <br/><span className="aurora-text">Hardening</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
-            Tietoturva ei ole projekti, se on jatkuva tapa. Tunturista kotiin – me pidämme huolen, että olet valmis.
+            Vastuullista tekoälyä ja digitaalista turvallisuutta pohjoisella otteella. Data on omaisuutta – suojele sitä.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link to="/cyber-basics" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-[1.25rem] transition-all transform hover:scale-105 shadow-2xl shadow-emerald-500/20 text-xl">
               Aloita perusteista
             </Link>
-            <Link to="/business-audit" className="w-full sm:w-auto glass hover:bg-slate-800/80 text-white font-black px-12 py-6 rounded-[1.25rem] transition-all text-xl">
-              Tee pika-auditointi
+            <Link to="/admin" className="w-full sm:w-auto glass hover:bg-slate-800/80 text-white font-black px-12 py-6 rounded-[1.25rem] transition-all text-xl">
+              Ylläpitonäkymä
             </Link>
           </div>
         </div>
@@ -108,10 +111,9 @@ const Home: React.FC = () => {
         <div className="mb-40">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
             <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Kaikki mitä tarvitset <span className="text-slate-600">yhdessä paikassa.</span></h2>
-            <div className="h-px bg-slate-800 flex-grow mx-12 hidden lg:block mb-6"></div>
             <div className="text-right">
-              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">12+</span>
-              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Sisältöpakettia</p>
+              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">{Object.keys(contentRegistry).length}</span>
+              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Sisältömoduulia</p>
             </div>
           </div>
           
@@ -135,9 +137,6 @@ const Home: React.FC = () => {
                       </Link>
                     ))
                   }
-                  {Object.values(contentRegistry).filter(item => item.category === cat.slug).length === 0 && (
-                    <span className="text-[10px] text-slate-700 italic font-medium">Tulossa...</span>
-                  )}
                 </div>
               </div>
             ))}
@@ -146,17 +145,17 @@ const Home: React.FC = () => {
 
         <div className="space-y-12 max-w-4xl mx-auto">
           <Section 
-            title="Jatkuva Oppiminen"
-            importanceTitle="Valmius on valttia"
-            importanceDesc="Tietoturvaopas päivittyy säännöllisesti AI Studion asiantuntijoiden toimesta."
+            title="Arktinen tietoturva-ajattelu"
+            importanceTitle="Miksi pohjoinen malli?"
+            importanceDesc="Oletamme vihamielisen ympäristön ja varaudumme kriiseihin ennalta."
             checklist={[
-              "Hyödynnä AI-analyytikkoa päivittäisissä kysymyksissä",
-              "Päivitä yrityksen AI-politiikka vähintään kerran vuodessa",
-              "Suorita kriisinhallintaharjoitus tiimin kanssa"
+              "Data on omaisuutta – älä anna sitä pois ilmaiseksi",
+              "Yksinkertainen arkkitehtuuri kestää parhaiten",
+              "Offline-valmius on edellytys luottamukselle"
             ]}
             colorClass="bg-indigo-600"
           >
-            Tämä opas on elävä organismi. Teknologia ja uhat kehittyvät, joten mekin kehitymme. Olemme lisänneet uusia syventäviä osioita pilviturvasta ja AI-etiikasta auttaaksemme sinua pysymään askeleen edellä.
+            Tämä opas ei ole vain kokoelma ohjeita, vaan kokonaisvaltainen tapa katsoa digitaalista maailmaa. Lapland AI Labin lähestymistapa perustuu suvereniteettiin, hallintaan ja riippumattomuuteen.
           </Section>
         </div>
       </div>

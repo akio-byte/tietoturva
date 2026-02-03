@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
@@ -13,10 +12,12 @@ const AdminDashboard: React.FC = () => {
   }));
 
   const logs = [
-    { id: 1, time: '10:45', event: 'Audit log rotation successful', status: 'ok' },
-    { id: 2, time: '09:12', event: 'New content: privacy-ai-training published', status: 'new' },
-    { id: 3, time: 'Eilen', event: 'Global opt-out policy forced for all LLM connectors', status: 'security' },
-    { id: 4, time: 'Eilen', event: 'MFA failure threshold reached (IP: 192.168.x.x)', status: 'warning' },
+    { id: 1, time: '11:20', event: 'Arctic Data Vault: Integrity check passed', status: 'ok' },
+    { id: 2, time: '10:45', event: 'New content: ai-system-resilience published', status: 'new' },
+    { id: 3, time: '09:12', event: 'Privacy deep-dive: Invisible memory module updated', status: 'new' },
+    { id: 4, time: 'Eilen', event: 'Global opt-out policy forced for all LLM connectors', status: 'security' },
+    { id: 5, time: 'Eilen', event: 'MFA failure threshold reached (IP: 192.168.x.x)', status: 'warning' },
+    { id: 6, time: 'Eilen', event: 'Offline backup sync successful: 72h readiness active', status: 'ok' },
   ];
 
   return (
@@ -41,7 +42,6 @@ const AdminDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
         {stats.map(s => (
           <div key={s.name} className="glass p-6 rounded-3xl border-slate-800 flex flex-col items-center justify-center text-center">
@@ -52,21 +52,20 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Content Inventory */}
         <div className="lg:col-span-2 space-y-6">
           <div className="glass rounded-[2.5rem] border-slate-800 overflow-hidden shadow-2xl">
             <div className="p-8 border-b border-slate-800 flex justify-between items-center">
-              <h3 className="text-xl font-black text-white">Sisältöinventaario</h3>
+              <h3 className="text-xl font-black text-white">Sisältöinventaario (PDF Sync)</h3>
               <button className="text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-widest">Lataa raportti</button>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="bg-slate-900/50 text-slate-500 uppercase text-[10px] font-black tracking-widest">
-                    <th className="px-8 py-4">Slug / Nav Label</th>
+                    <th className="px-8 py-4">Luku / Otsikko</th>
                     <th className="px-8 py-4">Kategoria</th>
                     <th className="px-8 py-4">Status</th>
-                    <th className="px-8 py-4 text-right">Toiminnot</th>
+                    <th className="px-8 py-4 text-right">Hallinta</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800">
@@ -82,11 +81,7 @@ const AdminDashboard: React.FC = () => {
                         </span>
                       </td>
                       <td className="px-8 py-4">
-                        {item.featured ? (
-                          <span className="text-emerald-400 text-[10px] font-black uppercase tracking-widest">Featured</span>
-                        ) : (
-                          <span className="text-slate-600 text-[10px] font-black uppercase tracking-widest">Standard</span>
-                        )}
+                        <span className="text-emerald-400 text-[10px] font-black uppercase tracking-widest">Julkaistu</span>
                       </td>
                       <td className="px-8 py-4 text-right">
                         <button className="text-slate-400 hover:text-white transition-colors">
@@ -103,7 +98,6 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Audit Logs */}
         <div className="space-y-6">
           <div className="glass p-8 rounded-[2.5rem] border-slate-800 shadow-2xl h-full">
             <h3 className="text-xl font-black text-white mb-8 flex items-center gap-3">
@@ -131,9 +125,6 @@ const AdminDashboard: React.FC = () => {
                 </div>
               ))}
             </div>
-            <button className="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-bold py-3 rounded-xl transition-all text-xs uppercase tracking-widest border border-slate-700">
-              View All Logs
-            </button>
           </div>
         </div>
       </div>
