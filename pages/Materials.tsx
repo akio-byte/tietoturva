@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO, Hero } from '../components/Shared';
@@ -33,7 +32,7 @@ const Materials: React.FC = () => {
                <svg className="w-16 h-16 text-emerald-400 mb-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                </svg>
-               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Opas (v1.6)</span>
+               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Opas (v1.7)</span>
             </div>
             <div className="flex-grow">
               <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-4 block">Lippulaivajulkaisu</span>
@@ -65,21 +64,21 @@ const Materials: React.FC = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map(item => (
-            <div key={item.slug} className="glass p-8 rounded-[2.5rem] border-slate-800 hover:border-slate-700 transition-all group">
+            <div key={item.slug} className="glass p-8 rounded-[2.5rem] border-slate-800 hover:border-slate-700 transition-all group flex flex-col">
               <div className="flex justify-between items-start mb-6">
-                <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center border border-slate-700 text-slate-400">
+                <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center border border-slate-700 text-slate-400 group-hover:border-emerald-500/50 transition-all">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest group-hover:text-emerald-500 transition-colors">
+                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest group-hover:text-emerald-400 transition-colors">
                   {item.category}
                 </span>
               </div>
               <h4 className="text-white font-bold mb-4 text-lg tracking-tight group-hover:text-emerald-400 transition-colors">
                 {item.navLabel}
               </h4>
-              <p className="text-slate-500 text-sm line-clamp-2 mb-8">
+              <p className="text-slate-500 text-sm line-clamp-2 mb-8 flex-grow">
                 {item.hero.subtitle}
               </p>
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-800/50">
@@ -91,7 +90,7 @@ const Materials: React.FC = () => {
                   className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-slate-950 transition-all"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 4v16m8-8H4" />
                   </svg>
                 </button>
               </div>
