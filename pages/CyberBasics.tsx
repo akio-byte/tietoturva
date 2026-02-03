@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { SEO, Hero, Section, RiskCard, CTA } from '../components/Shared';
+import { SEO, Hero, Section, RiskCard } from '../components/Shared';
+import PdfDownloadCTA from '../components/PdfDownloadCTA';
 
 const CyberBasics: React.FC = () => {
   return (
@@ -99,7 +100,7 @@ const CyberBasics: React.FC = () => {
           />
         </Section>
 
-        <CTA label="Lataa Kyberperusteet-muistilista (PDF - Tulossa)" />
+        <PdfDownloadCTA buttonId="kyberperusteet-muistilista" />
       </div>
     </div>
   );

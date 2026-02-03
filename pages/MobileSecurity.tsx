@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { SEO, Hero, Section, CTA } from '../components/Shared';
+import { SEO, Hero, Section } from '../components/Shared';
+import PdfDownloadCTA from '../components/PdfDownloadCTA';
 
 const MobileSecurity: React.FC = () => {
   return (
@@ -92,7 +93,7 @@ const MobileSecurity: React.FC = () => {
           Avoimet verkot kahviloissa ja lentokentillä ovat hyökkääjien leikkikenttiä. Suojaa liikenteesi salaamalla se luotettavalla VPN-yhteydellä.
         </Section>
 
-        <CTA label="Mobiiliturvan pikaohje (A4 - Tulossa)" />
+        <PdfDownloadCTA buttonId="mobiiliturvan-pikaohje" />
       </div>
     </div>
   );

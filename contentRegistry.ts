@@ -118,6 +118,53 @@ export const contentRegistry: Record<string, ContentItem> = {
     "checklist": ["Tarkista lähettäjän todellinen osoite", "Älä syötä tunnuksia linkeistä", "Varmista rahansiirrot toista kanavaa pitkin", "Luota vaistoosi: jos se tuntuu oudolta, kysy IT-tuelta"],
     "cta": { "text": "Tee kalastelutesti", "route": "/content/social-engineering" }
   },
+  "kyberperusteet-muistilista": {
+    "slug": "kyberperusteet-muistilista",
+    "category": "kyber",
+    "featured": false,
+    "navLabel": "Kyberperusteet muistilista",
+    "seo": {
+      "title": "Kyberperusteet muistilista | Lapland AI Lab",
+      "description": "Tiivis muistilista kyberturvallisuuden peruspilareista arjen käyttöön."
+    },
+    "hero": {
+      "title": "Kyberperusteet-muistilista",
+      "subtitle": "Tiivis A4-muistilista CIA-mallista, salasanoista, päivityksistä ja sosiaalisen manipuloinnin torjunnasta."
+    },
+    "sections": [
+      {
+        "title": "CIA-malli: Tietoturvan perusmalli",
+        "body": "Luottamuksellisuus, eheys ja saatavuus ovat tietoturvan kivijalka. Jokainen suojaustoimi tähtää siihen, että tieto pysyy salassa, oikeana ja käytettävissä silloin kun sitä tarvitaan."
+      },
+      {
+        "title": "Tiedon luokittelu",
+        "body": "Kaikkea ei suojata samalla tavalla. Julkinen tieto ei vaadi salausta, mutta asiakas- ja sopimusdata vaativat vahvan tunnistautumisen ja rajatun pääsyn."
+      },
+      {
+        "title": "Salasanojen hallinta ja MFA",
+        "body": "Heikot tunnukset ovat yleisin murtojen syy. Käytä salasanaohjelmaa, pitkiä salalauseita ja ota MFA käyttöön kaikissa kriittisissä palveluissa."
+      },
+      {
+        "title": "Ohjelmistopäivitykset ja haavoittuvuudet",
+        "body": "Päivitykset paikkaavat tunnettuja haavoittuvuuksia. Ota automaattiset päivitykset käyttöön ja priorisoi kriittiset tietoturvapäivitykset."
+      },
+      {
+        "title": "Sosiaalinen manipulointi",
+        "body": "Kalastelu hyödyntää kiirettä ja luottamusta. Tarkista aina lähettäjän osoite, älä klikkaa epäilyttäviä linkkejä ja pysähdy ennen toimimista."
+      }
+    ],
+    "checklist": [
+      "Määrittele organisaation tärkein tieto ja sen omistajat",
+      "Luokittele tieto (julkinen, sisäinen, luottamuksellinen, salainen)",
+      "Ota MFA käyttöön ja käytä salasanaohjelmaa",
+      "Salli automaattiset päivitykset kriittisissä järjestelmissä",
+      "Kouluta henkilöstö tunnistamaan kalasteluyritykset"
+    ],
+    "cta": {
+      "text": "Lue Kyberperusteet-opas",
+      "route": "/cyber-basics"
+    }
+  },
   "incident-response": {
     "slug": "incident-response",
     "category": "crisis",
