@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SEO, Section } from '../components/Shared';
+import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
@@ -67,85 +68,61 @@ const Home: React.FC = () => {
             Pohjoista Tietoturvaa & Hallintaa
           </div>
           <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.95]">
-            Arctic Hardening – <br/><span className="aurora-text">Governance Showroom</span>
+            Arctic Hardening – <br/><span className="aurora-text">Governance Portal</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-            Tarjoamme pk-yrityksille selkeän ja käytännönläheisen polun tekoälyn hallintaan ja digitaaliseen turvallisuuteen pohjoisella resilienssillä.
+            Organisaation selviytymisopas digitaalisessa talvessa. Kaikki auditoitu materiaali on nyt keskitetty tänne.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-6 mb-20">
             <Link to="/governance" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-emerald-500/20 text-lg">
-              Tutustu Governance-malliin
+              Hallintamalli (P1)
             </Link>
             <Link to="/business-audit" className="glass hover:bg-slate-800 text-white font-bold px-10 py-5 rounded-2xl transition-all text-lg border-slate-700">
-              Katso Auditointiesimerkki
+              Auditointi-työkalu
             </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
-             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
-                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                   Kyberresilienssi
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                   Oletamme vihamielisen ympäristön ja varaudumme kriiseihin ennalta arktisella otteella.
-                </p>
-             </div>
-             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
-                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                   Vastuullinen AI
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                   Hallitsemme Shadow AI -riskit ja varmistamme tekoälyn eettisen käytön organisaatiossa.
-                </p>
-             </div>
-             <div className="glass p-8 rounded-[2rem] border-slate-800/60">
-                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
-                   <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                   Datan suvereniteetti
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                   Pidämme huolen, että yrityksen tärkein pääoma – data – pysyy omassa hallinnassa.
-                </p>
-             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
-          {featuredItems.map((item) => (
-            <Link
-              key={item.slug}
-              to={`/content/${item.slug}`}
-              className="group glass p-10 rounded-[3rem] hover:border-emerald-500/50 transition-all duration-700 transform hover:-translate-y-4 border border-slate-800/50 flex flex-col h-full shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] group-hover:bg-emerald-500/10 transition-colors"></div>
-              <div className="w-20 h-20 bg-slate-900/90 rounded-[1.5rem] flex items-center justify-center mb-12 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
-                {getIconForCategory(item.category)}
-              </div>
-              <h2 className="text-2xl font-black text-white mb-6 group-hover:text-emerald-400 transition-colors tracking-tight">
-                {item.navLabel}
-              </h2>
-              <p className="text-slate-400 mb-10 leading-relaxed line-clamp-3 text-base flex-grow font-medium">
-                {item.hero.subtitle}
-              </p>
-              <div className="flex items-center text-emerald-400 font-black text-xs tracking-[0.2em] uppercase">
-                Syvenny aiheeseen
-                <svg className="w-5 h-5 ml-3 group-hover:translate-x-3 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </Link>
-          ))}
+        <div className="mb-24">
+          <h2 className="text-3xl font-black text-white mb-12 uppercase tracking-tighter flex items-center gap-4">
+            <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
+            Suositellut moduulit
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredItems.map((item) => (
+              <Link
+                key={item.slug}
+                to={`/content/${item.slug}`}
+                className="group glass p-10 rounded-[3rem] hover:border-emerald-500/50 transition-all duration-700 transform hover:-translate-y-4 border border-slate-800/50 flex flex-col h-full shadow-2xl relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px] group-hover:bg-emerald-500/10 transition-colors"></div>
+                <div className="w-16 h-16 bg-slate-900/90 rounded-2xl flex items-center justify-center mb-10 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
+                  {getIconForCategory(item.category)}
+                </div>
+                <h2 className="text-xl font-black text-white mb-4 group-hover:text-emerald-400 transition-colors tracking-tight uppercase">
+                  {item.navLabel}
+                </h2>
+                <p className="text-slate-400 mb-8 leading-relaxed line-clamp-2 text-sm flex-grow font-medium">
+                  {item.hero.subtitle}
+                </p>
+                <div className="flex items-center text-emerald-400 font-black text-[10px] tracking-[0.2em] uppercase">
+                  Lue raportti
+                  <svg className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="mb-40">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Kaikki mitä tarvitset <span className="text-slate-600">yhdessä paikassa.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Tietopankki <span className="text-slate-600">kategorioittain</span></h2>
             <div className="text-right">
               <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">{Object.keys(contentRegistry).length}</span>
-              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Sisältömoduulia</p>
+              <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] mt-2">Dokumentoituja artikkeleita</p>
             </div>
           </div>
           
@@ -169,6 +146,9 @@ const Home: React.FC = () => {
                       </Link>
                     ))
                   }
+                  {Object.values(contentRegistry).filter(item => item.category === cat.slug).length === 0 && (
+                     <span className="text-[10px] text-slate-700 italic uppercase">Tyhjä</span>
+                  )}
                 </div>
               </div>
             ))}

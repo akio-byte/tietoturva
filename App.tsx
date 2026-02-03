@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import Governance from './pages/Governance';
 import AuditReport from './pages/AuditReport';
 import Contact from './pages/Contact';
+import Materials from './pages/Materials';
 import AiAssistant from './components/AiAssistant';
 
 const App: React.FC = () => {
@@ -32,6 +34,7 @@ const App: React.FC = () => {
             <Route path="/governance" element={<Governance />} />
             <Route path="/audit" element={<AuditReport />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/materials" element={<Materials />} />
             {/* Dynamic content routes */}
             <Route path="/content/:slug" element={<ContentPage />} />
             {/* Direct route for the main IA item 'Incident Response' */}

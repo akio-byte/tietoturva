@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ const Header: React.FC = () => {
     { name: 'Governance', path: '/governance' },
     { name: 'Auditointi', path: '/business-audit' },
     { name: 'Blueprintit', path: '/cyber-basics' },
+    { name: 'Materiaalit', path: '/materials' },
     { name: 'Tietoa', path: '/contact' },
   ];
 

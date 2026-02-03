@@ -29,8 +29,23 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "cta": {
       "text": "Lataa Opasluonnos",
-      "route": "/downloads/arctic-security-opus.pdf"
+      "route": null
     }
+  },
+  "network-hardening-arctic": {
+    "type": "module",
+    "slug": "network-hardening-arctic",
+    "category": "kyber",
+    "featured": true,
+    "navLabel": "Verkon karkaisu",
+    "seo": { "title": "Verkkoturvan karkaisu | Lapland AI Lab", "description": "Miten suojata organisaation verkko arktisella otteella." },
+    "hero": { "title": "Verkkoturvan karkaisu", "subtitle": "Verkko on organisaation hermojärjestelmä. Jos se pettää, kaikki pysähtyy." },
+    "sections": [
+      { "title": "Segmentointi ja Zero Trust", "body": "Älä luota keneenkään verkon sisällä. Segmentoi vierasverkko, tuotantoverkko ja hallintaverkko toisistaan. Käytä palomuureja, jotka ymmärtävät sovellustason liikenteen." },
+      { "title": "Vierailijaverkon riskit", "body": "Avoin Wi-Fi on kutsu hyökkääjille. Varmista, että vierailijaverkosta ei ole mitään pääsyä sisäverkkoon tai tulostimiin." }
+    ],
+    "checklist": ["Verkko segmentointu", "Zero Trust -malli käytössä", "Vierasverkko eristetty", "IDS/IPS aktivoitu"],
+    "cta": { "text": "Verkkokarttapohja", "route": null }
   },
   "privacy-ai-training": {
     "type": "article",
@@ -46,6 +61,21 @@ export const contentRegistry: Record<string, ContentItem> = {
     ],
     "checklist": ["Henkilötiedot anonymisoitu", "Syötettävä data minimoitu", "Opt-out aktivoitu", "Audit-logit tarkistettu"],
     "cta": { "text": "Lue lisää GDPR-riskeistä", "route": null }
+  },
+  "incident-response-72h": {
+    "type": "checklist",
+    "slug": "incident-response-72h",
+    "category": "crisis",
+    "featured": true,
+    "navLabel": "72h Valmius",
+    "seo": { "title": "72 tunnin kriisivalmius | Lapland AI Lab", "description": "Miten selvitä ensimmäiset 72 tuntia tietomurron jälkeen." },
+    "hero": { "title": "72 tunnin kriisivalmius", "subtitle": "Kun pilli soi, ei ole aikaa lukea käyttöohjeita. Toiminnan on tultava selkäytimestä." },
+    "sections": [
+      { "title": "Eristäminen ja analyysi", "body": "Ensimmäinen tavoite: pysäytä leviäminen. Irrota saastuneet laitteet verkosta, mutta älä sammuta niitä, jotta keskusmuistin data säilyy tutkintaa varten." },
+      { "title": "Viestintä", "body": "Kuka kertoo asiakkaille? Kuka viranomaisille? Tee valmiit viestipohjat eri tilanteisiin." }
+    ],
+    "checklist": ["Eristämissuunnitelma valmis", "Viestintäpohjat luotu", "Yhteystiedot offline-muodossa", "Viranomaisilmoitus-prosessi"],
+    "cta": { "text": "Kriisiviestintäpohja", "route": null }
   },
   "arctic-data-vault": {
     "type": "module",
@@ -75,60 +105,32 @@ export const contentRegistry: Record<string, ContentItem> = {
     "checklist": ["Prompt-sanitointi käytössä", "Deterministiset mallit kriittisissä osissa", "Red teaming suoritettu"],
     "cta": { "text": "Lataa red teaming -ohje", "route": null }
   },
-  "crisis-offline-readiness": {
-    "type": "checklist",
-    "slug": "crisis-offline-readiness",
-    "category": "crisis",
-    "featured": true,
-    "navLabel": "Offline-valmius",
-    "seo": { "title": "Offline-valmius ja kriisinkestävyys | Lapland AI Lab", "description": "Arktinen ajattelu olettaa: yhteys katkeaa. Ole valmis." },
-    "hero": { "title": "Kriisinkestävyys ja offline-valmius", "subtitle": "Arktinen ajattelu olettaa, että yhteys katkeaa jossain vaiheessa. Varmista toimintakyky ilman verkkoa." },
-    "sections": [
-      { "title": "72 tunnin sääntö", "body": "Varmista kriittiset dokumentit offline-tilassa, varaa fyysiset MFA-avaimet ja varmista varavirta vähintään 72 tunniksi." }
-    ],
-    "checklist": ["Kriittiset dokumentit offline-tallessa", "Fyysiset MFA-avaimet (Yubikey) käytössä", "Varavirta 72h varmistettu"],
-    "cta": { "text": "Kriisivalmiussuunnitelma", "route": "/incident-response" }
-  },
-  "ai-governance-audit": {
-    "type": "tool",
-    "slug": "ai-governance-audit",
-    "category": "ai",
+  "physical-security-arctic": {
+    "type": "module",
+    "slug": "physical-security-arctic",
+    "category": "routines",
     "featured": false,
-    "navLabel": "Hallinta & Audit",
-    "seo": { "title": "AI Hallinta ja Audit-logit | Lapland AI Lab", "description": "Miten hallita AI-ympäristöjä vastuullisesti." },
-    "hero": { "title": "Hallinta ja Auditointi", "subtitle": "Tietoturva ei ole asetustila – se on jatkuva prosessi." },
+    "navLabel": "Fyysinen turva",
+    "seo": { "title": "Fyysinen turvallisuus arktisissa oloissa | Lapland AI Lab", "description": "Konesalien ja työpisteiden fyysinen suojaaminen." },
+    "hero": { "title": "Fyysinen turva", "subtitle": "Digitaalinen lukko ei auta, jos ovi on auki." },
     "sections": [
-      { "title": "Hallintaperiaatteet", "body": "Varmista, että mallin opetus on estetty omalla datalla (Opt-out), audit-logit ovat käytössä ja käyttöoikeudet on rajattu rooleittain." }
+      { "title": "Kulunvalvonta", "body": "Varmista, että jokainen käynti palvelintilassa tallentuu lokiin. Käytä biometristä tunnistautumista tai vähintään henkilökohtaisia avaimia." }
     ],
-    "checklist": ["Opt-out aktivoitu kaikissa palveluissa", "Audit-logit keskitetty", "Käyttöoikeudet auditoitu"],
-    "cta": { "text": "Audit-raporttipohja", "route": null }
+    "checklist": ["Konesalin ovi lukittu", "Kameravalvonta aktiivinen", "Vierailijaprotokolla käytössä"],
+    "cta": { "text": "Fyysinen audit-lista", "route": null }
   },
-  "arctic-mobile-hardening": {
+  "supply-chain-trust": {
     "type": "article",
-    "slug": "arctic-mobile-hardening",
-    "category": "mobile",
-    "featured": true,
-    "navLabel": "Mobiili karkaisu",
-    "seo": { "title": "Arctic Mobile Hardening | Lapland AI Lab", "description": "Mobiililaite on organisaation heikoin lenkki. Koveta se." },
-    "hero": { "title": "Arctic Mobile Hardening", "subtitle": "Mobiililaite on organisaation heikoin lenkki ja tehokkain hyökkäysvektori." },
-    "sections": [
-      { "title": "Keskeiset toimenpiteet", "body": "Käytä täyttä laitteen salausta, Zero Trust -verkkoliikennettä ja MDM-hallintaa etätyhjennyksellä." }
-    ],
-    "checklist": ["Täysi laitteen salaus aktiivinen", "Zero Trust VPN käytössä", "MDM-profiili asennettu", "Automaattiset Wi-Fi-haut pois"],
-    "cta": { "text": "Mobiiliturva-auditointi", "route": "/mobile-security" }
-  },
-  "remote-work-security": {
-    "type": "article",
-    "slug": "remote-work-security",
+    "slug": "supply-chain-trust",
     "category": "kyber",
-    "featured": true,
-    "navLabel": "Etätyö",
-    "seo": { "title": "Etätyön tietoturvaopas | Lapland AI Lab", "description": "Käytännön ohjeet turvalliseen etätyöhön." },
-    "hero": { "title": "Toimisto ilman seiniä", "subtitle": "Varmista VPN-yhteys ennen tunturiin nousua." },
+    "featured": false,
+    "navLabel": "Toimitusketju",
+    "seo": { "title": "Toimitusketjun tietoturva | Lapland AI Lab", "description": "Olet juuri niin vahva kuin ketjusi heikoin lenkki." },
+    "hero": { "title": "Toimitusketjun luottamus", "subtitle": "Hyökkääjät valitsevat usein helpoimman reitin: ali-ali-alihankkijan." },
     "sections": [
-      { "title": "Kotiverkon kriittiset pisteet", "body": "Reititin on kotisi tietoturvan ovi. Vaihda salasana heti." }
+      { "title": "Kumppanien arviointi", "body": "Edellytä kumppaneilta vähintään MFA:n käyttöä ja säännöllistä tietoturva-auditointia. Sisällytä tietoturvavaatimukset kaikkiin hankintasopimuksiin." }
     ],
-    "checklist": ["VPN käytössä", "Reitittimen salasana vaihdettu", "Tietosuojakalvo käytössä"],
-    "cta": { "text": "Lue lisää", "route": null }
+    "checklist": ["Sopimusklausuulit kunnossa", "MFA vaatimus kumppaneille", "Auditointioikeus varmistettu"],
+    "cta": { "text": "Hankintaohjeistus", "route": null }
   }
 };
