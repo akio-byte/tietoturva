@@ -1,11 +1,11 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
 const Home: React.FC = () => {
-  const featuredItems = Object.values(contentRegistry).filter(item => item.featured);
+  const allItems = Object.values(contentRegistry);
+  const featuredItems = allItems.filter(item => item.featured);
   
   const categories = [
     { name: "Kyber", color: "text-blue-400", slug: "kyber" },
@@ -59,24 +59,24 @@ const Home: React.FC = () => {
       />
       
       {/* Background Orbs */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center mb-24 relative">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em]">
-            Pohjoista Tietoturvaa & Hallintaa
+            Arctic Hardening Platform
           </div>
           <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.95]">
-            Arctic Hardening – <br/><span className="aurora-text">Governance Portal</span>
+            Pohjoista <br/><span className="aurora-text">Digitaalista Turvaa</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium mb-12">
-            Organisaation selviytymisopas digitaalisessa talvessa. Kaikki auditoitu materiaali on nyt keskitetty tänne.
+            Organisaation selviytymisopas digitaalisessa talvessa. Kaikki auditoitu materiaali ja hallintamallit nyt keskitettynä yhteen paikkaan.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-6 mb-20">
             <Link to="/governance" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-emerald-500/20 text-lg">
-              Hallintamalli (P1)
+              Governance (SoT)
             </Link>
             <Link to="/business-audit" className="glass hover:bg-slate-800 text-white font-bold px-10 py-5 rounded-2xl transition-all text-lg border-slate-700">
               Auditointi-työkalu
@@ -84,11 +84,16 @@ const Home: React.FC = () => {
           </div>
         </div>
 
+        {/* Categories Horizontal Scroll / Grid */}
         <div className="mb-24">
-          <h2 className="text-3xl font-black text-white mb-12 uppercase tracking-tighter flex items-center gap-4">
-            <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
-            Suositellut moduulit
-          </h2>
+           <div className="flex items-center justify-between mb-12">
+              <h2 className="text-3xl font-black text-white uppercase tracking-tighter flex items-center gap-4">
+                <span className="w-8 h-1 bg-emerald-500 rounded-full"></span>
+                Showroom <span className="text-slate-600">Blueprintit</span>
+              </h2>
+              <Link to="/materials" className="text-xs font-bold text-emerald-400 uppercase tracking-widest hover:underline">Näytä kaikki</Link>
+           </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredItems.map((item) => (
               <Link
@@ -100,14 +105,17 @@ const Home: React.FC = () => {
                 <div className="w-16 h-16 bg-slate-900/90 rounded-2xl flex items-center justify-center mb-10 border border-slate-700 group-hover:border-emerald-500/30 transition-all shadow-inner transform group-hover:rotate-6">
                   {getIconForCategory(item.category)}
                 </div>
-                <h2 className="text-xl font-black text-white mb-4 group-hover:text-emerald-400 transition-colors tracking-tight uppercase">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-4 block group-hover:text-emerald-400 transition-colors">
+                  {item.category}
+                </span>
+                <h2 className="text-2xl font-black text-white mb-4 tracking-tight uppercase leading-tight">
                   {item.navLabel}
                 </h2>
                 <p className="text-slate-400 mb-8 leading-relaxed line-clamp-2 text-sm flex-grow font-medium">
                   {item.hero.subtitle}
                 </p>
-                <div className="flex items-center text-emerald-400 font-black text-[10px] tracking-[0.2em] uppercase">
-                  Lue raportti
+                <div className="flex items-center text-emerald-400 font-black text-[10px] tracking-[0.2em] uppercase pt-6 border-t border-white/5">
+                  Lataa raportti
                   <svg className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -117,12 +125,13 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-40">
+        {/* Category List */}
+        <div className="mb-40 pt-20 border-t border-white/5">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Tietopankki <span className="text-slate-600">kategorioittain</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter max-w-md">Kaikki <span className="text-slate-600">moduulit</span></h2>
             <div className="text-right">
-              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">{Object.keys(contentRegistry).length}</span>
-              <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] mt-2">Dokumentoituja artikkeleita</p>
+              <span className="text-emerald-400 font-black text-6xl md:text-7xl leading-none">{allItems.length}</span>
+              <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] mt-2">Valmiina työpöydälle</p>
             </div>
           </div>
           
@@ -130,11 +139,14 @@ const Home: React.FC = () => {
             {categories.map((cat) => (
               <div 
                 key={cat.slug} 
-                className="glass p-8 rounded-[2rem] text-center border border-slate-800/50 hover:border-slate-600 transition-all group shadow-xl"
+                className="glass p-8 rounded-[2rem] border border-slate-800/50 hover:border-slate-600 transition-all group shadow-xl flex flex-col"
               >
-                <span className={`${cat.color} font-black text-[10px] block mb-6 uppercase tracking-[0.25em] group-hover:scale-110 transition-transform`}>{cat.name}</span>
+                <div className="mb-6 flex items-center justify-between">
+                   <span className={`${cat.color} font-black text-[10px] uppercase tracking-[0.2em]`}>{cat.name}</span>
+                   <div className={`w-1 h-4 rounded-full ${cat.color.replace('text', 'bg')}`}></div>
+                </div>
                 <div className="flex flex-col gap-4">
-                  {Object.values(contentRegistry)
+                  {allItems
                     .filter(item => item.category === cat.slug)
                     .map(item => (
                       <Link 
@@ -146,9 +158,6 @@ const Home: React.FC = () => {
                       </Link>
                     ))
                   }
-                  {Object.values(contentRegistry).filter(item => item.category === cat.slug).length === 0 && (
-                     <span className="text-[10px] text-slate-700 italic uppercase">Tyhjä</span>
-                  )}
                 </div>
               </div>
             ))}
