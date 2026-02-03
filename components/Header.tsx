@@ -8,6 +8,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Etusivu', path: '/' },
+    { name: 'Yhteystiedot', path: '/contact' },
     { name: 'Kyberperusteet', path: '/cyber-basics' },
     { name: 'AI-turva', path: '/ai-safety' },
     { name: 'Mobiili', path: '/mobile-security' },
