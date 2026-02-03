@@ -18,3 +18,23 @@ Kaikki koodimuutokset on vahvistettava seuraavilla kriteereillä:
 2. **UI/UX:** Ulkoasu noudattaa "glassmorphism"-tyyliä ja on responsiivinen.
 3. **TypeScript:** Ei `any`-tyyppejä (ellei välttämätöntä) ja tyypitys on johdonmukaista.
 4. **Rajaukset:** Ei uusia backend-riippuvuuksia tai API-avaimia.
+
+## Agent/skill I/O -skeema (tiivis)
+**Syöte (AI Studio ➜ Codex)**
+```json
+{
+  "task": "Määritä UI-parannus",
+  "target_files": ["pages/Home.tsx", "components/Shared.tsx"],
+  "constraints": ["Ei App.tsx -muutoksia", "Glassmorphism-tyyli säilyy"]
+}
+```
+
+**Tuloste (Codex ➜ Repo)**
+```json
+[
+  {
+    "file": "pages/Home.tsx",
+    "changes": "Päivitetty otsikon aurora-text -gradientti."
+  }
+]
+```
