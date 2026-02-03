@@ -1,14 +1,5 @@
-export interface ContentItem {
-  slug: string;
-  category: 'kyber' | 'ai' | 'mobile' | 'crisis' | 'privacy' | 'routines';
-  featured: boolean;
-  navLabel: string;
-  seo: { title: string; description: string };
-  hero: { title: string; subtitle: string };
-  sections: Array<{ title: string; body: string }>;
-  checklist: string[];
-  cta: { text: string; route: string | null };
-}
+
+import { ContentItem } from './types';
 
 export const contentRegistry: Record<string, ContentItem> = {
   "arctic-security-opus": {
