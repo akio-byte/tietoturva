@@ -2,7 +2,7 @@
 
 Tämä repo sisältää Lapland AI Labin staattisen tietoturvaportaalin. Portaali on demoympäristö, joka esittelee arktisen kyberturvan perusperiaatteet, auditointipohjat ja hallintamallin ilman taustapalveluita. Sisältö toimii täysin staattisesti, joten sivut ovat GitHub Pages -yhteensopivia.
 
-**Live-sivu:** https://lapland-ai-lab.github.io/tietoturva/
+**Live-sivu:** https://akio-byte.github.io/tietoturva/
 
 ## AI-orkestroitu kehitys
 
@@ -27,6 +27,12 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## GitHub Pages -julkaisu
+1. Varmista, että `vite.config.ts` käyttää `base: "/tietoturva/"`.
+2. Puske muutokset `main`-haaraan.
+3. GitHub Actions ajaa `npm ci` ja `npm run build`, ja julkaisee `dist`-kansion Pagesiin.
+4. Julkaisun URL: https://akio-byte.github.io/tietoturva/
 
 ## Huomioita
 - Portaali on täysin staattinen: ajonaikaisia AI-kutsuja ei tehdä.

@@ -44,9 +44,9 @@ const AiAssistant: React.FC = () => {
             <div className="bg-emerald-500/10 border border-emerald-500/20 p-5 rounded-2xl text-xs text-emerald-400">
               <h4 className="font-black mb-2 uppercase tracking-widest">Showroom-info</h4>
               <p className="leading-relaxed">
-                Tuotantoversiossa tämä assistentti käyttää **Gemini 2.5 Pro** -mallia ja `contentRegistry`-kontekstia vastaamaan tietoturvakysymyksiin. 
+                Tämä showroom toimii täysin staattisena esittelynä ilman ulkoisia palvelukutsuja.
                 <br/><br/>
-                Tässä staattisessa showroom-versiossa live-kyselyt on kytketty pois päältä tietoturvan ja vakauden takaamiseksi.
+                Live-kyselyt ja taustaintegraatiot on kytketty pois päältä tietoturvan ja vakauden takaamiseksi.
               </p>
             </div>
 
