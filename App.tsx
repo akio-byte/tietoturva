@@ -11,6 +11,8 @@ import BusinessAudit from './pages/BusinessAudit';
 import Routines from './pages/Routines';
 import ContentPage from './pages/ContentPage';
 import AdminDashboard from './pages/AdminDashboard';
+import Governance from './pages/Governance';
+import AuditReport from './pages/AuditReport';
 import AiAssistant from './components/AiAssistant';
 
 const App: React.FC = () => {
@@ -27,6 +29,8 @@ const App: React.FC = () => {
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/audit" element={<AuditReport />} />
             {/* Dynamic content routes */}
             <Route path="/content/:slug" element={<ContentPage />} />
             {/* Direct route for the main IA item 'Incident Response' */}
