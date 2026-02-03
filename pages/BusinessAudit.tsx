@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { SEO, Hero, CTA } from '../components/Shared';
 
@@ -92,9 +91,9 @@ const BusinessAudit: React.FC = () => {
                           onClick={() => handleAnswer(q.id, opt.val)}
                           className={`px-4 py-2 rounded-xl border text-sm font-bold transition-all ${
                             answers[q.id] === opt.val 
-                              ? opt.label === 'Kyllä' ? 'bg-emerald-500 text-slate-950 border-emerald-500' : 
-                                opt.label === 'Osittain' ? 'bg-yellow-500 text-slate-950 border-yellow-500' : 
-                                'bg-red-500 text-slate-950 border-red-500'
+                              ? opt.label === 'Kyllä' ? 'bg-emerald-500 text-slate-950 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]' : 
+                                opt.label === 'Osittain' ? 'bg-yellow-500 text-slate-950 border-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]' : 
+                                'bg-red-500 text-slate-950 border-red-500 shadow-[0_0_15px_rgba(239,68,68,0.3)]'
                               : `bg-slate-900/50 text-slate-400 ${opt.color}`
                           }`}
                         >
@@ -111,9 +110,9 @@ const BusinessAudit: React.FC = () => {
               <button
                 disabled={!allAnswered}
                 onClick={() => setIsFinished(true)}
-                className={`px-10 py-5 rounded-full font-bold text-xl transition-all shadow-xl ${
+                className={`px-12 py-6 rounded-2xl font-black text-xl transition-all shadow-xl uppercase tracking-widest ${
                   allAnswered 
-                    ? 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-emerald-500/20' 
+                    ? 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-emerald-500/20 scale-105' 
                     : 'bg-slate-800 text-slate-500 cursor-not-allowed opacity-50'
                 }`}
               >
@@ -122,52 +121,40 @@ const BusinessAudit: React.FC = () => {
             </div>
           </>
         ) : (
-          <div className={`glass p-10 rounded-3xl border-2 ${result.border} ${result.bg} animate-in fade-in zoom-in duration-500`}>
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-slate-400 mb-2 uppercase tracking-widest">Auditoinnin tulos</h2>
-              <div className={`text-5xl md:text-7xl font-black mb-6 ${result.color}`}>
+          <div className={`glass p-10 md:p-20 rounded-[4rem] border-2 ${result.border} ${result.bg} animate-in fade-in zoom-in duration-500 relative overflow-hidden`}>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-current opacity-5 blur-[100px] -z-10"></div>
+            <div className="text-center relative z-10">
+              <div className="w-24 h-24 bg-slate-900 rounded-full mx-auto mb-10 flex items-center justify-center border border-white/10 shadow-2xl">
+                <svg className={`w-12 h-12 ${result.color} animate-pulse`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h2 className="text-xl font-black text-slate-500 mb-2 uppercase tracking-[0.3em]">Auditointiraportti</h2>
+              <div className={`text-6xl md:text-9xl font-black mb-8 ${result.color} tracking-tighter`}>
                 {totalScore} / 20
               </div>
-              <h3 className={`text-3xl font-bold mb-6 ${result.color}`}>{result.level}</h3>
-              <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed mb-10">
+              <h3 className={`text-4xl md:text-5xl font-black mb-10 ${result.color} tracking-tight uppercase`}>{result.level}</h3>
+              <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed mb-14 font-medium">
                 {result.feedback}
               </p>
               
-              <div className="flex flex-col md:flex-row gap-4 justify-center print:hidden">
+              <div className="flex flex-col md:flex-row gap-6 justify-center print:hidden">
                 <button 
                   onClick={() => setIsFinished(false)}
-                  className="bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-4 rounded-xl transition-all"
+                  className="bg-slate-800 hover:bg-slate-700 text-white font-black px-12 py-5 rounded-2xl transition-all uppercase tracking-widest text-xs"
                 >
-                  Muokkaa vastauksia
+                  Uusi testi
                 </button>
                 <button 
                   onClick={() => window.print()}
-                  className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20"
+                  className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-5 rounded-2xl transition-all shadow-2xl shadow-emerald-500/20 uppercase tracking-widest text-xs"
                 >
-                  Lataa raportti (PDF)
+                  Lataa PDF-raportti
                 </button>
-              </div>
-
-              <div className="hidden print:block mt-12 text-left border-t border-slate-700 pt-8">
-                <h4 className="text-slate-400 font-bold mb-4 uppercase text-sm">Yksityiskohtaiset vastaukset:</h4>
-                <div className="grid gap-2">
-                  {questions.map(q => (
-                    <div key={q.id} className="flex justify-between text-sm py-1 border-b border-slate-800">
-                      <span className="text-slate-400">{q.text}</span>
-                      <span className="font-bold text-white">
-                        {answers[q.id] === 2 ? 'Kyllä' : answers[q.id] === 1 ? 'Osittain' : 'Ei'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
         )}
-
-        <div className="mt-20 print:hidden">
-          <CTA label="Lue Kyberperusteet-opas" link="/cyber-basics" />
-        </div>
       </div>
     </div>
   );
