@@ -1,6 +1,18 @@
-# Lapland AI Lab - Tietoturvaopas
+# Lapland AI Lab - Arctic Hardening Portal
 
-Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
+Arctic Hardening Portal on Lapland AI Labin staattinen dokumentaatio- ja showcase-sivusto, joka kokoaa arktisen kyber- ja AI-turvan periaatteet yhteen. Sivusto on tarkoitettu turvallisuuslinjausten esittelyyn, ei tuotantokäyttöön tai käyttäjätiedon keruuseen.
+
+## Live-sivu
+- GitHub Pages: https://lapland-ai-lab.github.io/tietoturva/
+
+## GitHub Pages -julkaisu
+Sivusto julkaistaan GitHub Pages -palveluun Vite-buildin kautta.
+
+1. Build pipeline
+   - `npm ci`
+   - `npm run build`
+2. GitHub Actions rakentaa `dist/`-kansion ja julkaisee sen Pagesiin.
+3. Vite on konfiguroitu base-polulla `/tietoturva/`, jotta assetit toimivat GitHub Pagesissa.
 
 ## AI-orkestroitu kehitys
 
@@ -13,6 +25,7 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 
 ### Dokumentaatio
 - [AGENT.md](./AGENT.md) - Projektin säännöt ja yleiskuvaus.
+- [docs/AUDIT.md](./docs/AUDIT.md) - Staattisen julkaisutavan tietoturva-auditointi.
 - [codex/skill.md](./codex/skill.md) - Codexin toimintaohjeet ja laatuvaatimukset.
 - [ai-studio/bridge.md](./ai-studio/bridge.md) - AI Studion rooli ja kommunikaatiopohjat.
 
