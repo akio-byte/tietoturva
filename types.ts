@@ -1,20 +1,41 @@
-
 import React from 'react';
 
 /**
- * Pääasiallinen sisältökategorioiden tyyppi.
+ * Pääasialliset sisältökategoriat.
  */
 export type CategoryType = 'kyber' | 'ai' | 'mobile' | 'crisis' | 'privacy' | 'routines';
 
 /**
+ * Sisältötyypit eroteltuna unionina (Discriminated Union).
+ */
+export type ContentType = 'article' | 'checklist' | 'tool' | 'module';
+
+/**
+ * Branded String navLabelille (Compile-time suositus).
+ */
+export type NavLabel = string & { readonly __brand: 'NavLabel' };
+
+/**
+ * Validoi navLabelin pituuden (Runtime validation).
+ * Suositellaan ajettavaksi contentRegistryn alustuksen yhteydessä.
+ */
+export const validateNavLabel = (label: string): NavLabel => {
+  if (label.length > 20) {
+    throw new Error(`KRIITTINEN VIRHE: navLabel "${label}" ylittää 20 merkin rajan.`);
+  }
+  return label as NavLabel;
+};
+
+/**
  * Sisältöobjektin rajapinta (Source of Truth).
- * Huom: navLabel suositeltu maksimipituus on 20 merkkiä UI-yhteensopivuuden vuoksi.
  */
 export interface ContentItem {
+  type: ContentType;
   slug: string;
   category: CategoryType;
   featured: boolean;
-  navLabel: string; // UI-rajoite: max 20 merkkiä
+  navLabel: string; // Suositus: käytä validateNavLabel() rakentaessa
+  stylePreset?: 'standard' | 'warning' | 'arctic'; // Arctic Security -sävytys
   seo: {
     title: string;
     description: string;
@@ -28,7 +49,7 @@ export interface ContentItem {
     body: string;
     stylePreset?: 'standard' | 'warning' | 'arctic';
   }>;
-  checklist: string[]; // Vähintään 3 konkreettista toimenpidettä
+  checklist: string[]; 
   cta: {
     text: string;
     route: string | null;

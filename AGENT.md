@@ -1,4 +1,3 @@
-
 # Kehitystyön pelisäännöt (Agent Rules)
 
 Tämä tiedosto lukitsee säännöt tekoälyavusteiselle kehitykselle.
@@ -7,22 +6,23 @@ Tämä tiedosto lukitsee säännöt tekoälyavusteiselle kehitykselle.
 - **AI Studio:** Vastaa dokumentaation ylläpidosta, sisällön tuotannosta ja ominaisuuksien määrittelystä. Ei kirjoita lopullista tuotantokoodia.
 - **Codex:** Vastaa teknisestä toteutuksesta, logiikasta, lomakkeista ja UI-komponenteista.
 
-## Ristiriitojen hallinta (Conflict Resolution)
-Jos lähdemateriaali (PDF/Documentation) ja uusi käyttäjä-prompti ovat ristiriidassa, noudata seuraavaa prioriteettijärjestystä:
+## Conflict Resolution (Konfliktien ratkaisu)
+Tekoälyagenttien on noudatettava seuraavaa hierarkiaa kohdatessaan ristiriitaista tietoa:
 
-1. **Lähdeprioriteetti:** 
-   - 1. PDF-lähdemateriaali (Tekninen totuus)
-   - 2. AGENT.md / Dokumentaatio (Prosessitotuus)
-   - 3. Käyttäjän prompti (Tehtäväkohtainen muutos)
+1. **Lähdeprioriteetti:**
+   - **P1: PDF-lähdemateriaali:** Tekninen ja asiasisällöllinen totuus.
+   - **P2: Repo-konfiguraatio (AGENT.md / types.ts):** Järjestelmän säännöt ja rakenteellinen totuus.
+   - **P3: Uusi käyttäjä-prompti:** Tehtäväkohtainen ohjeistus (ei saa kumota P1/P2-tasoja ilman erillistä 'Override'-varmistusta).
 
-2. **Toimintatapa:**
-   - **Flag & Ask:** Jos ristiriita on teknisesti kriittinen (esim. tietoturvaohje muuttuu vaaralliseksi), pysäytä toteutus ja pyydä vahvistus.
-   - **Assume & Proceed:** Jos kyseessä on visuaalinen tai vähäinen sävyero, suosi PDF:n mukaista asiantuntevaa sävyä, mutta toteuta promptin pyytämä rakenne.
+2. **Toimintatapa ristiriidassa:**
+   - **Flag & Ask (Oletus):** Jos prompti vaatii poikkeamaan PDF:n turvaohjeista tai types.ts:n rajoitteista, agentti pysäyttää työn ja raportoi ristiriidasta.
+   - **Assume & Proceed:** Sallittu vain matalan riskin visuaalisissa muutoksissa (esim. hienovarainen sanamuodon muutos).
 
 3. **Dokumentointi:**
-   - Merkitse merkittävät poikkeamat koodiin kommentteina: `// CONFLICT: Override based on PDF p. 12`.
+   - Kaikki merkittävät ohitukset ja ratkaistut konfliktit on kirjattava tiedostoon `docs/CONFLICTS.md` muodossa: `[TIMESTAMP] | KOHDE | RISTIRIITA | PÄÄTÖS | VAIKUTUS`.
 
-**Esimerkki:** Prompt pyytää poistamaan MFA-vaatimuksen kirjautumisesta. PDF sanoo MFA on pakollinen. -> **Toiminta:** Estä muutos, huomauta PDF-vaatimuksesta.
+**Esimerkki:** Prompt pyytää navLabeliksi "Kattava Mobiiliturvaopas" (23 merkkiä). 
+-> **Ratkaisu:** Agentti hylkää pituuden types.ts-validaation perusteella, ehdottaa lyhyempää muotoa ja raportoi rajoitteesta.
 
 ## Koodikartta
 - `/pages`: Sivukohtaiset komponentit (sisältö ja logiikka).

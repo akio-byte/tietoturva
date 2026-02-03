@@ -1,8 +1,8 @@
-
 import { ContentItem } from './types';
 
 export const contentRegistry: Record<string, ContentItem> = {
   "arctic-security-opus": {
+    "type": "article",
     "slug": "arctic-security-opus",
     "category": "routines",
     "featured": true,
@@ -32,6 +32,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     }
   },
   "privacy-ai-training": {
+    "type": "article",
     "slug": "privacy-ai-training",
     "category": "privacy",
     "featured": true,
@@ -46,6 +47,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Lue lisää GDPR-riskeistä", "route": null }
   },
   "arctic-data-vault": {
+    "type": "module",
     "slug": "arctic-data-vault",
     "category": "privacy",
     "featured": true,
@@ -59,6 +61,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Tutustu vault-arkkitehtuuriin", "route": null }
   },
   "ai-system-resilience": {
+    "type": "article",
     "slug": "ai-system-resilience",
     "category": "ai",
     "featured": true,
@@ -72,6 +75,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Lataa red teaming -ohje", "route": null }
   },
   "crisis-offline-readiness": {
+    "type": "checklist",
     "slug": "crisis-offline-readiness",
     "category": "crisis",
     "featured": true,
@@ -85,6 +89,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Kriisivalmiussuunnitelma", "route": "/incident-response" }
   },
   "ai-governance-audit": {
+    "type": "tool",
     "slug": "ai-governance-audit",
     "category": "ai",
     "featured": false,
@@ -98,6 +103,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Audit-raporttipohja", "route": null }
   },
   "arctic-mobile-hardening": {
+    "type": "article",
     "slug": "arctic-mobile-hardening",
     "category": "mobile",
     "featured": true,
@@ -111,6 +117,7 @@ export const contentRegistry: Record<string, ContentItem> = {
     "cta": { "text": "Mobiiliturva-auditointi", "route": "/mobile-security" }
   },
   "remote-work-security": {
+    "type": "article",
     "slug": "remote-work-security",
     "category": "kyber",
     "featured": true,
