@@ -4,7 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapland AI Lab | Tietoturvaopas</title>
+    <!-- Tailwind Play CDN mahdollistaa tyylien näkymisen ilman build-vaihetta -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body { 
+          @apply font-['Inter'] bg-[#020617] text-slate-100 antialiased;
+        }
+      }
+      @layer components {
+        .aurora-text {
+          background: linear-gradient(to right, #10b981, #3b82f6, #8b5cf6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .glass {
+          @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      }
+    </style>
 <script type="importmap">
 {
   "imports": {
@@ -18,7 +55,7 @@
 }
 </script>
 </head>
-<body class="text-slate-100">
+<body>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
 </body>
