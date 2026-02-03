@@ -3,6 +3,43 @@ import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 import { AuditSubmission } from '../types';
 
+const MaturityRadar: React.FC<{ score: number }> = ({ score }) => {
+  const normalizedScore = Math.min(Math.max(score, 0), 20);
+  const percentage = (normalizedScore / 20) * 100;
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDasharray = circumference;
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+  return (
+    <div className="relative w-48 h-48 flex items-center justify-center">
+      <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r={radius}
+          className="stroke-slate-800 fill-none"
+          strokeWidth="8"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r={radius}
+          className="stroke-emerald-500 fill-none transition-all duration-1000 ease-out"
+          strokeWidth="8"
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset={strokeDashoffset}
+          strokeLinecap="round"
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center transform rotate-0">
+        <span className="text-4xl font-black text-white">{normalizedScore.toFixed(1)}</span>
+        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Maturity</span>
+      </div>
+    </div>
+  );
+};
+
 const AdminDashboard: React.FC = () => {
   const [submissions, setSubmissions] = useState<AuditSubmission[]>([]);
   const items = Object.values(contentRegistry);
@@ -20,13 +57,15 @@ const AdminDashboard: React.FC = () => {
     }
   }, []);
 
+  const averageScore = submissions.length > 0 
+    ? submissions.reduce((acc, curr) => acc + curr.totalScore, 0) / submissions.length 
+    : 0;
+
   const logs = [
     { id: 1, time: '11:20', event: 'Arctic Data Vault: Integrity check passed', status: 'ok' },
     { id: 2, time: '10:45', event: 'New content: ai-system-resilience published', status: 'new' },
     { id: 3, time: '09:12', event: 'Privacy deep-dive: Invisible memory module updated', status: 'new' },
     { id: 4, time: 'Eilen', event: 'Global opt-out policy forced for all LLM connectors', status: 'security' },
-    { id: 5, time: 'Eilen', event: 'MFA failure threshold reached (IP: 192.168.x.x)', status: 'warning' },
-    { id: 6, time: 'Eilen', event: 'Offline backup sync successful: 72h readiness active', status: 'ok' },
   ];
 
   const archiveSubmission = (id: string) => {
@@ -57,13 +96,19 @@ const AdminDashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-        {stats.map(s => (
-          <div key={s.name} className="glass p-6 rounded-3xl border-slate-800 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-black text-white mb-1">{s.count}</span>
-            <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{s.name}</span>
-          </div>
-        ))}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+        <div className="lg:col-span-1 glass p-8 rounded-[2.5rem] flex flex-col items-center justify-center text-center">
+          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">Average Security Maturity</h3>
+          <MaturityRadar score={averageScore} />
+        </div>
+        <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-4">
+          {stats.map(s => (
+            <div key={s.name} className="glass p-6 rounded-3xl border-slate-800 flex flex-col items-center justify-center text-center">
+              <span className="text-3xl font-black text-white mb-1">{s.count}</span>
+              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{s.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -103,7 +148,6 @@ const AdminDashboard: React.FC = () => {
                           </span>
                         </td>
                         <td className="px-8 py-6 text-right space-x-3">
-                          <button className="text-emerald-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">Avaa</button>
                           <button 
                             onClick={() => sub.id && archiveSubmission(sub.id)}
                             className="text-red-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors"

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
+import { AuditSubmission } from '../types';
 
 const AiAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,17 +26,25 @@ const AiAssistant: React.FC = () => {
     setIsTyping(true);
 
     try {
+      // Haetaan käyttäjän viimeisin auditointi kontekstiksi
+      const submissions = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
+      const latestAudit: AuditSubmission | null = submissions.length > 0 ? submissions[0] : null;
+      
+      const auditContext = latestAudit 
+        ? `Käyttäjä on suorittanut auditoinnin pistein ${latestAudit.totalScore}/20. Taso: ${latestAudit.level}.` 
+        : "Käyttäjä ei ole vielä tehnyt auditointia.";
+
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMessage,
         config: {
           systemInstruction: `Toimit Lapland AI Labin kyberturvallisuus- ja AI-hallinta-asiantuntijana. 
+          ${auditContext}
           Vastaat käyttäjän kysymyksiin "Arctic Hardening" -viitekehyksen mukaisesti. 
-          Painota resilienssiä, datan suvereniteettia (Source of Truth), nollaluottamusta (Zero Trust) ja vastuullista tekoälyn käyttöä. 
-          Puhu suomeksi, ole asiantunteva, rauhallinen ja käytännönläheinen. 
-          Jos käyttäjä kysyy auditoinnista, ohjaa hänet pika-auditointiin (/business-audit). 
-          Pidä vastaukset tiiviinä mutta informatiivisina.`,
+          Painota resilienssiä, datan suvereniteettia ja nollaluottamusta. 
+          Jos käyttäjällä on matalat auditointipisteet, ole kannustava mutta painota kriittisiä korjauksia kuten MFA:ta.
+          Vastaa suomeksi, ole asiantunteva ja käytännönläheinen.`,
           temperature: 0.7,
         },
       });
@@ -64,13 +73,12 @@ const AiAssistant: React.FC = () => {
         </button>
       ) : (
         <div className="glass w-[380px] md:w-[450px] h-[600px] rounded-[2.5rem] flex flex-col shadow-2xl animate-in slide-in-from-bottom-10 border border-white/10 overflow-hidden">
-          {/* Header */}
           <div className="p-6 border-b border-white/5 flex justify-between items-center bg-slate-950/80">
             <div className="flex items-center gap-4">
               <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></div>
               <div>
                 <span className="font-black block text-xs text-white uppercase tracking-widest">Arctic Guardian AI</span>
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Secured by Gemini 3</span>
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Context Aware v1.8</span>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-500 hover:text-white transition-colors">
@@ -80,7 +88,6 @@ const AiAssistant: React.FC = () => {
             </button>
           </div>
           
-          {/* Chat area */}
           <div ref={scrollRef} className="flex-grow overflow-y-auto p-6 space-y-6 no-scrollbar bg-slate-900/20">
             {messages.map((m, idx) => (
               <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -104,7 +111,6 @@ const AiAssistant: React.FC = () => {
             )}
           </div>
 
-          {/* Input area */}
           <div className="p-6 bg-slate-950 border-t border-white/5">
             <div className="relative">
               <input 
@@ -112,7 +118,7 @@ const AiAssistant: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend(input)}
-                placeholder="Kysy tietoturvasta..."
+                placeholder="Kysy personoituja vinkkejä..."
                 className="w-full bg-slate-900 border border-white/10 rounded-2xl py-4 pl-6 pr-14 text-sm text-white focus:outline-none focus:border-emerald-500/50 transition-all font-medium"
               />
               <button 
@@ -124,17 +130,6 @@ const AiAssistant: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
               </button>
-            </div>
-            <div className="mt-4 flex gap-2 overflow-x-auto no-scrollbar">
-               {["Auditointi", "Shadow AI", "MFA-ohjeet"].map(tag => (
-                 <button 
-                  key={tag}
-                  onClick={() => handleSend(`Kerro lisää aiheesta: ${tag}`)}
-                  className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg border border-white/5 text-slate-500 hover:text-emerald-400 hover:border-emerald-500/20 transition-all whitespace-nowrap"
-                 >
-                   {tag}
-                 </button>
-               ))}
             </div>
           </div>
         </div>

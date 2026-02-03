@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Navigate, useLocation } from 'react-router-dom';
+import { useParams, Navigate, useLocation, Link } from 'react-router-dom';
 import { SEO, Hero, Section, CTA } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 
@@ -7,13 +7,17 @@ const ContentPage: React.FC = () => {
   const { slug: paramsSlug } = useParams<{ slug: string }>();
   const location = useLocation();
   
-  // Etsitään slug joko urlista tai suorasta polusta
   const slug = paramsSlug || location.pathname.substring(1).split('/').pop() || "";
   const content = contentRegistry[slug];
 
   if (!content) {
     return <Navigate to="/" replace />;
   }
+
+  // Haetaan liittyvät moduulit saman kategorian perusteella (ei itseään)
+  const relatedModules = Object.values(contentRegistry)
+    .filter(item => item.category === content.category && item.slug !== slug)
+    .slice(0, 3);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -70,6 +74,25 @@ const ContentPage: React.FC = () => {
         >
           Käy läpi tämä lista ja kuittaa tehtävät, kun olet varmistanut ne organisaatiossasi. Tilasi tallentuu automaattisesti tähän selaimeen.
         </Section>
+
+        {/* Related Modules Section */}
+        {relatedModules.length > 0 && (
+          <div className="pt-20 border-t border-white/5">
+            <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-8">Seuraavat askeleet karkaisussa</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedModules.map(item => (
+                <Link 
+                  key={item.slug} 
+                  to={`/content/${item.slug}`}
+                  className="glass p-6 rounded-3xl border border-white/5 hover:border-emerald-500/30 transition-all group"
+                >
+                  <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest mb-2 block">{item.category}</span>
+                  <h4 className="text-white font-bold group-hover:text-emerald-400 transition-colors line-clamp-1">{item.navLabel}</h4>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {content.cta.route ? (
           <CTA label={content.cta.text} link={content.cta.route} />
