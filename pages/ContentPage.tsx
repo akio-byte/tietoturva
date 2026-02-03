@@ -22,7 +22,7 @@ const ContentPage: React.FC = () => {
         description={content.seo.description} 
       />
       
-      {slug === 'incident-response' && (
+      {slug === 'incident-response-72h' && (
         <div className="mb-12 glass border-red-500/30 p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 animate-in fade-in slide-in-from-top-4 duration-700">
           <div className="flex items-center gap-6">
             <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-slate-950 shadow-xl shadow-red-500/20">
