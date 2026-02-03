@@ -3,34 +3,27 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import AISafety from './pages/AISafety';
-import CyberBasics from './pages/CyberBasics';
-import MobileSecurity from './pages/MobileSecurity';
-import BusinessAudit from './pages/BusinessAudit';
-import Routines from './pages/Routines';
-import ContentPage from './pages/ContentPage';
-import AdminDashboard from './pages/AdminDashboard';
 import AiAssistant from './components/AiAssistant';
+import Home from './pages/Home';
+import Methodology from './pages/Methodology';
+import Governance from './pages/Governance';
+import Blueprints from './pages/Blueprints';
+import Architecture from './pages/Architecture';
+import ContentPage from './pages/ContentPage';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-slate-950 text-slate-100">
         <Header />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/ai-safety" element={<AISafety />} />
-            <Route path="/cyber-basics" element={<CyberBasics />} />
-            <Route path="/mobile-security" element={<MobileSecurity />} />
-            <Route path="/business-audit" element={<BusinessAudit />} />
-            <Route path="/routines" element={<Routines />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            {/* Dynamic content routes */}
+            <Route path="/methodology" element={<Methodology />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/blueprints" element={<Blueprints />} />
+            <Route path="/architecture" element={<Architecture />} />
             <Route path="/content/:slug" element={<ContentPage />} />
-            {/* Direct route for the main IA item 'Incident Response' */}
-            <Route path="/incident-response" element={<ContentPage />} />
           </Routes>
         </main>
         <AiAssistant />

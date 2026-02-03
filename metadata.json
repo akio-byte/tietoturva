@@ -1,10 +1,7 @@
 {
-  "name": "Lapland AI Lab - Arctic Hardening Portal",
-  "description": "Kokonaisvaltainen tietoturva- ja AI-hallintaportaali pk-yrityksille ja organisaatioille.",
-  "version": "1.5.2",
+  "name": "Arctic Hardening - Governance Showroom",
+  "description": "Lapland AI Labin metodologinen näyteikkuna: Content-as-Code ja AI Governance.",
+  "version": "2.0.0-static",
   "author": "Lapland AI Lab Academy",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
