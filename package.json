@@ -1,20 +1,21 @@
 {
   "name": "lapland-ai-lab-portal",
   "private": true,
-  "version": "1.6.0",
+  "version": "1.7.0",
   "type": "module",
   "homepage": "https://akio-byte.github.io/tietoturva/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "tsc --noEmit"
+    "test": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.0",
-    "lucide-react": "^0.470.0"
+    "lucide-react": "^0.470.0",
+    "@google/genai": "^1.39.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
@@ -68,7 +67,6 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Vastaanotetut auditoinnit - Pääkehittäjän näkymä */}
         <div className="lg:col-span-2 space-y-8">
           <div className="glass rounded-[2.5rem] border-slate-800 overflow-hidden shadow-2xl">
             <div className="p-8 border-b border-slate-800 flex justify-between items-center bg-slate-900/40">
@@ -76,9 +74,6 @@ const AdminDashboard: React.FC = () => {
                 <h3 className="text-xl font-black text-white">Vastaanotetut auditoinnit</h3>
                 <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mt-1">Lead Developer Review Queue</p>
               </div>
-              <span className="bg-emerald-500/10 text-emerald-400 text-[10px] font-black px-3 py-1 rounded-full border border-emerald-500/20 uppercase">
-                {submissions.length} uutta
-              </span>
             </div>
             
             <div className="overflow-x-auto">
@@ -86,7 +81,7 @@ const AdminDashboard: React.FC = () => {
                 <thead>
                   <tr className="bg-slate-900/50 text-slate-500 uppercase text-[10px] font-black tracking-widest border-b border-slate-800">
                     <th className="px-8 py-4">Aikaleima</th>
-                    <th className="px-8 py-4">Tulos</th>
+                    <th className="px-8 py-4">Pisteluku</th>
                     <th className="px-8 py-4">Taso</th>
                     <th className="px-8 py-4 text-right">Toiminnot</th>
                   </tr>
@@ -96,50 +91,32 @@ const AdminDashboard: React.FC = () => {
                     submissions.map(sub => (
                       <tr key={sub.id} className="hover:bg-slate-800/30 transition-colors group">
                         <td className="px-8 py-6">
-                          <div className="text-white font-bold">{sub.timestamp}</div>
+                          <div className="text-white font-bold">{new Date(sub.timestamp).toLocaleString('fi-FI')}</div>
                           <div className="text-[10px] text-slate-600 font-mono">ID: {sub.id}</div>
                         </td>
-                        <td className="px-8 py-6">
-                          <div className={`text-xl font-black ${
-                            sub.score >= 16 ? 'text-emerald-400' : sub.score >= 9 ? 'text-yellow-400' : 'text-red-400'
-                          }`}>
-                            {sub.score} / 20
-                          </div>
+                        <td className="px-8 py-6 text-white font-black text-xl">
+                          {sub.totalScore} / 20
                         </td>
                         <td className="px-8 py-6">
-                          <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded border ${
-                            sub.score >= 16 ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 
-                            sub.score >= 9 ? 'bg-yellow-500/10 border-yellow-500/20 text-yellow-400' : 
-                            'bg-red-500/10 border-red-500/20 text-red-400'
-                          }`}>
+                          <span className="px-3 py-1 bg-slate-800 rounded-full text-[10px] font-black text-slate-300 uppercase tracking-widest">
                             {sub.level}
                           </span>
                         </td>
                         <td className="px-8 py-6 text-right space-x-3">
-                          <button className="text-slate-500 hover:text-white transition-colors" title="Avaa raportti">
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                          </button>
+                          <button className="text-emerald-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">Avaa</button>
                           <button 
-                            onClick={() => archiveSubmission(sub.id)}
-                            className="text-slate-500 hover:text-red-400 transition-colors" 
-                            title="Arkistoi"
+                            onClick={() => sub.id && archiveSubmission(sub.id)}
+                            className="text-red-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors"
                           >
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
+                            Arkistoi
                           </button>
                         </td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={4} className="px-8 py-20 text-center">
-                        <div className="text-slate-600 font-bold uppercase tracking-widest text-xs italic">
-                          Ei uusia auditointeja jonossa.
-                        </div>
+                      <td colSpan={4} className="px-8 py-20 text-center text-slate-600 font-bold uppercase tracking-widest text-xs italic">
+                        Ei saapuneita auditointeja.
                       </td>
                     </tr>
                   )}
@@ -147,19 +124,8 @@ const AdminDashboard: React.FC = () => {
               </table>
             </div>
           </div>
-
-          {/* Sisältöinventaario - Säilytetty aiemmasta */}
-          <div className="glass rounded-[2.5rem] border-slate-800 overflow-hidden shadow-2xl opacity-60">
-            <div className="p-8 border-b border-slate-800 flex justify-between items-center">
-              <h3 className="text-xl font-black text-white">Sisältöinventaario (PDF Sync)</h3>
-            </div>
-            <div className="p-8 text-xs text-slate-500 italic">
-              Yhteensä {items.length} julkaistua moduulia. Kaikki synkronoitu P1-lähdemateriaalin kanssa.
-            </div>
-          </div>
         </div>
 
-        {/* Audit Logs */}
         <div className="space-y-6">
           <div className="glass p-8 rounded-[2.5rem] border-slate-800 shadow-2xl h-full">
             <h3 className="text-xl font-black text-white mb-8 flex items-center gap-3">

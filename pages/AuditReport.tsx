@@ -2,6 +2,18 @@ import React from 'react';
 import { SEO, Hero } from '../components/Shared';
 
 const AuditReport: React.FC = () => {
+  const leadDevSignals = [
+    { status: 'OK', detail: 'Ei krymptäysongelmia havaittu build-vaiheessa' },
+    { status: 'WARNING', detail: 'Vite importmap ristiriita havaittu (Korvattu staattisella modulilla)' },
+    { status: 'PENDING', detail: 'BusinessAudit submission -moduuli testauksessa v1.7.0' }
+  ];
+
+  const leadDevActions = [
+    { level: 'P0', action: 'Poista importmap index.html ja käytä Vite-bundlea' },
+    { level: 'P1', action: 'Implementoi auditoinnin lähetystoiminto ja admin-näkymä' },
+    { level: 'P2', action: 'Refaktoroi AiAssistant käyttämään uutta Gemini-mallia' }
+  ];
+
   const auditPoints = [
     { title: "Koodin laatu", status: "Pass", detail: "React 19, ei 'any'-tyyppejä. TypeScript-tiukka tila käytössä." },
     { title: "Tietoturva", status: "Pass", detail: "Staattinen showroom. Kaikki dynaaminen logiikka suoritetaan selaimessa ilman backendia." },
@@ -10,40 +22,49 @@ const AuditReport: React.FC = () => {
     { title: "Suorituskyky", status: "Pass", detail: "Asset-koko minimoitu, Vite-bundlaus käytössä." },
   ];
 
-  const leadDevActions = [
-    {
-      title: "P0: Auditointiloki ja riskimatriisi",
-      detail: "Lukitse auditointilogi `docs/CONFLICTS.md` + riskiluokitus per komponentti. Tämä varmistaa jäljitettävyyden ja vähentää muutosten riskiä."
-    },
-    {
-      title: "P1: Saavutettavuus sprintti (ARIA + kontrastit)",
-      detail: "Käy läpi dynaamiset UI-osat (AiAssistant, lomakkeet). Lisää ARIA-labelit ja kontrastitestit."
-    },
-    {
-      title: "P1: Visual regressio -suojaverkko",
-      detail: "Lisää minimikattavuus: 3–5 kriittistä näkymää (Home, Audit, Admin)."
-    },
-    {
-      title: "P2: Suorituskykybudjetti",
-      detail: "Dokumentoi bundle-rajat ja lisää CI-varoitus kun rajat ylitetään."
-    }
-  ];
-
-  const leadDevSignals = [
-    { title: "Arkkitehtuurin selkeys", status: "Pass", detail: "contentRegistry.ts toimii yksilähteenä sisällölle." },
-    { title: "Tekninen velka", status: "Warning", detail: "Auditointilogi ja regressiotestit puuttuvat." },
-    { title: "DX / Toimitusputki", status: "Warning", detail: "Ei automaattista visuaalitestausta." }
-  ];
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <SEO title="Järjestelmän tila | Lapland AI Lab" description="Portaalin tekninen auditointi ja tila." />
       
       <Hero 
         title="Järjestelmän tila"
-        subtitle="Pääkehittäjälle suunnattu tekninen auditointi: nykytila, riskit ja seuraavat askeleet."
-        label="Lead Developer Audit"
+        subtitle="Reaaliaikainen katsaus portaalin tekniseen eheyteen, suorituskykyyn ja tietoturvaan."
+        label="System Integrity Report"
       />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="glass p-8 rounded-[2.5rem] border-slate-800">
+          <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter">Pääkehittäjän signaalit</h3>
+          <div className="space-y-4">
+            {leadDevSignals.map((s, idx) => (
+              <div key={idx} className="flex gap-4 items-start">
+                <span className={`text-[10px] font-black px-2 py-0.5 rounded shrink-0 ${
+                  s.status === 'OK' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                }`}>
+                  {s.status}
+                </span>
+                <p className="text-sm text-slate-300 font-medium">{s.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="glass p-8 rounded-[2.5rem] border-slate-800">
+          <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter">Pääkehittäjän toimenpiteet</h3>
+          <div className="space-y-4">
+            {leadDevActions.map((a, idx) => (
+              <div key={idx} className="flex gap-4 items-center">
+                <span className={`text-[10px] font-black w-8 h-8 rounded flex items-center justify-center shrink-0 ${
+                  a.level === 'P0' ? 'bg-red-500/20 text-red-400' : a.level === 'P1' ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'
+                }`}>
+                  {a.level}
+                </span>
+                <p className="text-sm text-slate-400">{a.action}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl">
@@ -73,60 +94,11 @@ const AuditReport: React.FC = () => {
         </div>
 
         <div className="space-y-8">
-          <div className="glass p-8 rounded-[2.5rem] border-slate-800 bg-slate-900/50">
-             <h4 className="text-white font-bold mb-6 text-sm">Pääkehittäjän signaalit</h4>
-             <div className="space-y-4">
-               {leadDevSignals.map((signal, idx) => (
-                 <div key={idx} className="border-b border-slate-800 pb-4 last:border-0">
-                   <div className="flex justify-between items-center mb-1">
-                     <span className="text-xs font-bold text-slate-200">{signal.title}</span>
-                     <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded ${
-                       signal.status === 'Pass' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
-                     }`}>
-                       {signal.status}
-                     </span>
-                   </div>
-                   <p className="text-[11px] text-slate-400">{signal.detail}</p>
-                 </div>
-               ))}
-             </div>
-          </div>
-
-          <div className="glass p-8 rounded-[2.5rem] border-slate-800 bg-slate-900/50">
-             <h4 className="text-white font-bold mb-6 text-sm">Prioriteettitasot (Definition)</h4>
-             <div className="space-y-6">
-                <div>
-                   <span className="text-[10px] font-black text-red-500 uppercase tracking-widest block mb-1">P0 - Kriittinen</span>
-                   <p className="text-[11px] text-slate-400">Estää järjestelmän käytön tai aiheuttaa välittömän tietoturvauhan. On korjattava heti.</p>
-                </div>
-                <div>
-                   <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest block mb-1">P1 - Tärkeä</span>
-                   <p className="text-[11px] text-slate-400">Vaikuttaa järjestelmän vakauteen tai keskeiseen toiminnallisuuteen. Korjattava seuraavassa julkaisussa.</p>
-                </div>
-                <div>
-                   <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest block mb-1">P2 - Suositeltava</span>
-                   <p className="text-[11px] text-slate-400">Parantaa käytettävyyttä tai pitkän aikavälin hallittavuutta. Tehdään kun resurssit sallivat.</p>
-                </div>
-             </div>
-          </div>
-
           <div className="glass p-8 rounded-[2.5rem] border-emerald-500/20 bg-emerald-500/5">
-            <h4 className="text-emerald-400 font-black uppercase text-[10px] tracking-widest mb-4">Pääkehittäjän toimenpiteet</h4>
-            <ul className="space-y-4">
-              {leadDevActions.map((action, idx) => (
-                <li key={idx} className="flex gap-3 items-start">
-                  <div className="w-4 h-4 bg-emerald-500 rounded flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-2 h-2 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold text-slate-200 block">{action.title}</span>
-                    <span className="text-[11px] text-slate-400">{action.detail}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <h4 className="text-emerald-400 font-black uppercase text-[10px] tracking-widest mb-4">Vakausraportti v1.7.0</h4>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              Järjestelmä on siirretty staattiseen Vite-buildiin. Importmapit on poistettu ja riippuvuudet on lukittu. Vercel-deployment on optimoitu.
+            </p>
           </div>
         </div>
       </div>

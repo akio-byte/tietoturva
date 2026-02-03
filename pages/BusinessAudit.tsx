@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { SEO, Hero } from '../components/Shared';
+import { AuditSubmission } from '../types';
 
 interface Question {
   id: number;
@@ -24,7 +24,7 @@ const questions: Question[] = [
 const BusinessAudit: React.FC = () => {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isFinished, setIsFinished] = useState(false);
-  const [isSent, setIsSent] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleAnswer = (questionId: number, value: number) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
@@ -59,27 +59,25 @@ const BusinessAudit: React.FC = () => {
 
   const result = getResult();
 
-  const handleSendToLeadDev = () => {
-    const submission = {
+  const submitAudit = () => {
+    const submission: AuditSubmission = {
       id: Math.random().toString(36).substr(2, 9),
-      timestamp: new Date().toLocaleString('fi-FI'),
-      score: totalScore,
+      timestamp: new Date().toISOString(),
+      totalScore: totalScore,
       level: result.level,
-      answers: answers
     };
 
-    // Tallennettaan simuloidusti localStorageen
     const existing = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
     localStorage.setItem('audit_submissions', JSON.stringify([submission, ...existing]));
     
-    setIsSent(true);
+    setSubmitted(true);
     
-    // Luodaan myös järjestelmäloki Adminiin
+    // Luodaan myös järjestelmäloki
     const logs = JSON.parse(localStorage.getItem('system_logs') || '[]');
     const newLog = { 
       id: Date.now(), 
       time: new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }), 
-      event: `Uusi auditointi vastaanotettu: ${totalScore}/20 (${result.level})`, 
+      event: `Auditointi lähetetty: ${totalScore}/20`, 
       status: 'new' 
     };
     localStorage.setItem('system_logs', JSON.stringify([newLog, ...logs]));
@@ -168,35 +166,21 @@ const BusinessAudit: React.FC = () => {
               
               <div className="flex flex-col md:flex-row gap-6 justify-center print:hidden">
                 <button 
-                  onClick={() => setIsFinished(false)}
+                  onClick={() => { setIsFinished(false); setSubmitted(false); }}
                   className="bg-slate-800 hover:bg-slate-700 text-white font-black px-12 py-5 rounded-2xl transition-all uppercase tracking-widest text-xs"
                 >
                   Uusi testi
                 </button>
                 <button 
-                  onClick={handleSendToLeadDev}
-                  disabled={isSent}
+                  onClick={submitAudit}
+                  disabled={submitted}
                   className={`font-black px-12 py-5 rounded-2xl transition-all shadow-2xl uppercase tracking-widest text-xs flex items-center gap-3 ${
-                    isSent 
+                    submitted 
                     ? 'bg-slate-800 text-emerald-500 border border-emerald-500/30' 
                     : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                   }`}
                 >
-                  {isSent ? (
-                    <>
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                      Lähetetty pääkehittäjälle
-                    </>
-                  ) : (
-                    <>
-                      Lähetä pääkehittäjälle
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </>
-                  )}
+                  {submitted ? 'Lähetetty' : 'Lähetä pääkehittäjälle'}
                 </button>
                 <button 
                   onClick={() => window.print()}
