@@ -62,17 +62,17 @@ const Governance: React.FC = () => {
          </p>
       </div>
 
-      <div className="glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px]"></div>
-        <p className="text-slate-400 leading-relaxed font-medium mb-6">
-          Alla on koottu selkeät pelisäännöt, joiden avulla varmistamme vastuullisen ja johdonmukaisen kehitystyön.
-        </p>
-        <SimpleMarkdown content={AGENT_CONTENT} />
+      <div className="mb-6">
+        <h3 className="text-slate-500 font-black uppercase text-[10px] tracking-[0.3em] mb-4">Sääntöarkkitehtuuri</h3>
+        <div className="glass p-10 rounded-[3rem] border border-slate-800 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[60px]"></div>
+          <SimpleMarkdown content={AGENT_CONTENT} />
+        </div>
       </div>
       
       <div className="mt-12 p-8 rounded-3xl bg-amber-500/5 border border-amber-500/20">
-        <h3 className="text-amber-500 font-bold uppercase text-xs tracking-widest mb-4">Lähdeprioriteetti P0-P3</h3>
-        <p className="text-slate-400 text-sm">
+        <h4 className="text-amber-500 font-bold uppercase text-[10px] tracking-widest mb-4">Lähdeprioriteetti P0-P3</h4>
+        <p className="text-slate-400 text-xs">
           Kaikki muutokset on tarkistettava suhteessa PDF-lähdemateriaaliin (P1). Mikäli tekninen toteutus vaatii poikkeamia, ne on dokumentoitava audit-logiin.
         </p>
       </div>
