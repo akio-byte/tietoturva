@@ -7,24 +7,23 @@ Tämä tiedosto lukitsee säännöt tekoälyavusteiselle kehitykselle.
 - **Codex:** Vastaa teknisestä toteutuksesta, logiikasta, lomakkeista ja UI-komponenteista.
 
 ## Conflict Resolution (Konfliktien ratkaisu)
-Tekoälyagenttien on noudatettava seuraavaa hierarkiaa kohdatessaan ristiriitaista tietoa:
-
-**Lähdeprioriteetti (tiivistetty):** PDF > Repo > Prompt.
+Agentin on noudatettava seuraavaa protokollaa kohdatessaan ristiriitaista ohjeistusta:
 
 1. **Lähdeprioriteetti:**
-   - **P1: PDF-lähdemateriaali:** Tekninen ja asiasisällöllinen totuus.
-   - **P2: Repo-konfiguraatio (AGENT.md / types.ts):** Järjestelmän säännöt ja rakenteellinen totuus.
-   - **P3: Uusi käyttäjä-prompti:** Tehtäväkohtainen ohjeistus (ei saa kumota P1/P2-tasoja ilman erillistä 'Override'-varmistusta).
+   - **P1: PDF-lähdemateriaali** (Tekninen totuus)
+   - **P2: Repo-konfiguraatio** (AGENT.md, types.ts, metadata.json)
+   - **P3: Käyttäjän uusi prompti** (Tehtäväkohtainen muutos)
+   *Perustelu: PDF edustaa auditoitua asiantuntijatietoa, konfiguraatio järjestelmän rajoitteita.*
 
-2. **Toimintatapa ristiriidassa:**
-   - **Flag & Ask (Oletus):** Jos prompti vaatii poikkeamaan PDF:n turvaohjeista tai types.ts:n rajoitteista, agentti pysäyttää työn ja raportoi ristiriidasta.
-   - **Assume & Proceed:** Sallittu vain matalan riskin visuaalisissa muutoksissa (esim. hienovarainen sanamuodon muutos).
+2. **Toimintatapa:**
+   - **Flag & Ask:** Jos prompti vaatii poikkeamaan P1- tai P2-tasoista, agentti keskeyttää ja pyytää vahvistusta.
+   - **Assume & Proceed:** Sallittu vain matalan riskin visuaalisissa säätömuutoksissa.
 
 3. **Dokumentointi:**
-   - Kaikki merkittävät ohitukset ja ratkaistut konfliktit on kirjattava tiedostoon `docs/CONFLICTS.md` muodossa: `[TIMESTAMP] | KOHDE | RISTIRIITA | PÄÄTÖS | VAIKUTUS`.
+   - Kaikki ratkaistut konfliktit kirjataan tiedostoon `docs/CONFLICTS.md` (Aikaleima | Kohde | Ristiriita | Päätös).
 
-**Esimerkki:** Prompt pyytää navLabeliksi "Kattava Mobiiliturvaopas" (23 merkkiä). 
--> **Ratkaisu:** Agentti hylkää pituuden types.ts-validaation perusteella, ehdottaa lyhyempää muotoa ja raportoi rajoitteesta.
+**Esimerkki:** Prompt pyytää navLabeliksi "Mobiiliturva Pohjoisessa" (24 merkkiä).
+-> **Ratkaisu:** Agentti ilmoittaa `types.ts`:n 20 merkin rajoitteesta ja ehdottaa muotoa "Mobiiliturva Arktis".
 
 ## Koodikartta
 - `/pages`: Sivukohtaiset komponentit (sisältö ja logiikka).
