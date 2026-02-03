@@ -1,6 +1,8 @@
-# Lapland AI Lab - Tietoturvaopas
+# Lapland AI Lab - Tietoturvaportaali
 
-Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
+Tämä repo sisältää Lapland AI Labin staattisen tietoturvaportaalin. Portaali on demoympäristö, joka esittelee arktisen kyberturvan perusperiaatteet, auditointipohjat ja hallintamallin ilman taustapalveluita. Sisältö toimii täysin staattisesti, joten sivut ovat GitHub Pages -yhteensopivia.
+
+**Live-sivu:** https://lapland-ai-lab.github.io/tietoturva/
 
 ## AI-orkestroitu kehitys
 
@@ -15,6 +17,20 @@ Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö o
 - [AGENT.md](./AGENT.md) - Projektin säännöt ja yleiskuvaus.
 - [codex/skill.md](./codex/skill.md) - Codexin toimintaohjeet ja laatuvaatimukset.
 - [ai-studio/bridge.md](./ai-studio/bridge.md) - AI Studion rooli ja kommunikaatiopohjat.
+
+## Paikallinen ajo ja build
+```bash
+npm ci
+npm run dev
+```
+
+```bash
+npm run build
+```
+
+## Huomioita
+- Portaali on täysin staattinen: ajonaikaisia AI-kutsuja ei tehdä.
+- Build-vaiheessa ei injektoida API-avaimia tai backend-integraatioita.
 
 ## Teknologiat
 - React 19
