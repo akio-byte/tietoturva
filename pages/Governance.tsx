@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { SEO } from '../components/Shared';
-import MarkdownContent from '../components/MarkdownContent';
-import agentRules from '../AGENT.md?raw';
+import TextFileView from '../components/TextFileView';
 
 const Governance: React.FC = () => {
   return (
@@ -47,7 +46,7 @@ const Governance: React.FC = () => {
         <div className="glass p-10 rounded-[2.5rem] border-slate-800">
           <h2 className="text-2xl font-black text-white mb-6 uppercase tracking-widest">Agent Rules (AGENT.md)</h2>
           <div className="bg-black/40 p-6 rounded-xl max-h-[400px] overflow-y-auto">
-            <MarkdownContent content={agentRules} className="font-mono text-xs text-emerald-300/80" />
+            <TextFileView path="AGENT.md" className="font-mono text-xs text-emerald-300/80" />
           </div>
         </div>
       </div>

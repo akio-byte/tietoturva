@@ -1,7 +1,6 @@
 import React from 'react';
 import { SEO, Hero } from '../components/Shared';
-import MarkdownContent from '../components/MarkdownContent';
-import auditDoc from '../docs/AUDIT.md?raw';
+import TextFileView from '../components/TextFileView';
 
 const Audit: React.FC = () => {
   return (
@@ -17,7 +16,7 @@ const Audit: React.FC = () => {
       />
 
       <div className="glass p-10 rounded-[2.5rem] border border-slate-800/60">
-        <MarkdownContent content={auditDoc} />
+        <TextFileView path="docs/AUDIT.md" className="text-slate-100" />
       </div>
     </div>
   );
