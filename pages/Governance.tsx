@@ -1,14 +1,15 @@
 
 import React from 'react';
 import { SEO } from '../components/Shared';
+import agentRules from '../AGENT.md?raw';
 
 const Governance: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-20">
-      <SEO title="Governance & Agent Rules | Arctic Hardening" description="AI Agenttien hallintasäännöt ja konfliktiresoluutio." />
+      <SEO title="Hallinto | Arctic Hardening" description="AI-agenttien hallintasäännöt ja konfliktien ratkaisu." />
       
       <div className="mb-16">
-        <h1 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter italic">Agent Governance</h1>
+        <h1 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter italic">Agenttihallinto</h1>
         <p className="text-xl text-slate-400 border-l-2 border-emerald-500 pl-6">
           Miten hallitsemme tekoälyagentteja dynaamisessa kehitysympäristössä?
         </p>
@@ -16,7 +17,7 @@ const Governance: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
         <div className="glass p-10 rounded-[2.5rem] border-slate-800">
-          <h2 className="text-2xl font-black text-emerald-400 mb-6 uppercase tracking-widest">Conflict Resolution</h2>
+          <h2 className="text-2xl font-black text-emerald-400 mb-6 uppercase tracking-widest">Konfliktien ratkaisu</h2>
           <div className="space-y-6">
             <div className="flex gap-4 items-start">
               <div className="bg-emerald-500 text-slate-950 w-8 h-8 rounded-full flex items-center justify-center font-black shrink-0">P1</div>
@@ -43,20 +44,9 @@ const Governance: React.FC = () => {
         </div>
 
         <div className="glass p-10 rounded-[2.5rem] border-slate-800">
-          <h2 className="text-2xl font-black text-white mb-6 uppercase tracking-widest">Agent Rules (AGENT.md)</h2>
-          <div className="bg-black/40 p-6 rounded-xl font-mono text-xs text-emerald-400/80 max-h-[400px] overflow-y-auto leading-relaxed">
-            <pre>{`# Kehitystyön pelisäännöt
-
-## Vastuujaot
-- AI Studio: Määrittely & Sisältö
-- Codex: Toteutus & Logiikka
-
-## Conflict Resolution
-1. Lähdeprioriteetti: 
-   P1: PDF > P2: Repo > P3: Prompt
-2. Toimintatapa:
-   Flag & Ask (Oletus)
-   Assume & Proceed (Vain UI)`}</pre>
+          <h2 className="text-2xl font-black text-white mb-6 uppercase tracking-widest">AGENT.md</h2>
+          <div className="bg-black/40 p-6 rounded-xl font-mono text-xs text-emerald-400/80 max-h-[400px] overflow-y-auto leading-relaxed whitespace-pre-wrap">
+            {agentRules}
           </div>
         </div>
       </div>
