@@ -3,15 +3,15 @@ import { SEO, Hero } from '../components/Shared';
 
 const AuditReport: React.FC = () => {
   const leadDevSignals = [
-    { status: 'OK', detail: 'Ei krymptäysongelmia havaittu build-vaiheessa' },
-    { status: 'WARNING', detail: 'Vite importmap ristiriita havaittu (Korvattu staattisella modulilla)' },
-    { status: 'PENDING', detail: 'BusinessAudit submission -moduuli testauksessa v1.7.0' }
+    { status: 'OK', detail: 'Ei krymptäysongelmia havaittu' },
+    { status: 'WARNING', detail: 'Vite importmap ristiriita korjattu (v1.7.0)' },
+    { status: 'PENDING', detail: 'BusinessAudit submission -moduuli tuotannossa' }
   ];
 
   const leadDevActions = [
     { level: 'P0', action: 'Poista importmap index.html ja käytä Vite-bundlea' },
     { level: 'P1', action: 'Implementoi auditoinnin lähetystoiminto ja admin-näkymä' },
-    { level: 'P2', action: 'Refaktoroi AiAssistant käyttämään uutta Gemini-mallia' }
+    { level: 'P2', action: 'Refaktoroi AiAssistant käyttämään uutta pluginia' }
   ];
 
   const auditPoints = [
@@ -29,17 +29,20 @@ const AuditReport: React.FC = () => {
       <Hero 
         title="Järjestelmän tila"
         subtitle="Reaaliaikainen katsaus portaalin tekniseen eheyteen, suorituskykyyn ja tietoturvaan."
-        label="System Integrity Report"
+        label="System Integrity Report v1.7.0"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        {/* Pääkehittäjän signaalit */}
         <div className="glass p-8 rounded-[2.5rem] border-slate-800">
           <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter">Pääkehittäjän signaalit</h3>
           <div className="space-y-4">
             {leadDevSignals.map((s, idx) => (
               <div key={idx} className="flex gap-4 items-start">
                 <span className={`text-[10px] font-black px-2 py-0.5 rounded shrink-0 ${
-                  s.status === 'OK' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                  s.status === 'OK' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 
+                  s.status === 'WARNING' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 
+                  'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                 }`}>
                   {s.status}
                 </span>
@@ -49,17 +52,20 @@ const AuditReport: React.FC = () => {
           </div>
         </div>
 
+        {/* Pääkehittäjän toimenpiteet */}
         <div className="glass p-8 rounded-[2.5rem] border-slate-800">
           <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tighter">Pääkehittäjän toimenpiteet</h3>
           <div className="space-y-4">
             {leadDevActions.map((a, idx) => (
               <div key={idx} className="flex gap-4 items-center">
                 <span className={`text-[10px] font-black w-8 h-8 rounded flex items-center justify-center shrink-0 ${
-                  a.level === 'P0' ? 'bg-red-500/20 text-red-400' : a.level === 'P1' ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'
+                  a.level === 'P0' ? 'bg-red-500/20 text-red-400 border border-red-500/20' : 
+                  a.level === 'P1' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/20' : 
+                  'bg-blue-500/20 text-blue-400 border border-blue-500/20'
                 }`}>
                   {a.level}
                 </span>
-                <p className="text-sm text-slate-400">{a.action}</p>
+                <p className="text-sm text-slate-400 font-medium">{a.action}</p>
               </div>
             ))}
           </div>
@@ -97,7 +103,7 @@ const AuditReport: React.FC = () => {
           <div className="glass p-8 rounded-[2.5rem] border-emerald-500/20 bg-emerald-500/5">
             <h4 className="text-emerald-400 font-black uppercase text-[10px] tracking-widest mb-4">Vakausraportti v1.7.0</h4>
             <p className="text-[11px] text-slate-400 leading-relaxed">
-              Järjestelmä on siirretty staattiseen Vite-buildiin. Importmapit on poistettu ja riippuvuudet on lukittu. Vercel-deployment on optimoitu.
+              Järjestelmä on siirretty täysin staattiseen Vite-buildiin. Importmapit on poistettu ja riippuvuudet on lukittu. Vercel-deployment on optimoitu juuripolkuun.
             </p>
           </div>
         </div>

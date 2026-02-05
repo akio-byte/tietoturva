@@ -1,25 +1,26 @@
-# Lapland AI Lab - Tietoturvaopas
+# Lapland AI Lab - Tietoturvaopas v1.7.0
 
-**Live Deployment:** https://akio-byte.github.io/tietoturva/
+Tämä on Lapland AI Labin kattava tietoturvaportaali. Versio 1.7.0 on optimoitu Vercel-ympäristöön ja se käyttää staattista Vite-buildia.
 
-Tämä on Lapland AI Labin kattava 6-osainen tietoturvaopas, joka on toteutettu React + Tailwind -pohjaisena verkkosovelluksena. Opas keskittyy pk-yritysten ja henkilöstön tietoturvaosaamisen kehittämiseen.
+## Julkaisu (Vercel)
 
-## AI-orkestroitu kehitys
+Vercel-julkaisu on automaattinen. Build-komento on `npm run build` ja output-kansio on `dist/`.
 
-Tämä projekti hyödyntää modernia AI-orkestrointimallia, jossa kehitystyö on jaettu **AI Studion** (suunnittelu ja sisältö) ja **Codexin** (toteutus) välillä.
+### Ominaisuudet
+- **Static Build:** Ei riippuvuutta ulkoisista importmapeista.
+- **Audit Submissions:** Auditoinnin tulokset voidaan tallentaa localStoragella ja tarkastella Admin-paneelissa.
+- **Lead Dev Reporting:** Tekninen tila ja toimenpiteet on listattu Audit-raportissa.
 
-### Kehitysprosessi (3 vaihetta)
-1. **Määrittely:** AI Studio luo ominaisuuden kuvauksen ja sisällön (Markdown/JSON).
-2. **Tehtävänanto:** AI Studio tuottaa standardoidun Codex-promptin.
-3. **Toteutus:** Codex lukee promptin ja päivittää koodin vastaamaan vaatimuksia.
+## Kehitysprosessi
+Projekti hyödyntää AI-orkestrointimallia, jossa määrittely (AI Studio) ja toteutus (Codex) on eriytetty.
 
-### Dokumentaatio
-- [AGENT.md](./AGENT.md) - Projektin säännöt ja yleiskuvaus.
-- [codex/skill.md](./codex/skill.md) - Codexin toimintaohjeet ja laatuvaatimukset.
-- [ai-studio/bridge.md](./ai-studio/bridge.md) - AI Studion rooli ja kommunikaatiopohjat.
+### Skriptit
+- `npm run dev`: Käynnistä kehitysympäristö.
+- `npm run build`: Rakenna staattinen versio julkaisua varten.
+- `npm run test`: Suorita TypeScript-tyyppitarkistus.
 
 ## Teknologiat
 - React 19
 - Tailwind CSS
-- React Router 7
-- Vite (Static Build)
+- Vite
+- TypeScript 5.3

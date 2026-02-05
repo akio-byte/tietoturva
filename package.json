@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.7.0",
   "type": "module",
-  "homepage": "https://akio-byte.github.io/tietoturva/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

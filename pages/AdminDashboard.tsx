@@ -2,46 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { SEO } from '../components/Shared';
 import { contentRegistry } from '../contentRegistry';
 import { AuditSubmission } from '../types';
-
-const MaturityRadar: React.FC<{ score: number }> = ({ score }) => {
-  const normalizedScore = Math.min(Math.max(score, 0), 20);
-  const percentage = (normalizedScore / 20) * 100;
-  const radius = 40;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDasharray = circumference;
-  const strokeDashoffset = circumference - (percentage / 100) * circumference;
-
-  return (
-    <div className="relative w-48 h-48 flex items-center justify-center">
-      <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          className="stroke-slate-800 fill-none"
-          strokeWidth="8"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          className="stroke-emerald-500 fill-none transition-all duration-1000 ease-out"
-          strokeWidth="8"
-          strokeDasharray={strokeDasharray}
-          strokeDashoffset={strokeDashoffset}
-          strokeLinecap="round"
-        />
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center transform rotate-0">
-        <span className="text-4xl font-black text-white">{normalizedScore.toFixed(1)}</span>
-        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Maturity</span>
-      </div>
-    </div>
-  );
-};
+import MaturityRadar from '../components/MaturityRadar';
+import { GoogleGenAI } from "@google/genai";
 
 const AdminDashboard: React.FC = () => {
   const [submissions, setSubmissions] = useState<AuditSubmission[]>([]);
+  const [aiSummary, setAiSummary] = useState<string>('');
+  const [isGenerating, setIsGenerating] = useState<boolean>(false);
+  
   const items = Object.values(contentRegistry);
   const categories = ['kyber', 'ai', 'mobile', 'crisis', 'privacy', 'routines'];
   
@@ -53,9 +21,34 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const saved = localStorage.getItem('audit_submissions');
     if (saved) {
-      setSubmissions(JSON.parse(saved));
+      const parsed = JSON.parse(saved);
+      setSubmissions(parsed);
+      if (parsed.length > 0) {
+        generateAiSummary(parsed);
+      }
     }
   }, []);
+
+  const generateAiSummary = async (data: AuditSubmission[]) => {
+    if (isGenerating) return;
+    setIsGenerating(true);
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const prompt = `Tässä on lista organisaatioiden tietoturva-auditoinneista (pisteet 0-20): ${JSON.stringify(data)}. 
+      Analysoi tulokset ja anna lyhyt, 2-3 lauseen asiantuntijayhteenveto yleisimmistä heikkouksista ja mihin pääkehittäjän tulisi keskittyä seuraavaksi "Arctic Hardening" -viitekehyksen näkökulmasta. Vastaa suomeksi asiantuntevalla sävyllä.`;
+      
+      const response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: prompt,
+      });
+      setAiSummary(response.text || 'Analyysi epäonnistui.');
+    } catch (error) {
+      console.error("AI Analysis error:", error);
+      setAiSummary('AI-analyysia ei voitu luoda juuri nyt arktisen yhteysvirheen vuoksi.');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   const averageScore = submissions.length > 0 
     ? submissions.reduce((acc, curr) => acc + curr.totalScore, 0) / submissions.length 
@@ -86,7 +79,7 @@ const AdminDashboard: React.FC = () => {
           </h1>
         </div>
         <div className="flex gap-4">
-          <div className="glass px-6 py-3 rounded-2xl border-emerald-500/20">
+          <div className="glass px-6 py-3 rounded-2xl border-emerald-500/20 status-badge-glow">
             <span className="text-[10px] text-slate-500 uppercase block font-bold">System Status</span>
             <span className="text-emerald-400 font-black flex items-center gap-2">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
@@ -98,16 +91,38 @@ const AdminDashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
         <div className="lg:col-span-1 glass p-8 rounded-[2.5rem] flex flex-col items-center justify-center text-center">
-          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">Average Security Maturity</h3>
+          <h3 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-6">Maturity Average</h3>
           <MaturityRadar score={averageScore} />
         </div>
-        <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {stats.map(s => (
-            <div key={s.name} className="glass p-6 rounded-3xl border-slate-800 flex flex-col items-center justify-center text-center">
-              <span className="text-3xl font-black text-white mb-1">{s.count}</span>
-              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{s.name}</span>
-            </div>
-          ))}
+        <div className="lg:col-span-3 space-y-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {stats.map(s => (
+              <div key={s.name} className="glass p-6 rounded-3xl border-slate-800 flex flex-col items-center justify-center text-center">
+                <span className="text-3xl font-black text-white mb-1">{s.count}</span>
+                <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{s.name}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* AI Strategy Box */}
+          <div className="glass p-8 rounded-[2.5rem] border-blue-500/20 bg-blue-500/5 shadow-inner">
+             <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                   <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                   </svg>
+                </div>
+                <h3 className="text-xs font-black text-blue-400 uppercase tracking-widest">AI Strategic Analytics</h3>
+             </div>
+             <div className="text-sm text-slate-300 leading-relaxed italic font-medium">
+                {isGenerating ? (
+                  <span className="animate-pulse flex items-center gap-2">
+                    <span className="w-1 h-1 bg-blue-400 rounded-full animate-bounce"></span>
+                    Generoidaan arktista analyysia...
+                  </span>
+                ) : aiSummary || "Ei tarpeeksi auditointidataa strategista analyysia varten."}
+             </div>
+          </div>
         </div>
       </div>
 
@@ -137,19 +152,20 @@ const AdminDashboard: React.FC = () => {
                       <tr key={sub.id} className="hover:bg-slate-800/30 transition-colors group">
                         <td className="px-8 py-6">
                           <div className="text-white font-bold">{new Date(sub.timestamp).toLocaleString('fi-FI')}</div>
-                          <div className="text-[10px] text-slate-600 font-mono">ID: {sub.id}</div>
+                          <div className="text-[10px] text-slate-600 font-mono uppercase">ID: {sub.id}</div>
                         </td>
                         <td className="px-8 py-6 text-white font-black text-xl">
                           {sub.totalScore} / 20
                         </td>
                         <td className="px-8 py-6">
-                          <span className="px-3 py-1 bg-slate-800 rounded-full text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                          <span className="px-3 py-1 bg-slate-800 rounded-full text-[10px] font-black text-slate-300 uppercase tracking-widest border border-white/5">
                             {sub.level}
                           </span>
                         </td>
                         <td className="px-8 py-6 text-right space-x-3">
+                          <button className="text-emerald-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">Avaa</button>
                           <button 
-                            onClick={() => sub.id && archiveSubmission(sub.id)}
+                            onClick={() => archiveSubmission(sub.id)}
                             className="text-red-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors"
                           >
                             Arkistoi

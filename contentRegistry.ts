@@ -96,9 +96,9 @@ export const contentRegistry: Record<string, ContentItem> = {
   },
 
   // CRISIS
-  "incident-response-72h": {
+  "incident-response": {
     "type": "checklist",
-    "slug": "incident-response-72h",
+    "slug": "incident-response",
     "category": "crisis",
     "featured": true,
     "navLabel": "72h Valmius",

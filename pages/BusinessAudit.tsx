@@ -67,20 +67,11 @@ const BusinessAudit: React.FC = () => {
       level: result.level,
     };
 
-    const existing = JSON.parse(localStorage.getItem('audit_submissions') || '[]');
+    const existingRaw = localStorage.getItem('audit_submissions');
+    const existing: AuditSubmission[] = existingRaw ? JSON.parse(existingRaw) : [];
+    
     localStorage.setItem('audit_submissions', JSON.stringify([submission, ...existing]));
-    
     setSubmitted(true);
-    
-    // Luodaan myös järjestelmäloki
-    const logs = JSON.parse(localStorage.getItem('system_logs') || '[]');
-    const newLog = { 
-      id: Date.now(), 
-      time: new Date().toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }), 
-      event: `Auditointi lähetetty: ${totalScore}/20`, 
-      status: 'new' 
-    };
-    localStorage.setItem('system_logs', JSON.stringify([newLog, ...logs]));
   };
 
   return (
@@ -176,7 +167,7 @@ const BusinessAudit: React.FC = () => {
                   disabled={submitted}
                   className={`font-black px-12 py-5 rounded-2xl transition-all shadow-2xl uppercase tracking-widest text-xs flex items-center gap-3 ${
                     submitted 
-                    ? 'bg-slate-800 text-emerald-500 border border-emerald-500/30' 
+                    ? 'bg-slate-800 text-emerald-500 border border-emerald-500/30 cursor-not-allowed' 
                     : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                   }`}
                 >

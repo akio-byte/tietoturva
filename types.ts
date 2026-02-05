@@ -90,7 +90,7 @@ export interface SystemLog {
 }
 
 export interface AuditSubmission {
-  id?: string;
+  id: string;
   timestamp: string;
   totalScore: number;
   level: string;
