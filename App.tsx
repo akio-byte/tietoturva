@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -24,20 +25,34 @@ const App: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            
+            {/* Showroom Apps Mapping */}
+            <Route path="/tt/ai-safety" element={<AISafety />} />
+            <Route path="/tt/cyber-basics" element={<CyberBasics />} />
+            <Route path="/tt/mobile-security" element={<MobileSecurity />} />
+            <Route path="/tt/audit" element={<BusinessAudit />} />
+            <Route path="/tt/routines" element={<Routines />} />
+            <Route path="/tt/governance" element={<Governance />} />
+            <Route path="/tt/materials" element={<Materials />} />
+            <Route path="/tt/status" element={<AuditReport />} />
+            
+            {/* Redirect legacy paths for compatibility if needed */}
             <Route path="/ai-safety" element={<AISafety />} />
             <Route path="/cyber-basics" element={<CyberBasics />} />
             <Route path="/mobile-security" element={<MobileSecurity />} />
             <Route path="/business-audit" element={<BusinessAudit />} />
             <Route path="/routines" element={<Routines />} />
-            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/governance" element={<Governance />} />
             <Route path="/audit" element={<AuditReport />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/materials" element={<Materials />} />
+
             {/* Dynamic content routes */}
             <Route path="/content/:slug" element={<ContentPage />} />
-            {/* Direct route for the main IA item 'Incident Response' */}
             <Route path="/incident-response" element={<ContentPage />} />
+            
+            {/* General Pages */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </main>
         <AiAssistant />

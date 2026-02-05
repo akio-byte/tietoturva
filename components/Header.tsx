@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -5,11 +6,10 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Etusivu', path: '/' },
-    { name: 'Governance', path: '/governance' },
-    { name: 'Auditointi', path: '/business-audit' },
-    { name: 'Blueprintit', path: '/materials' }, // Point to Materials as it's the main showcase
-    { name: 'Tietoa', path: '/contact' },
+    { name: 'Showroom', path: '/' },
+    { name: 'Tietoturva', path: '/tt/materials' },
+    { name: 'Governance', path: '/tt/governance' },
+    { name: 'Auditointi', path: '/tt/audit' },
   ];
 
   const isActive = (path: string) => {
@@ -32,12 +32,12 @@ const Header: React.FC = () => {
         </Link>
         
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
+              className={`text-[10px] font-black uppercase tracking-[0.2em] transition-all hover:text-white ${
                 isActive(item.path) 
                   ? 'text-emerald-400' 
                   : 'text-slate-500'
@@ -48,10 +48,10 @@ const Header: React.FC = () => {
           ))}
           <div className="h-6 w-px bg-white/5 mx-2"></div>
           <Link
-            to="/audit"
-            className="text-[10px] font-black uppercase tracking-[0.25em] px-5 py-2 rounded-lg border border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-all shadow-lg shadow-amber-500/5"
+            to="/tt/status"
+            className="text-[9px] font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-lg border border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-all"
           >
-            STATUS
+            SYS STATUS
           </Link>
         </nav>
 

@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapland AI Lab | Tietoturvaopas</title>
-    <!-- Tailwind Play CDN mahdollistaa tyylien näkymisen ilman build-vaihetta -->
+    <title>Lapland AI Lab | Showroom</title>
+    <meta name="description" content="Arktinen tekoäly- ja kyberturvallisuuslaboratorio. Tutustu karkaistuihin teknologia-arkkitehtuureihimme.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -13,6 +14,13 @@
           extend: {
             animation: {
               'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
             }
           }
         }
@@ -21,7 +29,7 @@
     <style type="text/tailwindcss">
       @layer base {
         body { 
-          @apply font-['Inter'] bg-[#020617] text-slate-100 antialiased;
+          @apply font-['Inter'] bg-[#020617] text-slate-100 antialiased selection:bg-emerald-500/30;
         }
       }
       @layer components {
@@ -33,16 +41,11 @@
         .glass {
           @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl;
         }
-        .status-badge-glow {
-          box-shadow: 0 0 15px rgba(16,185,129,0.4);
+        .arctic-card {
+          @apply glass rounded-[2.5rem] transition-all duration-500 hover:scale-[1.02] hover:border-emerald-500/30;
         }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       }
     </style>
 <script type="importmap">
